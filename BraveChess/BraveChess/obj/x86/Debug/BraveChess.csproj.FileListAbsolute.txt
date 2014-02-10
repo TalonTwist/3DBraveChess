@@ -1,0 +1,51 @@
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black King.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Knight.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Pawn.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Queen.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Rook.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\BlackSquare.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White King.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Knight.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Pawn.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Queen.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Rook.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\WhiteSquare.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\debug.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\move.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackBishop.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteBishop.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackBishop.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackKing.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\WhiteKnight.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.exe
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.pdb
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.csprojResolveAssemblyReference.cache
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.exe
+c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.pdb
