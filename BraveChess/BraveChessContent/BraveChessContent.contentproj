@@ -124,7 +124,13 @@
       <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Models\Untextured\Bishop Piece.fbx">
+      <Name>Bishop Piece</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Textures\Aaron%27sTexture White.png">
       <Name>Aaron%27sTexture White</Name>

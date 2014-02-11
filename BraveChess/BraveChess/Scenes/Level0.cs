@@ -81,7 +81,6 @@ namespace BraveChess.Scenes
             MediaPlayer.IsRepeating = true;
             Engine.Audio.LoadEffect("move");
 
-            //cBoard = new Piece("Board", "Untextured\\Chess Board", new Vector3(0, 0, 0));
 
             #region Init Squares
 
@@ -121,7 +120,7 @@ namespace BraveChess.Scenes
 
             Squares[_currentI, _currentJ].IsHover = true;
 #endregion
-            //To do = instead of passing in vector 3, set based on placement string
+
             #region White Piece Init
             //White Pawn Set
             _pieces.Add(new Piece("Pawn1", "White Pawn", GetStartPos("a2"), 1, Piece.PieceType.Pawn));
@@ -184,8 +183,6 @@ namespace BraveChess.Scenes
             foreach (Piece p in _pieces)
                 AddObject(p);
 
-            
-
             Moves = new List<Square>();
             
             base.Initialize();
@@ -212,7 +209,10 @@ namespace BraveChess.Scenes
 
             if (!PieceIsSelected && _currentSquare != null) //havent selected a Piece to move yet
             {
-                    PieceToMove = GetPiece(_currentSquare.World * Matrix.CreateTranslation(new Vector3(0,2,0)));
+                    //PieceToMove = GetPiece(_currentSquare.World * Matrix.CreateTranslation(new Vector3(0,2,0)));
+
+                PieceToMove = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
+
 
                     //make sure PieceTomove is not null, and have selected own colour
                     if (PieceToMove != null && ((int)PieceToMove.ColorType) == (int)Turn)
@@ -230,7 +230,8 @@ namespace BraveChess.Scenes
             {
                 if (Moves.Contains(_currentSquare)) //if highlighted square was selected 
                 {
-                    PieceToCapture = GetPiece(_currentSquare.World * Matrix.CreateTranslation(new Vector3(0,2,0)));
+                    //PieceToCapture = GetPiece(_currentSquare.World * Matrix.CreateTranslation(new Vector3(0,2,0)));
+                    PieceToCapture = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
 
                     if (PieceToCapture != null)
                     {
@@ -244,7 +245,7 @@ namespace BraveChess.Scenes
 
                 else //user selected a square outside Moves array
                 {
-                    Piece p = GetPiece(_currentSquare.World);
+                    Piece p = GetPiece(_currentSquare.World.Translation + new Vector3(0,2,0));
 
                     if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
                     {
@@ -402,10 +403,19 @@ namespace BraveChess.Scenes
         }//End of Method
 
 
-        private Piece GetPiece(Matrix origin)
+        //private Piece GetPiece(Matrix origin)
+        //{
+        //    for (int i = 0; i < _pieces.Count; i++)
+        //        if (_pieces[i].World == origin)
+        //            return _pieces[i];
+
+        //    return null;
+        //}
+
+        private Piece GetPiece(Vector3 pos)
         {
             for (int i = 0; i < _pieces.Count; i++)
-                if (_pieces[i].World == origin)
+                if (_pieces[i].World.Translation == pos)
                     return _pieces[i];
 
             return null;
@@ -490,50 +500,50 @@ namespace BraveChess.Scenes
 
         private List<Square> GeneratePawnMoves(Square s, Piece.Color c)
         {
-            List<Square> moves = new List<Square>();
-            UInt64 movesBB;
-            ulong bb = BitboardHelper.getBitboardFromSquare(s); //bitboard representation of the pawns position
+            List<Square> movesList = new List<Square>();
+            UInt64 ValidMovesBB;
+            ulong myPieceBB = BitboardHelper.getBitboardFromSquare(s); //bitboard representation of the pawns position
 
             if (c == Piece.Color.White)
             {
-                movesBB = (bb << 7 | bb << 9) & BlackPieces;
+                ValidMovesBB = (myPieceBB << 7 | myPieceBB << 9) & BlackPieces;
 
-                if (((bb << 8) & AllPieces) == 0)
-                    movesBB = movesBB | (bb << 8);
+                if (((myPieceBB << 8) & AllPieces) == 0)
+                    ValidMovesBB = ValidMovesBB | (myPieceBB << 8);
 
-                if (((bb & BitboardHelper.MaskRank[(int)Rank.two]) != 0) && ((bb << 16) & AllPieces) == 0)
-                    movesBB = movesBB | (bb << 16);
+                if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.two]) != 0) && ((myPieceBB << 16) & AllPieces) == 0)
+                    ValidMovesBB = ValidMovesBB | (myPieceBB << 16);
             }
             else //for black
             {
-                movesBB = (bb >> 7 | bb >> 9) & WhitePieces;
+                ValidMovesBB = (myPieceBB >> 7 | myPieceBB >> 9) & WhitePieces;
 
-                if (((bb << 8) & AllPieces) == 0)
-                    movesBB |= bb >> 8;
+                if (((myPieceBB << 8) & AllPieces) == 0)
+                    ValidMovesBB |= myPieceBB >> 8;
 
-                if (((bb & BitboardHelper.MaskRank[(int)Rank.seven]) != 0) && ((bb >> 16) & AllPieces) == 0)
-                    movesBB |= bb >> 16;
+                if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.seven]) != 0) && ((myPieceBB >> 16) & AllPieces) == 0)
+                    ValidMovesBB |= myPieceBB >> 16;
             }
 
-            moves = getSquareListFromBB(movesBB);
-            return moves;
+            movesList = getSquareListFromBB(ValidMovesBB);
+            return movesList;
         }
 
         private List<Square> GenerateKnightMoves(Square s, Piece.Color c)
         {
-            ulong movesbb;
+            ulong validMovesBB;
             int i = BitboardHelper.getIndexFromSquare(s);
 
             if (c == Piece.Color.Black)
             {
-                movesbb = BitboardHelper.KnightAttacks[i] ^ (BitboardHelper.KnightAttacks[i]) & BlackPieces;
+                validMovesBB = BitboardHelper.KnightAttacks[i] ^ (BitboardHelper.KnightAttacks[i]) & BlackPieces;
             }
             else //for white
             {
-                movesbb = BitboardHelper.KnightAttacks[i] ^ (BitboardHelper.KnightAttacks[i]) & WhitePieces;
+                validMovesBB = BitboardHelper.KnightAttacks[i] ^ (BitboardHelper.KnightAttacks[i]) & WhitePieces;
             }
 
-            return getSquareListFromBB(movesbb);
+            return getSquareListFromBB(validMovesBB);
         }
 
         private List<Square> GenerateBishopMoves(Square s, Piece.Color c)

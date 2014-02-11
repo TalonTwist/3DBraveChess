@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChessContent\Models\White Rook.fbx</SourceFilename>
+      <SourceFilename>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\Models\White Rook.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -78,7 +78,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Lambert</Name>
       <Identity>
-        <SourceFilename>c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChessContent\Models\White Rook.fbx</SourceFilename>
+        <SourceFilename>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\Models\White Rook.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

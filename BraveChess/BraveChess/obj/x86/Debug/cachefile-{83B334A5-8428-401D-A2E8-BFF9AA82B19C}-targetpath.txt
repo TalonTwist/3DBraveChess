@@ -43,3 +43,4 @@ Content\Textures\Pieces\WhitePawn_0.xnb
 Content\Textures\Pieces\WhiteQueen_0.xnb
 Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
+Content\Models\Untextured\Bishop Piece.xnb
