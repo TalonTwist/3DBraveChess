@@ -421,19 +421,19 @@ namespace BraveChess.Scenes
             return null;
         }
 
-        private Matrix GetStartPos(string pos)
+        private Vector3 GetStartPos(string pos)
         {
             char[] c = pos.ToCharArray();
 
             int file = c[0] - 97;
             int rank = c[1] - 49;
 
-            return Squares[file, rank].World * Matrix.CreateTranslation(new Vector3(0,2,0));
+            return Squares[file, rank].World.Translation + new Vector3(0,2,0);
         }
 
-        private Matrix GetNewPos(Square destination)
+        private Vector3 GetNewPos(Square destination)
         {
-            return destination.World * Matrix.CreateTranslation(new Vector3(0, 2, 0));
+            return destination.World.Translation + new Vector3(0, 2, 0);
         }
 
         private Square getSquareFromBB(ulong bb)
@@ -579,7 +579,7 @@ namespace BraveChess.Scenes
             UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
             UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
 
-            piece.World = GetNewPos(to); //update world position of model
+            piece.UpdateWorld(GetNewPos(to)); //update world position of model
             
             //update relevant bitboard
             white_knights ^= bbFrom;
@@ -593,7 +593,7 @@ namespace BraveChess.Scenes
             UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
             UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
 
-            piece.World = GetNewPos(to); //update world position of model
+            piece.UpdateWorld(GetNewPos(to)); //update world position of model
 
             //update relevant bitboard
             ME ^= bbFrom;

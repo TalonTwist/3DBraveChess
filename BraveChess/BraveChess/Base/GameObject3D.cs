@@ -38,7 +38,10 @@ namespace BraveChess.Base
         public virtual void Update(GameTime gametime) { }
         public virtual void Draw(Camera camera) { }
 
-        
+        public void UpdateWorld(Vector3 pos)
+        {
+            World = Matrix.Identity * Matrix.CreateTranslation(pos);
+        }
 
         public void Destroy()
         {

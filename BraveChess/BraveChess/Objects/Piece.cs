@@ -37,7 +37,7 @@ namespace BraveChess.Objects
 
         string _asset;
 
-        public Piece(string id, string asset, Matrix position, int colorT, PieceType pieceT)
+        public Piece(string id, string asset, Vector3 position, int colorT, PieceType pieceT)
             : base(id, position)
         {
             _asset = asset;
