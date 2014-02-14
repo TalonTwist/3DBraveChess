@@ -573,19 +573,6 @@ namespace BraveChess.Scenes
             return moves;
         }
 
-
-        private void MoveKnight(Piece piece, Square from, Square to)
-        {
-            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
-            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
-
-            piece.UpdateWorld(GetNewPos(to)); //update world position of model
-            
-            //update relevant bitboard
-            white_knights ^= bbFrom;
-            white_knights |= bbTo;
-        }
-
         private void MovePiece(Piece piece, Square from, Square to)
         {
             UInt64 ME = getRelevantbb(piece.Piece_Type, piece.ColorType);
