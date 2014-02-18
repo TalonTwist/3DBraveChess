@@ -557,7 +557,17 @@ namespace BraveChess.Scenes
 
         private List<Square> GenerateRookMoves(Square s, Piece.Color c)
         {
+            UInt64 validSquares;
             List<Square> moves = new List<Square>();
+
+            UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskRook[BitboardHelper.getIndexFromSquare(s)];
+
+            int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberRook[BitboardHelper.getIndexFromSquare(s)]) >> BitboardHelper.magicNumberShiftsRook[BitboardHelper.getIndexFromSquare(s)]);
+
+            if(c == Piece.Color.White)
+                validSquares = BitboardHelper.magicMovesRook[BitboardHelper.getIndexFromSquare(s)][databaseIndex] &  ~WhitePieces;
+            else
+                validSquares = BitboardHelper.magicMovesRook[BitboardHelper.getIndexFromSquare(s)][databaseIndex] & ~BlackPieces;
 
             //write
 
