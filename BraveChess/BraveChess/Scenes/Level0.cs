@@ -548,11 +548,22 @@ namespace BraveChess.Scenes
 
         private List<Square> GenerateBishopMoves(Square s, Piece.Color c)
         {
-            List<Square> moves = new List<Square>();
+            UInt64 validSquares;
+
+
+            UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskBishop[BitboardHelper.getIndexFromSquare(s)];
+
+            
+            int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberBishop[BitboardHelper.getIndexFromSquare(s)]) >> BitboardHelper.magicNumberShiftsBishop[BitboardHelper.getIndexFromSquare(s)]);
+
+            if (c == Piece.Color.White)
+                validSquares = BitboardHelper.magicMovesBishop[BitboardHelper.getIndexFromSquare(s)][databaseIndex] & ~WhitePieces;
+            else
+                validSquares = BitboardHelper.magicMovesBishop[BitboardHelper.getIndexFromSquare(s)][databaseIndex] & ~BlackPieces;
 
             //write
 
-            return moves;
+            return getSquareListFromBB(validSquares);
         }
 
         private List<Square> GenerateRookMoves(Square s, Piece.Color c) // iNCOMPLETE
@@ -562,7 +573,6 @@ namespace BraveChess.Scenes
 
             UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskRook[BitboardHelper.getIndexFromSquare(s)];
 
-            //DATABASE INDEX VALUE ISN'T RIGHT HERE
             int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberRook[BitboardHelper.getIndexFromSquare(s)]) >> BitboardHelper.magicNumberShiftsRook[BitboardHelper.getIndexFromSquare(s)]);
 
             if(c == Piece.Color.White)
