@@ -566,7 +566,7 @@ namespace BraveChess.Scenes
             return getSquareListFromBB(validSquares);
         }
 
-        private List<Square> GenerateRookMoves(Square s, Piece.Color c) // iNCOMPLETE
+        private List<Square> GenerateRookMoves(Square s, Piece.Color c) 
         {
             UInt64 validSquares;
 
@@ -580,18 +580,36 @@ namespace BraveChess.Scenes
             else
                 validSquares = BitboardHelper.magicMovesRook[BitboardHelper.getIndexFromSquare(s)][databaseIndex] & ~BlackPieces;
 
-            //write
-
+            
             return getSquareListFromBB(validSquares);
         }
 
         private List<Square> GenerateQueenMoves(Square s, Piece.Color c)
         {
-            List<Square> moves = new List<Square>();
+            UInt64 validSquares;
+            int index = BitboardHelper.getIndexFromSquare(s);
 
-            //write
+            //first calulate Rook movements for queen
+            UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskRook[index];
 
-            return moves;
+            int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberRook[index]) >> BitboardHelper.magicNumberShiftsRook[index]);
+
+            if (c == Piece.Color.White)
+                validSquares = BitboardHelper.magicMovesRook[index][databaseIndex] & ~WhitePieces;
+            else
+                validSquares = BitboardHelper.magicMovesRook[index][databaseIndex] & ~BlackPieces;
+
+            //then caluclate Bishop moves for queen
+            bbBlockers = AllPieces & BitboardHelper.occupancyMaskBishop[index];
+
+            databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberBishop[index]) >> BitboardHelper.magicNumberShiftsBishop[index]);
+
+            if (c == Piece.Color.White)
+                validSquares |= BitboardHelper.magicMovesBishop[index][databaseIndex] & ~WhitePieces;
+            else
+                validSquares |= BitboardHelper.magicMovesBishop[index][databaseIndex] & ~BlackPieces;
+
+            return getSquareListFromBB(validSquares);
         }
 
         private void MovePiece(Piece piece, Square from, Square to)
