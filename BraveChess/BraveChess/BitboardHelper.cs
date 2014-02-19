@@ -69,7 +69,7 @@ namespace BraveChess
     59,59,59,59,59,59,59,59,58,59,59,59,59,59,59,58
 };
 
-        public static ulong[][] occupancyVariation;
+        public static ulong[][] occupancyVariation; // USE List<List<int>>
         public static ulong[][] occupancyAttackSet;
 
 
@@ -83,11 +83,23 @@ namespace BraveChess
         public BitboardHelper()
         {
             occupancyAttackSet = new ulong[64][];
-            occupancyVariation = new ulong[][] { new ulong[] { 1, 3 } };
+            for(int i = 0; i < 64; i++)
+            {
+                occupancyAttackSet[i] = new ulong[256];
+            }
+            occupancyVariation = new ulong[64][];
+            for (int i = 0; i < 64; i++)
+            {
+                occupancyVariation[i] = new ulong[5000];
+            }
 
             magicMovesRook = new ulong[64][];
-            //generateOccupancyVariations(true);
-            //generateMoveDatabase(true);
+            for (int i = 0; i < 64; i++)
+            {
+                magicMovesRook[i] = new ulong[256];
+            }
+           // generateOccupancyVariations(true);
+           // generateMoveDatabase(true);
 
             magicMovesBishop = new ulong[64][];
             //generateOccupancyVariations(false);
@@ -189,20 +201,20 @@ namespace BraveChess
             return count;
         }
 
-        int[] GetSetBits(UInt64 x) //NOT WRKING
+        int[] GetSetBits(UInt64 x) //NOT WORKING PROPERLY
         {
             List<int> result = new List<int>();
 
             for(int i = 0; x!=0; i++)
             {
-
-                if ((x & (x - 1)) == (x-1))
+                if ((x & 0x01) == 1)
                 {
                     result.Add(i);
                 }
 
-                x &= x - 1;
+                x = x >> 1;
             }
+            result.Add(-1);
             return result.ToArray<int>();
         }
 
@@ -225,7 +237,7 @@ namespace BraveChess
                 occupancyVariation[bitRef][i] = 0; 
 
                 // find bits set in index "i" and map them to bits in the 64 bit "occupancyVariation"
-
+                //setBitsInIndex = new int[64];
                 setBitsInIndex = GetSetBits((uint)i); // an array of integers showing which bits are set
                 for (j = 0; setBitsInIndex[j] != -1; j++)
                 {

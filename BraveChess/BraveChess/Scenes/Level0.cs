@@ -555,13 +555,14 @@ namespace BraveChess.Scenes
             return moves;
         }
 
-        private List<Square> GenerateRookMoves(Square s, Piece.Color c)
+        private List<Square> GenerateRookMoves(Square s, Piece.Color c) // iNCOMPLETE
         {
             UInt64 validSquares;
             List<Square> moves = new List<Square>();
 
             UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskRook[BitboardHelper.getIndexFromSquare(s)];
 
+            //DATABASE INDEX VALUE ISN'T RIGHT HERE
             int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberRook[BitboardHelper.getIndexFromSquare(s)]) >> BitboardHelper.magicNumberShiftsRook[BitboardHelper.getIndexFromSquare(s)]);
 
             if(c == Piece.Color.White)
