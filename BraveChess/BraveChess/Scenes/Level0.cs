@@ -558,7 +558,7 @@ namespace BraveChess.Scenes
         private List<Square> GenerateRookMoves(Square s, Piece.Color c) // iNCOMPLETE
         {
             UInt64 validSquares;
-            List<Square> moves = new List<Square>();
+
 
             UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskRook[BitboardHelper.getIndexFromSquare(s)];
 
@@ -572,7 +572,7 @@ namespace BraveChess.Scenes
 
             //write
 
-            return moves;
+            return getSquareListFromBB(validSquares);
         }
 
         private List<Square> GenerateQueenMoves(Square s, Piece.Color c)
