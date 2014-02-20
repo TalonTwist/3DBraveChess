@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using BraveChess.Engines;
+using BraveChess.Scenes;
 
 namespace BraveChess.Base
 {
@@ -39,7 +40,6 @@ namespace BraveChess.Base
         protected override void LoadContent()
         {
             Debug.LoadContent(Game.Content);
-
             base.LoadContent();
         }//End of Override
 

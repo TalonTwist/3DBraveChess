@@ -63,7 +63,7 @@ namespace BraveChess.Engines
                 _batch.DrawString(_sfont, "FPS: " + frameRate, _position, Color.Red);
             else
                 _batch.DrawString(_sfont, "FPS :" + frameRate, _position, Color.LawnGreen);
-            _batch.DrawString(_sfont, "Press:\n1-To turn on Cam1\n2-To turn on Cam2\nN-Pause song\nM-Resume song", new Vector2(10,40), Color.AntiqueWhite);
+           // _batch.DrawString(_sfont, "Press:\n1-To turn on Cam1\n2-To turn on Cam2\nN-Pause song\nM-Resume song", new Vector2(10,40), Color.AntiqueWhite);
             _batch.End();
 
             base.Draw(gameTime);
