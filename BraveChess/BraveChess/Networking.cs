@@ -239,7 +239,18 @@ namespace BraveChess
             return null;
         }
 
-        //public void otherPlayer(pie
+        public void WritePacketInfo(int pieceType, int pieceColor, ulong fromSquare, ulong toSquare)
+        {
+            foreach (LocalNetworkGamer gamer in networkSession.LocalGamers)
+            {
+                packetWriter.Write(pieceType);
+                packetWriter.Write(pieceColor);
+                packetWriter.Write(fromSquare);
+                packetWriter.Write(toSquare);
+
+                gamer.SendData(packetWriter, SendDataOptions.None); ;
+            }
+        }
 
     }
 }
