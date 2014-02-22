@@ -49,6 +49,7 @@ namespace BraveChess
         {
             // TODO: Add your initialization logic here
             Helpers.GraphicsDevice = GraphicsDevice;
+            Components.Add(new GamerServicesComponent(this));
 
             base.Initialize();
         }

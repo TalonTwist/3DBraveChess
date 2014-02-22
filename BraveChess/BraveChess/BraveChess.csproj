@@ -118,6 +118,7 @@
     <Compile Include="Engines\FrameRateCounter.cs" />
     <Compile Include="Engines\InputEngine.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Networking.cs" />
     <Compile Include="Objects\Piece.cs" />
     <Compile Include="Objects\Square.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
