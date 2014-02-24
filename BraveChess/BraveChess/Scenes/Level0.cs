@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Media;
 using BraveChess.Engines;
 using BraveChess.Base;
 using BraveChess.Objects;
+using Microsoft.Xna.Framework.Net;
 
 namespace BraveChess.Scenes
 {
@@ -183,6 +184,12 @@ namespace BraveChess.Scenes
 
         public override void Update(GameTime gametime)
         {
+
+            if (Engine.GameNetwork.networkSession != null && Engine.GameNetwork.ProcessIncomingData(gametime)) //if true, otherPlayer has moved a piece
+            {
+                ReadPacket(); // reads incoming packet and process 
+            }        
+
             if (Moves == null)
             {
                 foreach (Square s in Squares)
@@ -274,9 +281,33 @@ namespace BraveChess.Scenes
                 
                 Turn = Turn == TurnState.White ? TurnState.Black : TurnState.White;
             }
-
+            
             base.Update(gametime);
         }//End of Method
+
+        public void ReadPacket()
+        {
+            Vector3 pos = Engine.GameNetwork.packetReader.ReadVector3();
+            int pieceType = Engine.GameNetwork.packetReader.ReadInt32();
+            int pieceColor = Engine.GameNetwork.packetReader.ReadInt32();
+            ulong fromSq = Engine.GameNetwork.packetReader.ReadUInt64();
+            ulong toSq = Engine.GameNetwork.packetReader.ReadUInt64();
+
+            MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Color)pieceColor, fromSq, toSq);
+        }
+
+        public void WriteTurnPacket()
+        {
+
+        }
+
+        //public void WriteMovePacket()
+        //{
+        //    if (Engine.GameNetwork.CurrentGameState == GameState.InGame && Engine.GameNetwork.networkSession.IsHost)
+        //    {
+        //        Engine.GameNetwork.WritePacketInfo(PieceToMove.Piece_Type,PieceToMove.ColorType,_goFromSquare,sq
+        //    }
+        //}
 
         protected override void HandleInput()
         {
@@ -600,7 +631,17 @@ namespace BraveChess.Scenes
             UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
 
             piece.UpdateWorld(GetNewPos(to)); //update world position of model
+
+            Engine.GameNetwork.WritePacketInfo(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
         }
+
+        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, ulong bbFrom, ulong bbTo)
+        {
+            UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
+
+            GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
+        }
+
 
         private void UpdateRelevantbb(Piece.PieceType type, Piece.Color c, ulong bbFrom, ulong bbTo)
         {

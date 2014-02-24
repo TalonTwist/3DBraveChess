@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
+using BraveChess.Objects;
 
 namespace BraveChess
 {
@@ -30,13 +31,14 @@ namespace BraveChess
         EndGame,
         RestartGame,
         RejoinLobby,
-        UpdatePlayerPos,
+        UpdateOtherMove,
     }
 
     public class Networking 
     {
         //current game state
         GameState currentGameState = GameState.SignIn;
+        GameTime gameTime;
 
         public GameState CurrentGameState
         {
@@ -44,10 +46,15 @@ namespace BraveChess
             set { currentGameState = value; }
         }
 
+        SpriteBatch spriteBatch;
+        GraphicsDevice graphics;
+        SpriteFont font;
+        public byte[] Player = new byte[2];
+
         // networking
-        NetworkSession networkSession;
-        PacketWriter packetWriter = new PacketWriter();
-        PacketReader packetReader = new PacketReader();
+        public NetworkSession networkSession;
+        public PacketWriter packetWriter = new PacketWriter();
+        public PacketReader packetReader = new PacketReader();
 
         public void NetworkInitialize()
         {
@@ -59,16 +66,16 @@ namespace BraveChess
             switch (currentGameState)
             {
                 case GameState.SignIn:
-                    //sign in
+                    Update_SignIn();//sign in
                     break;
                 case GameState.FindSession:
-                    //finds session
+                    Update_findSession();//finds session
                     break;
                 case GameState.CreateSession:
-                    //creates session
+                    CreateSession();//creates session
                     break;
                 case GameState.Start:
-                    //starts game
+                    Start(gameTime);//starts game
                     break;
                 case GameState.InGame:
                     //inside game
@@ -86,7 +93,9 @@ namespace BraveChess
         {
             if (Gamer.SignedInGamers.Count < 1)
             {
-                Guide.ShowSignIn(1, false);
+                    Guide.ShowSignIn(1, false);
+                    currentGameState = GameState.FindSession;
+               
             }
             else
             {
@@ -118,7 +127,14 @@ namespace BraveChess
 
         void networkSession_GamerJoined(object sender, GamerJoinedEventArgs e)
         {
-            //not done
+            if (e.Gamer.IsHost)
+            {
+                e.Gamer.Tag = Player[0];
+            }
+            else
+            {
+                e.Gamer.Tag = Player[1];
+            }
         }
 
         void networkSession_GamerLeft(object sender, GamerLeftEventArgs e)
@@ -166,8 +182,9 @@ namespace BraveChess
             currentGameState = GameState.InGame;
         }
 
-        protected void ProcessIncomingData(GameTime gameTime)
+        public bool ProcessIncomingData(GameTime gameTime)
         {
+            bool IsMove = false;
             LocalNetworkGamer localGamer = networkSession.LocalGamers[0];
 
             while (localGamer.IsDataAvailable)
@@ -197,13 +214,19 @@ namespace BraveChess
                             //restarts game
                             RestartGame();
                             break;
-                        case MessageType.UpdatePlayerPos:
-                            //updates possition
+                        case MessageType.UpdateOtherMove:
+                            IsMove = true;
                             break;
                     }
+                    
                 }
             }
+            return IsMove;
         }//end of method
+
+        public void ReadPacket()
+        {
+        }
 
         protected void EndGame()
         {
@@ -239,18 +262,42 @@ namespace BraveChess
             return null;
         }
 
-        public void WritePacketInfo(int pieceType, int pieceColor, ulong fromSquare, ulong toSquare)
+
+        public void WritePacketInfo(Vector3 pos, int pieceType, int pieceColor, ulong fromSquare, ulong toSquare)
         {
             foreach (LocalNetworkGamer gamer in networkSession.LocalGamers)
             {
+
+                packetWriter.Write((int)MessageType.UpdateOtherMove);
+                packetWriter.Write(pos);
                 packetWriter.Write(pieceType);
                 packetWriter.Write(pieceColor);
                 packetWriter.Write(fromSquare);
                 packetWriter.Write(toSquare);
 
-                gamer.SendData(packetWriter, SendDataOptions.None); ;
+                gamer.SendData(packetWriter, SendDataOptions.None); 
+
+                
             }
         }
+
+        public void ProcessIncData(GameTime gameTime)
+        {
+            LocalNetworkGamer localGamer = networkSession.LocalGamers[0];
+
+            while (localGamer.IsDataAvailable)
+            {
+                NetworkGamer sender;
+                localGamer.ReceiveData(packetReader, out sender);
+
+                if (!sender.IsLocal)
+                {
+                    
+                }
+            }
+        }
+
+        
 
     }
 }

@@ -10,6 +10,7 @@ Content\Models\White Pawn.xnb
 Content\Models\White Queen.xnb
 Content\Models\White Rook.xnb
 Content\Models\WhiteSquare.xnb
+Content\Models\Untextured\Bishop Piece.xnb
 Content\Fonts\debug.xnb
 Content\Audio\Effects\move.xnb
 Content\Audio\Songs\BackgroundSong.xnb
@@ -42,5 +43,4 @@ Content\Textures\Pieces\WhitePawn_0.xnb
 Content\Textures\Pieces\WhiteQueen_0.xnb
 Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
-Content\Models\Untextured\Bishop Piece.xnb
 Content\Audio\Songs\BackgroundSong.wma

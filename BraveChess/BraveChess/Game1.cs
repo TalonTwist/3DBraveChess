@@ -102,7 +102,7 @@ namespace BraveChess
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-
+            
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

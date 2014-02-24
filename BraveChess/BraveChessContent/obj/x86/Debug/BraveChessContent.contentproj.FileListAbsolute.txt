@@ -1,2 +1,3 @@
 c:\users\jj\documents\visual studio 2010\Projects\BraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveChessContent.contentprojResolveAssemblyReference.cache
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveChessContent.contentprojResolveAssemblyReference.cache
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveChessContent.contentprojResolveAssemblyReference.cache
