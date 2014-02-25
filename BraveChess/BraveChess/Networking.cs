@@ -263,7 +263,7 @@ namespace BraveChess
         }
 
 
-        public void WritePacketInfo(Vector3 pos, int pieceType, int pieceColor, ulong fromSquare, ulong toSquare)
+        public void WritePacketInfo(Vector3 pos, int pieceType, int pieceColor, UInt64 fromSquare, UInt64 toSquare)
         {
             foreach (LocalNetworkGamer gamer in networkSession.LocalGamers)
             {

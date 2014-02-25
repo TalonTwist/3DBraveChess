@@ -290,8 +290,8 @@ namespace BraveChess.Scenes
             Vector3 pos = Engine.GameNetwork.packetReader.ReadVector3();
             int pieceType = Engine.GameNetwork.packetReader.ReadInt32();
             int pieceColor = Engine.GameNetwork.packetReader.ReadInt32();
-            ulong fromSq = Engine.GameNetwork.packetReader.ReadUInt64();
-            ulong toSq = Engine.GameNetwork.packetReader.ReadUInt64();
+            UInt64 fromSq = Engine.GameNetwork.packetReader.ReadUInt64();
+            UInt64 toSq = Engine.GameNetwork.packetReader.ReadUInt64();
 
             MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Color)pieceColor, fromSq, toSq);
         }
@@ -630,16 +630,24 @@ namespace BraveChess.Scenes
 
             UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
 
+            Engine.GameNetwork.WritePacketInfo(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
+
             piece.UpdateWorld(GetNewPos(to)); //update world position of model
 
-            Engine.GameNetwork.WritePacketInfo(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
+           
         }
 
-        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, ulong bbFrom, ulong bbTo)
+        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, UInt64 bbFrom, UInt64 bbTo)
         {
             UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
 
-            GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
+            //GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
+
+            Piece p = GetPiece(pos);
+            Square s = getSquareFromBB(bbTo);
+            Vector3 newPos = GetNewPos(s);
+           // Vector3 newPos = GetNewPos(getSquareFromBB(bbTo));
+            p.UpdateWorld(newPos);
         }
 
 
