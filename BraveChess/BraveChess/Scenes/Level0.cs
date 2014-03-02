@@ -524,20 +524,24 @@ namespace BraveChess.Scenes
                 validMovesBB = (myPieceBB << 7 | myPieceBB << 9) & BlackPieces;
 
                 if (((myPieceBB << 8) & AllPieces) == 0)
+                {
                     validMovesBB = validMovesBB | (myPieceBB << 8);
 
-                if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.two]) != 0) && ((myPieceBB << 16) & AllPieces) == 0)
-                    validMovesBB = validMovesBB | (myPieceBB << 16);
+                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.two]) != 0) && ((myPieceBB << 16) & AllPieces) == 0)
+                        validMovesBB = validMovesBB | (myPieceBB << 16);
+                }
             }
             else //for black
             {
                 validMovesBB = (myPieceBB >> 7 | myPieceBB >> 9) & WhitePieces;
 
                 if (((myPieceBB >> 8) & AllPieces) == 0)
+                {
                     validMovesBB = validMovesBB | (myPieceBB >> 8);
 
-                if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.seven]) != 0) && ((myPieceBB >> 16) & AllPieces) == 0)
-                    validMovesBB = validMovesBB | myPieceBB >> 16;
+                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.seven]) != 0) && ((myPieceBB >> 16) & AllPieces) == 0)
+                        validMovesBB = validMovesBB | myPieceBB >> 16;
+                }
             }
 
             movesList = getSquareListFromBB(validMovesBB);
