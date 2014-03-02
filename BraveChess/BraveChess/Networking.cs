@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
+using BraveChess.Engines;
+using BraveChess.Scenes;
 using BraveChess.Objects;
 
 namespace BraveChess
@@ -37,52 +39,55 @@ namespace BraveChess
     public class Networking 
     {
         //current game state
-        GameState currentGameState = GameState.SignIn;
-        GameTime gameTime;
+        GameState _currentGameState = GameState.SignIn;
+        GameTime _gameTime;
+        Game _game;
+
+        SpriteFont _font;
 
         public GameState CurrentGameState
         {
-            get { return currentGameState; }
-            set { currentGameState = value; }
+            get { return _currentGameState; }
+            set { _currentGameState = value; }
         }
-
-        SpriteBatch spriteBatch;
-        GraphicsDevice graphics;
-        SpriteFont font;
+      
         public byte[] Player = new byte[2];
 
-        // networking
+        // networking variables
         public NetworkSession networkSession;
         public PacketWriter packetWriter = new PacketWriter();
         public PacketReader packetReader = new PacketReader();
 
-        public void NetworkInitialize()
+        public Networking(Game g)
         {
-            
+            _game = g;
         }
 
         public void Update()
         {
-            switch (currentGameState)
+            if (_game.IsActive)
             {
-                case GameState.SignIn:
-                    Update_SignIn();//sign in
-                    break;
-                case GameState.FindSession:
-                    Update_findSession();//finds session
-                    break;
-                case GameState.CreateSession:
-                    CreateSession();//creates session
-                    break;
-                case GameState.Start:
-                    Start(gameTime);//starts game
-                    break;
-                case GameState.InGame:
-                    //inside game
-                    break;
-                case GameState.GameOver:
-                    //game finnished;
-                    break;
+                switch (_currentGameState)
+                {
+                    case GameState.SignIn:
+                        Update_SignIn();//sign in
+                        break;
+                    case GameState.FindSession:
+                        Update_findSession();//finds session
+                        break;
+                    case GameState.CreateSession:
+                        CreateSession();//creates session
+                        break;
+                    case GameState.Start:
+                        Start(_gameTime);//starts game
+                        break;
+                    case GameState.InGame:
+                        //inside game
+                        break;
+                    case GameState.GameOver:
+                        //game finished;
+                        break;
+                }
             }
 
             if (networkSession != null)
@@ -94,28 +99,26 @@ namespace BraveChess
             if (Gamer.SignedInGamers.Count < 1)
             {
                     Guide.ShowSignIn(1, false);
-                    currentGameState = GameState.FindSession;
-               
+                    _currentGameState = GameState.FindSession;
             }
             else
-            {
-                currentGameState = GameState.FindSession;
-            }
+                _currentGameState = GameState.FindSession;
+            
         }
 
         private void Update_findSession()
         {
-            AvailableNetworkSessionCollection sessions =
-                NetworkSession.Find(NetworkSessionType.SystemLink, 1, null);
+            AvailableNetworkSessionCollection sessions = NetworkSession.Find(NetworkSessionType.SystemLink, 1, null);
+
             if (sessions.Count == 0)
             {
-                currentGameState = GameState.CreateSession;
+                _currentGameState = GameState.CreateSession;
             }
             else
             {
                 networkSession = NetworkSession.Join(sessions[0]);
                 Events();
-                currentGameState = GameState.Start;
+                _currentGameState = GameState.Start;
             }
         }
 
@@ -128,20 +131,16 @@ namespace BraveChess
         void networkSession_GamerJoined(object sender, GamerJoinedEventArgs e)
         {
             if (e.Gamer.IsHost)
-            {
                 e.Gamer.Tag = Player[0];
-            }
             else
-            {
                 e.Gamer.Tag = Player[1];
-            }
         }
 
         void networkSession_GamerLeft(object sender, GamerLeftEventArgs e)
         {
             networkSession.Dispose();
             networkSession = null;
-            currentGameState = GameState.FindSession;
+            _currentGameState = GameState.FindSession;
         }
         
         private void CreateSession()
@@ -151,7 +150,7 @@ namespace BraveChess
             networkSession.AllowJoinInProgress = false;
 
             Events();
-            currentGameState = GameState.Start;
+            _currentGameState = GameState.Start;
         }
 
         private void Start(GameTime gameTime)
@@ -174,12 +173,11 @@ namespace BraveChess
             }
 
             ProcessIncomingData(gameTime);
-
         }
 
         protected void StartGame()
         {
-            currentGameState = GameState.InGame;
+            _currentGameState = GameState.InGame;
         }
 
         public bool ProcessIncomingData(GameTime gameTime)
@@ -218,38 +216,25 @@ namespace BraveChess
                             IsMove = true;
                             break;
                     }
-                    
                 }
             }
             return IsMove;
         }//end of method
 
-        public void ReadPacket()
-        {
-        }
-
         protected void EndGame()
         {
-            currentGameState = GameState.GameOver;
+            _currentGameState = GameState.GameOver;
         }//end of method
 
         private void RejoinLobby()
         {
-            currentGameState = GameState.Start;
+            _currentGameState = GameState.Start;
         }//end method
 
         private void RestartGame()
         {
             StartGame();
         }
-
-        protected void UpdatePossition(GameTime gametime)
-        {
-            NetworkGamer otherPlayer = GetOtherPlayer();
-
-
-        }
-
 
         protected NetworkGamer GetOtherPlayer()
         {
@@ -263,41 +248,22 @@ namespace BraveChess
         }
 
 
-        public void WritePacketInfo(Vector3 pos, int pieceType, int pieceColor, UInt64 fromSquare, UInt64 toSquare)
+        public void WritePacketInfo(Vector3 _pos, int _pieceType, int _pieceColor, UInt64 _fromSquare, UInt64 _toSquare)
         {
             foreach (LocalNetworkGamer gamer in networkSession.LocalGamers)
             {
-
                 packetWriter.Write((int)MessageType.UpdateOtherMove);
-                packetWriter.Write(pos);
-                packetWriter.Write(pieceType);
-                packetWriter.Write(pieceColor);
-                packetWriter.Write(fromSquare);
-                packetWriter.Write(toSquare);
+                packetWriter.Write(_pos);
+                packetWriter.Write(_pieceType);
+                packetWriter.Write(_pieceColor);
+                packetWriter.Write(_fromSquare);
+                packetWriter.Write(_toSquare);
 
-                gamer.SendData(packetWriter, SendDataOptions.None); 
-
-                
-            }
-        }
-
-        public void ProcessIncData(GameTime gameTime)
-        {
-            LocalNetworkGamer localGamer = networkSession.LocalGamers[0];
-
-            while (localGamer.IsDataAvailable)
-            {
-                NetworkGamer sender;
-                localGamer.ReceiveData(packetReader, out sender);
-
-                if (!sender.IsLocal)
-                {
-                    
-                }
+                gamer.SendData(packetWriter, SendDataOptions.None);  
             }
         }
 
         
 
-    }
-}
+    } // end class
+} // end namespace

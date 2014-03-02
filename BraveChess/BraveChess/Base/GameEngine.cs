@@ -36,7 +36,7 @@ namespace BraveChess.Base
             Audio = new AudioEngine(_game);
             FPSCounter = new FrameRateCounter(_game, new Vector2(10, 10));
             Debug = new DebugEngine();
-            GameNetwork = new Networking();
+            GameNetwork = new Networking(_game);
         }//End of Constructor
 
         public override void Initialize()
@@ -80,7 +80,7 @@ namespace BraveChess.Base
                     GraphicsDevice.Clear(Color.DarkGray);
                     break;
                 case GameState.Start:
-                    DrawStartScreen();
+                    DrawReadyToStartScreen();
                     break;
             }
         }
@@ -108,7 +108,7 @@ namespace BraveChess.Base
             }
         }//End of Method
 
-        private void DrawStartScreen()
+        private void DrawReadyToStartScreen()
         {
             // Clear screen
             GraphicsDevice.Clear(Color.AliceBlue);
@@ -117,10 +117,8 @@ namespace BraveChess.Base
             batch.Begin();
             
             // Draw instructions
-            string text = "";
-            text += GameNetwork.networkSession.Host.Gamertag +
-                " is the HOST";
-            batch.DrawString(font, text,new Vector2(30,10),
+            string text = GameNetwork.networkSession.Host.Gamertag + " is the HOST";
+            batch.DrawString(font, text, new Vector2((GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(text).X /2), 50),
                 Color.SaddleBrown);
 
             // If both gamers are there, tell gamers to press space bar or Start to begin
@@ -128,7 +126,7 @@ namespace BraveChess.Base
             {
                 text = "(Game is ready. Press Spacebar or Start button to begin)";
                 batch.DrawString(font, text,
-                    new Vector2(20,10),
+                    new Vector2((GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(text).X / 2), GraphicsDevice.Viewport.Height - 100),
                     Color.SaddleBrown);
             }
             // If only one player is there, tell gamer you're waiting for players
@@ -136,19 +134,20 @@ namespace BraveChess.Base
             {
                 text = "(Waiting for players)";
                 batch.DrawString(font, text,
-                    new Vector2(40,10),
+                    new Vector2((GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(text).X / 2), GraphicsDevice.Viewport.Height - 100),
                     Color.SaddleBrown);
             }
 
             // Loop through all gamers and get their gamertags,
             // then draw list of all gamers currently in the game
             text = "\n\nCurrent Player(s):";
+            float _txtWidth = font.MeasureString(text).X / 2;
             foreach (Gamer gamer in GameNetwork.networkSession.AllGamers)
             {
                 text += "\n" + gamer.Gamertag;
             }
             batch.DrawString(font, text,
-                new Vector2(50,10),
+                new Vector2((GraphicsDevice.Viewport.Width / 2) - _txtWidth, 100),
                 Color.SaddleBrown);
 
             batch.End();
