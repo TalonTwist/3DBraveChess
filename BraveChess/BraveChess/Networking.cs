@@ -184,7 +184,7 @@ namespace BraveChess
         {
             bool IsMove = false;
             LocalNetworkGamer localGamer = networkSession.LocalGamers[0];
-
+            
             while (localGamer.IsDataAvailable)
             {
                 NetworkGamer sender;
@@ -252,6 +252,7 @@ namespace BraveChess
         {
             foreach (LocalNetworkGamer gamer in networkSession.LocalGamers)
             {
+               // packetWriter.Write(_turn);
                 packetWriter.Write((int)MessageType.UpdateOtherMove);
                 packetWriter.Write(_pos);
                 packetWriter.Write(_pieceType);
@@ -262,6 +263,20 @@ namespace BraveChess
                 gamer.SendData(packetWriter, SendDataOptions.None);  
             }
         }
+
+        //public void TurnCheck()
+        //{
+        //    //NetworkGamer gamer = new NetworkGamer(); ;
+
+        //    if (CurrentGameState == GameState.InGame)
+        //    {
+        //        if (networkSession.IsHost)
+        //            gamer.Tag = Player[0];
+        //        else
+        //            gamer.Tag = Player[1];
+
+        //    }
+       // }
 
         
 

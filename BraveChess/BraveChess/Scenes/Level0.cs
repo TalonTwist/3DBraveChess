@@ -27,7 +27,7 @@ namespace BraveChess.Scenes
 
         BitboardHelper b = new BitboardHelper();
 
-        Camera _camera;
+        Camera _camWhite,_camBlack;
 
         float aspectRatio = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio;
 
@@ -67,12 +67,18 @@ namespace BraveChess.Scenes
 
         public override void Initialize()
         {
-            _camera = new Camera("cam0",
+            _camWhite = new Camera("camWhite",
                 new Vector3(30,60,130),
                 new Vector3(30, 5, 30),
                 aspectRatio);
 
-            Engine.Cameras.AddCamera(_camera);
+            _camBlack = new Camera("camBlack",
+                new Vector3(30, 60, -130),
+                new Vector3(30, 5, 30),
+                aspectRatio);
+
+            Engine.Cameras.AddCamera(_camWhite);
+            Engine.Cameras.AddCamera(_camBlack);
 
             //loading songs//efects
             Engine.Audio.LoadSong("BackgroundSong");
@@ -188,7 +194,21 @@ namespace BraveChess.Scenes
             if (Engine.GameNetwork.networkSession != null && Engine.GameNetwork.ProcessIncomingData(gametime)) //if true, otherPlayer has moved a piece
             {
                 ReadPacket(); // reads incoming packet and process 
-            }        
+
+                
+            }
+
+            if (Engine.GameNetwork.networkSession != null)
+            {
+                if (Engine.GameNetwork.networkSession.IsHost)
+                {
+                    Engine.Cameras.SetActiveCamera("camWhite");
+                    HandleInput();
+                }
+                else
+                    Engine.Cameras.SetActiveCamera("camBlack");
+               
+            }
 
             if (Moves == null)
             {
@@ -292,48 +312,64 @@ namespace BraveChess.Scenes
             int pieceColor = Engine.GameNetwork.packetReader.ReadInt32();
             UInt64 fromSq = Engine.GameNetwork.packetReader.ReadUInt64();
             UInt64 toSq = Engine.GameNetwork.packetReader.ReadUInt64();
+            //int turn = Engine.GameNetwork.packetReader.ReadInt32();
 
             MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Color)pieceColor, fromSq, toSq);
         }
 
-        public void WriteTurnPacket()
+        private void MovePiece(Piece piece, Square from, Square to)
         {
+            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
+            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
+
+            UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
+
+            Engine.GameNetwork.WritePacketInfo(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
+
+            piece.UpdateWorld(GetNewPos(to)); //update world position of model
+
 
         }
 
-        //public void WriteMovePacket()
-        //{
-        //    if (Engine.GameNetwork.CurrentGameState == GameState.InGame && Engine.GameNetwork.networkSession.IsHost)
-        //    {
-        //        Engine.GameNetwork.WritePacketInfo(PieceToMove.Piece_Type,PieceToMove.ColorType,_goFromSquare,sq
-        //    }
-        //}
+        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, UInt64 bbFrom, UInt64 bbTo)
+        {
+            UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
+
+            //GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
+
+            Piece p = GetPiece(pos);
+            Square s = getSquareFromBB(bbTo);
+            Vector3 newPos = GetNewPos(s);
+            // Vector3 newPos = GetNewPos(getSquareFromBB(bbTo));
+            p.UpdateWorld(newPos);
+        }
+
 
         protected override void HandleInput()
         {
             #region Camera Controls
             if (InputEngine.IsKeyHeld(Keys.A))
             {
-                _camera.MoveCamera();
+                _camWhite.MoveCamera();
                 //_camera.World *= Matrix.CreateTranslation(-0.1f, 0, 0);
                 
             }
 
             if (InputEngine.IsKeyHeld(Keys.D))
             {
-                _camera.World *= Matrix.CreateTranslation(0.1f, 0, 0);
+                _camWhite.World *= Matrix.CreateTranslation(0.1f, 0, 0);
                 
             }
 
             if (InputEngine.IsKeyHeld(Keys.W))
             {
-                _camera.World *= Matrix.CreateTranslation(0, 0.1f, 0);
+                _camWhite.World *= Matrix.CreateTranslation(0, 0.1f, 0);
 
             }
 
             if (InputEngine.IsKeyHeld(Keys.S))
             {
-                _camera.World *= Matrix.CreateTranslation(0, -0.1f, 0);
+                _camWhite.World *= Matrix.CreateTranslation(0, -0.1f, 0);
 
             }
 
@@ -416,7 +452,7 @@ namespace BraveChess.Scenes
             }
             #endregion
 
-            base.HandleInput();
+            //base.HandleInput();
         }//End of Method
 
         private Piece GetPiece(Vector3 pos)
@@ -627,32 +663,7 @@ namespace BraveChess.Scenes
             return getSquareListFromBB(validSquares);
         }
 
-        private void MovePiece(Piece piece, Square from, Square to)
-        {
-            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
-            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
-
-            UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
-
-            Engine.GameNetwork.WritePacketInfo(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
-
-            piece.UpdateWorld(GetNewPos(to)); //update world position of model
-
-           
-        }
-
-        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, UInt64 bbFrom, UInt64 bbTo)
-        {
-            UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
-
-            //GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
-
-            Piece p = GetPiece(pos);
-            Square s = getSquareFromBB(bbTo);
-            Vector3 newPos = GetNewPos(s);
-           // Vector3 newPos = GetNewPos(getSquareFromBB(bbTo));
-            p.UpdateWorld(newPos);
-        }
+        
 
 
         private void UpdateRelevantbb(Piece.PieceType type, Piece.Color c, ulong bbFrom, ulong bbTo)
