@@ -66,7 +66,7 @@ namespace BraveChess
             // TODO: use this.Content to load your game content here
 
            // gameEngine.LoadScene(new StartMenu(spriteBatch)); //use ruminate.dll for menu
-            gameEngine.LoadScene(new Level0(gameEngine));
+           // gameEngine.LoadScene(new Level0(gameEngine));
         }
 
         /// <summary>

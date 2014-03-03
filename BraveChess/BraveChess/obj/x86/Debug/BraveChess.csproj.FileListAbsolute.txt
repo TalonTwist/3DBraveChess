@@ -153,3 +153,55 @@ C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Conte
 C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma
 C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.exe
 C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.pdb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black King.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Knight.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Pawn.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Queen.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Rook.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\BlackSquare.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White King.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Knight.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Pawn.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Queen.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Rook.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\WhiteSquare.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Untextured\Bishop Piece.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\debug.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\move.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackBishop.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteBishop.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackBishop.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackKing.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\WhiteKnight.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.exe
+J:\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.pdb
+J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.csprojResolveAssemblyReference.cache
+J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.exe
+J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.pdb

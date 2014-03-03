@@ -27,7 +27,7 @@ namespace BraveChess.Scenes
 
         BitboardHelper b = new BitboardHelper();
 
-        Camera _camera;
+        Camera _camWhite,_camBlack;
 
         float aspectRatio = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio;
 
@@ -67,18 +67,35 @@ namespace BraveChess.Scenes
 
         public override void Initialize()
         {
-            _camera = new Camera("cam0",
+
+            #region Cameras
+            _camWhite = new Camera("camWhite",
                 new Vector3(30,60,130),
                 new Vector3(30, 5, 30),
                 aspectRatio);
 
-            Engine.Cameras.AddCamera(_camera);
+            _camBlack = new Camera("camBlack",
+                new Vector3(30, 60, -130),
+                new Vector3(30, 5, 30),
+                aspectRatio);
 
+            Engine.Cameras.AddCamera(_camWhite);
+            Engine.Cameras.AddCamera(_camBlack);
+
+            if (Engine.GameNetwork.networkSession.IsHost)
+                Engine.Cameras.SetActiveCamera("camWhite");
+            else
+                Engine.Cameras.SetActiveCamera("camBlack");
+
+            #endregion              
+
+            #region Sound
             //loading songs//efects
             Engine.Audio.LoadSong("BackgroundSong");
             Engine.Audio.PlaySong("BackgroundSong");
             MediaPlayer.IsRepeating = true;
             Engine.Audio.LoadEffect("move");
+            #endregion
 
             #region Init Squares
 
@@ -182,13 +199,28 @@ namespace BraveChess.Scenes
             base.Initialize();
         }//End of Method
 
+        private void CheckIncomingPackets(GameTime gametime)
+        {
+            if (Engine.GameNetwork.networkSession != null ) //if true, otherPlayer has moved a piece
+            {
+                MessageType msg = Engine.GameNetwork.ProcessIncomingData(gametime);
+
+                if (msg == MessageType.UpdateOtherMove)
+                    ReadMovePacket(); // reads incoming packet and process 
+
+                else if (msg == MessageType.ChangeTurnState)
+                    SwitchTurn(true);
+            }
+        } //end method
+
         public override void Update(GameTime gametime)
         {
+            CheckIncomingPackets(gametime);
 
-            if (Engine.GameNetwork.networkSession != null && Engine.GameNetwork.ProcessIncomingData(gametime)) //if true, otherPlayer has moved a piece
-            {
-                ReadPacket(); // reads incoming packet and process 
-            }        
+            //Check LocalGamers .Tag property, if true, then it is their move and we must accept Input
+            if((bool)Engine.GameNetwork.networkSession.LocalGamers[0].Tag == true)
+                HandleInput();
+         
 
             if (Moves == null)
             {
@@ -270,22 +302,32 @@ namespace BraveChess.Scenes
                 PieceIsSelected = false;
                 DestinationIsSelected = false;
                 Moves = null;
-
-                if(IsFight)
-                    PieceToCapture.Destroy();
-                MovePiece(PieceToMove, _goFromSquare, _goToSquare);
-
-                PieceToMove = null;
-                PieceToCapture = null;
-                IsFight = false;
                 
-                Turn = Turn == TurnState.White ? TurnState.Black : TurnState.White;
+                //Make sure the move doesnt leave king in check
+                if (TestMove(PieceToMove, _goFromSquare, _goToSquare)) 
+                {
+                    if (IsFight)
+                        PieceToCapture.Destroy();
+                    MovePiece(PieceToMove, _goFromSquare, _goToSquare);
+
+                    PieceToMove = null;
+                    PieceToCapture = null;
+                    IsFight = false;
+
+                    //Changes turnState and informs other player
+                    SwitchTurn(false);
+                }
+                //else
+                    //Write message
+                    //sorry that would leave you in check
+
+                
             }
             
             base.Update(gametime);
         }//End of Method
 
-        public void ReadPacket()
+        public void ReadMovePacket()
         {
             Vector3 pos = Engine.GameNetwork.packetReader.ReadVector3();
             int pieceType = Engine.GameNetwork.packetReader.ReadInt32();
@@ -296,44 +338,81 @@ namespace BraveChess.Scenes
             MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Color)pieceColor, fromSq, toSq);
         }
 
-        public void WriteTurnPacket()
+        private void MovePiece(Piece piece, Square from, Square to)
         {
+            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
+            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
+
+            UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
+
+            Engine.GameNetwork.WriteMovePacket(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
+
+            piece.UpdateWorld(GetNewPos(to)); //update world position of model
 
         }
 
-        //public void WriteMovePacket()
-        //{
-        //    if (Engine.GameNetwork.CurrentGameState == GameState.InGame && Engine.GameNetwork.networkSession.IsHost)
-        //    {
-        //        Engine.GameNetwork.WritePacketInfo(PieceToMove.Piece_Type,PieceToMove.ColorType,_goFromSquare,sq
-        //    }
-        //}
+        private bool TestMove(Piece piece, Square from, Square to)
+        {
+            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
+            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
+
+            UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo);
+
+            if (TestForCheck(piece.ColorType))
+            {
+                UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbTo, bbFrom);
+                return false;
+            }
+
+            return true;
+        } //sorry that would leave you in check
+
+        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, UInt64 bbFrom, UInt64 bbTo)
+        {
+            UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
+
+            //GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
+
+            Piece p = GetPiece(pos);
+            Square s = getSquareFromBB(bbTo);
+            Vector3 newPos = GetNewPos(s);
+            // Vector3 newPos = GetNewPos(getSquareFromBB(bbTo));
+            p.UpdateWorld(newPos);
+        }
+
+        private void SwitchTurn(bool recieved)
+        {
+            Turn = Turn == TurnState.White ? TurnState.Black : TurnState.White;
+
+            if(!recieved)
+                Engine.GameNetwork.WriteTurnPacket();
+        }
 
         protected override void HandleInput()
         {
             #region Camera Controls
             if (InputEngine.IsKeyHeld(Keys.A))
             {
-                _camera.MoveCamera();
+                _camWhite.MoveCamera();
                 //_camera.World *= Matrix.CreateTranslation(-0.1f, 0, 0);
                 
             }
 
             if (InputEngine.IsKeyHeld(Keys.D))
             {
-                _camera.World *= Matrix.CreateTranslation(0.1f, 0, 0);
+                _camWhite.World *= Matrix.CreateTranslation(0.1f, 0, 0);
                 
             }
 
             if (InputEngine.IsKeyHeld(Keys.W))
             {
-                _camera.World *= Matrix.CreateTranslation(0, 0.1f, 0);
+                _camWhite.World *= Matrix.CreateTranslation(0, 0.1f, 0);
 
             }
 
             if (InputEngine.IsKeyHeld(Keys.S))
             {
-                _camera.World *= Matrix.CreateTranslation(0, -0.1f, 0);
+                _camWhite.World *= Matrix.CreateTranslation(0, -0.1f, 0);
 
             }
 
@@ -416,8 +495,8 @@ namespace BraveChess.Scenes
             }
             #endregion
 
-            base.HandleInput();
-        }//End of Method
+            //base.HandleInput();
+        }
 
         private Piece GetPiece(Vector3 pos)
         {
@@ -473,29 +552,28 @@ namespace BraveChess.Scenes
             switch (p.Piece_Type)
             {
                 case Piece.PieceType.King:
-                    return GenerateKingMoves(s, p.ColorType);
+                    return getSquareListFromBB(GenerateKingMoves(s, p.ColorType));
 
                 case Piece.PieceType.Pawn:
-                    return GeneratePawnMoves(s, p.ColorType);
+                    return getSquareListFromBB(GeneratePawnMoves(s, p.ColorType));
 
                 case Piece.PieceType.Knight:
-                    return GenerateKnightMoves(s, p.ColorType);
+                    return getSquareListFromBB(GenerateKnightMoves(s, p.ColorType));
 
                 case Piece.PieceType.Bishop:
-                    return GenerateBishopMoves(s, p.ColorType);
+                    return getSquareListFromBB(GenerateBishopMoves(s, p.ColorType));
 
                 case Piece.PieceType.Rook:
-                    return GenerateRookMoves(s, p.ColorType);
+                    return getSquareListFromBB(GenerateRookMoves(s, p.ColorType));
 
                 case Piece.PieceType.Queen:
-                    return GenerateQueenMoves(s, p.ColorType);
-
+                    return getSquareListFromBB(GenerateQueenMoves(s, p.ColorType));
                 default:
                     return null;
             }
         }
 
-        private List<Square> GenerateKingMoves(Square s, Piece.Color c)
+        private UInt64 GenerateKingMoves(Square s, Piece.Color c)
         {
             UInt64 myPieceBB = BitboardHelper.getBitboardFromSquare(s);
             
@@ -510,12 +588,11 @@ namespace BraveChess.Scenes
             else
                 validMovesBB = validMovesBB ^(validMovesBB & BlackPieces);
 
-            return getSquareListFromBB(validMovesBB);
+            return validMovesBB;
         }
 
-        private List<Square> GeneratePawnMoves(Square s, Piece.Color c)
+        private UInt64 GeneratePawnMoves(Square s, Piece.Color c)
         {
-            List<Square> movesList = new List<Square>();
             UInt64 validMovesBB;
             UInt64 myPieceBB = BitboardHelper.getBitboardFromSquare(s); //bitboard representation of the pawns position
 
@@ -531,7 +608,7 @@ namespace BraveChess.Scenes
                         validMovesBB = validMovesBB | (myPieceBB << 16);
                 }
             }
-            else //for black
+            else
             {
                 validMovesBB = (myPieceBB >> 7 | myPieceBB >> 9) & WhitePieces;
 
@@ -544,28 +621,27 @@ namespace BraveChess.Scenes
                 }
             }
 
-            movesList = getSquareListFromBB(validMovesBB);
-            return movesList;
+            return validMovesBB;
         }
 
-        private List<Square> GenerateKnightMoves(Square s, Piece.Color c)
+        private UInt64 GenerateKnightMoves(Square s, Piece.Color c)
         {
             UInt64 validMovesBB;
             int sqIndex = BitboardHelper.getIndexFromSquare(s);
 
             if (c == Piece.Color.Black)
-            {
                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & BlackPieces;
-            }
-            else //for white
-            {
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & WhitePieces;
-            }
 
-            return getSquareListFromBB(validMovesBB);
+            else if (c == Piece.Color.Black)
+                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & WhitePieces;
+
+            else
+                validMovesBB = BitboardHelper.KnightAttacks[sqIndex];
+
+            return validMovesBB;
         }
 
-        private List<Square> GenerateBishopMoves(Square s, Piece.Color c)
+        private UInt64 GenerateBishopMoves(Square s, Piece.Color c)
         {
             UInt64 validSquares;
             int sqIndex = BitboardHelper.getIndexFromSquare(s);
@@ -576,13 +652,15 @@ namespace BraveChess.Scenes
 
             if (c == Piece.Color.White)
                 validSquares = BitboardHelper.magicMovesBishop[sqIndex][databaseIndex] & ~WhitePieces;
-            else
+            else if(c == Piece.Color.Black)
                 validSquares = BitboardHelper.magicMovesBishop[sqIndex][databaseIndex] & ~BlackPieces;
+            else
+                validSquares = BitboardHelper.magicMovesBishop[sqIndex][databaseIndex];
 
-            return getSquareListFromBB(validSquares);
+            return validSquares;
         }
 
-        private List<Square> GenerateRookMoves(Square s, Piece.Color c) 
+        private UInt64 GenerateRookMoves(Square s, Piece.Color c) 
         {
             UInt64 validSquares;
             int sqIndex = BitboardHelper.getIndexFromSquare(s);
@@ -593,67 +671,60 @@ namespace BraveChess.Scenes
 
             if(c == Piece.Color.White)
                 validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex] &  ~WhitePieces;
-            else
+            else if(c == Piece.Color.Black)
                 validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex] & ~BlackPieces;
+            else
+                validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex];
             
-            return getSquareListFromBB(validSquares);
+            return validSquares;
         }
 
-        private List<Square> GenerateQueenMoves(Square s, Piece.Color c)
+        private UInt64 GenerateQueenMoves(Square s, Piece.Color c)
         {
             UInt64 validSquares;
-            int sqIndex = BitboardHelper.getIndexFromSquare(s);
 
             //first calulate Rook movements for queen
-            UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskRook[sqIndex];
+            validSquares = GenerateRookMoves(s, c);
 
-            int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberRook[sqIndex]) >> BitboardHelper.magicNumberShiftsRook[sqIndex]);
-
-            if (c == Piece.Color.White)
-                validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex] & ~WhitePieces;
-            else
-                validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex] & ~BlackPieces;
-
-            //then caluclate Bishop moves for queen
-            bbBlockers = AllPieces & BitboardHelper.occupancyMaskBishop[sqIndex];
-
-            databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberBishop[sqIndex]) >> BitboardHelper.magicNumberShiftsBishop[sqIndex]);
-
-            if (c == Piece.Color.White)
-                validSquares |= BitboardHelper.magicMovesBishop[sqIndex][databaseIndex] & ~WhitePieces;
-            else
-                validSquares |= BitboardHelper.magicMovesBishop[sqIndex][databaseIndex] & ~BlackPieces;
-
-            return getSquareListFromBB(validSquares);
-        }
-
-        private void MovePiece(Piece piece, Square from, Square to)
-        {
-            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
-            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
-
-            UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
-
-            Engine.GameNetwork.WritePacketInfo(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
-
-            piece.UpdateWorld(GetNewPos(to)); //update world position of model
-
+            //then calculate Bishop moves for queen and OR with rook movements
+            validSquares |= GenerateBishopMoves(s, c);
            
+            return validSquares;
         }
 
-        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, UInt64 bbFrom, UInt64 bbTo)
+        private UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
         {
-            UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
+            UInt64 attackersBB;
+            int sqIndex = BitboardHelper.getIndexFromSquare(s);
 
-            //GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
+            attackersBB = BitboardHelper.KnightAttacks[sqIndex];
+            attackersBB |= (GenerateBishopMoves(s, Piece.Color.None) & black_bishops & white_bishops & black_queens & white_queens);
+            attackersBB |= (GenerateRookMoves(s, Piece.Color.None) & black_rooks & white_rooks & black_queens & white_queens);
+            //add pawn and king attacks
 
-            Piece p = GetPiece(pos);
-            Square s = getSquareFromBB(bbTo);
-            Vector3 newPos = GetNewPos(s);
-           // Vector3 newPos = GetNewPos(getSquareFromBB(bbTo));
-            p.UpdateWorld(newPos);
+            return attackersBB;
         }
 
+        private bool TestForCheck(Piece.Color c)
+        {
+            Square kingPos;
+
+            if (c == Piece.Color.White)
+            {
+                kingPos = getSquareFromBB(white_kings);
+
+                //if all pieces attacking the kings position minus pieces of his own colour != 0, then the king is in check
+                if ((FindAttacksToSquare(kingPos) & ~WhitePieces) != 0)
+                    return true;
+            }
+            else if (c == Piece.Color.Black)
+            {
+                kingPos = getSquareFromBB(black_kings);
+                if ((FindAttacksToSquare(kingPos) & ~BlackPieces) != 0)
+                    return true;
+            }
+            return false;
+        }
 
         private void UpdateRelevantbb(Piece.PieceType type, Piece.Color c, ulong bbFrom, ulong bbTo)
         {

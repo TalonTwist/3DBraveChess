@@ -37,7 +37,7 @@ namespace BraveChess.Base
 
         public virtual void Update(GameTime gametime)
         {
-            HandleInput();
+            //HandleInput();
 
             for (int i = 0; i < _sceneObjects.Count; i++)
                 _sceneObjects[i].Update(gametime);

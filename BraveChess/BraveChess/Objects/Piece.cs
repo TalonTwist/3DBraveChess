@@ -15,8 +15,9 @@ namespace BraveChess.Objects
     {
        public enum Color
         {
-            Black = 0,
-            White = 1
+           Black = 0,
+           White = 1,
+           None
         }
 
        public enum PieceType

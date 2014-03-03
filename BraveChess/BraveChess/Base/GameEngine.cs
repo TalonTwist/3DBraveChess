@@ -36,7 +36,7 @@ namespace BraveChess.Base
             Audio = new AudioEngine(_game);
             FPSCounter = new FrameRateCounter(_game, new Vector2(10, 10));
             Debug = new DebugEngine();
-            GameNetwork = new Networking(_game);
+            GameNetwork = new Networking(_game, this);
         }//End of Constructor
 
         public override void Initialize()
