@@ -65,7 +65,7 @@ namespace BraveChess
             _engine = e;
         }
 
-        public void Update()
+        public void Update(GameTime _gameTime)
         {
             if (_game.IsActive)
             {
@@ -218,10 +218,11 @@ namespace BraveChess
                             RestartGame();
                             break;
                         case MessageType.UpdateOtherMove:
-                            break;
-                        case MessageType.ChangeTurnState:
                             TurnSwitch();
                             break;
+                        //case MessageType.ChangeTurnState:
+                        //    TurnSwitch();
+                        //    break;
                     }
                 }
             }
@@ -272,7 +273,7 @@ namespace BraveChess
                 packetWriter.Write(_fromSquare);
                 packetWriter.Write(_toSquare);
 
-                networkSession.LocalGamers[0].SendData(packetWriter, SendDataOptions.None);
+                networkSession.LocalGamers[0].SendData(packetWriter, SendDataOptions.Reliable);
         }
 
         public void WriteTurnPacket()

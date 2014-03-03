@@ -58,7 +58,7 @@ namespace BraveChess.Base
         {
             if (ActiveScene != null)
                 ActiveScene.Update(gameTime);
-            GameNetwork.Update();
+            GameNetwork.Update(gameTime);
             base.Update(gameTime);
         }//End of Override
 

@@ -201,15 +201,18 @@ namespace BraveChess.Scenes
 
         private void CheckIncomingPackets(GameTime gametime)
         {
-            if (Engine.GameNetwork.networkSession != null ) //if true, otherPlayer has moved a piece
+            if (Engine.GameNetwork.networkSession != null ) 
             {
                 MessageType msg = Engine.GameNetwork.ProcessIncomingData(gametime);
 
                 if (msg == MessageType.UpdateOtherMove)
+                {
                     ReadMovePacket(); // reads incoming packet and process 
-
-                else if (msg == MessageType.ChangeTurnState)
                     SwitchTurn(true);
+                }
+
+                //else if (msg == MessageType.ChangeTurnState)
+                //    SwitchTurn(true);
             }
         } //end method
 
@@ -304,7 +307,7 @@ namespace BraveChess.Scenes
                 Moves = null;
                 
                 //Make sure the move doesnt leave king in check
-                if (TestMove(PieceToMove, _goFromSquare, _goToSquare)) 
+                if (TestMove(PieceToMove, _goFromSquare, _goToSquare))
                 {
                     if (IsFight)
                         PieceToCapture.Destroy();
@@ -371,13 +374,14 @@ namespace BraveChess.Scenes
         {
             UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
 
-            //GetPiece(pos).UpdateWorld(GetNewPos(getSquareFromBB(bbTo)));    //update world position of model
-
-            Piece p = GetPiece(pos);
             Square s = getSquareFromBB(bbTo);
             Vector3 newPos = GetNewPos(s);
-            // Vector3 newPos = GetNewPos(getSquareFromBB(bbTo));
-            p.UpdateWorld(newPos);
+
+            Piece capturedPiece = GetPiece(s.World.Translation + new Vector3(0, 2, 0));
+            if (capturedPiece != null)
+                capturedPiece.Destroy();
+            
+            GetPiece(pos).UpdateWorld(newPos);
         }
 
         private void SwitchTurn(bool recieved)
@@ -385,7 +389,7 @@ namespace BraveChess.Scenes
             Turn = Turn == TurnState.White ? TurnState.Black : TurnState.White;
 
             if(!recieved)
-                Engine.GameNetwork.WriteTurnPacket();
+                Engine.GameNetwork.TurnSwitch();
         }
 
         protected override void HandleInput()
@@ -526,7 +530,7 @@ namespace BraveChess.Scenes
         {
             var v = BitboardHelper.getSquareFromBitboard(bb);
 
-            return Squares[v.Item1, v.Item2];
+            return Squares[v.Item2, v.Item1];
         }
 
         private List<Square> getSquareListFromBB(ulong bb)
@@ -697,7 +701,7 @@ namespace BraveChess.Scenes
             UInt64 attackersBB;
             int sqIndex = BitboardHelper.getIndexFromSquare(s);
 
-            attackersBB = BitboardHelper.KnightAttacks[sqIndex];
+            attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & white_knights & black_knights);
             attackersBB |= (GenerateBishopMoves(s, Piece.Color.None) & black_bishops & white_bishops & black_queens & white_queens);
             attackersBB |= (GenerateRookMoves(s, Piece.Color.None) & black_rooks & white_rooks & black_queens & white_queens);
             //add pawn and king attacks
