@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Net;
 
 namespace BraveChess.Scenes
 {
-    class Level0 : Scene
+    class NetworkedLevel : Scene
     {
         protected List<Piece> _pieces = new List<Piece>();
         public List<Piece> Pieces { get { return _pieces; } }
@@ -62,7 +62,7 @@ namespace BraveChess.Scenes
         Square _currentSquare, _previousSquare, _goFromSquare, _goToSquare;
         List<Square> Moves;
 
-        public Level0(GameEngine _engine)
+        public NetworkedLevel(GameEngine _engine)
             : base("Level0", _engine) { }
 
         public override void Initialize()

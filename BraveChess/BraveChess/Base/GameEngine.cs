@@ -2,17 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
+using BraveChess.Screens;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Net;
+using Ruminate.GUI;
+using Ruminate.Utils;
 
 namespace BraveChess.Base
 {
     public class GameEngine : DrawableGameComponent
     {
+        public enum State
+        {
+            MainMenu,
+            Game
+        }
+
+        Dictionary<State, Screen> _screens = new Dictionary<State, Screen>();
+        State _currentState;
+        Screen _currentScreen;
+
         SpriteBatch batch;
         SpriteFont font;
         GameWindow Window;
@@ -29,6 +43,10 @@ namespace BraveChess.Base
         public GameEngine(Game _game)
             : base(_game)
         {
+            //Window.AllowUserResizing = true;
+            //Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
+            
+            
             _game.Components.Add(this);
 
             Input = new InputEngine(_game);
@@ -37,10 +55,28 @@ namespace BraveChess.Base
             FPSCounter = new FrameRateCounter(_game, new Vector2(10, 10));
             Debug = new DebugEngine();
             GameNetwork = new Networking(_game, this);
-        }//End of Constructor
+        }
+
+        void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if (_currentScreen != null)
+                _currentScreen.OnResize();
+        }
+
+        public void StateChange(State _newState)
+        {
+            if (_screens.ContainsKey(_newState))
+            {
+                _currentScreen = _screens[_newState];
+
+                if (_currentScreen != null)
+                    _currentScreen.Init(this);
+            }
+        }
 
         public override void Initialize()
         {
+            
             Debug.Initialize();
             
             base.Initialize();
@@ -58,14 +94,23 @@ namespace BraveChess.Base
         {
             if (ActiveScene != null)
                 ActiveScene.Update(gameTime);
+
             GameNetwork.Update(gameTime);
+
+            if (_currentScreen != null)
+                _currentScreen.Update();
+            
             base.Update(gameTime);
         }//End of Override
 
         public override void Draw(GameTime gameTime)
         {
+            if (_currentScreen != null)
+                _currentScreen.Draw();
+
             Draw3D();
             Draw2D();
+
 
             base.Draw(gameTime);
         }

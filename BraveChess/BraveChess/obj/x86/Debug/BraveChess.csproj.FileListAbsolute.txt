@@ -205,3 +205,4 @@ J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.csprojResolveAsse
 J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.exe
 J:\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.pdb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\RuminateGui.dll

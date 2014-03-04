@@ -90,6 +90,9 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="RuminateGui">
+      <HintPath>..\..\RuminateGui.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -125,6 +128,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Scenes\Level0.cs" />
+    <Compile Include="Scenes\StandartLevel.cs" />
+    <Compile Include="Screens\MainMenu.cs" />
+    <Compile Include="Screens\Screen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

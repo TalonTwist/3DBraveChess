@@ -181,7 +181,7 @@ namespace BraveChess
 
         protected void StartGame()
         {
-            _engine.LoadScene(new Level0(_engine));
+            _engine.LoadScene(new NetworkedLevel(_engine));
             _currentGameState = GameState.InGame;
         }
 
