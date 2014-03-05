@@ -181,8 +181,11 @@ namespace BraveChess
 
         protected void StartGame()
         {
-            _engine.LoadScene(new NetworkedLevel(_engine));
-            _currentGameState = GameState.InGame;
+            if (_engine._state == GameEngine.State.NetworkGame)
+            {
+                _engine.LoadScene(new NetworkedLevel(_engine));
+                _currentGameState = GameState.InGame;
+            }
         }
 
         public MessageType ProcessIncomingData(GameTime gameTime)

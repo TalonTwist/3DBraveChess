@@ -44,3 +44,7 @@ Content\Textures\Pieces\WhitePawn_0.xnb
 Content\Textures\Pieces\WhiteQueen_0.xnb
 Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
+Content\Skin\ImageMap.xnb
+Content\Skin\Texture.xnb
+Content\Skin\Map.txt
+Content\Skin\Metrics.xml

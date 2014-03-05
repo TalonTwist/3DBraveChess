@@ -79,10 +79,7 @@ namespace BraveChess.Scenes
              Engine.Cameras.AddCamera(_camWhite);
              Engine.Cameras.AddCamera(_camBlack);
 
-             if (Engine.GameNetwork.networkSession.IsHost)
-                 Engine.Cameras.SetActiveCamera("camWhite");
-             else
-                 Engine.Cameras.SetActiveCamera("camBlack");
+             
 
              #endregion
 
@@ -196,32 +193,10 @@ namespace BraveChess.Scenes
              base.Initialize();
          }//End of Method
 
-         //private void CheckIncomingPackets(GameTime gametime)
-         //{
-         //    if (Engine.GameNetwork.networkSession != null)
-         //    {
-         //        MessageType msg = Engine.GameNetwork.ProcessIncomingData(gametime);
-
-         //        if (msg == MessageType.UpdateOtherMove)
-         //        {
-         //            ReadMovePacket(); // reads incoming packet and process 
-         //            SwitchTurn(true);
-         //        }
-
-         //        //else if (msg == MessageType.ChangeTurnState)
-         //        //    SwitchTurn(true);
-         //    }
-         //} //end method
+        
 
          public override void Update(GameTime gametime)
          {
-             //CheckIncomingPackets(gametime);
-
-             //Check LocalGamers .Tag property, if true, then it is their move and we must accept Input
-             if ((bool)Engine.GameNetwork.networkSession.LocalGamers[0].Tag == true)
-                 HandleInput();
-
-
              if (Moves == null)
              {
                  foreach (Square s in Squares)
@@ -327,17 +302,6 @@ namespace BraveChess.Scenes
              base.Update(gametime);
          }//End of Method
 
-         //public void ReadMovePacket()
-         //{
-         //    Vector3 pos = Engine.GameNetwork.packetReader.ReadVector3();
-         //    int pieceType = Engine.GameNetwork.packetReader.ReadInt32();
-         //    int pieceColor = Engine.GameNetwork.packetReader.ReadInt32();
-         //    UInt64 fromSq = Engine.GameNetwork.packetReader.ReadUInt64();
-         //    UInt64 toSq = Engine.GameNetwork.packetReader.ReadUInt64();
-
-         //    MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Color)pieceColor, fromSq, toSq);
-         //}
-
          private void MovePiece(Piece piece, Square from, Square to)
          {
              UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
@@ -345,10 +309,7 @@ namespace BraveChess.Scenes
 
              UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
 
-             //Engine.GameNetwork.WriteMovePacket(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
-
              piece.UpdateWorld(GetNewPos(to)); //update world position of model
-
          }
 
          private bool TestMove(Piece piece, Square from, Square to)
@@ -384,9 +345,6 @@ namespace BraveChess.Scenes
          private void SwitchTurn(bool recieved)
          {
              Turn = Turn == TurnState.White ? TurnState.Black : TurnState.White;
-
-             //if (!recieved)
-             //    Engine.GameNetwork.TurnSwitch();
          }
 
          protected override void HandleInput()

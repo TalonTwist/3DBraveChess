@@ -14,6 +14,27 @@ namespace BraveChess.Screens
     {
         public override void Init(GameEngine game)
         {
+            Color = Color.White;
+
+            var skin = new Skin(game.GreyImageMap, game.GreyMap);
+            var text = new Text(game.GreySpriteFont, Color.Green);
+
+            _gui = new Gui(game.Game, skin, text);
+
+            _gui.Widgets = new Widget[]
+            {
+                new Button(20,80,200,"Start standart Game",buttonEvent:delegate(Widget widget)
+                    {
+                        game.StateChange(GameEngine.State.NonNetworkGame);
+                        game._state = GameEngine.State.NonNetworkGame;
+                    }),
+                    new Button(20,120,200,"Start Networked Game",buttonEvent:delegate(Widget widget)
+                        {
+                            game.StateChange(GameEngine.State.NetworkGame);
+                            game._state = GameEngine.State.NetworkGame;
+                        })
+                    
+            };
             
         }
     }

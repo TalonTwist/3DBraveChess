@@ -646,6 +646,24 @@
       <Output>obj\x86\Debug\Models\Untextured\Bishop Piece_0.xml</Output>
       <Time>2014-02-22T18:52:28+00:00</Time>
     </Item>
+    <Item>
+      <Source>Skin\ImageMap.png</Source>
+      <Name>Skin\ImageMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Skin\ImageMap.xnb</Output>
+      <Time>2014-03-05T11:34:12.4474862+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Skin\Texture.png</Source>
+      <Name>Skin\Texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Skin\Texture.xnb</Output>
+      <Time>2014-03-05T11:34:12.3300733+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

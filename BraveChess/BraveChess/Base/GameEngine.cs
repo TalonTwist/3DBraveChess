@@ -20,16 +20,24 @@ namespace BraveChess.Base
         public enum State
         {
             MainMenu,
-            Game
+            NonNetworkGame,
+            NetworkGame,
+            PlayingNormal,
+            PlayingNetworked
         }
 
-        Dictionary<State, Screen> _screens = new Dictionary<State, Screen>();
-        State _currentState;
-        Screen _currentScreen;
+        public Dictionary<State, Screen> _screens = new Dictionary<State, Screen>();
+        public State _currentState;
+        public Screen _currentScreen;
+        public State _state;
+
+        public SpriteFont GreySpriteFont;
+        public Texture2D GreyImageMap;
+        public string GreyMap;
 
         SpriteBatch batch;
         SpriteFont font;
-        GameWindow Window;
+        GameTime gameTime;
 
         public InputEngine Input { get; set; }
         public CameraEngine Cameras { get; set; }
@@ -43,10 +51,6 @@ namespace BraveChess.Base
         public GameEngine(Game _game)
             : base(_game)
         {
-            //Window.AllowUserResizing = true;
-            //Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
-            
-            
             _game.Components.Add(this);
 
             Input = new InputEngine(_game);
@@ -78,7 +82,9 @@ namespace BraveChess.Base
         {
             
             Debug.Initialize();
-            
+
+            _screens.Add(State.MainMenu, new MainMenu());
+
             base.Initialize();
         }//End of Override
 
@@ -86,6 +92,15 @@ namespace BraveChess.Base
         {
             batch = new SpriteBatch(GraphicsDevice);
             font = Game.Content.Load<SpriteFont>("Fonts\\debug");
+
+            GreyImageMap = Game.Content.Load<Texture2D>(@"Skin\ImageMap");
+            GreyMap = File.OpenText(@"Content\Skin\Map.txt").ReadToEnd();
+            GreySpriteFont = Game.Content.Load<SpriteFont>(@"Skin\Texture");
+
+            DebugUtils.Init(GraphicsDevice, GreySpriteFont);
+
+            StateChange(State.MainMenu);
+
             Debug.LoadContent(Game.Content);
             base.LoadContent();
         }//End of Override
@@ -95,11 +110,11 @@ namespace BraveChess.Base
             if (ActiveScene != null)
                 ActiveScene.Update(gameTime);
 
-            GameNetwork.Update(gameTime);
-
             if (_currentScreen != null)
                 _currentScreen.Update();
-            
+
+            ScreenStates();
+
             base.Update(gameTime);
         }//End of Override
 
@@ -109,15 +124,16 @@ namespace BraveChess.Base
                 _currentScreen.Draw();
 
             Draw3D();
-            Draw2D();
 
-
+            if (_state == State.PlayingNetworked)
+                Draw2D();
+          
             base.Draw(gameTime);
         }
 
         public void Draw2D() 
         {
-            switch(GameNetwork.CurrentGameState)
+            switch (GameNetwork.CurrentGameState)
             {
                 case GameState.SignIn:
                 case GameState.FindSession:
@@ -198,6 +214,27 @@ namespace BraveChess.Base
             batch.End();
         }
 
-        
+        private void ScreenStates()
+        {
+            switch (_state)
+            {
+                case State.MainMenu:
+                    break;
+                case State.NetworkGame:
+                    
+                    _state = State.PlayingNetworked;
+                    break;
+                case State.NonNetworkGame:
+                    LoadScene(new StandartLevel(this));
+                    _state = State.PlayingNormal;
+                    break;
+                case State.PlayingNormal:
+                    break;
+                case State.PlayingNetworked:
+                    GameNetwork.Update(gameTime);
+                    //Draw2D();
+                    break;
+            }
+        }
     }//End of Class
 }
