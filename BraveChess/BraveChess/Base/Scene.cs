@@ -13,6 +13,13 @@ namespace BraveChess.Base
 {
     public class Scene
     {
+        public enum SelectionState
+        {
+            SelectPiece,
+            PieceSelected,
+            SelectMove,
+            MoveSelected
+        }
         public enum TurnState
         {
             Black,
@@ -25,11 +32,12 @@ namespace BraveChess.Base
         static BitboardHelper BBHelper = new BitboardHelper();
         public string ID { get; set; }
         public TurnState Turn { get; set; }
+        public SelectionState SelectState { get; set; }
         public List<GameObject3D> Objects { get { return _sceneObjects; } }
 
         protected Camera _camWhite, _camBlack;
         protected int _currentI, _currentJ;
-        protected bool PieceIsSelected = false, DestinationIsSelected = false, IsFight = false;
+        protected bool  IsFight = false;
         protected Piece PieceToCapture, PieceToMove;
         protected Square _currentSquare, _previousSquare, _goFromSquare, _goToSquare;
         protected List<Square> Moves;
@@ -227,13 +235,12 @@ namespace BraveChess.Base
 
                 _currentSquare = Squares[_currentI, _currentJ];
 
-                if (!PieceIsSelected) //if a piece hasnt been selected, highlight
+                if (SelectState == SelectionState.SelectPiece) //if a piece hasnt been selected, highlight
                 {
                     _currentSquare.IsSelected = true;
                 }
-                else                    //if piece already selected, no highlight, remove highlights
-                    _previousSquare.IsSelected = false;
-
+                else
+                    _previousSquare = null;
 
                 _previousSquare = _currentSquare;
             }
@@ -265,6 +272,16 @@ namespace BraveChess.Base
             for (int i = 0; i < _sceneObjects.Count; i++)
                 if (_sceneObjects[i].ID == id)
                     _sceneObjects.RemoveAt(i);
+        }
+
+        protected void ResetMoves()
+        {
+            if (Moves != null)
+            {
+                foreach (Square s in Moves)
+                    s.IsMoveOption = s.IsMoveOption == true ? false : false;
+            }
+            Moves = null;
         }
     }
 }

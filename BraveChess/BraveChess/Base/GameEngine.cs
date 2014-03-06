@@ -37,7 +37,6 @@ namespace BraveChess.Base
 
         SpriteBatch batch;
         SpriteFont font;
-        GameTime gameTime;
 
         public InputEngine Input { get; set; }
         public CameraEngine Cameras { get; set; }
@@ -82,7 +81,6 @@ namespace BraveChess.Base
 
         public override void Initialize()
         {
-            
             Debug.Initialize();
 
             _screens.Add(State.MainMenu, new MainMenu());
@@ -116,7 +114,7 @@ namespace BraveChess.Base
             if (_currentScreen != null)
                 _currentScreen.Update();
 
-            ScreenStates();
+            ScreenStates(gameTime);
 
             base.Update(gameTime);
         }//End of Override
@@ -217,7 +215,7 @@ namespace BraveChess.Base
             batch.End();
         }
 
-        private void ScreenStates()
+        private void ScreenStates(GameTime gameTime)
         {
             switch (_state)
             {

@@ -124,112 +124,101 @@ namespace BraveChess.Scenes
 
             //Check LocalGamers .Tag property, if true, then it is their move and we must accept Input
             if((bool)Engine.Network.networkSession.LocalGamers[0].Tag == true)
-                HandleInput();        
+                HandleInput();
 
-            if (Moves == null)
-            {
-                foreach (Square s in Squares)
-                    s.IsMoveOption = false;
-            }
-
-            if (PieceIsSelected && Moves == null)
-                Moves = GenerateMoves(PieceToMove, _goFromSquare);
-
-            if (Moves != null)
-            {
-                foreach (Square s in Moves)
-                    s.IsMoveOption = true;
-            }
-
-            //when _currentSquare != null, a selection has occurred and we need to process
-            if (!PieceIsSelected && _currentSquare != null) //havent selected a Piece to move yet
-            {
-                PieceToMove = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
-
-                    //Piece is selected and piece is of right colour = valid selection
-                    if (PieceToMove != null && ((int)PieceToMove.ColorType) == (int)Turn)
-                    {
-                        PieceIsSelected = true;
-                        _goFromSquare = _currentSquare;
-                    }
-                    else
-                        PieceToMove = null;
-                
-                _currentSquare = null;
-            }
-
-            if (PieceIsSelected && !DestinationIsSelected && _currentSquare != null)  //A piece has been selected, no destination selected yet
-            {
-                if (Moves != null && Moves.Contains(_currentSquare)) //if valid move is selected
-                {
-                    PieceToCapture = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
-
-                    if (PieceToCapture != null)
-                    {
-                        IsFight = true;
-                    }
-
-                    DestinationIsSelected = true;
-                    _goToSquare = _currentSquare;
-                    Moves = null;
-                }
-                else //user selected a square outside Moves array
-                {
-                    Piece p = GetPiece(_currentSquare.World.Translation + new Vector3(0,2,0));
-
-                    if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
-                    {
-                        DestinationIsSelected = false;
-                        PieceToMove = p;
-                        _goFromSquare = _currentSquare;
-                    }
-                    else //reset
-                    {
-                        PieceIsSelected = false;
-                        PieceToMove = null;
-                        _goFromSquare = null;
-                    }
-
-                    Moves = null;
-                }
-                _currentSquare = null;
-           }
-         
-            if (PieceIsSelected && DestinationIsSelected) //Piece is Selected, destination is selected, Need to process Move
-            {
-                //check for pawn queening, piece pinned
-
-                //play animations
-
-                //make move
-                _currentSquare = null;
-                PieceIsSelected = false;
-                DestinationIsSelected = false;
-                Moves = null;
-                
-                //Make sure the move doesnt leave king in check
-                if (TestMove(PieceToMove, _goFromSquare, _goToSquare))
-                {
-                    if (IsFight)
-                        PieceToCapture.Destroy();
-                    MovePiece(PieceToMove, _goFromSquare, _goToSquare);
-
-                    PieceToMove = null;
-                    PieceToCapture = null;
-                    IsFight = false;
-
-                    //Changes turnState and informs other player
-                    SwitchTurn(false);
-                }
-                //else
-                    //Write message
-                    //sorry that would leave you in check
-
-                
-            }
+            UpdateSelection();
             
             base.Update(gametime);
         }//End of Method
+
+        private void UpdateSelection()
+        {
+            switch (SelectState)
+            {
+                case SelectionState.SelectPiece:
+                    if (_currentSquare != null)
+                    {
+                        PieceToMove = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
+
+                        if (PieceToMove != null && ((int)PieceToMove.ColorType) == (int)Turn)
+                        {
+                            _goFromSquare = _currentSquare;
+                            SelectState = SelectionState.PieceSelected;
+                        }
+
+                        _currentSquare = null;
+                    }
+                    break;
+
+                case SelectionState.PieceSelected:
+                    Moves = GenerateMoves(PieceToMove, _goFromSquare);
+                    if (Moves != null)
+                    {
+                        foreach (Square s in Moves)
+                            s.IsMoveOption = true;
+                        SelectState = SelectionState.SelectMove;
+                    }
+                    else
+                    {
+                        ResetMoves();
+                        SelectState = SelectionState.SelectPiece;
+                    }
+                    break;
+
+                case SelectionState.SelectMove:
+                    if (_currentSquare != null && Moves.Contains(_currentSquare))
+                    {
+                        PieceToCapture = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
+
+                        if (PieceToCapture != null)
+                            IsFight = true;
+
+                        _goToSquare = _currentSquare;
+
+                        SelectState = SelectionState.MoveSelected;
+                    }
+                    else if (_currentSquare != null)
+                    {
+                        Piece p = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
+
+                        if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
+                        {
+                            PieceToMove = p;
+                            _goFromSquare = _currentSquare;
+                            SelectState = SelectionState.PieceSelected;
+                        }
+                        else
+                            SelectState = SelectionState.SelectPiece;
+                        ResetMoves();
+                    }
+
+                    _currentSquare = null;
+                    break;
+
+                case SelectionState.MoveSelected:
+                    ResetMoves();
+
+                    //check for pawn queening
+
+                    //Make sure the move doesnt leave king in check(test the move)
+                    if (TestMove(PieceToMove, _goFromSquare, _goToSquare))
+                    {
+                        if (IsFight)
+                            PieceToCapture.Destroy(); //Remove the captured piece, if any
+
+                        MovePiece(PieceToMove, _goFromSquare, _goToSquare); //make the move
+
+                        SelectState = SelectionState.SelectPiece; //reset
+                        IsFight = false;
+
+                        SwitchTurn(false); //Changes turnState 
+                    }
+                    //else> Write message "sorry that would leave you in check"
+
+                    break;
+
+            } // end switch
+        }
 
         public void ReadMovePacket()
         {
@@ -429,11 +418,11 @@ namespace BraveChess.Scenes
             UInt64 validMovesBB;
             int sqIndex = BitboardHelper.getIndexFromSquare(s);
 
-            if (c == Piece.Color.Black)
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & BlackPieces;
+            if (c == Piece.Color.White)
+                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & WhitePieces;
 
             else if (c == Piece.Color.Black)
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & WhitePieces;
+                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & BlackPieces;
 
             else
                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex];
