@@ -99,7 +99,7 @@ namespace BraveChess.Scenes
             else
                 Engine.Cameras.SetActiveCamera("camBlack");
 
-            Moves = new List<Square>();         
+            MovesAvailable = new List<Square>();         
             
         }//End of Method
 
@@ -151,10 +151,10 @@ namespace BraveChess.Scenes
                     break;
 
                 case SelectionState.PieceSelected:
-                    Moves = GenerateMoves(PieceToMove, _goFromSquare);
-                    if (Moves != null)
+                    MovesAvailable = GenerateMoves(PieceToMove, _goFromSquare);
+                    if (MovesAvailable != null)
                     {
-                        foreach (Square s in Moves)
+                        foreach (Square s in MovesAvailable)
                             s.IsMoveOption = true;
                         SelectState = SelectionState.SelectMove;
                     }
@@ -166,7 +166,7 @@ namespace BraveChess.Scenes
                     break;
 
                 case SelectionState.SelectMove:
-                    if (_currentSquare != null && Moves.Contains(_currentSquare))
+                    if (_currentSquare != null && MovesAvailable.Contains(_currentSquare))
                     {
                         PieceToCapture = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
 

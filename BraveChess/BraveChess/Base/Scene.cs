@@ -34,14 +34,16 @@ namespace BraveChess.Base
         public TurnState Turn { get; set; }
         public SelectionState SelectState { get; set; }
         public List<GameObject3D> Objects { get { return _sceneObjects; } }
+        public List<Move> AllMoves { get { return _allMoves; } }
 
         protected Camera _camWhite, _camBlack;
         protected int _currentI, _currentJ;
         protected bool  IsFight = false;
         protected Piece PieceToCapture, PieceToMove;
         protected Square _currentSquare, _previousSquare, _goFromSquare, _goToSquare;
-        protected List<Square> Moves;
+        protected List<Square> MovesAvailable;
         protected Square[,] Squares;
+        protected List<Move> _allMoves = new List<Move>();
         protected List<Piece> _pieces = new List<Piece>();
         protected List<GameObject3D> _sceneObjects = new List<GameObject3D>();
         protected GameEngine Engine;
@@ -276,12 +278,12 @@ namespace BraveChess.Base
 
         protected void ResetMoves()
         {
-            if (Moves != null)
+            if (MovesAvailable != null)
             {
-                foreach (Square s in Moves)
+                foreach (Square s in MovesAvailable)
                     s.IsMoveOption = s.IsMoveOption == true ? false : false;
             }
-            Moves = null;
+            MovesAvailable = null;
         }
     }
 }

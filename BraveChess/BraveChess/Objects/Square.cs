@@ -127,5 +127,14 @@ namespace BraveChess.Objects
 
             base.Draw(camera);
         }//End Method
+
+        public string ToAlgebraic()
+        {
+            string str = "";
+            str += (char)(file + 97);
+            str += (rank + 1).ToString();
+
+            return str;
+        }
     }
 }

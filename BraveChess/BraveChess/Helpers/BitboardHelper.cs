@@ -102,6 +102,9 @@ namespace BraveChess
             }
             generateOccupancyVariations(false);
             generateMoveDatabase(false);
+
+            occupancyAttackSet = null;
+            occupancyVariation = null;
         }
 
         static public int getIndexFromSquare(Square s)
@@ -134,6 +137,7 @@ namespace BraveChess
             return s;
         }
 
+        // De Bruijn Multiplication, see http://chessprogramming.wikispaces.com/BitScan
         static public uint bitScanForward(ulong bb)
         {
             uint[] debruijn64Array = new uint[64]

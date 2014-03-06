@@ -27,7 +27,8 @@ namespace BraveChess.Objects
             Bishop,
             Queen,
             King,
-            Pawn
+            Pawn,
+           None
         }
 
         public Model Model3D { get; set; }
