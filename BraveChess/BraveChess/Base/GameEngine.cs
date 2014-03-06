@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Net;
 using Ruminate.GUI;
 using Ruminate.Utils;
+using BraveChess.Engines;
 
 namespace BraveChess.Base
 {
@@ -43,6 +44,7 @@ namespace BraveChess.Base
         public AudioEngine Audio { get; set; }
         public DebugEngine Debug { get; set; }
         public FrameRateCounter FPSCounter { get; set; }
+        public NotificationEngine NoteEngine;
         public NetworkEngine Network { get; set; }
 
         public Scene ActiveScene { get; set; }
@@ -57,6 +59,7 @@ namespace BraveChess.Base
             Audio = new AudioEngine(_game);
             FPSCounter = new FrameRateCounter(_game, new Vector2(10, 10));
             Debug = new DebugEngine();
+            NoteEngine = new NotificationEngine(_game, 3);
           //  GameNetwork = new Networking(_game, this);
         }
 
@@ -236,6 +239,17 @@ namespace BraveChess.Base
                     Network.Update(gameTime);
                     //Draw2D();
                     break;
+            }
+        }
+
+        public void LoadRuntimeObject(GameObject3D gameObject)
+        {
+            if (gameObject != null)
+            {
+                gameObject.LoadContent(Game.Content);
+
+                ActiveScene.Objects.Add(gameObject);
+
             }
         }
     }//End of Class

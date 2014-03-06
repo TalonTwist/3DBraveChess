@@ -14,6 +14,8 @@ using Microsoft.Xna.Framework.Media;
 using BraveChess.Engines;
 using BraveChess.Base;
 using BraveChess.Objects;
+using BraveChess;
+using BraveChess.Engines;
 
 namespace BraveChess.Scenes
 {
@@ -219,6 +221,7 @@ namespace BraveChess.Scenes
              }
 
              AllMoves.Add(new Move(from, to, piece)); //add new Move to list AllMoves
+             NotificationEngine.AddNotification(new Notification(AllMoves.Last().ToAlgebraic(), 3000));
              return true;
          } //sorry that would leave you in check
 

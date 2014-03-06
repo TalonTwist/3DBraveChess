@@ -114,6 +114,7 @@
     <Compile Include="Base\GameEngine.cs" />
     <Compile Include="Base\GameObject3D.cs" />
     <Compile Include="Base\Scene.cs" />
+    <Compile Include="Engines\NotificationEngine.cs" />
     <Compile Include="Helpers\BitboardHelper.cs" />
     <Compile Include="Engines\AudioEngine.cs" />
     <Compile Include="Engines\CameraEngine.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Engines\NetworkEngine.cs" />
     <Compile Include="Move.cs" />
+    <Compile Include="Notification.cs" />
     <Compile Include="Objects\Piece.cs" />
     <Compile Include="Objects\Square.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
