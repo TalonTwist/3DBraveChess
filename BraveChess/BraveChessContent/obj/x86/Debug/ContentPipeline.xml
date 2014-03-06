@@ -11,7 +11,7 @@
       <Time>2014-03-01T23:44:46.2900476+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black King_0.xml</Key>
-        <Value>2014-03-03T00:58:26.2570731+00:00</Value>
+        <Value>2014-03-05T14:57:42.9154364+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing_0.xnb</Request>
     </Item>
@@ -25,7 +25,7 @@
       <Time>2014-03-01T23:44:46.2930477+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Knight_0.xml</Key>
-        <Value>2014-03-03T00:58:27.7704404+00:00</Value>
+        <Value>2014-03-05T14:57:44.3250498+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight_0.xnb</Request>
     </Item>
@@ -39,7 +39,7 @@
       <Time>2014-03-01T23:44:46.2970488+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Pawn_0.xml</Key>
-        <Value>2014-03-03T00:58:28.6814915+00:00</Value>
+        <Value>2014-03-05T14:57:45.2726518+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn_0.xnb</Request>
     </Item>
@@ -53,7 +53,7 @@
       <Time>2014-03-01T23:44:46.3160491+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Queen_0.xml</Key>
-        <Value>2014-03-03T00:58:29.5731455+00:00</Value>
+        <Value>2014-03-05T14:57:46.2105495+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen_0.xnb</Request>
     </Item>
@@ -67,7 +67,7 @@
       <Time>2014-03-01T23:44:46.3200498+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Rook_0.xml</Key>
-        <Value>2014-03-03T00:58:30.510586+00:00</Value>
+        <Value>2014-03-05T14:57:47.1523661+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook_0.xnb</Request>
     </Item>
@@ -81,7 +81,7 @@
       <Time>2014-03-01T23:44:46.32405+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\BlackSquare_0.xml</Key>
-        <Value>2014-03-03T00:58:31.4320482+00:00</Value>
+        <Value>2014-03-05T14:57:48.1296068+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb</Request>
     </Item>
@@ -95,7 +95,7 @@
       <Time>2014-03-01T23:44:46.333051+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White King_0.xml</Key>
-        <Value>2014-03-03T00:58:32.411575+00:00</Value>
+        <Value>2014-03-05T14:57:49.2199522+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing_0.xnb</Request>
     </Item>
@@ -109,7 +109,7 @@
       <Time>2014-03-01T23:44:46.3370504+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Knight_0.xml</Key>
-        <Value>2014-03-03T00:58:33.4184823+00:00</Value>
+        <Value>2014-03-05T14:57:50.2874139+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight_0.xnb</Request>
     </Item>
@@ -123,7 +123,7 @@
       <Time>2014-03-01T23:44:46.3400506+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Pawn_0.xml</Key>
-        <Value>2014-03-03T00:58:33.8746733+00:00</Value>
+        <Value>2014-03-05T14:57:50.7676681+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn_0.xnb</Request>
     </Item>
@@ -137,7 +137,7 @@
       <Time>2014-03-01T23:44:46.3450308+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Queen_0.xml</Key>
-        <Value>2014-03-03T00:58:34.8750771+00:00</Value>
+        <Value>2014-03-05T14:57:51.9019428+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen_0.xnb</Request>
     </Item>
@@ -151,7 +151,7 @@
       <Time>2014-03-01T23:44:46.3490507+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Rook_0.xml</Key>
-        <Value>2014-03-03T00:58:35.9036825+00:00</Value>
+        <Value>2014-03-05T14:57:53.0847095+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook_0.xnb</Request>
     </Item>
@@ -165,7 +165,7 @@
       <Time>2014-03-01T23:44:46.3530514+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\WhiteSquare_0.xml</Key>
-        <Value>2014-03-03T00:58:36.9399375+00:00</Value>
+        <Value>2014-03-05T14:57:54.2622946+00:00</Value>
       </Dependency>
       <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb</Request>
     </Item>
@@ -179,7 +179,7 @@
       <Time>2014-03-01T23:44:46.3280507+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Untextured\Bishop Piece_0.xml</Key>
-        <Value>2014-03-03T00:58:37.8910879+00:00</Value>
+        <Value>2014-03-05T14:57:55.2735234+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -362,6 +362,24 @@
       <Options>None</Options>
       <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\WhiteKnight.xnb</Output>
       <Time>2014-03-01T23:44:46.6510695+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Skin\ImageMap.png</Source>
+      <Name>Skin\ImageMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Skin\ImageMap.xnb</Output>
+      <Time>2014-03-05T14:54:16.4606594+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Skin\Texture.png</Source>
+      <Name>Skin\Texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Skin\Texture.xnb</Output>
+      <Time>2014-03-05T14:54:16.4676569+00:00</Time>
     </Item>
     <Item>
       <Source>Models\Black King.fbx</Source>

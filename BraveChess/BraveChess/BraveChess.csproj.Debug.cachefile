@@ -31,6 +31,8 @@ Content\Textures\Pieces\WhiteRook.xnb
 Content\Textures\Pieces\thumbnail\BlackBishop.xnb
 Content\Textures\Pieces\thumbnail\BlackKing.xnb
 Content\Textures\Pieces\thumbnail\WhiteKnight.xnb
+Content\Skin\ImageMap.xnb
+Content\Skin\Texture.xnb
 Content\Textures\Pieces\BlackKing_0.xnb
 Content\Textures\Pieces\BlackKnight_0.xnb
 Content\Textures\Pieces\BlackPawn_0.xnb
@@ -44,3 +46,5 @@ Content\Textures\Pieces\WhiteQueen_0.xnb
 Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
 Content\Audio\Songs\BackgroundSong.wma
+Content\Skin\Map.txt
+Content\Skin\Metrics.xml

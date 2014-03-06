@@ -2,27 +2,49 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
+using BraveChess.Screens;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Net;
+using Ruminate.GUI;
+using Ruminate.Utils;
 
 namespace BraveChess.Base
 {
     public class GameEngine : DrawableGameComponent
     {
+        public enum State
+        {
+            MainMenu,
+            NonNetworkGame,
+            NetworkGame,
+            PlayingNormal,
+            PlayingNetworked
+        }
+
+        public Dictionary<State, Screen> _screens = new Dictionary<State, Screen>();
+        public State _currentState;
+        public Screen _currentScreen;
+        public State _state;
+
+        public SpriteFont GreySpriteFont;
+        public Texture2D GreyImageMap;
+        public string GreyMap;
+
         SpriteBatch batch;
         SpriteFont font;
-        GameWindow Window;
+        GameTime gameTime;
 
         public InputEngine Input { get; set; }
         public CameraEngine Cameras { get; set; }
         public AudioEngine Audio { get; set; }
         public DebugEngine Debug { get; set; }
         public FrameRateCounter FPSCounter { get; set; }
-        public Networking GameNetwork { get; set; }
+        public NetworkEngine Network { get; set; }
 
         public Scene ActiveScene { get; set; }
 
@@ -36,13 +58,35 @@ namespace BraveChess.Base
             Audio = new AudioEngine(_game);
             FPSCounter = new FrameRateCounter(_game, new Vector2(10, 10));
             Debug = new DebugEngine();
-            GameNetwork = new Networking(_game, this);
-        }//End of Constructor
+          //  GameNetwork = new Networking(_game, this);
+        }
+
+        void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if (_currentScreen != null)
+                _currentScreen.OnResize();
+        }
+
+        public void StateChange(State _newState)
+        {
+            if (_screens.ContainsKey(_newState))
+            {
+                _currentScreen = _screens[_newState];
+
+                if (_currentScreen != null)
+                    _currentScreen.Init(this);
+            }
+            else
+                _currentScreen = null;
+        }
 
         public override void Initialize()
         {
-            Debug.Initialize();
             
+            Debug.Initialize();
+
+            _screens.Add(State.MainMenu, new MainMenu());
+
             base.Initialize();
         }//End of Override
 
@@ -50,6 +94,16 @@ namespace BraveChess.Base
         {
             batch = new SpriteBatch(GraphicsDevice);
             font = Game.Content.Load<SpriteFont>("Fonts\\debug");
+
+            GreyImageMap = Game.Content.Load<Texture2D>(@"Skin\ImageMap");
+            GreyMap = File.OpenText(@"Content\Skin\Map.txt").ReadToEnd();
+            GreySpriteFont = Game.Content.Load<SpriteFont>(@"Skin\Texture");
+
+            DebugUtils.Init(GraphicsDevice, GreySpriteFont);
+
+            StateChange(State.MainMenu);
+            //LoadScene(new StandardLevel(this));
+
             Debug.LoadContent(Game.Content);
             base.LoadContent();
         }//End of Override
@@ -58,21 +112,31 @@ namespace BraveChess.Base
         {
             if (ActiveScene != null)
                 ActiveScene.Update(gameTime);
-            GameNetwork.Update(gameTime);
+
+            if (_currentScreen != null)
+                _currentScreen.Update();
+
+            ScreenStates();
+
             base.Update(gameTime);
         }//End of Override
 
         public override void Draw(GameTime gameTime)
         {
-            Draw3D();
-            Draw2D();
+            if (_currentScreen != null)
+                _currentScreen.Draw();
 
+            Draw3D();
+
+            if (_state == State.PlayingNetworked)
+                Draw2D();
+          
             base.Draw(gameTime);
         }
 
         public void Draw2D() 
         {
-            switch(GameNetwork.CurrentGameState)
+            switch (Network.CurrentGameState)
             {
                 case GameState.SignIn:
                 case GameState.FindSession:
@@ -117,12 +181,12 @@ namespace BraveChess.Base
             batch.Begin();
             
             // Draw instructions
-            string text = GameNetwork.networkSession.Host.Gamertag + " is the HOST";
+            string text = Network.networkSession.Host.Gamertag + " is the HOST";
             batch.DrawString(font, text, new Vector2((GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(text).X /2), 50),
                 Color.SaddleBrown);
 
             // If both gamers are there, tell gamers to press space bar or Start to begin
-            if (GameNetwork.networkSession.AllGamers.Count == 2)
+            if (Network.networkSession.AllGamers.Count == 2)
             {
                 text = "(Game is ready. Press Spacebar or Start button to begin)";
                 batch.DrawString(font, text,
@@ -142,7 +206,7 @@ namespace BraveChess.Base
             // then draw list of all gamers currently in the game
             text = "\n\nCurrent Player(s):";
             float _txtWidth = font.MeasureString(text).X / 2;
-            foreach (Gamer gamer in GameNetwork.networkSession.AllGamers)
+            foreach (Gamer gamer in Network.networkSession.AllGamers)
             {
                 text += "\n" + gamer.Gamertag;
             }
@@ -153,6 +217,28 @@ namespace BraveChess.Base
             batch.End();
         }
 
-        
+        private void ScreenStates()
+        {
+            switch (_state)
+            {
+                case State.MainMenu:
+                    break;
+                case State.NetworkGame:
+                    Network = new NetworkEngine(this.Game, this);
+                    _state = State.PlayingNetworked;
+                    break;
+                case State.NonNetworkGame:
+                    StateChange(State.NonNetworkGame);
+                    LoadScene(new StandardLevel(this));
+                    _state = State.PlayingNormal;
+                    break;
+                case State.PlayingNormal:
+                    break;
+                case State.PlayingNetworked:
+                    Network.Update(gameTime);
+                    //Draw2D();
+                    break;
+            }
+        }
     }//End of Class
 }

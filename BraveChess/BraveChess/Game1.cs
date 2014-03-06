@@ -12,6 +12,7 @@ using BraveChess.Engines;
 using BraveChess.Base;
 using BraveChess.Objects;
 using BraveChess.Scenes;
+using BraveChess.Screens;
 
 namespace BraveChess
 {
@@ -27,17 +28,28 @@ namespace BraveChess
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = 980;
+            graphics.PreferredBackBufferHeight = 520;
             graphics.PreferMultiSampling = true;
             graphics.ApplyChanges();
 
+
+            Window.AllowUserResizing = true;
+            Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
             IsMouseVisible = true;
 
             gameEngine = new GameEngine(this);
 
             Content.RootDirectory = "Content";  
         }
+
+        void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if (gameEngine._currentScreen != null)
+                gameEngine._currentScreen.OnResize();
+        }
+
+        
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
