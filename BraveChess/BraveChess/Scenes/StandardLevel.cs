@@ -183,7 +183,7 @@ namespace BraveChess.Scenes
                      if (TestMove(PieceToMove, _goFromSquare, _goToSquare))
                      {
                          if (IsFight)
-                             PieceToCapture.Destroy(); //Remove the captured piece, if any
+                             CapturePiece(); //Remove the captured piece
 
                          MovePiece(PieceToMove, _goFromSquare, _goToSquare); //make the move
 
@@ -197,6 +197,13 @@ namespace BraveChess.Scenes
                      break;
 
              } // end switch
+         }
+
+         private void CapturePiece() //Remove the Piece and update bitboards
+         {
+             UpdateRelevantbb(PieceToCapture.Piece_Type, PieceToCapture.ColorType, BitboardHelper.getBitboardFromSquare(_goToSquare), 0);
+             _pieces.Remove(PieceToCapture);
+             PieceToCapture.Destroy();
          }
 
          private void MovePiece(Piece piece, Square from, Square to)

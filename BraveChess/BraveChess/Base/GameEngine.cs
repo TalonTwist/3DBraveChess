@@ -102,8 +102,8 @@ namespace BraveChess.Base
 
             DebugUtils.Init(GraphicsDevice, GreySpriteFont);
 
-            StateChange(State.MainMenu);
-            //LoadScene(new StandardLevel(this));
+            //StateChange(State.MainMenu);
+            LoadScene(new StandardLevel(this));
 
             Debug.LoadContent(Game.Content);
             base.LoadContent();

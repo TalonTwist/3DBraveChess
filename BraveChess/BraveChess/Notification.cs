@@ -17,7 +17,7 @@ namespace BraveChess
         {
             Message = message;
             LifeTime = lifetime;
-            Color = Color.White;
+            Color = Color.Black;
         }
 
         public Notification(string message, float lifetime, Color color)

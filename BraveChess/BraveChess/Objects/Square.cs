@@ -132,7 +132,7 @@ namespace BraveChess.Objects
         {
             string str = "";
             str += (char)(file + 97);
-            str += (rank + 1).ToString();
+            str += ((int)rank + 1).ToString();
 
             return str;
         }
