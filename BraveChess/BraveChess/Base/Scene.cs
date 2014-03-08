@@ -8,6 +8,8 @@ using BraveChess.Engines;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Graphics;
+using BraveChess.Screens;
+using Ruminate.GUI.Framework;
 
 namespace BraveChess.Base
 {
@@ -28,6 +30,8 @@ namespace BraveChess.Base
 
         #region public, protected and private variables
 
+        Screen screen;
+        KeyEventArgs e;
         public List<Piece> Pieces { get { return _pieces; } }
         static BitboardHelper BBHelper = new BitboardHelper();
         public string ID { get; set; }
@@ -139,9 +143,11 @@ namespace BraveChess.Base
             Squares[_currentI, _currentJ].IsHover = true;
             #endregion
 
+            e = new KeyEventArgs(Keys.Up);
+
             for (int i = 0; i < _sceneObjects.Count; i++)
                 _sceneObjects[i].Initialise();
-        }//End of Method
+        }
 
         public virtual void Update(GameTime gametime)
         {

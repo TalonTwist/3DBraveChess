@@ -7,12 +7,13 @@ using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
 using BraveChess.Screens;
+using BraveChess.Objects;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Net;
 using Ruminate.GUI;
 using Ruminate.Utils;
-using BraveChess.Engines;
+
 
 namespace BraveChess.Base
 {
@@ -24,14 +25,17 @@ namespace BraveChess.Base
             NonNetworkGame,
             NetworkGame,
             PlayingNormal,
-            PlayingNetworked
+            PlayingNetworked,
+            ExitGame
         }
 
         public Dictionary<State, Screen> _screens = new Dictionary<State, Screen>();
         public State _currentState;
         public Screen _currentScreen;
-        public State _state;
-
+        public State _currentScreenState = State.MainMenu;
+        
+        Button btnStandart,btnNetworked,btnExit;
+       
         public SpriteFont GreySpriteFont;
         public Texture2D GreyImageMap;
         public string GreyMap;
@@ -96,14 +100,21 @@ namespace BraveChess.Base
             batch = new SpriteBatch(GraphicsDevice);
             font = Game.Content.Load<SpriteFont>("Fonts\\debug");
 
-            GreyImageMap = Game.Content.Load<Texture2D>(@"Skin\ImageMap");
-            GreyMap = File.OpenText(@"Content\Skin\Map.txt").ReadToEnd();
-            GreySpriteFont = Game.Content.Load<SpriteFont>(@"Skin\Texture");
+            btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandartGameButton"),
+                new Vector2(50,150), GraphicsDevice);
+            btnNetworked = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"), 
+                new Vector2(50, 200), GraphicsDevice);
+            btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"), 
+                new Vector2(50, 250), GraphicsDevice);
 
-            DebugUtils.Init(GraphicsDevice, GreySpriteFont);
+            //GreyImageMap = Game.Content.Load<Texture2D>(@"Skin\ImageMap");
+            //GreyMap = File.OpenText(@"Content\Skin\Map.txt").ReadToEnd();
+            //GreySpriteFont = Game.Content.Load<SpriteFont>(@"Skin\Texture");
+
+            //DebugUtils.Init(GraphicsDevice, GreySpriteFont);
 
             //StateChange(State.MainMenu);
-            LoadScene(new StandardLevel(this));
+            //LoadScene(new StandardLevel(this));
 
             Debug.LoadContent(Game.Content);
             base.LoadContent();
@@ -124,12 +135,16 @@ namespace BraveChess.Base
 
         public override void Draw(GameTime gameTime)
         {
+            
+            ScreenStatesDraw();
+            
+
             if (_currentScreen != null)
                 _currentScreen.Draw();
 
             Draw3D();
 
-            if (_state == State.PlayingNetworked)
+            if (_currentScreenState == State.PlayingNetworked)
                 Draw2D();
           
             base.Draw(gameTime);
@@ -220,24 +235,55 @@ namespace BraveChess.Base
 
         private void ScreenStates(GameTime gameTime)
         {
-            switch (_state)
+            switch (_currentScreenState)
             {
                 case State.MainMenu:
+                    btnStandart.Draw(batch);
+                    if (btnStandart.isClicked)
+                        _currentScreenState = State.NonNetworkGame;
+                    else if (btnNetworked.isClicked)
+                        _currentScreenState = State.NetworkGame;
+                    else if (btnExit.isClicked)
+                        _currentScreenState = State.ExitGame;
+                    btnStandart.Update();
+                    btnNetworked.Update();
+                    btnExit.Update();
                     break;
                 case State.NetworkGame:
                     Network = new NetworkEngine(this.Game, this);
-                    _state = State.PlayingNetworked;
+                    _currentScreenState = State.PlayingNetworked;
                     break;
                 case State.NonNetworkGame:
                     StateChange(State.NonNetworkGame);
                     LoadScene(new StandardLevel(this));
-                    _state = State.PlayingNormal;
+                    _currentScreenState = State.PlayingNormal;
                     break;
                 case State.PlayingNormal:
                     break;
                 case State.PlayingNetworked:
                     Network.Update(gameTime);
-                    //Draw2D();
+                    break;
+                case State.ExitGame:
+                    break;
+            }
+        }
+
+        private void ScreenStatesDraw()
+        {
+            switch (_currentScreenState)
+            {
+                case State.MainMenu:
+                    btnStandart.Draw(batch);
+                    btnNetworked.Draw(batch);
+                    btnExit.Draw(batch);
+                    break;
+                case State.NetworkGame:
+                    break;
+                case State.NonNetworkGame:
+                    break;
+                case State.PlayingNormal:
+                    break;
+                case State.PlayingNetworked:
                     break;
             }
         }

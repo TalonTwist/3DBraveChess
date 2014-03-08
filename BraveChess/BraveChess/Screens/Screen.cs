@@ -10,12 +10,12 @@ using BraveChess.Base;
 
 namespace BraveChess.Screens
 {
-    public abstract class Screen
+    public class Screen
     {
         public Color Color { get; set; }
-        protected Gui _gui;
+        public Gui _gui;
 
-        public abstract void Init(GameEngine game);
+        public virtual void Init(GameEngine game) {}
 
         public virtual void OnResize()//allows UI to scale with window if user resizing == true
         {
@@ -29,13 +29,6 @@ namespace BraveChess.Screens
                 _gui.Update();
         }
 
-        void _gui_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Microsoft.Xna.Framework.Input.Keys.A)
-            {
-               
-            }
-        }
 
         public virtual void Draw()//draws interface
         {

@@ -45,6 +45,10 @@ Content\Textures\Pieces\WhitePawn_0.xnb
 Content\Textures\Pieces\WhiteQueen_0.xnb
 Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
+Content\Buttons\ExitGameButton.xnb
+Content\Buttons\NetworkButton.xnb
+Content\Buttons\StandartGameButton.xnb
+Content\Buttons\Hover.xnb
 Content\Audio\Songs\BackgroundSong.wma
 Content\Skin\Map.txt
 Content\Skin\Metrics.xml
