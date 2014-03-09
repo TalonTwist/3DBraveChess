@@ -50,5 +50,6 @@ Content\Buttons\ExitGameButton.xnb
 Content\Buttons\NetworkButton.xnb
 Content\Buttons\StandartGameButton.xnb
 Content\Buttons\Hover.xnb
+Content\Audio\Effects\MenuHover.xnb
 Content\Skin\Map.txt
 Content\Skin\Metrics.xml

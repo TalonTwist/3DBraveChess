@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using BraveChess.Engines;
+using BraveChess.Base;
 
 namespace BraveChess.Objects
 {
@@ -17,6 +18,7 @@ namespace BraveChess.Objects
         Color _color = Color.Gray;
         public Vector2 size;
         public bool isClicked;
+        bool soundPlayed;
 
         public Button(Texture2D texture,Vector2 newPos,GraphicsDevice graphics)
         {
@@ -25,7 +27,7 @@ namespace BraveChess.Objects
             size = new Vector2(graphics.Viewport.Width / 8, graphics.Viewport.Height / 15);
         }
 
-        public void Update()
+        public void Update(GameEngine e)
         {
             _rectangle = new Rectangle((int)_position.X,(int) _position.Y,(int) size.X,(int) size.Y);
             Rectangle mouseRec = new Rectangle(InputEngine.CurrentMouseState.X, InputEngine.CurrentMouseState.Y, 1, 1);
@@ -33,13 +35,20 @@ namespace BraveChess.Objects
             if(mouseRec.Intersects(_rectangle))
             {
                 _color = new Color(255, 255, 255, 255);
-                
+
+                if(!soundPlayed)
+                {
+                    e.Audio.PlayEffect("MenuHover");
+                    soundPlayed = true;
+                }
+
                 if (InputEngine.IsMouseLeftClick()) isClicked = true;
             }
             else if (!mouseRec.Intersects(_rectangle))
             {
                 _color = Color.Gray;
                 isClicked = false;
+                soundPlayed = false;
             }
         }
 

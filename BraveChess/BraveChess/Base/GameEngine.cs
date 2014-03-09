@@ -99,6 +99,7 @@ namespace BraveChess.Base
         {
             batch = new SpriteBatch(GraphicsDevice);
             font = Game.Content.Load<SpriteFont>("Fonts\\debug");
+            Audio.LoadEffect("MenuHover");
 
             btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandartGameButton"),
                 new Vector2(50,150), GraphicsDevice);
@@ -238,16 +239,15 @@ namespace BraveChess.Base
             switch (_currentScreenState)
             {
                 case State.MainMenu:
-                    btnStandart.Draw(batch);
                     if (btnStandart.isClicked)
                         _currentScreenState = State.NonNetworkGame;
                     else if (btnNetworked.isClicked)
                         _currentScreenState = State.NetworkGame;
                     else if (btnExit.isClicked)
                         _currentScreenState = State.ExitGame;
-                    btnStandart.Update();
-                    btnNetworked.Update();
-                    btnExit.Update();
+                    btnStandart.Update(this);
+                    btnNetworked.Update(this);
+                    btnExit.Update(this);
                     break;
                 case State.NetworkGame:
                     Network = new NetworkEngine(this.Game, this);

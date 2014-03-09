@@ -700,6 +700,15 @@
       <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Hover.xnb</Output>
       <Time>2014-03-08T18:29:32.828755+00:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\Effects\MenuHover.wav</Source>
+      <Name>Audio\Effects\MenuHover</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MenuHover.xnb</Output>
+      <Time>2014-03-09T13:22:39.3822188+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
