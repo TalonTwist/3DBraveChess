@@ -42,7 +42,8 @@ namespace BraveChess.Objects
                     soundPlayed = true;
                 }
 
-                if (InputEngine.IsMouseLeftClick()) isClicked = true;
+                if (InputEngine.IsMouseLeftClick()) 
+                    isClicked = true;
             }
             else if (!mouseRec.Intersects(_rectangle))
             {

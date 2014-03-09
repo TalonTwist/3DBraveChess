@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Net;
 using Ruminate.GUI;
 using Ruminate.Utils;
+using Microsoft.Xna.Framework.Media;
 
 
 namespace BraveChess.Base
@@ -89,6 +90,14 @@ namespace BraveChess.Base
         public override void Initialize()
         {
             Debug.Initialize();
+
+            #region Sound
+            //loading songs//efects
+            Audio.LoadSong("BackgroundSong");
+            MediaPlayer.IsRepeating = true;
+            Audio.LoadEffect("MovePiece");
+            Audio.LoadEffect("CapturePiece");
+            #endregion
 
             _screens.Add(State.MainMenu, new MainMenu());
 

@@ -192,15 +192,6 @@
       <Time>2014-03-06T15:56:42.7169173+00:00</Time>
     </Item>
     <Item>
-      <Source>Audio\Effects\move.wav</Source>
-      <Name>Audio\Effects\move</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\move.xnb</Output>
-      <Time>2014-02-22T18:52:26+00:00</Time>
-    </Item>
-    <Item>
       <Source>Audio\Songs\BackgroundSong.mp3</Source>
       <Name>Audio\Songs\BackgroundSong</Name>
       <Importer>Mp3Importer</Importer>
@@ -708,6 +699,24 @@
       <Options>None</Options>
       <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MenuHover.xnb</Output>
       <Time>2014-03-09T13:22:39.3822188+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Effects\CapturePiece.wav</Source>
+      <Name>Audio\Effects\CapturePiece</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\CapturePiece.xnb</Output>
+      <Time>2014-03-09T15:19:23.9696938+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Effects\MovePiece.wav</Source>
+      <Name>Audio\Effects\MovePiece</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MovePiece.xnb</Output>
+      <Time>2014-03-09T15:19:24.2060435+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

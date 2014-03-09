@@ -112,13 +112,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio\Effects\move.wav">
-      <Name>move</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Audio\Songs\BackgroundSong.mp3">
       <Name>BackgroundSong</Name>
       <Importer>Mp3Importer</Importer>
@@ -272,6 +265,18 @@
   <ItemGroup>
     <Compile Include="Audio\Effects\MenuHover.wav">
       <Name>MenuHover</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\Effects\CapturePiece.wav">
+      <Name>CapturePiece</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Effects\MovePiece.wav">
+      <Name>MovePiece</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
