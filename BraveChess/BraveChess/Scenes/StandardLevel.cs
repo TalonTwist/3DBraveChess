@@ -80,6 +80,8 @@ namespace BraveChess.Scenes
              Pieces.Add(new Piece("bishop2", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop));
              #endregion
 
+             AddObject(new SimpleModel("Terrain","Enviroment",new Vector3(0,0,0)));
+
              //add Objects
              foreach (Square s in Squares)
                  AddObject(s);

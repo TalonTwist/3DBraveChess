@@ -39,18 +39,31 @@ Content\Buttons\Hover.xnb
 Content\Audio\Effects\MenuHover.xnb
 Content\Audio\Effects\CapturePiece.xnb
 Content\Audio\Effects\MovePiece.xnb
-Content\Textures\Pieces\BlackKing_0.xnb
-Content\Textures\Pieces\BlackKnight_0.xnb
-Content\Textures\Pieces\BlackPawn_0.xnb
-Content\Textures\Pieces\BlackQueen_0.xnb
-Content\Textures\Pieces\BlackRook_0.xnb
 Content\Textures\Aaron'sTexture_0.xnb
-Content\Textures\Pieces\WhiteKing_0.xnb
-Content\Textures\Pieces\WhiteKnight_0.xnb
-Content\Textures\Pieces\WhitePawn_0.xnb
-Content\Textures\Pieces\WhiteQueen_0.xnb
-Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
+Content\Models\Black Bishop.xnb
+Content\Models\Board Square Black.xnb
+Content\Models\Board Square Untextured.xnb
+Content\Models\Board Square White.xnb
+Content\Models\White Bishop.xnb
+Content\Textures\Black_Bishop.xnb
+Content\Textures\Black_Board.xnb
+Content\Textures\Black_King.xnb
+Content\Textures\Black_Knight.xnb
+Content\Textures\Black_Pawn.xnb
+Content\Textures\Black_Queen.xnb
+Content\Textures\Black_Rook.xnb
+Content\Textures\White_Bishop.xnb
+Content\Textures\White_Board.xnb
+Content\Textures\White_King.xnb
+Content\Textures\White_Knight.xnb
+Content\Textures\White_Pawn.xnb
+Content\Textures\White_Queen.xnb
+Content\Textures\White_Rook.xnb
+Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb
+Content\Models\Enviroment.xnb
+Content\Models\Enviroment_TX.xnb
+Content\Models\Enviroment_TX_0.xnb
 Content\Audio\Songs\BackgroundSong.wma
 Content\Skin\Map.txt
 Content\Skin\Metrics.xml

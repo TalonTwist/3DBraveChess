@@ -128,6 +128,7 @@
     <Compile Include="Notification.cs" />
     <Compile Include="Objects\Button.cs" />
     <Compile Include="Objects\Piece.cs" />
+    <Compile Include="Objects\SimpleModel.cs" />
     <Compile Include="Objects\Square.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
@@ -141,6 +142,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\PipelineExtension\PipelineExtension.csproj">
+      <Project>{1D4F4B0C-68FC-4EEA-A38E-42FD0A243824}</Project>
+      <Name>PipelineExtension</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BraveChessContent\BraveChessContent.contentproj">
       <Name>BraveChessContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>

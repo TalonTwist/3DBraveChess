@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraveChess", "BraveChess\BraveChess\BraveChess.csproj", "{2DA50E1C-672B-47CB-A967-1BDD49E20CB3}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "BraveChessContent", "BraveChess\BraveChessContent\BraveChessContent.contentproj", "{83B334A5-8428-401D-A2E8-BFF9AA82B19C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraveChessContent", "BraveChess\BraveChessContent\BraveChessContent.contentproj", "{83B334A5-8428-401D-A2E8-BFF9AA82B19C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipelineExtension", "PipelineExtension\PipelineExtension.csproj", "{1D4F4B0C-68FC-4EEA-A38E-42FD0A243824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{CD4134F2-3B87-40E2-B8ED-CA19EEA6E171}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +21,14 @@ Global
 		{2DA50E1C-672B-47CB-A967-1BDD49E20CB3}.Release|x86.Build.0 = Release|x86
 		{83B334A5-8428-401D-A2E8-BFF9AA82B19C}.Debug|x86.ActiveCfg = Debug|x86
 		{83B334A5-8428-401D-A2E8-BFF9AA82B19C}.Release|x86.ActiveCfg = Release|x86
+		{1D4F4B0C-68FC-4EEA-A38E-42FD0A243824}.Debug|x86.ActiveCfg = Debug|x86
+		{1D4F4B0C-68FC-4EEA-A38E-42FD0A243824}.Debug|x86.Build.0 = Debug|x86
+		{1D4F4B0C-68FC-4EEA-A38E-42FD0A243824}.Release|x86.ActiveCfg = Debug|x86
+		{1D4F4B0C-68FC-4EEA-A38E-42FD0A243824}.Release|x86.Build.0 = Debug|x86
+		{CD4134F2-3B87-40E2-B8ED-CA19EEA6E171}.Debug|x86.ActiveCfg = Debug|x86
+		{CD4134F2-3B87-40E2-B8ED-CA19EEA6E171}.Debug|x86.Build.0 = Debug|x86
+		{CD4134F2-3B87-40E2-B8ED-CA19EEA6E171}.Release|x86.ActiveCfg = Release|x86
+		{CD4134F2-3B87-40E2-B8ED-CA19EEA6E171}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
