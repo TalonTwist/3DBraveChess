@@ -1,6 +1,4 @@
-﻿using System;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace BraveChess.Base
@@ -9,7 +7,7 @@ namespace BraveChess.Base
 
     public class GameObject3D
     {
-        public string ID { get; set; }
+        public string Id { get; set; }
         public Matrix World { get; set; }
 
         public event GameObjectEventHandler Destroying;
@@ -17,19 +15,19 @@ namespace BraveChess.Base
 
         public GameObject3D(string id)
         {
-            ID = id;
+            Id = id;
             World = Matrix.Identity;
         }
 
         public GameObject3D(string id, Matrix position)
         {
-            ID = id;
+            Id = id;
             World = position;
         }
 
         public GameObject3D(string id, Vector3 position)
         {
-            ID = id;
+            Id = id;
             World = Matrix.Identity * Matrix.CreateTranslation(position);
         }
 
@@ -46,7 +44,7 @@ namespace BraveChess.Base
         public void Destroy()
         {
             if (Destroying != null)
-                Destroying(ID);
+                Destroying(Id);
         }
     }
 }

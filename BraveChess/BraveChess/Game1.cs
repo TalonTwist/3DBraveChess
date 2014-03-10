@@ -1,52 +1,46 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using BraveChess.Helpers;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using BraveChess.Engines;
 using BraveChess.Base;
-using BraveChess.Objects;
-using BraveChess.Scenes;
-using BraveChess.Screens;
 
 namespace BraveChess
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        GameEngine gameEngine;
+        SpriteBatch _spriteBatch;
+        readonly GameEngine _gameEngine;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 980;
-            graphics.PreferredBackBufferHeight = 520;
-            graphics.PreferMultiSampling = true;
+            GraphicsDeviceManager graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredBackBufferWidth = 980,
+                PreferredBackBufferHeight = 520,
+                PreferMultiSampling = true
+            };
             graphics.ApplyChanges();
 
 
             Window.AllowUserResizing = true;
-            Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
+            Window.ClientSizeChanged += Window_ClientSizeChanged;
             IsMouseVisible = true;
 
-            gameEngine = new GameEngine(this);
+            _gameEngine = new GameEngine(this);
 
             Content.RootDirectory = "Content";  
         }
 
         void Window_ClientSizeChanged(object sender, EventArgs e)
         {
-            if (gameEngine._currentScreen != null)
-                gameEngine._currentScreen.OnResize();
+            if (_gameEngine.CurrentScreen != null)
+                _gameEngine.CurrentScreen.OnResize();
         }
 
         
@@ -60,7 +54,7 @@ namespace BraveChess
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            Helpers.GraphicsDevice = GraphicsDevice;
+            Helper.GraphicsDevice = GraphicsDevice;
             Components.Add(new GamerServicesComponent(this));
 
             base.Initialize();
@@ -73,7 +67,7 @@ namespace BraveChess
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
 
@@ -99,9 +93,9 @@ namespace BraveChess
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+                Exit();
             if (InputEngine.IsKeyPressed(Keys.Escape) || InputEngine.IsButtonPressed(Buttons.Back))
-                this.Exit();
+                Exit();
             // TODO: Add your update logic here
 
             base.Update(gameTime);

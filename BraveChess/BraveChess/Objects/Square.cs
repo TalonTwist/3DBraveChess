@@ -1,94 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
 using BraveChess.Base;
+using BraveChess.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using BraveChess.Engines;
 
 namespace BraveChess.Objects
 {
-    public enum Rank
+    public enum Ranks
     {
-        one = 0,
-        two = 1,
-        three = 2,
-        four = 3,
-        five = 4,
-        six = 5,
-        seven = 6,
-        eight = 7
+        One = 0,
+        Two = 1,
+        Three = 2,
+        Four = 3,
+        Five = 4,
+        Six = 5,
+        Seven = 6,
+        Eight = 7
     }
 
-    public enum File
+    public enum Files
     {
-        a = 0,
-        b = 1,
-        c = 2,
-        d = 3,
-        e = 4,
-        f = 5,
-        g = 6,
-        h = 7
+        A = 0,
+        B = 1,
+        C = 2,
+        D = 3,
+        E = 4,
+        F = 5,
+        G = 6,
+        H = 7
     }
 
     public class Square : GameObject3D
     {
-        public File file { get; set; }
-        public Rank rank { get; set; }
+        public Files File { get; set; }
+        public Ranks Rank { get; set; }
         public Model Model3D { get; set; }
         public Matrix[] BoneTransforms { get; set; }
-        public string Name { get {return string.Format("{0}{1}",file.ToString(), rank);}}
+        public string Name { get {return string.Format("{0}{1}",File.ToString(), Rank);}}
         public bool IsSelected { get; set; }
         public bool IsHover { get; set; }
         public bool IsMoveOption { get; set; }
-        string _asset;
+        readonly string _asset;
 
 
-        
-        //public Square(string id,Vector3 position)
-        //    :base(id,position)
-        //{ }
-
-        public Square(string id,Vector3 position, File f, Rank r) 
+        public Square(string id,Vector3 position, Files f, Ranks r) 
             : base(id, position)
         {
-            file = f;
-            rank = r;
+            File = f;
+            Rank = r;
             
         }
 
         public Square(string id, Vector3 position, int f, int r, bool color)
             : base(id, position)
         {
-            file = (File)f;
-            rank = (Rank)r;
-            if (color)
-                _asset = "WhiteSquare";
-            else
-                _asset = "BlackSquare";
+            File = (Files)f;
+            Rank = (Ranks)r;
+            _asset = color ? "WhiteSquare" : "BlackSquare";
         }
 
-        public override void LoadContent(ContentManager _content)
+        public override void LoadContent(ContentManager content)
         {
             if (!string.IsNullOrEmpty(_asset))
             {
-                Model3D = _content.Load<Model>("Models\\" + _asset);
+                Model3D = content.Load<Model>("Models\\" + _asset);
 
                 BoneTransforms = new Matrix[Model3D.Bones.Count];
                 Model3D.CopyAbsoluteBoneTransformsTo(BoneTransforms);
 
-                List<Vector3> _vertices = new List<Vector3>();
+                List<Vector3> vertices = new List<Vector3>();
 
                 foreach (ModelMesh mesh in Model3D.Meshes)
                 {
-                    _vertices.AddRange(Helpers.ExtractVector3FromMesh(mesh, BoneTransforms));
+                    vertices.AddRange(Helper.ExtractVector3FromMesh(mesh, BoneTransforms));
                 }
             }
-            base.LoadContent(_content);
+            base.LoadContent(content);
         }
 
         public override void Draw(Camera camera)
@@ -131,8 +119,8 @@ namespace BraveChess.Objects
         public string ToAlgebraic()
         {
             string str = "";
-            str += (char)(file + 97);
-            str += ((int)rank + 1).ToString();
+            str += (char)(File + 97);
+            str += ((int)Rank + 1).ToString();
 
             return str;
         }

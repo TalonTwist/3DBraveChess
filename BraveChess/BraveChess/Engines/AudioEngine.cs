@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
@@ -16,10 +13,10 @@ namespace BraveChess.Engines
         public Dictionary<string, Song> LoadedSongs { get { return _songs; } }
         public Dictionary<string, SoundEffect> LoadedEffects { get { return _effects; } }
 
-        public AudioEngine(Game _game)
-            : base(_game)
+        public AudioEngine(Game game)
+            : base(game)
         {
-            _game.Components.Add(this);
+            game.Components.Add(this);
         }
 
         public override void Initialize()

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -33,14 +30,14 @@ namespace BraveChess.Engines
             base.LoadContent();
         }
 
-        public static void AddNotification(Notification _newNotification)
+        public static void AddNotification(Notification newNotification)
         {
-            if (_newNotification != null)
+            if (newNotification != null)
             {
                 if(_notifications.Count >= _maxNotifications)
-                _queuedNotification.Enqueue(_newNotification);
+                _queuedNotification.Enqueue(newNotification);
                 else
-                _notifications.Add(_newNotification);
+                _notifications.Add(newNotification);
             }
         }
 

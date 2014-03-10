@@ -1,13 +1,13 @@
 ﻿ using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
+ using System.Linq;
+ using Microsoft.Xna.Framework;
 using BraveChess.Objects;
 using BraveChess.Engines;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Graphics;
+using BraveChess.Helpers;
 
 namespace BraveChess.Base
 {
@@ -28,47 +28,46 @@ namespace BraveChess.Base
 
         #region public, protected and private variables
 
-        public List<Piece> Pieces { get { return _pieces; } }
-        static BitboardHelper BBHelper = new BitboardHelper();
-        public string ID { get; set; }
+        
+        public string Id { get; set; }
         public TurnState Turn { get; set; }
         public SelectionState SelectState { get; set; }
-        public List<GameObject3D> Objects { get { return _sceneObjects; } }
-        public List<Move> AllMoves { get { return _allMoves; } }
+        public List<GameObject3D> Objects { get { return SceneObjects; } }
+        protected List<Move> AllMoves = new List<Move>();
 
-        protected Camera _camWhite, _camBlack;
-        protected int _currentI, _currentJ;
+        protected Camera CamWhite, CamBlack;
+        protected int CurrentI, CurrentJ;
         protected bool  IsFight = false;
         protected Piece PieceToCapture, PieceToMove;
-        protected Square _currentSquare, _previousSquare, _goFromSquare, _goToSquare;
+        protected Square CurrentSquare, PreviousSquare, GoFromSquare, GoToSquare;
         protected List<Square> MovesAvailable;
         protected Square[,] Squares;
-        protected List<Move> _allMoves = new List<Move>();
-        protected List<Piece> _pieces = new List<Piece>();
-        protected List<GameObject3D> _sceneObjects = new List<GameObject3D>();
+        
+        protected List<Piece> Pieces = new List<Piece>();
+        protected List<GameObject3D> SceneObjects = new List<GameObject3D>();
         protected GameEngine Engine;
 
-        float aspectRatio = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio;
+        readonly float _aspectRatio = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio;
 
         #region Bitboards
 
         /* white pieces */
-        protected UInt64 white_pawns = 0xFF00LU;
-        protected UInt64 white_knights = 0x42LU;
-        protected UInt64 white_bishops = 0X24LU;
-        protected UInt64 white_rooks = 0x81LU;
-        protected UInt64 white_queens = 0x8LU;
-        protected UInt64 white_kings = 0x10LU;
+        protected UInt64 WhitePawns = 0xFF00LU;
+        protected UInt64 WhiteKnights = 0x42LU;
+        protected UInt64 WhiteBishops = 0X24LU;
+        protected UInt64 WhiteRooks = 0x81LU;
+        protected UInt64 WhiteQueens = 0x8LU;
+        protected UInt64 WhiteKings = 0x10LU;
         /* black pieces */
-        protected UInt64 black_pawns = 0xFF000000000000LU;
-        protected UInt64 black_knights = 0x4200000000000000LU;
-        protected UInt64 black_bishops = 0x2400000000000000LU;
-        protected UInt64 black_rooks = 0x8100000000000000LU;
-        protected UInt64 black_queens = 0x800000000000000LU;
-        protected UInt64 black_kings = 0x1000000000000000LU;
+        protected UInt64 BlackPawns = 0xFF000000000000LU;
+        protected UInt64 BlackKnights = 0x4200000000000000LU;
+        protected UInt64 BlackBishops = 0x2400000000000000LU;
+        protected UInt64 BlackRooks = 0x8100000000000000LU;
+        protected UInt64 BlackQueens = 0x800000000000000LU;
+        protected UInt64 BlackKings = 0x1000000000000000LU;
 
-        public UInt64 WhitePieces { get { return white_bishops | white_kings | white_knights | white_pawns | white_queens | white_rooks; } }
-        public UInt64 BlackPieces { get { return black_bishops | black_kings | black_knights | black_pawns | black_queens | black_rooks; } }
+        public UInt64 WhitePieces { get { return WhiteBishops | WhiteKings | WhiteKnights | WhitePawns | WhiteQueens | WhiteRooks; } }
+        public UInt64 BlackPieces { get { return BlackBishops | BlackKings | BlackKnights | BlackPawns | BlackQueens | BlackRooks; } }
         public UInt64 AllPieces { get { return WhitePieces | BlackPieces; } }
 
         #endregion
@@ -77,7 +76,7 @@ namespace BraveChess.Base
 
         public Scene(string id, GameEngine engine)
         {
-            ID = id;
+            Id = id;
             Engine = engine;
             Turn = TurnState.White;
         }//End of Constructor
@@ -85,18 +84,18 @@ namespace BraveChess.Base
         public virtual void Initialize()
         {
             #region Cameras
-            _camWhite = new Camera("camWhite",
+            CamWhite = new Camera("camWhite",
                 new Vector3(1, 60, 60),
                 new Vector3(1, 5, 4),
-                aspectRatio);
+                _aspectRatio);
 
-            _camBlack = new Camera("camBlack",
+            CamBlack = new Camera("camBlack",
                 new Vector3(0, 60, -61),
                 new Vector3(0, 5, -5),
-                aspectRatio);
+                _aspectRatio);
 
-            Engine.Cameras.AddCamera(_camWhite);
-            Engine.Cameras.AddCamera(_camBlack);
+            Engine.Cameras.AddCamera(CamWhite);
+            Engine.Cameras.AddCamera(CamBlack);
 
             #endregion
 
@@ -136,18 +135,20 @@ namespace BraveChess.Base
             }
 
 
-            Squares[_currentI, _currentJ].IsHover = true;
+            Squares[CurrentI, CurrentJ].IsHover = true;
             #endregion
 
-            for (int i = 0; i < _sceneObjects.Count; i++)
-                _sceneObjects[i].Initialise();
+            foreach (GameObject3D t in SceneObjects)
+                t.Initialise();
+
+            BitboardHelper.Initialize();
         }//End of Method
 
         public virtual void Update(GameTime gametime)
         {
-            for (int i = 0; i < _sceneObjects.Count; i++)
-                _sceneObjects[i].Update(gametime);
-        }//End of Method
+            foreach (GameObject3D t in SceneObjects)
+                t.Update(gametime);
+        } //End of Method
 
         protected virtual void HandleInput() 
         {
@@ -163,21 +164,21 @@ namespace BraveChess.Base
 
             #region Arrow move/selection 
 
-            Squares[_currentI, _currentJ].IsHover = false;
+            Squares[CurrentI, CurrentJ].IsHover = false;
 
             if (InputEngine.IsKeyPressed(Keys.Right))
             {
                 if (Turn == TurnState.White)
                 {
-                    _currentI++;
-                    if (_currentI > 7)
-                        _currentI = 0;
+                    CurrentI++;
+                    if (CurrentI > 7)
+                        CurrentI = 0;
                 }
                 else
                 {
-                    _currentI--;
-                    if (_currentI < 0)
-                        _currentI = 7;
+                    CurrentI--;
+                    if (CurrentI < 0)
+                        CurrentI = 7;
                 }
             }
 
@@ -185,15 +186,15 @@ namespace BraveChess.Base
             {
                 if (Turn == TurnState.White)
                 {
-                    _currentI--;
-                    if (_currentI < 0)
-                        _currentI = 7;
+                    CurrentI--;
+                    if (CurrentI < 0)
+                        CurrentI = 7;
                 }
                 else
                 {
-                    _currentI++;
-                    if (_currentI > 7)
-                        _currentI = 0;
+                    CurrentI++;
+                    if (CurrentI > 7)
+                        CurrentI = 0;
                 }
             }
 
@@ -201,15 +202,15 @@ namespace BraveChess.Base
             {
                 if (Turn == TurnState.White)
                 {
-                    _currentJ++;
-                    if (_currentJ > 7)
-                        _currentJ = 0;
+                    CurrentJ++;
+                    if (CurrentJ > 7)
+                        CurrentJ = 0;
                 }
                 else
                 {
-                    _currentJ--;
-                    if (_currentI < 0)
-                        _currentI = 7;
+                    CurrentJ--;
+                    if (CurrentI < 0)
+                        CurrentI = 7;
                 }
             }
 
@@ -217,42 +218,43 @@ namespace BraveChess.Base
             {
                 if (Turn == TurnState.White)
                 {
-                    _currentJ--;
-                    if (_currentJ < 0)
-                        _currentJ = 7;
+                    CurrentJ--;
+                    if (CurrentJ < 0)
+                        CurrentJ = 7;
                 }
                 else
                 {
-                    _currentJ++;
-                    if (_currentI > 7)
-                        _currentI = 0;
+                    CurrentJ++;
+                    if (CurrentJ > 7)
+                        CurrentJ = 0;
                 }
             }
-            Squares[_currentI, _currentJ].IsHover = true;
+            Squares[CurrentI, CurrentJ].IsHover = true;
 
             if (InputEngine.IsKeyPressed(Keys.Enter))
             {
-                if (_previousSquare != null)
-                    _previousSquare.IsSelected = false;
+                if (PreviousSquare != null)
+                    PreviousSquare.IsSelected = false;
 
-                _currentSquare = Squares[_currentI, _currentJ];
+                CurrentSquare = Squares[CurrentI, CurrentJ];
 
                 if (SelectState == SelectionState.SelectPiece) //if a piece hasnt been selected, highlight
                 {
-                    _currentSquare.IsSelected = true;
+                    CurrentSquare.IsSelected = true;
                 }
                 else
-                    _previousSquare = null;
+                    PreviousSquare = null;
 
-                _previousSquare = _currentSquare;
+                PreviousSquare = CurrentSquare;
             }
+
             #endregion 
         }
 
-        public void AddObject(GameObject3D _newObject)
+        public void AddObject(GameObject3D newObject)
         {
-            _newObject.Destroying += new GameObjectEventHandler(_newObject_Destroying);
-            _sceneObjects.Add(_newObject);
+            newObject.Destroying += _newObject_Destroying;
+            SceneObjects.Add(newObject);
         }//End of method
 
         void _newObject_Destroying(string id)
@@ -262,18 +264,14 @@ namespace BraveChess.Base
 
         public GameObject3D GetObject(string id)
         {
-            for (int i = 0; i < _sceneObjects.Count; i++)
-                if (_sceneObjects[i].ID == id)
-                    return _sceneObjects[i];
-
-            return null;
+            return SceneObjects.FirstOrDefault(t => t.Id == id);
         }
 
         public void RemoveObject(string id)
         {
-            for (int i = 0; i < _sceneObjects.Count; i++)
-                if (_sceneObjects[i].ID == id)
-                    _sceneObjects.RemoveAt(i);
+            for (int i = 0; i < SceneObjects.Count; i++)
+                if (SceneObjects[i].Id == id)
+                    SceneObjects.RemoveAt(i);
         }
 
         protected void ResetMoves()
@@ -281,7 +279,7 @@ namespace BraveChess.Base
             if (MovesAvailable != null)
             {
                 foreach (Square s in MovesAvailable)
-                    s.IsMoveOption = s.IsMoveOption == true ? false : false;
+                    s.IsMoveOption = false;
             }
             MovesAvailable = null;
         }

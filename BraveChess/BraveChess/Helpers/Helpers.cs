@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BraveChess
+namespace BraveChess.Helpers
 {
-    public static class Helpers
+    public static class Helper
     {
         public static GraphicsDevice GraphicsDevice { get; set; }
 

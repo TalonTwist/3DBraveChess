@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -10,15 +9,15 @@ namespace BraveChess.Engines
     public class CameraEngine : GameComponent
     {
         private Dictionary<string, Camera> cameras;
-        private Camera activeCamera;
-        private string activeCameraID;
+        private Camera _activeCamera;
+        private string _activeCameraId;
 
-        public CameraEngine(Game _game)
-            : base(_game)
+        public CameraEngine(Game game)
+            : base(game)
         {
             cameras = new Dictionary<string, Camera>();
 
-            _game.Components.Add(this);
+            game.Components.Add(this);
         }
 
         public List<string> GetCurrentCameras()
@@ -33,8 +32,9 @@ namespace BraveChess.Engines
 
         public override void Update(GameTime gametime)
         {
-            if (activeCamera != null)
-                activeCamera.Update(gametime);
+            if (_activeCamera != null)
+            {
+            }
 
             base.Update(gametime);
         }
@@ -43,24 +43,24 @@ namespace BraveChess.Engines
         {
             if (cameras.ContainsKey(id))
             {
-                if (activeCameraID != id)
+                if (_activeCameraId != id)
                 {
-                    activeCamera = cameras[id];
-                    activeCamera.Initialise();
+                    _activeCamera = cameras[id];
+                    _activeCamera.Initialise();
 
-                    activeCameraID = id;
+                    _activeCameraId = id;
                 }
             }
         }
 
         public void AddCamera(Camera camera)
         {
-            if (!cameras.ContainsKey(camera.ID))
+            if (!cameras.ContainsKey(camera.Id))
             {
-                cameras.Add(camera.ID, camera);
+                cameras.Add(camera.Id, camera);
 
                 if (cameras.Count == 1)
-                    SetActiveCamera(camera.ID);
+                    SetActiveCamera(camera.Id);
             }
         }
 
@@ -78,7 +78,7 @@ namespace BraveChess.Engines
 
         public Camera ActiveCamera
         {
-            get { return activeCamera; }
+            get { return _activeCamera; }
         }
 
     }

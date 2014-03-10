@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using BraveChess.Objects;
+using BraveChess.Helpers;
 
 namespace BraveChess
 {
@@ -37,7 +35,7 @@ namespace BraveChess
             {
                 if (PieceMoved.Piece_Type == Piece.PieceType.King)
                 {
-                    if (FromSquare.file - ToSquare.file == 2)
+                    if (FromSquare.File - ToSquare.File == 2)
                         return true;
                 }
                 return false;
@@ -49,7 +47,7 @@ namespace BraveChess
             {
                 if (PieceMoved.Piece_Type == Piece.PieceType.King)
                 {
-                    if (FromSquare.file - ToSquare.file == -2)
+                    if (FromSquare.File - ToSquare.File == -2)
                         return true;
                 }
                 return false;
@@ -63,9 +61,9 @@ namespace BraveChess
             {
                 if (PieceMoved.Piece_Type == Piece.PieceType.Pawn)
                     if (!HasCaptured)
-                        if ((BitboardHelper.getBitboardFromSquare(ToSquare) << 16) == BitboardHelper.getBitboardFromSquare(FromSquare))
+                        if ((BitboardHelper.GetBitboardFromSquare(ToSquare) << 16) == BitboardHelper.GetBitboardFromSquare(FromSquare))
                             return true;
-                        else if ((BitboardHelper.getBitboardFromSquare(ToSquare) >> 16) == BitboardHelper.getBitboardFromSquare(FromSquare))
+                        else if ((BitboardHelper.GetBitboardFromSquare(ToSquare) >> 16) == BitboardHelper.GetBitboardFromSquare(FromSquare))
                              return true;
                 return false;
             }
@@ -78,12 +76,13 @@ namespace BraveChess
             }
         }
 
-        public Move(Square fromSquare, Square toSquare, Piece pieceMoved, Piece.PieceType piecePromoted = Piece.PieceType.None)
+        public Move(Square fromSquare, Square toSquare, Piece pieceMoved, bool isCapture, Piece.PieceType piecePromoted = Piece.PieceType.None)
         {
             FromSquare = fromSquare;
             ToSquare = toSquare;
             PieceMoved = pieceMoved;
             PiecePromoted = piecePromoted;
+            HasCaptured = isCapture;
         }
 
         public string ToAlgebraic()
@@ -92,10 +91,7 @@ namespace BraveChess
 
             if (IsCastling)
             {
-                if (IsShortCastling)
-                    algebraic.Append("O-O"); // castles short
-                else
-                    algebraic.Append("O-O-O"); // castles long
+                algebraic.Append(IsShortCastling ? "O-O" : "O-O-O");
             }
             else
             {
@@ -108,13 +104,10 @@ namespace BraveChess
             }
 
             if (HasPromoted)
-                algebraic.Append(GetInitial(PiecePromoted));
+                algebraic.Append("=" + GetInitial(PiecePromoted));
 
             if (IsCheck)
-                if (IsCheckMate)
-                    algebraic.Append("#"); 
-                else
-                    algebraic.Append("+"); 
+                algebraic.Append(IsCheckMate ? "#" : "+");
 
             return algebraic.ToString();
         }

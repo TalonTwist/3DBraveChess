@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace BraveChess.Engines
 {
     public class InputEngine : GameComponent
     {
-        private static GamePadState previousPadState;
-        private static GamePadState currentPadState;
+        private static GamePadState _previousPadState;
+        private static GamePadState _currentPadState;
 
-        private static KeyboardState previousKeyState;
-        private static KeyboardState currentKeyState;
+        private static KeyboardState _previousKeyState;
+        private static KeyboardState _currentKeyState;
 
         private static Vector2 previousMousePos;
         private static Vector2 currentMousePos;
@@ -22,30 +17,30 @@ namespace BraveChess.Engines
         private static MouseState previousMouseState;
         private static MouseState currentMouseState;
 
-        public InputEngine(Game _game)
-            : base(_game)
+        public InputEngine(Game game)
+            : base(game)
         {
-            currentPadState = GamePad.GetState(PlayerIndex.One);
-            currentKeyState = Keyboard.GetState();
+            _currentPadState = GamePad.GetState(PlayerIndex.One);
+            _currentKeyState = Keyboard.GetState();
 
-            _game.Components.Add(this);
+            game.Components.Add(this);
         }
 
         public static void ClearState()
         {
             previousMouseState = Mouse.GetState();
             currentMouseState = Mouse.GetState();
-            previousKeyState = Keyboard.GetState();
-            currentKeyState = Keyboard.GetState();
+            _previousKeyState = Keyboard.GetState();
+            _currentKeyState = Keyboard.GetState();
         }
 
         public override void Update(GameTime gametime)
         {
-            previousPadState = currentPadState;
-            previousKeyState = currentKeyState;
+            _previousPadState = _currentPadState;
+            _previousKeyState = _currentKeyState;
 
-            currentPadState = GamePad.GetState(PlayerIndex.One);
-            currentKeyState = Keyboard.GetState();
+            _currentPadState = GamePad.GetState(PlayerIndex.One);
+            _currentKeyState = Keyboard.GetState();
 
 #if WINDOWS
             previousMouseState = currentMouseState;
@@ -58,60 +53,32 @@ namespace BraveChess.Engines
 
         public static bool IsButtonPressed(Buttons buttonToCheck)
         {
-            if (currentPadState.IsButtonUp(buttonToCheck) && previousPadState.IsButtonDown(buttonToCheck))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _currentPadState.IsButtonUp(buttonToCheck) && _previousPadState.IsButtonDown(buttonToCheck);
         }
+
         public static bool IsButtonHeld(Buttons buttonToCheck)
         {
-            if (currentPadState.IsButtonDown(buttonToCheck))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _currentPadState.IsButtonDown(buttonToCheck);
         }
 
         public static bool IsKeyHeld(Keys buttonToCheck)
         {
-            if (currentKeyState.IsKeyDown(buttonToCheck))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
+            return _currentKeyState.IsKeyDown(buttonToCheck);
         }
 
         public static bool IsKeyPressed(Keys keyToCheck)
         {
-            if (currentKeyState.IsKeyUp(keyToCheck) && previousKeyState.IsKeyDown(keyToCheck))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _currentKeyState.IsKeyUp(keyToCheck) && _previousKeyState.IsKeyDown(keyToCheck);
         }
 
         public static GamePadState CurrentPadState
         {
-            get { return currentPadState; }
-            set { currentPadState = value; }
+            get { return _currentPadState; }
+            set { _currentPadState = value; }
         }
         public static KeyboardState CurrentKeyState
         {
-            get { return currentKeyState; }
+            get { return _currentKeyState; }
         }
 
         public static MouseState CurrentMouseState
@@ -128,34 +95,22 @@ namespace BraveChess.Engines
 
         public static bool IsMouseLeftClick()
         {
-            if (currentMouseState.LeftButton == ButtonState.Released && previousMouseState.LeftButton == ButtonState.Pressed)
-                return true;
-            else 
-                return false;
+            return currentMouseState.LeftButton == ButtonState.Released && previousMouseState.LeftButton == ButtonState.Pressed;
         }
 
         public static bool IsMouseRightClick()
         {
-            if (currentMouseState.RightButton == ButtonState.Released && previousMouseState.RightButton == ButtonState.Pressed)
-                return true;
-            else
-                return false;
+            return currentMouseState.RightButton == ButtonState.Released && previousMouseState.RightButton == ButtonState.Pressed;
         }
 
         public static bool IsMouseRightHeld()
         {
-            if (currentMouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Pressed)
-                return true;
-            else
-                return false;
+            return currentMouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Pressed;
         }
 
         public static bool IsMouseLeftHeld()
         {
-            if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Pressed)
-                return true;
-            else
-                return false;
+            return currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Pressed;
         }
 
         public static Vector2 MousePosition

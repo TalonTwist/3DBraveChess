@@ -1,31 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
 
 namespace BraveChess.Engines
 {
     public class FrameRateCounter : DrawableGameComponent
     {
-        Vector2 _position;
+        readonly Vector2 _position;
 
-        int frameRate = 0;
-        int frameCounter = 0;
-        TimeSpan elapsedTime = TimeSpan.Zero;
+        int _frameRate;
+        int _frameCounter;
+        TimeSpan _elapsedTime = TimeSpan.Zero;
 
         SpriteBatch _batch;
         SpriteFont _sfont;
 
-        public int FrameRate { get { return frameRate; } }
+        public int FrameRate { get { return _frameRate; } }
 
-        public FrameRateCounter(Game _game, Vector2 position)
-            : base(_game)
+        public FrameRateCounter(Game game, Vector2 position)
+            : base(game)
         {
             _position = position;
-            _game.Components.Add(this);
+            game.Components.Add(this);
         }//End of Method
 
         public override void Initialize()
@@ -43,12 +39,12 @@ namespace BraveChess.Engines
 
         public override void Update(GameTime gameTime)
         {
-            elapsedTime += gameTime.ElapsedGameTime;
-            if (elapsedTime > TimeSpan.FromSeconds(1))
+            _elapsedTime += gameTime.ElapsedGameTime;
+            if (_elapsedTime > TimeSpan.FromSeconds(1))
             {
-                elapsedTime -= TimeSpan.FromSeconds(1);
-                frameRate = frameCounter;
-                frameCounter = 0;
+                _elapsedTime -= TimeSpan.FromSeconds(1);
+                _frameRate = _frameCounter;
+                _frameCounter = 0;
             }
 
             base.Update(gameTime);
@@ -56,13 +52,13 @@ namespace BraveChess.Engines
 
         public override void Draw(GameTime gameTime)
         {
-            frameCounter++;
+            _frameCounter++;
 
             _batch.Begin();
-            if (frameRate < 25)
-                _batch.DrawString(_sfont, "FPS: " + frameRate, _position, Color.Red);
+            if (_frameRate < 25)
+                _batch.DrawString(_sfont, "FPS: " + _frameRate, _position, Color.Red);
             else
-                _batch.DrawString(_sfont, "FPS :" + frameRate, _position, Color.LawnGreen);
+                _batch.DrawString(_sfont, "FPS :" + _frameRate, _position, Color.LawnGreen);
            // _batch.DrawString(_sfont, "Press:\n1-To turn on Cam1\n2-To turn on Cam2\nN-Pause song\nM-Resume song", new Vector2(10,40), Color.AntiqueWhite);
             _batch.End();
 

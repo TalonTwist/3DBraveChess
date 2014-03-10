@@ -1,27 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 using BraveChess.Engines;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 using BraveChess.Base;
 using BraveChess.Objects;
-using Microsoft.Xna.Framework.Net;
+using BraveChess.Helpers;
 
 namespace BraveChess.Scenes
 {
     class NetworkedLevel : Scene
     {
-        public NetworkedLevel(GameEngine _engine)
-            : base("NetworkLevel", _engine) { }
+        public NetworkedLevel(GameEngine engine)
+            : base("NetworkLevel", engine) { }
 
         public override void Initialize()
         {            
@@ -38,66 +30,63 @@ namespace BraveChess.Scenes
 
             #region White Piece Init
             //White Pawn Set
-            _pieces.Add(new Piece("Pawn1", "White Pawn", GetStartPos("a2"), 1, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("Pawn2", "White Pawn", GetStartPos("b2"), 1, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("Pawn3", "White Pawn", GetStartPos("c2"), 1, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("Pawn4", "White Pawn", GetStartPos("d2"), 1, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("Pawn5", "White Pawn", GetStartPos("e2"), 1, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("Pawn6", "White Pawn", GetStartPos("f2"), 1, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("Pawn7", "White Pawn", GetStartPos("g2"), 1, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("Pawn8", "White Pawn", GetStartPos("h2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn1", "White Pawn", GetStartPos("a2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn2", "White Pawn", GetStartPos("b2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn3", "White Pawn", GetStartPos("c2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn4", "White Pawn", GetStartPos("d2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn5", "White Pawn", GetStartPos("e2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn6", "White Pawn", GetStartPos("f2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn7", "White Pawn", GetStartPos("g2"), 1, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("Pawn8", "White Pawn", GetStartPos("h2"), 1, Piece.PieceType.Pawn));
 
-            _pieces.Add(new Piece("Rook1", "White Rook", GetStartPos("a1"), 1, Piece.PieceType.Rook));
-            _pieces.Add(new Piece("Rook2", "White Rook", GetStartPos("h1"), 1, Piece.PieceType.Rook));
+            Pieces.Add(new Piece("Rook1", "White Rook", GetStartPos("a1"), 1, Piece.PieceType.Rook));
+            Pieces.Add(new Piece("Rook2", "White Rook", GetStartPos("h1"), 1, Piece.PieceType.Rook));
 
-            _pieces.Add(new Piece("King1", "White King", GetStartPos("e1"), 1, Piece.PieceType.King));
+            Pieces.Add(new Piece("King1", "White King", GetStartPos("e1"), 1, Piece.PieceType.King));
 
-            _pieces.Add(new Piece("Queen1", "White Queen", GetStartPos("d1"), 1, Piece.PieceType.Queen));
+            Pieces.Add(new Piece("Queen1", "White Queen", GetStartPos("d1"), 1, Piece.PieceType.Queen));
 
-            _pieces.Add(new Piece("Knight1", "White Knight", GetStartPos("b1"), 1, Piece.PieceType.Knight));
-            _pieces.Add(new Piece("Knight1", "White Knight", GetStartPos("g1"), 1, Piece.PieceType.Knight));
+            Pieces.Add(new Piece("Knight1", "White Knight", GetStartPos("b1"), 1, Piece.PieceType.Knight));
+            Pieces.Add(new Piece("Knight1", "White Knight", GetStartPos("g1"), 1, Piece.PieceType.Knight));
 
-            _pieces.Add(new Piece("Bishop1", "Untextured\\Bishop Piece", GetStartPos("c1"), 1, Piece.PieceType.Bishop));
-            _pieces.Add(new Piece("Bishop2", "Untextured\\Bishop Piece", GetStartPos("f1"), 1, Piece.PieceType.Bishop));
+            Pieces.Add(new Piece("Bishop1", "Untextured\\Bishop Piece", GetStartPos("c1"), 1, Piece.PieceType.Bishop));
+            Pieces.Add(new Piece("Bishop2", "Untextured\\Bishop Piece", GetStartPos("f1"), 1, Piece.PieceType.Bishop));
             #endregion
 
             #region Black Piece Init
             //White Pawn Set
-            _pieces.Add(new Piece("pawn1", "Black Pawn", GetStartPos("a7"), 0, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("pawn2", "Black Pawn", GetStartPos("b7"), 0, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("pawn3", "Black Pawn", GetStartPos("c7"), 0, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("pawn4", "Black Pawn", GetStartPos("d7"), 0, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("pawn5", "Black Pawn", GetStartPos("e7"), 0, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("pawn6", "Black Pawn", GetStartPos("f7"), 0, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("pawn7", "Black Pawn", GetStartPos("g7"), 0, Piece.PieceType.Pawn));
-            _pieces.Add(new Piece("pawn8", "Black Pawn", GetStartPos("h7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn1", "Black Pawn", GetStartPos("a7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn2", "Black Pawn", GetStartPos("b7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn3", "Black Pawn", GetStartPos("c7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn4", "Black Pawn", GetStartPos("d7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn5", "Black Pawn", GetStartPos("e7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn6", "Black Pawn", GetStartPos("f7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn7", "Black Pawn", GetStartPos("g7"), 0, Piece.PieceType.Pawn));
+            Pieces.Add(new Piece("pawn8", "Black Pawn", GetStartPos("h7"), 0, Piece.PieceType.Pawn));
 
 
-            _pieces.Add(new Piece("rook1", "Black Rook", GetStartPos("a8"), 0, Piece.PieceType.Rook));
-            _pieces.Add(new Piece("rook2", "Black Rook", GetStartPos("h8"), 0, Piece.PieceType.Rook));
+            Pieces.Add(new Piece("rook1", "Black Rook", GetStartPos("a8"), 0, Piece.PieceType.Rook));
+            Pieces.Add(new Piece("rook2", "Black Rook", GetStartPos("h8"), 0, Piece.PieceType.Rook));
 
-            _pieces.Add(new Piece("king1", "Black King", GetStartPos("e8"), 0, Piece.PieceType.King));
+            Pieces.Add(new Piece("king1", "Black King", GetStartPos("e8"), 0, Piece.PieceType.King));
 
-            _pieces.Add(new Piece("queen1", "Black Queen", GetStartPos("d8"), 0, Piece.PieceType.Queen));
+            Pieces.Add(new Piece("queen1", "Black Queen", GetStartPos("d8"), 0, Piece.PieceType.Queen));
 
-            _pieces.Add(new Piece("knight1", "Black Knight", GetStartPos("b8"), 0, Piece.PieceType.Knight));
-            _pieces.Add(new Piece("knight1", "Black Knight", GetStartPos("g8"), 0, Piece.PieceType.Knight));
+            Pieces.Add(new Piece("knight1", "Black Knight", GetStartPos("b8"), 0, Piece.PieceType.Knight));
+            Pieces.Add(new Piece("knight1", "Black Knight", GetStartPos("g8"), 0, Piece.PieceType.Knight));
 
-            _pieces.Add(new Piece("bishop1", "Untextured\\Bishop Piece", GetStartPos("c8"), 0, Piece.PieceType.Bishop));
-            _pieces.Add(new Piece("bishop2", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop));
+            Pieces.Add(new Piece("bishop1", "Untextured\\Bishop Piece", GetStartPos("c8"), 0, Piece.PieceType.Bishop));
+            Pieces.Add(new Piece("bishop2", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop));
             #endregion
 
             //add Objects
             foreach (Square s in Squares)
                 AddObject(s);
 
-            foreach (Piece p in _pieces)
+            foreach (Piece p in Pieces)
                 AddObject(p);
 
-            if (Engine.Network.networkSession.IsHost)
-                Engine.Cameras.SetActiveCamera("camWhite");
-            else
-                Engine.Cameras.SetActiveCamera("camBlack");
+            Engine.Cameras.SetActiveCamera(Engine.Network.NetworkSession.IsHost ? "camWhite" : "camBlack");
 
             MovesAvailable = new List<Square>();         
             
@@ -105,7 +94,7 @@ namespace BraveChess.Scenes
 
         private void CheckIncomingPackets(GameTime gametime)
         {
-            if (Engine.Network.networkSession != null ) 
+            if (Engine.Network.NetworkSession != null ) 
             {
                 MessageType msg = Engine.Network.ProcessIncomingData(gametime);
 
@@ -123,7 +112,7 @@ namespace BraveChess.Scenes
             CheckIncomingPackets(gametime);
 
             //Check LocalGamers .Tag property, if true, then it is their move and we must accept Input
-            if((bool)Engine.Network.networkSession.LocalGamers[0].Tag == true)
+            if((bool)Engine.Network.NetworkSession.LocalGamers[0].Tag)
                 HandleInput();
 
             UpdateSelection();
@@ -136,22 +125,22 @@ namespace BraveChess.Scenes
             switch (SelectState)
             {
                 case SelectionState.SelectPiece:
-                    if (_currentSquare != null)
+                    if (CurrentSquare != null)
                     {
-                        PieceToMove = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
+                        PieceToMove = GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
                         if (PieceToMove != null && ((int)PieceToMove.ColorType) == (int)Turn)
                         {
-                            _goFromSquare = _currentSquare;
+                            GoFromSquare = CurrentSquare;
                             SelectState = SelectionState.PieceSelected;
                         }
 
-                        _currentSquare = null;
+                        CurrentSquare = null;
                     }
                     break;
 
                 case SelectionState.PieceSelected:
-                    MovesAvailable = GenerateMoves(PieceToMove, _goFromSquare);
+                    MovesAvailable = GenerateMoves(PieceToMove, GoFromSquare);
                     if (MovesAvailable != null)
                     {
                         foreach (Square s in MovesAvailable)
@@ -166,25 +155,25 @@ namespace BraveChess.Scenes
                     break;
 
                 case SelectionState.SelectMove:
-                    if (_currentSquare != null && MovesAvailable.Contains(_currentSquare))
+                    if (CurrentSquare != null && MovesAvailable.Contains(CurrentSquare))
                     {
-                        PieceToCapture = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
+                        PieceToCapture = GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
                         if (PieceToCapture != null)
                             IsFight = true;
 
-                        _goToSquare = _currentSquare;
+                        GoToSquare = CurrentSquare;
 
                         SelectState = SelectionState.MoveSelected;
                     }
-                    else if (_currentSquare != null)
+                    else if (CurrentSquare != null)
                     {
-                        Piece p = GetPiece(_currentSquare.World.Translation + new Vector3(0, 2, 0));
+                        Piece p = GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
                         if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
                         {
                             PieceToMove = p;
-                            _goFromSquare = _currentSquare;
+                            GoFromSquare = CurrentSquare;
                             SelectState = SelectionState.PieceSelected;
                         }
                         else
@@ -192,7 +181,7 @@ namespace BraveChess.Scenes
                         ResetMoves();
                     }
 
-                    _currentSquare = null;
+                    CurrentSquare = null;
                     break;
 
                 case SelectionState.MoveSelected:
@@ -201,12 +190,12 @@ namespace BraveChess.Scenes
                     //check for pawn queening
 
                     //Make sure the move doesnt leave king in check(test the move)
-                    if (TestMove(PieceToMove, _goFromSquare, _goToSquare))
+                    if (TestMove(PieceToMove, GoFromSquare, GoToSquare))
                     {
                         if (IsFight)
                             PieceToCapture.Destroy(); //Remove the captured piece, if any
 
-                        MovePiece(PieceToMove, _goFromSquare, _goToSquare); //make the move
+                        MovePiece(PieceToMove, GoFromSquare, GoToSquare); //make the move
 
                         SelectState = SelectionState.SelectPiece; //reset
                         IsFight = false;
@@ -222,19 +211,19 @@ namespace BraveChess.Scenes
 
         public void ReadMovePacket()
         {
-            Vector3 pos = Engine.Network.packetReader.ReadVector3();
-            int pieceType = Engine.Network.packetReader.ReadInt32();
-            int pieceColor = Engine.Network.packetReader.ReadInt32();
-            UInt64 fromSq = Engine.Network.packetReader.ReadUInt64();
-            UInt64 toSq = Engine.Network.packetReader.ReadUInt64();
+            Vector3 pos = Engine.Network.PacketReader.ReadVector3();
+            int pieceType = Engine.Network.PacketReader.ReadInt32();
+            int pieceColor = Engine.Network.PacketReader.ReadInt32();
+            UInt64 fromSq = Engine.Network.PacketReader.ReadUInt64();
+            UInt64 toSq = Engine.Network.PacketReader.ReadUInt64();
 
             MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Color)pieceColor, fromSq, toSq);
         }
 
         private void MovePiece(Piece piece, Square from, Square to)
         {
-            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
-            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
+            UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(from);
+            UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(to);
 
             UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
 
@@ -246,8 +235,8 @@ namespace BraveChess.Scenes
 
         private bool TestMove(Piece piece, Square from, Square to)
         {
-            UInt64 bbFrom = BitboardHelper.getBitboardFromSquare(from);
-            UInt64 bbTo = BitboardHelper.getBitboardFromSquare(to);
+            UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(from);
+            UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(to);
 
             UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo);
 
@@ -264,7 +253,7 @@ namespace BraveChess.Scenes
         {
             UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
 
-            Square s = getSquareFromBB(bbTo);
+            Square s = GetSquareFromBb(bbTo);
             Vector3 newPos = GetNewPos(s);
 
             Piece capturedPiece = GetPiece(s.World.Translation + new Vector3(0, 2, 0));
@@ -289,11 +278,7 @@ namespace BraveChess.Scenes
 
         private Piece GetPiece(Vector3 pos)
         {
-            for (int i = 0; i < _pieces.Count; i++)
-                if (_pieces[i].World.Translation == pos)
-                    return _pieces[i];
-
-            return null;
+            return Pieces.FirstOrDefault(t => t.World.Translation == pos);
         }
 
         private Vector3 GetStartPos(string pos)
@@ -311,28 +296,22 @@ namespace BraveChess.Scenes
             return destination.World.Translation + new Vector3(0, 2, 0);
         }
 
-        private Square getSquareFromBB(ulong bb)
+        private Square GetSquareFromBb(ulong bb)
         {
-            var v = BitboardHelper.getSquareFromBitboard(bb);
+            var v = BitboardHelper.GetSquareFromBitboard(bb);
 
             return Squares[v.Item2, v.Item1];
         }
 
-        private List<Square> getSquareListFromBB(ulong bb)
+        private List<Square> GetSquareListFromBb(ulong bb)
         {
             List<Square> s = new List<Square>();
-            var sList = BitboardHelper.getSquareListFromBB(bb);
+            var sList = BitboardHelper.GetSquareListFromBB(bb);
 
-            if (sList != null)
-            {
-                foreach (Tuple<int, int> t in sList)
-                {
-                    s.Add(Squares[t.Item2, t.Item1]);
-                }
+            if (sList == null) return null;
+            s.AddRange(sList.Select(t => Squares[t.Item2, t.Item1]));
 
-                return s;
-            }
-            return null;
+            return s;
         }
 
         private List<Square> GenerateMoves(Piece p, Square s)
@@ -341,22 +320,22 @@ namespace BraveChess.Scenes
             switch (p.Piece_Type)
             {
                 case Piece.PieceType.King:
-                    return getSquareListFromBB(GenerateKingMoves(s, p.ColorType));
+                    return GetSquareListFromBb(GenerateKingMoves(s, p.ColorType));
 
                 case Piece.PieceType.Pawn:
-                    return getSquareListFromBB(GeneratePawnMoves(s, p.ColorType));
+                    return GetSquareListFromBb(GeneratePawnMoves(s, p.ColorType));
 
                 case Piece.PieceType.Knight:
-                    return getSquareListFromBB(GenerateKnightMoves(s, p.ColorType));
+                    return GetSquareListFromBb(GenerateKnightMoves(s, p.ColorType));
 
                 case Piece.PieceType.Bishop:
-                    return getSquareListFromBB(GenerateBishopMoves(s, p.ColorType));
+                    return GetSquareListFromBb(GenerateBishopMoves(s, p.ColorType));
 
                 case Piece.PieceType.Rook:
-                    return getSquareListFromBB(GenerateRookMoves(s, p.ColorType));
+                    return GetSquareListFromBb(GenerateRookMoves(s, p.ColorType));
 
                 case Piece.PieceType.Queen:
-                    return getSquareListFromBB(GenerateQueenMoves(s, p.ColorType));
+                    return GetSquareListFromBb(GenerateQueenMoves(s, p.ColorType));
                 default:
                     return null;
             }
@@ -364,7 +343,7 @@ namespace BraveChess.Scenes
 
         private UInt64 GenerateKingMoves(Square s, Piece.Color c)
         {
-            UInt64 myPieceBB = BitboardHelper.getBitboardFromSquare(s);
+            UInt64 myPieceBB = BitboardHelper.GetBitboardFromSquare(s);
             
             UInt64 myPieceBB_H_Clip = (myPieceBB & BitboardHelper.ClearFile[7]);
             UInt64 myPieceBB_A_Clip = (myPieceBB & BitboardHelper.ClearFile[0]);
@@ -383,7 +362,7 @@ namespace BraveChess.Scenes
         private UInt64 GeneratePawnMoves(Square s, Piece.Color c)
         {
             UInt64 validMovesBB;
-            UInt64 myPieceBB = BitboardHelper.getBitboardFromSquare(s); //bitboard representation of the pawns position
+            UInt64 myPieceBB = BitboardHelper.GetBitboardFromSquare(s); //bitboard representation of the pawns position
 
             if (c == Piece.Color.White)
             {
@@ -393,7 +372,7 @@ namespace BraveChess.Scenes
                 {
                     validMovesBB = validMovesBB | (myPieceBB << 8);
 
-                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.two]) != 0) && ((myPieceBB << 16) & AllPieces) == 0)
+                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Two]) != 0) && ((myPieceBB << 16) & AllPieces) == 0)
                         validMovesBB = validMovesBB | (myPieceBB << 16);
                 }
             }
@@ -405,7 +384,7 @@ namespace BraveChess.Scenes
                 {
                     validMovesBB = validMovesBB | (myPieceBB >> 8);
 
-                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Rank.seven]) != 0) && ((myPieceBB >> 16) & AllPieces) == 0)
+                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Seven]) != 0) && ((myPieceBB >> 16) & AllPieces) == 0)
                         validMovesBB = validMovesBB | myPieceBB >> 16;
                 }
             }
@@ -415,36 +394,42 @@ namespace BraveChess.Scenes
 
         private UInt64 GenerateKnightMoves(Square s, Piece.Color c)
         {
-            UInt64 validMovesBB;
-            int sqIndex = BitboardHelper.getIndexFromSquare(s);
+            UInt64 validMovesBb;
+            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
             if (c == Piece.Color.White)
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & WhitePieces;
+                validMovesBb = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & WhitePieces;
 
             else if (c == Piece.Color.Black)
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & BlackPieces;
+                validMovesBb = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & BlackPieces;
 
             else
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex];
+                validMovesBb = BitboardHelper.KnightAttacks[sqIndex];
 
-            return validMovesBB;
+            return validMovesBb;
         }
 
         private UInt64 GenerateBishopMoves(Square s, Piece.Color c)
         {
             UInt64 validSquares;
-            int sqIndex = BitboardHelper.getIndexFromSquare(s);
+            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
-            UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskBishop[sqIndex];
+            UInt64 bbBlockers = AllPieces & BitboardHelper.OccupancyMaskBishop[sqIndex];
             
-            int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberBishop[sqIndex]) >> BitboardHelper.magicNumberShiftsBishop[sqIndex]);
+            int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberBishop[sqIndex]) >> BitboardHelper.MagicNumberShiftsBishop[sqIndex]);
 
-            if (c == Piece.Color.White)
-                validSquares = BitboardHelper.magicMovesBishop[sqIndex][databaseIndex] & ~WhitePieces;
-            else if(c == Piece.Color.Black)
-                validSquares = BitboardHelper.magicMovesBishop[sqIndex][databaseIndex] & ~BlackPieces;
-            else
-                validSquares = BitboardHelper.magicMovesBishop[sqIndex][databaseIndex];
+            switch (c)
+            {
+                case Piece.Color.White:
+                    validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~WhitePieces;
+                    break;
+                case Piece.Color.Black:
+                    validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~BlackPieces;
+                    break;
+                default:
+                    validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex];
+                    break;
+            }
 
             return validSquares;
         }
@@ -452,18 +437,24 @@ namespace BraveChess.Scenes
         private UInt64 GenerateRookMoves(Square s, Piece.Color c) 
         {
             UInt64 validSquares;
-            int sqIndex = BitboardHelper.getIndexFromSquare(s);
+            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
-            UInt64 bbBlockers = AllPieces & BitboardHelper.occupancyMaskRook[sqIndex];
+            UInt64 bbBlockers = AllPieces & BitboardHelper.OccupancyMaskRook[sqIndex];
 
-            int databaseIndex = (int)((bbBlockers * BitboardHelper.magicNumberRook[sqIndex]) >> BitboardHelper.magicNumberShiftsRook[sqIndex]);
+            int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberRook[sqIndex]) >> BitboardHelper.MagicNumberShiftsRook[sqIndex]);
 
-            if(c == Piece.Color.White)
-                validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex] &  ~WhitePieces;
-            else if(c == Piece.Color.Black)
-                validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex] & ~BlackPieces;
-            else
-                validSquares = BitboardHelper.magicMovesRook[sqIndex][databaseIndex];
+            switch (c)
+            {
+                case Piece.Color.White:
+                    validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] &  ~WhitePieces;
+                    break;
+                case Piece.Color.Black:
+                    validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~BlackPieces;
+                    break;
+                default:
+                    validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex];
+                    break;
+            }
             
             return validSquares;
         }
@@ -484,11 +475,11 @@ namespace BraveChess.Scenes
         private UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
         {
             UInt64 attackersBB;
-            int sqIndex = BitboardHelper.getIndexFromSquare(s);
+            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
-            attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & white_knights & black_knights);
-            attackersBB |= (GenerateBishopMoves(s, Piece.Color.None) & black_bishops & white_bishops & black_queens & white_queens);
-            attackersBB |= (GenerateRookMoves(s, Piece.Color.None) & black_rooks & white_rooks & black_queens & white_queens);
+            attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & WhiteKnights & BlackKnights);
+            attackersBB |= (GenerateBishopMoves(s, Piece.Color.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
+            attackersBB |= (GenerateRookMoves(s, Piece.Color.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
             //add pawn and king attacks
 
             return attackersBB;
@@ -500,7 +491,7 @@ namespace BraveChess.Scenes
 
             if (c == Piece.Color.White)
             {
-                kingPos = getSquareFromBB(white_kings);
+                kingPos = GetSquareFromBb(WhiteKings);
 
                 //if all pieces attacking the kings position minus pieces of his own colour != 0, then the king is in check
                 if ((FindAttacksToSquare(kingPos) & ~WhitePieces) != 0)
@@ -508,7 +499,7 @@ namespace BraveChess.Scenes
             }
             else if (c == Piece.Color.Black)
             {
-                kingPos = getSquareFromBB(black_kings);
+                kingPos = GetSquareFromBb(BlackKings);
                 if ((FindAttacksToSquare(kingPos) & ~BlackPieces) != 0)
                     return true;
             }
@@ -522,30 +513,28 @@ namespace BraveChess.Scenes
                 switch (type)
                 {
                     case Piece.PieceType.Bishop:
-                         white_bishops ^= bbFrom;
-                         white_bishops ^= bbTo;
+                         WhiteBishops ^= bbFrom;
+                         WhiteBishops ^= bbTo;
                          break;
                     case Piece.PieceType.King:
-                         white_kings ^= bbFrom;
-                         white_kings ^= bbTo;
+                         WhiteKings ^= bbFrom;
+                         WhiteKings ^= bbTo;
                          break;
                     case Piece.PieceType.Knight:
-                         white_knights ^= bbFrom;
-                         white_knights ^= bbTo;
+                         WhiteKnights ^= bbFrom;
+                         WhiteKnights ^= bbTo;
                          break;
                     case Piece.PieceType.Queen:
-                         white_queens ^= bbFrom;
-                         white_queens ^= bbTo;
+                         WhiteQueens ^= bbFrom;
+                         WhiteQueens ^= bbTo;
                          break;
                     case Piece.PieceType.Rook:
-                         white_rooks ^= bbFrom;
-                         white_rooks ^= bbTo;
+                         WhiteRooks ^= bbFrom;
+                         WhiteRooks ^= bbTo;
                          break;
                     case Piece.PieceType.Pawn:
-                         white_pawns ^= bbFrom;
-                         white_pawns ^= bbTo;
-                         break;
-                    default:
+                         WhitePawns ^= bbFrom;
+                         WhitePawns ^= bbTo;
                          break;
                 }
             }
@@ -554,31 +543,29 @@ namespace BraveChess.Scenes
                 switch (type)
                 {
                     case Piece.PieceType.Bishop:
-                        black_bishops ^= bbFrom;
-                        black_bishops ^= bbTo;
+                        BlackBishops ^= bbFrom;
+                        BlackBishops ^= bbTo;
                          break;
                     case Piece.PieceType.King:
-                        black_kings ^= bbFrom;
-                        black_kings ^= bbTo;
+                        BlackKings ^= bbFrom;
+                        BlackKings ^= bbTo;
                          break;
                     case Piece.PieceType.Knight:
-                        black_knights ^= bbFrom;
-                        black_knights ^= bbTo;
+                        BlackKnights ^= bbFrom;
+                        BlackKnights ^= bbTo;
                          break;
                     case Piece.PieceType.Queen:
-                        black_queens ^= bbFrom;
-                        black_queens ^= bbTo;
+                        BlackQueens ^= bbFrom;
+                        BlackQueens ^= bbTo;
                          break;
                     case Piece.PieceType.Rook:
-                        black_rooks ^= bbFrom;
-                        black_rooks ^= bbTo;
+                        BlackRooks ^= bbFrom;
+                        BlackRooks ^= bbTo;
                          break;
                     case Piece.PieceType.Pawn:
-                         black_pawns ^= bbFrom;
-                         black_pawns ^= bbTo;
+                         BlackPawns ^= bbFrom;
+                         BlackPawns ^= bbTo;
                          break;
-                    default:
-                        break;
                 }
             }
         }
