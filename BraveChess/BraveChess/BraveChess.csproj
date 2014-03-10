@@ -133,8 +133,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Scenes\NetworkedLevel.cs" />
     <Compile Include="Scenes\StandardLevel.cs" />
-    <Compile Include="Screens\MainMenu.cs" />
-    <Compile Include="Screens\Screen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

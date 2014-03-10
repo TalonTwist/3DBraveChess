@@ -13,6 +13,7 @@ namespace BraveChess.Objects
         Color _color = Color.Gray;
         public Vector2 Size;
         public bool IsClicked;
+        public bool isHover = false;
         bool _soundPlayed;
 
         public Button(Texture2D texture,Vector2 newPos,GraphicsDevice graphics)
@@ -29,6 +30,7 @@ namespace BraveChess.Objects
 
             if(mouseRec.Intersects(_rectangle))
             {
+                isHover = true;
                 _color = new Color(255, 255, 255, 255);
 
                 if(!_soundPlayed)
@@ -45,6 +47,7 @@ namespace BraveChess.Objects
                 _color = Color.Gray;
                 IsClicked = false;
                 _soundPlayed = false;
+                isHover = false;
             }
         }
 

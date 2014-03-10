@@ -83,6 +83,8 @@ namespace BraveChess.Base
 
         public virtual void Initialize()
         {
+            
+
             #region Cameras
             CamWhite = new Camera("camWhite",
                 new Vector3(1, 60, 60),

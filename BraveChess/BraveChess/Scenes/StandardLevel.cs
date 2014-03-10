@@ -175,8 +175,10 @@ namespace BraveChess.Scenes
                      if (TestMove(PieceToMove, GoFromSquare, GoToSquare))
                      {
                          if (IsFight)
+                         {
+                             Engine.Audio.PlayEffect("CapturePiece");
                              CapturePiece(); //Remove the captured piece
-
+                         }
                          AllMoves.Add(new Move(GoFromSquare, GoToSquare, PieceToMove, IsFight)); //add new Move to list AllMoves
                          NotificationEngine.AddNotification(new Notification(AllMoves.Last().ToAlgebraic(), 3000));
                          
@@ -184,6 +186,8 @@ namespace BraveChess.Scenes
 
                          SelectState = SelectionState.SelectPiece; //reset
                          IsFight = false;
+
+                         Engine.Audio.PlayEffect("MovePiece");
 
                          SwitchTurn(); //Changes turnState 
                      }

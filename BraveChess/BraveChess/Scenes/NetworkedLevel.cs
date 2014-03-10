@@ -193,12 +193,16 @@ namespace BraveChess.Scenes
                     if (TestMove(PieceToMove, GoFromSquare, GoToSquare))
                     {
                         if (IsFight)
+                        {
+                            Engine.Audio.PlayEffect("CapturePiece");
                             PieceToCapture.Destroy(); //Remove the captured piece, if any
-
+                        }
                         MovePiece(PieceToMove, GoFromSquare, GoToSquare); //make the move
 
                         SelectState = SelectionState.SelectPiece; //reset
                         IsFight = false;
+
+                        Engine.Audio.PlayEffect("MovePiece");
 
                         SwitchTurn(false); //Changes turnState 
                     }

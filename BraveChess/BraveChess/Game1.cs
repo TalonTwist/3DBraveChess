@@ -29,21 +29,13 @@ namespace BraveChess
 
 
             Window.AllowUserResizing = true;
-            Window.ClientSizeChanged += Window_ClientSizeChanged;
+            
             IsMouseVisible = true;
 
             _gameEngine = new GameEngine(this);
 
             Content.RootDirectory = "Content";  
         }
-
-        void Window_ClientSizeChanged(object sender, EventArgs e)
-        {
-            if (_gameEngine.CurrentScreen != null)
-                _gameEngine.CurrentScreen.OnResize();
-        }
-
-        
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
