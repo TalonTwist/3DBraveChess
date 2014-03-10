@@ -80,7 +80,7 @@ namespace BraveChess.Scenes
              Pieces.Add(new Piece("bishop2", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop));
              #endregion
 
-             AddObject(new SimpleModel("Terrain","Enviroment",new Vector3(0,0,0)));
+            // AddObject(new SimpleModel("Terrain","Enviroment",new Vector3(0,0,0)));
 
              //add Objects
              foreach (Square s in Squares)
@@ -312,18 +312,18 @@ namespace BraveChess.Scenes
              int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
              ulong attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & WhiteKnights & BlackKnights);
-             attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Color.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
-             attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Color.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
+             attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
+             attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
              //add pawn and king attacks
 
              return attackersBB;
          }
 
-         private bool TestForCheck(Piece.Color c)
+         private bool TestForCheck(Piece.Colour c)
          {
              Square kingPos;
 
-             if (c == Piece.Color.White)
+             if (c == Piece.Colour.White)
              {
                  kingPos = GetSquareFromBB(WhiteKings);
 
@@ -331,7 +331,7 @@ namespace BraveChess.Scenes
                  if ((FindAttacksToSquare(kingPos) & ~WhitePieces) != 0)
                      return true;
              }
-             else if (c == Piece.Color.Black)
+             else if (c == Piece.Colour.Black)
              {
                  kingPos = GetSquareFromBB(BlackKings);
                  if ((FindAttacksToSquare(kingPos) & ~BlackPieces) != 0)
@@ -340,9 +340,9 @@ namespace BraveChess.Scenes
              return false;
          }
 
-         private void UpdateRelevantbb(Piece.PieceType type, Piece.Color c, ulong bbFrom, ulong bbTo)
+         private void UpdateRelevantbb(Piece.PieceType type, Piece.Colour c, ulong bbFrom, ulong bbTo)
          {
-             if (c == Piece.Color.White)
+             if (c == Piece.Colour.White)
              {
                  switch (type)
                  {

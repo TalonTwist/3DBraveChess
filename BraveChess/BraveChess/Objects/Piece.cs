@@ -4,12 +4,13 @@ using BraveChess.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using BraveChess.Engines;
 
 namespace BraveChess.Objects
 {
     public class Piece : GameObject3D
     {
-       public enum Color
+       public enum Colour
         {
            Black = 0,
            White = 1,
@@ -29,9 +30,9 @@ namespace BraveChess.Objects
 
         public Model Model3D { get; set; }
         public Matrix[] BoneTransforms { get; set; }
-        public Color ColorType { get; set; }
+        public Colour ColorType { get; set; }
         public PieceType Piece_Type { get; set; }
-        public BoundingBox AABB { get; set; }
+        
 
         readonly string _asset;
 
@@ -39,7 +40,7 @@ namespace BraveChess.Objects
             : base(id, position)
         {
             _asset = asset;
-            ColorType = (Color)colorT;
+            ColorType = (Colour)colorT;
             Piece_Type = pieceT;
         }
 
@@ -93,7 +94,7 @@ namespace BraveChess.Objects
 
         public override void Update(GameTime gametime)
         {
-            //DebugEngine.AddBoundingBox(AABB, Color.Yellow);
+           // DebugEngine.AddBoundingBox(AABB, Color.Yellow);
 
             base.Update(gametime);
         }//end of method

@@ -9,6 +9,7 @@ namespace BraveChess.Base
     {
         public string Id { get; set; }
         public Matrix World { get; set; }
+        public BoundingBox AABB { get; set; }
 
         public event GameObjectEventHandler Destroying;
 

@@ -16,7 +16,7 @@ namespace BraveChess.Base
             _engine = engine;
         }
 
-        static public UInt64 GenerateKingMoves(Square s, Piece.Color c)
+        static public UInt64 GenerateKingMoves(Square s, Piece.Colour c)
         {
             UInt64 myPieceBB = BitboardHelper.GetBitboardFromSquare(s);
 
@@ -26,7 +26,7 @@ namespace BraveChess.Base
             UInt64 validMovesBB = (myPieceBB_A_Clip << 7) | (myPieceBB << 8) | (myPieceBB_H_Clip << 9) | (myPieceBB_H_Clip << 1) | (myPieceBB_H_Clip >> 7) | (myPieceBB >> 8) | (myPieceBB_A_Clip >> 9) | (myPieceBB_A_Clip >> 1);
 
 
-            if (c == Piece.Color.White)
+            if (c == Piece.Colour.White)
                 validMovesBB = validMovesBB ^ (validMovesBB & _engine.ActiveScene.WhitePieces);
             else
                 validMovesBB = validMovesBB ^ (validMovesBB & _engine.ActiveScene.BlackPieces);
@@ -34,13 +34,13 @@ namespace BraveChess.Base
             return validMovesBB;
         }
 
-        static public UInt64 GeneratePawnMoves(Square s, Piece.Color c)
+        static public UInt64 GeneratePawnMoves(Square s, Piece.Colour c)
         {
             UInt64 validMovesBB;
             UInt64 myPieceBB = BitboardHelper.GetBitboardFromSquare(s); //bitboard representation of the pawns position
             int index = BitboardHelper.GetIndexFromSquare(s);
 
-            if (c == Piece.Color.White)
+            if (c == Piece.Colour.White)
             {
                 validMovesBB = (myPieceBB << 7 | myPieceBB << 9) & _engine.ActiveScene.BlackPieces;
 
@@ -68,15 +68,15 @@ namespace BraveChess.Base
             return validMovesBB;
         }
 
-        static public UInt64 GenerateKnightMoves(Square s, Piece.Color c)
+        static public UInt64 GenerateKnightMoves(Square s, Piece.Colour c)
         {
             UInt64 validMovesBB;
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
-            if (c == Piece.Color.White)
+            if (c == Piece.Colour.White)
                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & _engine.ActiveScene.WhitePieces;
 
-            else if (c == Piece.Color.Black)
+            else if (c == Piece.Colour.Black)
                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & _engine.ActiveScene.BlackPieces;
 
             else
@@ -85,7 +85,7 @@ namespace BraveChess.Base
             return validMovesBB;
         }
 
-        static public UInt64 GenerateBishopMoves(Square s, Piece.Color c)
+        static public UInt64 GenerateBishopMoves(Square s, Piece.Colour c)
         {
             UInt64 validSquares;
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
@@ -94,9 +94,9 @@ namespace BraveChess.Base
 
             int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberBishop[sqIndex]) >> BitboardHelper.MagicNumberShiftsBishop[sqIndex]);
 
-            if (c == Piece.Color.White)
+            if (c == Piece.Colour.White)
                 validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~_engine.ActiveScene.WhitePieces;
-            else if (c == Piece.Color.Black)
+            else if (c == Piece.Colour.Black)
                 validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~_engine.ActiveScene.BlackPieces;
             else
                 validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex];
@@ -104,7 +104,7 @@ namespace BraveChess.Base
             return validSquares;
         }
 
-        static public UInt64 GenerateRookMoves(Square s, Piece.Color c)
+        static public UInt64 GenerateRookMoves(Square s, Piece.Colour c)
         {
             UInt64 validSquares;
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
@@ -113,9 +113,9 @@ namespace BraveChess.Base
 
             int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberRook[sqIndex]) >> BitboardHelper.MagicNumberShiftsRook[sqIndex]);
 
-            if (c == Piece.Color.White)
+            if (c == Piece.Colour.White)
                 validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~_engine.ActiveScene.WhitePieces;
-            else if (c == Piece.Color.Black)
+            else if (c == Piece.Colour.Black)
                 validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~_engine.ActiveScene.BlackPieces;
             else
                 validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex];
@@ -123,7 +123,7 @@ namespace BraveChess.Base
             return validSquares;
         }
 
-        static public UInt64 GenerateQueenMoves(Square s, Piece.Color c)
+        static public UInt64 GenerateQueenMoves(Square s, Piece.Colour c)
         {
             //first calulate Rook movements for queen
             ulong validSquares = GenerateRookMoves(s, c);

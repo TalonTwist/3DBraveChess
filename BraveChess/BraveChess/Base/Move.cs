@@ -68,7 +68,7 @@ namespace BraveChess.Base
                 return false;
             }
         }
-        public Piece.Color SideMove
+        public Piece.Colour SideMove
         {
             get
             {

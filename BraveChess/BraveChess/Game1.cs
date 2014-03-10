@@ -88,6 +88,8 @@ namespace BraveChess
                 Exit();
             if (InputEngine.IsKeyPressed(Keys.Escape) || InputEngine.IsButtonPressed(Buttons.Back))
                 Exit();
+            if (_gameEngine.GameState == GameEngine.State.ExitGame)
+                Exit();
             // TODO: Add your update logic here
 
             base.Update(gameTime);

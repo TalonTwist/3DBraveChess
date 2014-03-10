@@ -4,6 +4,7 @@ using BraveChess.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using BraveChess.Engines;
 
 namespace BraveChess.Objects
 {
@@ -75,6 +76,10 @@ namespace BraveChess.Objects
                 {
                     vertices.AddRange(Helper.ExtractVector3FromMesh(mesh, BoneTransforms));
                 }
+
+                AABB = BoundingBox.CreateFromPoints(vertices);
+
+                UpdateBoundingBox(World);
             }
             base.LoadContent(content);
         }
@@ -113,8 +118,16 @@ namespace BraveChess.Objects
                 mesh.Draw();
             }
 
+
             base.Draw(camera);
         }//End Method
+
+        public override void Update(GameTime gametime)
+        {
+            //DebugEngine.AddBoundingBox(AABB, Color.Yellow);
+
+            base.Update(gametime);
+        }//end of method
 
         public string ToAlgebraic()
         {
@@ -123,6 +136,11 @@ namespace BraveChess.Objects
             str += ((int)Rank + 1).ToString();
 
             return str;
+        }
+
+        public void UpdateBoundingBox(Matrix transform)
+        {
+            AABB = Helper.TransformBoundingBox(AABB, transform);
         }
     }
 }

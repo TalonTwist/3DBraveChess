@@ -221,7 +221,7 @@ namespace BraveChess.Scenes
             UInt64 fromSq = Engine.Network.PacketReader.ReadUInt64();
             UInt64 toSq = Engine.Network.PacketReader.ReadUInt64();
 
-            MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Color)pieceColor, fromSq, toSq);
+            MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Colour)pieceColor, fromSq, toSq);
         }
 
         private void MovePiece(Piece piece, Square from, Square to)
@@ -253,7 +253,7 @@ namespace BraveChess.Scenes
             return true;
         } //sorry that would leave you in check
 
-        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Color color, UInt64 bbFrom, UInt64 bbTo)
+        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Colour color, UInt64 bbFrom, UInt64 bbTo)
         {
             UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
 
@@ -351,18 +351,18 @@ namespace BraveChess.Scenes
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
             attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & WhiteKnights & BlackKnights);
-            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Color.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
-            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Color.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
+            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
+            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
             //add pawn and king attacks
 
             return attackersBB;
         }
 
-        private bool TestForCheck(Piece.Color c)
+        private bool TestForCheck(Piece.Colour c)
         {
             Square kingPos;
 
-            if (c == Piece.Color.White)
+            if (c == Piece.Colour.White)
             {
                 kingPos = GetSquareFromBb(WhiteKings);
 
@@ -370,7 +370,7 @@ namespace BraveChess.Scenes
                 if ((FindAttacksToSquare(kingPos) & ~WhitePieces) != 0)
                     return true;
             }
-            else if (c == Piece.Color.Black)
+            else if (c == Piece.Colour.Black)
             {
                 kingPos = GetSquareFromBb(BlackKings);
                 if ((FindAttacksToSquare(kingPos) & ~BlackPieces) != 0)
@@ -379,9 +379,9 @@ namespace BraveChess.Scenes
             return false;
         }
 
-        private void UpdateRelevantbb(Piece.PieceType type, Piece.Color c, ulong bbFrom, ulong bbTo)
+        private void UpdateRelevantbb(Piece.PieceType type, Piece.Colour c, ulong bbFrom, ulong bbTo)
         {
-            if (c == Piece.Color.White)
+            if (c == Piece.Colour.White)
             {
                 switch (type)
                 {

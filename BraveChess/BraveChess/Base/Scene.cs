@@ -1,7 +1,6 @@
 ﻿ using System;
 using System.Collections.Generic;
  using System.Linq;
- using System.Runtime.Remoting.Messaging;
  using Microsoft.Xna.Framework;
 using BraveChess.Objects;
 using BraveChess.Engines;
@@ -49,8 +48,6 @@ namespace BraveChess.Base
         protected GameEngine Engine;
 
         readonly float _aspectRatio = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio;
-
-        public UInt64 TheWhitePieces{get { return WhitePieces; }}
 
         #region Bitboards
 
@@ -145,7 +142,6 @@ namespace BraveChess.Base
 
             foreach (GameObject3D t in SceneObjects)
                 t.Initialise();
-
             MoveGen.Init(Engine);
             BitboardHelper.Initialize();
         }//End of Method
@@ -254,7 +250,70 @@ namespace BraveChess.Base
                 PreviousSquare = CurrentSquare;
             }
 
+            if (InputEngine.IsMouseLeftClick())
+            {
+                if (PreviousSquare != null)
+                    PreviousSquare.IsSelected = false;
+
+                CurrentSquare = SquareSelectWithMouse();
+
+                if (SelectState == SelectionState.SelectPiece) //if a piece hasnt been selected, highlight
+                {
+                    CurrentSquare.IsSelected = true;
+                }
+                else
+                    PreviousSquare = null;
+
+                PreviousSquare = CurrentSquare;
+            }
+            
             #endregion 
+        }
+
+        public Square SquareSelectWithMouse()
+        {
+                //Square square;
+                Ray ray = RayCast();
+
+                foreach (Square sq in Squares)
+                {
+                    float? result = ray.Intersects(sq.AABB);
+
+                    if (result.HasValue == true)
+                    {
+                        return sq;
+                    }
+                }
+            
+
+            return null;
+        }
+
+
+        public Ray RayCast()//makes a ray
+        {
+            int mouseX = InputEngine.CurrentMouseState.X;
+            int mouseY = InputEngine.CurrentMouseState.Y;
+
+            Vector3 nearSource = new Vector3((float)mouseX, (float)mouseY, 0);
+            Vector3 farSource = new Vector3((float)mouseX, (float)mouseY, 1);
+
+            Matrix world = Matrix.CreateTranslation(0, 0, 0);
+
+            Vector3 nearPoint = Engine.GraphicsDevice.Viewport.Unproject(nearSource, 
+                Engine.Cameras.ActiveCamera.Projection, 
+                Engine.Cameras.ActiveCamera.View, 
+                world);
+            Vector3 farPoint = Engine.GraphicsDevice.Viewport.Unproject(farSource, 
+                Engine.Cameras.ActiveCamera.Projection, 
+                Engine.Cameras.ActiveCamera.View, 
+                world);
+
+            Vector3 direction = farPoint - nearPoint;
+            direction.Normalize();
+            Ray pickRay = new Ray(nearPoint, direction);
+
+            return pickRay;
         }
 
         public void AddObject(GameObject3D newObject)

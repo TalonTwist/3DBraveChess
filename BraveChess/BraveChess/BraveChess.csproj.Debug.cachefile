@@ -11,6 +11,12 @@ Content\Models\White Queen.xnb
 Content\Models\White Rook.xnb
 Content\Models\WhiteSquare.xnb
 Content\Models\Untextured\Bishop Piece.xnb
+Content\Models\Black Bishop.xnb
+Content\Models\Board Square Black.xnb
+Content\Models\Board Square Untextured.xnb
+Content\Models\Board Square White.xnb
+Content\Models\White Bishop.xnb
+Content\Models\Enviroment.xnb
 Content\Fonts\debug.xnb
 Content\Audio\Songs\BackgroundSong.xnb
 Content\Textures\Aaron'sTexture White.xnb
@@ -36,16 +42,6 @@ Content\Buttons\ExitGameButton.xnb
 Content\Buttons\NetworkButton.xnb
 Content\Buttons\StandartGameButton.xnb
 Content\Buttons\Hover.xnb
-Content\Audio\Effects\MenuHover.xnb
-Content\Audio\Effects\CapturePiece.xnb
-Content\Audio\Effects\MovePiece.xnb
-Content\Textures\Aaron'sTexture_0.xnb
-Content\Textures\Aaron'sTexture White_0.xnb
-Content\Models\Black Bishop.xnb
-Content\Models\Board Square Black.xnb
-Content\Models\Board Square Untextured.xnb
-Content\Models\Board Square White.xnb
-Content\Models\White Bishop.xnb
 Content\Textures\Black_Bishop.xnb
 Content\Textures\Black_Board.xnb
 Content\Textures\Black_King.xnb
@@ -60,9 +56,13 @@ Content\Textures\White_Knight.xnb
 Content\Textures\White_Pawn.xnb
 Content\Textures\White_Queen.xnb
 Content\Textures\White_Rook.xnb
-Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb
-Content\Models\Enviroment.xnb
 Content\Models\Enviroment_TX.xnb
+Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb
+Content\Audio\Effects\MenuHover.xnb
+Content\Audio\Effects\CapturePiece.xnb
+Content\Audio\Effects\MovePiece.xnb
+Content\Textures\Aaron'sTexture_0.xnb
+Content\Textures\Aaron'sTexture White_0.xnb
 Content\Models\Enviroment_TX_0.xnb
 Content\Audio\Songs\BackgroundSong.wma
 Content\Skin\Map.txt
