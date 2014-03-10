@@ -7,7 +7,12 @@ using BraveChess.Engines;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Graphics;
+<<<<<<< HEAD
 using BraveChess.Helpers;
+=======
+using BraveChess.Screens;
+using Ruminate.GUI.Framework;
+>>>>>>> 3600e1b73be9658d8d3f62287410e2211eb5fe08
 
 namespace BraveChess.Base
 {
@@ -28,8 +33,16 @@ namespace BraveChess.Base
 
         #region public, protected and private variables
 
+<<<<<<< HEAD
         
         public string Id { get; set; }
+=======
+        Screen screen;
+        KeyEventArgs e;
+        public List<Piece> Pieces { get { return _pieces; } }
+        static BitboardHelper BBHelper = new BitboardHelper();
+        public string ID { get; set; }
+>>>>>>> 3600e1b73be9658d8d3f62287410e2211eb5fe08
         public TurnState Turn { get; set; }
         public SelectionState SelectState { get; set; }
         public List<GameObject3D> Objects { get { return SceneObjects; } }
@@ -138,11 +151,19 @@ namespace BraveChess.Base
             Squares[CurrentI, CurrentJ].IsHover = true;
             #endregion
 
+<<<<<<< HEAD
             foreach (GameObject3D t in SceneObjects)
                 t.Initialise();
 
             BitboardHelper.Initialize();
         }//End of Method
+=======
+            e = new KeyEventArgs(Keys.Up);
+
+            for (int i = 0; i < _sceneObjects.Count; i++)
+                _sceneObjects[i].Initialise();
+        }
+>>>>>>> 3600e1b73be9658d8d3f62287410e2211eb5fe08
 
         public virtual void Update(GameTime gametime)
         {

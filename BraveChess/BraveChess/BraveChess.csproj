@@ -125,6 +125,7 @@
     <Compile Include="Engines\NetworkEngine.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="Objects\Button.cs" />
     <Compile Include="Objects\Piece.cs" />
     <Compile Include="Objects\Square.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

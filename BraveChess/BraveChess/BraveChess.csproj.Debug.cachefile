@@ -12,7 +12,6 @@ Content\Models\White Rook.xnb
 Content\Models\WhiteSquare.xnb
 Content\Models\Untextured\Bishop Piece.xnb
 Content\Fonts\debug.xnb
-Content\Audio\Effects\move.xnb
 Content\Audio\Songs\BackgroundSong.xnb
 Content\Textures\Aaron'sTexture White.xnb
 Content\Textures\Aaron'sTexture.xnb
@@ -45,6 +44,13 @@ Content\Textures\Pieces\WhitePawn_0.xnb
 Content\Textures\Pieces\WhiteQueen_0.xnb
 Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
+Content\Buttons\ExitGameButton.xnb
+Content\Buttons\NetworkButton.xnb
+Content\Buttons\StandartGameButton.xnb
+Content\Buttons\Hover.xnb
+Content\Audio\Effects\MenuHover.xnb
+Content\Audio\Effects\CapturePiece.xnb
+Content\Audio\Effects\MovePiece.xnb
 Content\Audio\Songs\BackgroundSong.wma
 Content\Skin\Map.txt
 Content\Skin\Metrics.xml

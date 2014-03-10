@@ -168,7 +168,11 @@ namespace BraveChess.Engines
 
         protected void StartGame()
         {
+<<<<<<< HEAD
             if (_engine.GameState == GameEngine.State.NetworkGame)
+=======
+            if (_engine._currentScreenState == GameEngine.State.NetworkGame)
+>>>>>>> 3600e1b73be9658d8d3f62287410e2211eb5fe08
             {
                 _engine.LoadScene(new NetworkedLevel(_engine));
                 _currentGameState = NetworkState.InGame;
