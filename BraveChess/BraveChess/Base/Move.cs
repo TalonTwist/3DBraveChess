@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using BraveChess.Objects;
 using BraveChess.Helpers;
+using BraveChess.Objects;
 
-namespace BraveChess
+namespace BraveChess.Base
 {
     public class Move
     {
@@ -128,5 +128,7 @@ namespace BraveChess
                     return "initial";
             }
         }
+
+        
     }
 }

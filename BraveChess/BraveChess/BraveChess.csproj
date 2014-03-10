@@ -113,6 +113,7 @@
     <Compile Include="Base\Camera.cs" />
     <Compile Include="Base\GameEngine.cs" />
     <Compile Include="Base\GameObject3D.cs" />
+    <Compile Include="Base\MoveGen.cs" />
     <Compile Include="Base\Scene.cs" />
     <Compile Include="Engines\NetworkEngine.cs" />
     <Compile Include="Engines\NotificationEngine.cs" />
@@ -124,7 +125,7 @@
     <Compile Include="Engines\FrameRateCounter.cs" />
     <Compile Include="Engines\InputEngine.cs" />
     <Compile Include="Helpers\Helpers.cs" />
-    <Compile Include="Move.cs" />
+    <Compile Include="Base\Move.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Objects\Button.cs" />
     <Compile Include="Objects\Piece.cs" />

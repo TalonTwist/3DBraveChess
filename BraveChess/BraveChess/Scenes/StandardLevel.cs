@@ -201,8 +201,6 @@ namespace BraveChess.Scenes
              } // end switch
          }
 
-
-
          private void CapturePiece() //Remove the Piece and update bitboards
          {
              UpdateRelevantbb(PieceToCapture.Piece_Type, PieceToCapture.ColorType, BitboardHelper.GetBitboardFromSquare(GoToSquare), 0);
@@ -243,8 +241,8 @@ namespace BraveChess.Scenes
          {
             base.HandleInput();
          }
-
-         private Piece GetPiece(Vector3 pos)
+ 
+        private Piece GetPiece(Vector3 pos)
          {
              return Pieces.FirstOrDefault(t => t.World.Translation == pos);
          }
@@ -288,142 +286,25 @@ namespace BraveChess.Scenes
              switch (p.Piece_Type)
              {
                  case Piece.PieceType.King:
-                     return GetSquareListFromBB(GenerateKingMoves(s, p.ColorType));
+                     return GetSquareListFromBB(MoveGen.GenerateKingMoves(s, p.ColorType));
 
                  case Piece.PieceType.Pawn:
-                     return GetSquareListFromBB(GeneratePawnMoves(s, p.ColorType));
+                     return GetSquareListFromBB(MoveGen.GeneratePawnMoves(s, p.ColorType));
 
                  case Piece.PieceType.Knight:
-                     return GetSquareListFromBB(GenerateKnightMoves(s, p.ColorType));
+                     return GetSquareListFromBB(MoveGen.GenerateKnightMoves(s, p.ColorType));
 
                  case Piece.PieceType.Bishop:
-                     return GetSquareListFromBB(GenerateBishopMoves(s, p.ColorType));
+                     return GetSquareListFromBB(MoveGen.GenerateBishopMoves(s, p.ColorType));
 
                  case Piece.PieceType.Rook:
-                     return GetSquareListFromBB(GenerateRookMoves(s, p.ColorType));
+                     return GetSquareListFromBB(MoveGen.GenerateRookMoves(s, p.ColorType));
 
                  case Piece.PieceType.Queen:
-                     return GetSquareListFromBB(GenerateQueenMoves(s, p.ColorType));
+                     return GetSquareListFromBB(MoveGen.GenerateQueenMoves(s, p.ColorType));
                  default:
                      return null;
              }
-         }
-
-         private UInt64 GenerateKingMoves(Square s, Piece.Color c)
-         {
-             UInt64 myPieceBB = BitboardHelper.GetBitboardFromSquare(s);
-
-             UInt64 myPieceBB_H_Clip = (myPieceBB & BitboardHelper.ClearFile[7]);
-             UInt64 myPieceBB_A_Clip = (myPieceBB & BitboardHelper.ClearFile[0]);
-
-             UInt64 validMovesBB = (myPieceBB_A_Clip << 7) | (myPieceBB << 8) | (myPieceBB_H_Clip << 9) | (myPieceBB_H_Clip << 1) | (myPieceBB_H_Clip >> 7) | (myPieceBB >> 8) | (myPieceBB_A_Clip >> 9) | (myPieceBB_A_Clip >> 1);
-
-
-             if (c == Piece.Color.White)
-                 validMovesBB = validMovesBB ^ (validMovesBB & WhitePieces);
-             else
-                 validMovesBB = validMovesBB ^ (validMovesBB & BlackPieces);
-
-             return validMovesBB;
-         }
-
-         private UInt64 GeneratePawnMoves(Square s, Piece.Color c)
-         {
-             UInt64 validMovesBB;
-             UInt64 myPieceBB = BitboardHelper.GetBitboardFromSquare(s); //bitboard representation of the pawns position
-
-             if (c == Piece.Color.White)
-             {
-                 validMovesBB = (myPieceBB << 7 | myPieceBB << 9) & BlackPieces;
-
-                 if (((myPieceBB << 8) & AllPieces) == 0)
-                 {
-                     validMovesBB = validMovesBB | (myPieceBB << 8);
-
-                     if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Two]) != 0) && ((myPieceBB << 16) & AllPieces) == 0)
-                         validMovesBB = validMovesBB | (myPieceBB << 16);
-                 }
-             }
-             else
-             {
-                 validMovesBB = (myPieceBB >> 7 | myPieceBB >> 9) & WhitePieces;
-
-                 if (((myPieceBB >> 8) & AllPieces) == 0)
-                 {
-                     validMovesBB = validMovesBB | (myPieceBB >> 8);
-
-                     if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Seven]) != 0) && ((myPieceBB >> 16) & AllPieces) == 0)
-                         validMovesBB = validMovesBB | myPieceBB >> 16;
-                 }
-             }
-
-             return validMovesBB;
-         }
-
-         private UInt64 GenerateKnightMoves(Square s, Piece.Color c)
-         {
-             UInt64 validMovesBB;
-             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
-
-             if (c == Piece.Color.White)
-                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & WhitePieces;
-
-             else if (c == Piece.Color.Black)
-                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & BlackPieces;
-
-             else
-                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex];
-
-             return validMovesBB;
-         }
-
-         private UInt64 GenerateBishopMoves(Square s, Piece.Color c)
-         {
-             UInt64 validSquares;
-             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
-
-             UInt64 bbBlockers = AllPieces & BitboardHelper.OccupancyMaskBishop[sqIndex];
-
-             int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberBishop[sqIndex]) >> BitboardHelper.MagicNumberShiftsBishop[sqIndex]);
-
-             if (c == Piece.Color.White)
-                 validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~WhitePieces;
-             else if (c == Piece.Color.Black)
-                 validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~BlackPieces;
-             else
-                 validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex];
-
-             return validSquares;
-         }
-
-         private UInt64 GenerateRookMoves(Square s, Piece.Color c)
-         {
-             UInt64 validSquares;
-             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
-
-             UInt64 bbBlockers = AllPieces & BitboardHelper.OccupancyMaskRook[sqIndex];
-
-             int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberRook[sqIndex]) >> BitboardHelper.MagicNumberShiftsRook[sqIndex]);
-
-             if (c == Piece.Color.White)
-                 validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~WhitePieces;
-             else if (c == Piece.Color.Black)
-                 validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~BlackPieces;
-             else
-                 validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex];
-
-             return validSquares;
-         }
-
-         private UInt64 GenerateQueenMoves(Square s, Piece.Color c)
-         {
-             //first calulate Rook movements for queen
-             ulong validSquares = GenerateRookMoves(s, c);
-
-             //then calculate Bishop moves for queen and OR with rook movements
-             validSquares |= GenerateBishopMoves(s, c);
-
-             return validSquares;
          }
 
          private UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
@@ -431,8 +312,8 @@ namespace BraveChess.Scenes
              int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
              ulong attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & WhiteKnights & BlackKnights);
-             attackersBB |= (GenerateBishopMoves(s, Piece.Color.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
-             attackersBB |= (GenerateRookMoves(s, Piece.Color.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
+             attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Color.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
+             attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Color.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
              //add pawn and king attacks
 
              return attackersBB;

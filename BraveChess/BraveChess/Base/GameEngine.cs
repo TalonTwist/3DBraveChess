@@ -187,7 +187,7 @@ namespace BraveChess.Base
                 text += "\n" + gamer.Gamertag;
             }
             _batch.DrawString(_font, text,
-                new Vector2((GraphicsDevice.Viewport.Width / 2) - txtWidth, 100),
+                new Vector2(GraphicsDevice.Viewport.Width / 2 - txtWidth, 100),
                 Color.SaddleBrown);
 
             _batch.End();
