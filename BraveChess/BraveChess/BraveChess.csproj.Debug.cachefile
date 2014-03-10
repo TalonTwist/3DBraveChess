@@ -32,6 +32,13 @@ Content\Textures\Pieces\thumbnail\BlackKing.xnb
 Content\Textures\Pieces\thumbnail\WhiteKnight.xnb
 Content\Skin\ImageMap.xnb
 Content\Skin\Texture.xnb
+Content\Buttons\ExitGameButton.xnb
+Content\Buttons\NetworkButton.xnb
+Content\Buttons\StandartGameButton.xnb
+Content\Buttons\Hover.xnb
+Content\Audio\Effects\MenuHover.xnb
+Content\Audio\Effects\CapturePiece.xnb
+Content\Audio\Effects\MovePiece.xnb
 Content\Textures\Pieces\BlackKing_0.xnb
 Content\Textures\Pieces\BlackKnight_0.xnb
 Content\Textures\Pieces\BlackPawn_0.xnb
@@ -44,13 +51,6 @@ Content\Textures\Pieces\WhitePawn_0.xnb
 Content\Textures\Pieces\WhiteQueen_0.xnb
 Content\Textures\Pieces\WhiteRook_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
-Content\Buttons\ExitGameButton.xnb
-Content\Buttons\NetworkButton.xnb
-Content\Buttons\StandartGameButton.xnb
-Content\Buttons\Hover.xnb
-Content\Audio\Effects\MenuHover.xnb
-Content\Audio\Effects\CapturePiece.xnb
-Content\Audio\Effects\MovePiece.xnb
 Content\Audio\Songs\BackgroundSong.wma
 Content\Skin\Map.txt
 Content\Skin\Metrics.xml

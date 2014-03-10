@@ -20,7 +20,11 @@ namespace BraveChess.Scenes
          {
 
              #region Sound
+             //loading songs//efects
+             Engine.Audio.LoadSong("BackgroundSong");
              Engine.Audio.PlaySong("BackgroundSong");
+             MediaPlayer.IsRepeating = true;
+             Engine.Audio.LoadEffect("MovePiece");
              #endregion
 
              base.Initialize();
@@ -171,23 +175,16 @@ namespace BraveChess.Scenes
                      if (TestMove(PieceToMove, GoFromSquare, GoToSquare))
                      {
                          if (IsFight)
-                         {
-                             Engine.Audio.PlayEffect("CapturePiece");
+                             CapturePiece(); //Remove the captured piece
 
-<<<<<<< HEAD
                          AllMoves.Add(new Move(GoFromSquare, GoToSquare, PieceToMove, IsFight)); //add new Move to list AllMoves
                          NotificationEngine.AddNotification(new Notification(AllMoves.Last().ToAlgebraic(), 3000));
                          
                          MovePiece(PieceToMove, GoToSquare); //make the move
-=======
-                             CapturePiece(); //Remove the captured piece
-                         }
-                         MovePiece(PieceToMove, _goFromSquare, _goToSquare); //make the move
->>>>>>> 3600e1b73be9658d8d3f62287410e2211eb5fe08
 
                          SelectState = SelectionState.SelectPiece; //reset
                          IsFight = false;
-                         Engine.Audio.PlayEffect("MovePiece");
+
                          SwitchTurn(); //Changes turnState 
                      }
                      else
