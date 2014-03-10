@@ -1,6 +1,7 @@
 ﻿ using System;
 using System.Collections.Generic;
  using System.Linq;
+ using System.Runtime.Remoting.Messaging;
  using Microsoft.Xna.Framework;
 using BraveChess.Objects;
 using BraveChess.Engines;
@@ -48,6 +49,8 @@ namespace BraveChess.Base
         protected GameEngine Engine;
 
         readonly float _aspectRatio = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio;
+
+        public UInt64 TheWhitePieces{get { return WhitePieces; }}
 
         #region Bitboards
 
@@ -141,6 +144,7 @@ namespace BraveChess.Base
             foreach (GameObject3D t in SceneObjects)
                 t.Initialise();
 
+            MoveGen.Init(Engine);
             BitboardHelper.Initialize();
         }//End of Method
 
