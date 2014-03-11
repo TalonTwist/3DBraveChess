@@ -16,8 +16,7 @@ namespace BraveChess.Scenes
             : base("NetworkLevel", engine) { }
 
         public override void Initialize()
-        {            
-
+        {  
             #region Sound
             //loading songs//efects
             Engine.Audio.LoadSong("BackgroundSong");
@@ -131,7 +130,7 @@ namespace BraveChess.Scenes
 
                         if (PieceToMove != null && ((int)PieceToMove.ColorType) == (int)Turn)
                         {
-                            GoFromSquare = CurrentSquare;
+                            FromSquare = CurrentSquare;
                             SelectState = SelectionState.PieceSelected;
                         }
 
@@ -140,7 +139,7 @@ namespace BraveChess.Scenes
                     break;
 
                 case SelectionState.PieceSelected:
-                    MovesAvailable = GenerateMoves(PieceToMove, GoFromSquare);
+                    MovesAvailable = GenerateMoves(PieceToMove, FromSquare);
                     if (MovesAvailable != null)
                     {
                         foreach (Square s in MovesAvailable)
@@ -149,7 +148,7 @@ namespace BraveChess.Scenes
                     }
                     else
                     {
-                        ResetMoves();
+                        ResetMovesAvailable();
                         SelectState = SelectionState.SelectPiece;
                     }
                     break;
@@ -162,7 +161,7 @@ namespace BraveChess.Scenes
                         if (PieceToCapture != null)
                             IsFight = true;
 
-                        GoToSquare = CurrentSquare;
+                        ToSquare = CurrentSquare;
 
                         SelectState = SelectionState.MoveSelected;
                     }
@@ -173,41 +172,38 @@ namespace BraveChess.Scenes
                         if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
                         {
                             PieceToMove = p;
-                            GoFromSquare = CurrentSquare;
+                            FromSquare = CurrentSquare;
                             SelectState = SelectionState.PieceSelected;
                         }
                         else
                             SelectState = SelectionState.SelectPiece;
-                        ResetMoves();
+                        ResetMovesAvailable();
                     }
 
                     CurrentSquare = null;
                     break;
 
                 case SelectionState.MoveSelected:
-                    ResetMoves();
+                    ResetMovesAvailable();
 
                     //check for pawn queening
 
-                    //Make sure the move doesnt leave king in check(test the move)
-                    if (TestMove(PieceToMove, GoFromSquare, GoToSquare))
-                    {
-                        if (IsFight)
-                        {
-                            Engine.Audio.PlayEffect("CapturePiece");
-                            PieceToCapture.Destroy(); //Remove the captured piece, if any
-                        }
-                        MovePiece(PieceToMove, GoFromSquare, GoToSquare); //make the move
+                    var m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
+                     if (m.IsValidMove)
+                     {
+                         //Send packet 
+                         Engine.Network.WriteMovePacket(PieceToMove.World.Translation, (int)PieceToMove.Piece_Type,
+                             (int)PieceToMove.ColorType, BitboardHelper.GetBitboardFromSquare(FromSquare), BitboardHelper.GetBitboardFromSquare(ToSquare));
 
-                        SelectState = SelectionState.SelectPiece; //reset
-                        IsFight = false;
-
-                        Engine.Audio.PlayEffect("MovePiece");
-
-                        SwitchTurn(false); //Changes turnState 
-                    }
-                    //else> Write message "sorry that would leave you in check"
-
+                         AllMoves.Add(m);
+                         NotificationEngine.AddNotification(new Notification(AllMoves.Last().ToAlgebraic(), 3000));
+                         Engine.Audio.PlayEffect("MovePiece");
+                         SelectState = SelectionState.SelectPiece;
+                         IsFight = false;
+                         SwitchTurn(false);
+                     }
+                     else
+                         NotificationEngine.AddNotification(new Notification("Sorry that would leave you in check!!", 4000));
                     break;
 
             } // end switch
@@ -224,40 +220,11 @@ namespace BraveChess.Scenes
             MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Colour)pieceColor, fromSq, toSq);
         }
 
-        private void MovePiece(Piece piece, Square from, Square to)
-        {
-            UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(from);
-            UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(to);
-
-            UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo); //update bitboards with new piece position
-
-            Engine.Network.WriteMovePacket(piece.World.Translation, (int)piece.Piece_Type, (int)piece.ColorType, bbFrom, bbTo);
-
-            piece.UpdateWorld(GetNewPos(to)); //update world position of model
-
-        }
-
-        private bool TestMove(Piece piece, Square from, Square to)
-        {
-            UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(from);
-            UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(to);
-
-            UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbFrom, bbTo);
-
-            if (TestForCheck(piece.ColorType))
-            {
-                UpdateRelevantbb(piece.Piece_Type, piece.ColorType, bbTo, bbFrom);
-                return false;
-            }
-
-            return true;
-        } //sorry that would leave you in check
-
         private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Colour color, UInt64 bbFrom, UInt64 bbTo)
         {
-            UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
+            GameBoard.UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
 
-            Square s = GetSquareFromBb(bbTo);
+            Square s = GetSquareFromBB(bbTo);
             Vector3 newPos = GetNewPos(s);
 
             Piece capturedPiece = GetPiece(s.World.Translation + new Vector3(0, 2, 0));
@@ -300,14 +267,14 @@ namespace BraveChess.Scenes
             return destination.World.Translation + new Vector3(0, 2, 0);
         }
 
-        private Square GetSquareFromBb(ulong bb)
+        private Square GetSquareFromBB(ulong bb)
         {
             var v = BitboardHelper.GetSquareFromBitboard(bb);
 
             return Squares[v.Item2, v.Item1];
         }
 
-        private List<Square> GetSquareListFromBb(ulong bb)
+        private List<Square> GetSquareListFromBB(ulong bb)
         {
             List<Square> s = new List<Square>();
             var sList = BitboardHelper.GetSquareListFromBB(bb);
@@ -324,124 +291,26 @@ namespace BraveChess.Scenes
             switch (p.Piece_Type)
             {
                 case Piece.PieceType.King:
-                    return GetSquareListFromBb(MoveGen.GenerateKingMoves(s, p.ColorType));
+                    return GetSquareListFromBB(MoveGen.GenerateKingMoves(s, p.ColorType));
 
                 case Piece.PieceType.Pawn:
-                    return GetSquareListFromBb(MoveGen.GeneratePawnMoves(s, p.ColorType));
+                    return GetSquareListFromBB(MoveGen.GeneratePawnMoves(s, p.ColorType));
 
                 case Piece.PieceType.Knight:
-                    return GetSquareListFromBb(MoveGen.GenerateKnightMoves(s, p.ColorType));
+                    return GetSquareListFromBB(MoveGen.GenerateKnightMoves(s, p.ColorType));
 
                 case Piece.PieceType.Bishop:
-                    return GetSquareListFromBb(MoveGen.GenerateBishopMoves(s, p.ColorType));
+                    return GetSquareListFromBB(MoveGen.GenerateBishopMoves(s, p.ColorType));
 
                 case Piece.PieceType.Rook:
-                    return GetSquareListFromBb(MoveGen.GenerateRookMoves(s, p.ColorType));
+                    return GetSquareListFromBB(MoveGen.GenerateRookMoves(s, p.ColorType));
 
                 case Piece.PieceType.Queen:
-                    return GetSquareListFromBb(MoveGen.GenerateQueenMoves(s, p.ColorType));
+                    return GetSquareListFromBB(MoveGen.GenerateQueenMoves(s, p.ColorType));
                 default:
                     return null;
             }
         }     
-
-        private UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
-        {
-            UInt64 attackersBB;
-            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
-
-            attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & WhiteKnights & BlackKnights);
-            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & BlackBishops & WhiteBishops & BlackQueens & WhiteQueens);
-            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & BlackRooks & WhiteRooks & BlackQueens & WhiteQueens);
-            //add pawn and king attacks
-
-            return attackersBB;
-        }
-
-        private bool TestForCheck(Piece.Colour c)
-        {
-            Square kingPos;
-
-            if (c == Piece.Colour.White)
-            {
-                kingPos = GetSquareFromBb(WhiteKings);
-
-                //if all pieces attacking the kings position minus pieces of his own colour != 0, then the king is in check
-                if ((FindAttacksToSquare(kingPos) & ~WhitePieces) != 0)
-                    return true;
-            }
-            else if (c == Piece.Colour.Black)
-            {
-                kingPos = GetSquareFromBb(BlackKings);
-                if ((FindAttacksToSquare(kingPos) & ~BlackPieces) != 0)
-                    return true;
-            }
-            return false;
-        }
-
-        private void UpdateRelevantbb(Piece.PieceType type, Piece.Colour c, ulong bbFrom, ulong bbTo)
-        {
-            if (c == Piece.Colour.White)
-            {
-                switch (type)
-                {
-                    case Piece.PieceType.Bishop:
-                         WhiteBishops ^= bbFrom;
-                         WhiteBishops ^= bbTo;
-                         break;
-                    case Piece.PieceType.King:
-                         WhiteKings ^= bbFrom;
-                         WhiteKings ^= bbTo;
-                         break;
-                    case Piece.PieceType.Knight:
-                         WhiteKnights ^= bbFrom;
-                         WhiteKnights ^= bbTo;
-                         break;
-                    case Piece.PieceType.Queen:
-                         WhiteQueens ^= bbFrom;
-                         WhiteQueens ^= bbTo;
-                         break;
-                    case Piece.PieceType.Rook:
-                         WhiteRooks ^= bbFrom;
-                         WhiteRooks ^= bbTo;
-                         break;
-                    case Piece.PieceType.Pawn:
-                         WhitePawns ^= bbFrom;
-                         WhitePawns ^= bbTo;
-                         break;
-                }
-            }
-            else
-            {
-                switch (type)
-                {
-                    case Piece.PieceType.Bishop:
-                        BlackBishops ^= bbFrom;
-                        BlackBishops ^= bbTo;
-                         break;
-                    case Piece.PieceType.King:
-                        BlackKings ^= bbFrom;
-                        BlackKings ^= bbTo;
-                         break;
-                    case Piece.PieceType.Knight:
-                        BlackKnights ^= bbFrom;
-                        BlackKnights ^= bbTo;
-                         break;
-                    case Piece.PieceType.Queen:
-                        BlackQueens ^= bbFrom;
-                        BlackQueens ^= bbTo;
-                         break;
-                    case Piece.PieceType.Rook:
-                        BlackRooks ^= bbFrom;
-                        BlackRooks ^= bbTo;
-                         break;
-                    case Piece.PieceType.Pawn:
-                         BlackPawns ^= bbFrom;
-                         BlackPawns ^= bbTo;
-                         break;
-                }
-            }
-        }
-
+       
     }//End of Class
 }//End of Namespace

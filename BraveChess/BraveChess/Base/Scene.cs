@@ -28,6 +28,7 @@ namespace BraveChess.Base
 
         #region public, protected and private variables
 
+        public Board GameBoard;
         
         public string Id { get; set; }
         public TurnState Turn { get; set; }
@@ -39,38 +40,15 @@ namespace BraveChess.Base
         protected int CurrentI, CurrentJ;
         protected bool  IsFight = false;
         protected Piece PieceToCapture, PieceToMove;
-        protected Square CurrentSquare, PreviousSquare, GoFromSquare, GoToSquare;
+        protected Square CurrentSquare, PreviousSquare, FromSquare, ToSquare;
         protected List<Square> MovesAvailable;
-        protected Square[,] Squares;
+        public Square[,] Squares;
         
-        protected List<Piece> Pieces = new List<Piece>();
+        public List<Piece> Pieces = new List<Piece>();
         protected List<GameObject3D> SceneObjects = new List<GameObject3D>();
         protected GameEngine Engine;
 
         readonly float _aspectRatio = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio;
-
-        #region Bitboards
-
-        /* white pieces */
-        protected UInt64 WhitePawns = 0xFF00LU;
-        protected UInt64 WhiteKnights = 0x42LU;
-        protected UInt64 WhiteBishops = 0X24LU;
-        protected UInt64 WhiteRooks = 0x81LU;
-        protected UInt64 WhiteQueens = 0x8LU;
-        protected UInt64 WhiteKings = 0x10LU;
-        /* black pieces */
-        protected UInt64 BlackPawns = 0xFF000000000000LU;
-        protected UInt64 BlackKnights = 0x4200000000000000LU;
-        protected UInt64 BlackBishops = 0x2400000000000000LU;
-        protected UInt64 BlackRooks = 0x8100000000000000LU;
-        protected UInt64 BlackQueens = 0x800000000000000LU;
-        protected UInt64 BlackKings = 0x1000000000000000LU;
-
-        public UInt64 WhitePieces { get { return WhiteBishops | WhiteKings | WhiteKnights | WhitePawns | WhiteQueens | WhiteRooks; } }
-        public UInt64 BlackPieces { get { return BlackBishops | BlackKings | BlackKnights | BlackPawns | BlackQueens | BlackRooks; } }
-        public UInt64 AllPieces { get { return WhitePieces | BlackPieces; } }
-
-        #endregion
 
         #endregion
 
@@ -83,7 +61,7 @@ namespace BraveChess.Base
 
         public virtual void Initialize()
         {
-            
+            GameBoard = new Board();
 
             #region Cameras
             CamWhite = new Camera("camWhite",
@@ -142,7 +120,8 @@ namespace BraveChess.Base
 
             foreach (GameObject3D t in SceneObjects)
                 t.Initialise();
-            MoveGen.Init(Engine);
+
+            MoveGen.Init(GameBoard);
             BitboardHelper.Initialize();
         }//End of Method
 
@@ -211,8 +190,8 @@ namespace BraveChess.Base
                 else
                 {
                     CurrentJ--;
-                    if (CurrentI < 0)
-                        CurrentI = 7;
+                    if (CurrentJ < 0)
+                        CurrentJ = 7;
                 }
             }
 
@@ -284,11 +263,8 @@ namespace BraveChess.Base
                         return sq;
                     }
                 }
-            
-
             return null;
         }
-
 
         public Ray RayCast()//makes a ray
         {
@@ -298,16 +274,16 @@ namespace BraveChess.Base
             Vector3 nearSource = new Vector3((float)mouseX, (float)mouseY, 0);
             Vector3 farSource = new Vector3((float)mouseX, (float)mouseY, 1);
 
-            Matrix world = Matrix.CreateTranslation(0, 0, 0);
+            //Matrix world = Matrix.CreateTranslation(0, 0, 0);
 
             Vector3 nearPoint = Engine.GraphicsDevice.Viewport.Unproject(nearSource, 
                 Engine.Cameras.ActiveCamera.Projection, 
                 Engine.Cameras.ActiveCamera.View, 
-                world);
+                Matrix.Identity);
             Vector3 farPoint = Engine.GraphicsDevice.Viewport.Unproject(farSource, 
                 Engine.Cameras.ActiveCamera.Projection, 
                 Engine.Cameras.ActiveCamera.View, 
-                world);
+                Matrix.Identity);
 
             Vector3 direction = farPoint - nearPoint;
             direction.Normalize();
@@ -339,7 +315,7 @@ namespace BraveChess.Base
                     SceneObjects.RemoveAt(i);
         }
 
-        protected void ResetMoves()
+        protected void ResetMovesAvailable()
         {
             if (MovesAvailable != null)
             {

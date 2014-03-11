@@ -83,17 +83,7 @@ C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textu
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackBishop.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackKing.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\WhiteKnight.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook_0.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook_0.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.exe
@@ -316,3 +306,26 @@ C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Conte
 C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX.xnb
 C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb
 C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Bishop.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Black.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Untextured.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square White.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Bishop.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Bishop.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Board.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_King.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Knight.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Pawn.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Queen.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Rook.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Bishop.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Board.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_King.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Knight.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Pawn.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Queen.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Rook.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb

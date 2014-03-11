@@ -110,6 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Board.cs" />
     <Compile Include="Base\Camera.cs" />
     <Compile Include="Base\GameEngine.cs" />
     <Compile Include="Base\GameObject3D.cs" />

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using BraveChess.Objects;
 using BraveChess.Helpers;
 
@@ -9,11 +6,23 @@ namespace BraveChess.Base
 {
     public class MoveGen
     {
-        static private GameEngine _engine;
+        static public bool BlackCanCastleShort { get { return !(HasBlackKingMoved & HasBlackRookHMoved); } }
+        static public bool BlackCanCastleLong { get { return !(HasBlackKingMoved & HasBlackRookAMoved); } }
+        static public bool WhiteCanCastleShort { get { return !(HasWhiteKingMoved & HasWhiteRookHMoved); } }
+        static public bool WhiteCanCastleLong { get { return !(HasWhiteKingMoved & HasWhiteRookAMoved); } }
 
-        static public void Init(GameEngine engine)
+        static public bool HasBlackRookAMoved { get; set; }
+        static public bool HasBlackRookHMoved { get; set; }
+        static public bool HasWhiteRookAMoved { get; set; }
+        static public bool HasWhiteRookHMoved { get; set; }
+        static public bool HasBlackKingMoved { get; set; }
+        static public bool HasWhiteKingMoved { get; set; }
+
+        static private Board _board;
+
+        public static void Init( Board board)
         {
-            _engine = engine;
+            _board = board;
         }
 
         static public UInt64 GenerateKingMoves(Square s, Piece.Colour c)
@@ -25,11 +34,28 @@ namespace BraveChess.Base
 
             UInt64 validMovesBB = (myPieceBB_A_Clip << 7) | (myPieceBB << 8) | (myPieceBB_H_Clip << 9) | (myPieceBB_H_Clip << 1) | (myPieceBB_H_Clip >> 7) | (myPieceBB >> 8) | (myPieceBB_A_Clip >> 9) | (myPieceBB_A_Clip >> 1);
 
-
             if (c == Piece.Colour.White)
-                validMovesBB = validMovesBB ^ (validMovesBB & _engine.ActiveScene.WhitePieces);
+            {
+                //remove move options occupied by own side
+                validMovesBB = validMovesBB ^ (validMovesBB & _board.WhitePieces);
+
+                //Add Castling moves if available
+                if (WhiteCanCastleShort && ((BitboardHelper.MaskWhiteCastleShort & _board.AllPieces) == 0))
+                    validMovesBB |= myPieceBB << 2;
+                if (WhiteCanCastleLong && ((BitboardHelper.MaskWhiteCastleLong & _board.AllPieces) == 0))
+                    validMovesBB |= myPieceBB >> 2;
+            }
             else
-                validMovesBB = validMovesBB ^ (validMovesBB & _engine.ActiveScene.BlackPieces);
+            {
+                //remove move options occupied by own side
+                validMovesBB = validMovesBB ^ (validMovesBB & _board.BlackPieces);
+
+                //Add Castling moves if available
+                if (BlackCanCastleShort && ((BitboardHelper.MaskBlackCastleShort & _board.AllPieces) == 0))
+                    validMovesBB |= myPieceBB << 2;
+                if (BlackCanCastleLong && ((BitboardHelper.MaskBlackCastleLong & _board.AllPieces) == 0))
+                    validMovesBB |= myPieceBB >> 2;
+            }
 
             return validMovesBB;
         }
@@ -38,29 +64,30 @@ namespace BraveChess.Base
         {
             UInt64 validMovesBB;
             UInt64 myPieceBB = BitboardHelper.GetBitboardFromSquare(s); //bitboard representation of the pawns position
-            int index = BitboardHelper.GetIndexFromSquare(s);
+            UInt64 myPieceBB_H_Clip = (myPieceBB & BitboardHelper.ClearFile[7]);
+            UInt64 myPieceBB_A_Clip = (myPieceBB & BitboardHelper.ClearFile[0]);
 
             if (c == Piece.Colour.White)
             {
-                validMovesBB = (myPieceBB << 7 | myPieceBB << 9) & _engine.ActiveScene.BlackPieces;
+                validMovesBB = (myPieceBB_A_Clip << 7 | myPieceBB_H_Clip << 9) & _board.BlackPieces;
 
-                if (((myPieceBB << 8) & _engine.ActiveScene.AllPieces) == 0)
+                if (((myPieceBB << 8) & _board.AllPieces) == 0)
                 {
                     validMovesBB = validMovesBB | (myPieceBB << 8);
 
-                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Two]) != 0) && ((myPieceBB << 16) & _engine.ActiveScene.AllPieces) == 0)
+                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Two]) != 0) && ((myPieceBB << 16) & _board.AllPieces) == 0)
                         validMovesBB = validMovesBB | (myPieceBB << 16);
                 }
             }
             else
             {
-                validMovesBB = (myPieceBB >> 7 | myPieceBB >> 9) & _engine.ActiveScene.WhitePieces;
+                validMovesBB = (myPieceBB_H_Clip >> 7 | myPieceBB_A_Clip >> 9) & _board.WhitePieces;
 
-                if (((myPieceBB >> 8) & _engine.ActiveScene.AllPieces) == 0)
+                if (((myPieceBB >> 8) & _board.AllPieces) == 0)
                 {
                     validMovesBB = validMovesBB | (myPieceBB >> 8);
 
-                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Seven]) != 0) && ((myPieceBB >> 16) & _engine.ActiveScene.AllPieces) == 0)
+                    if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Seven]) != 0) && ((myPieceBB >> 16) & _board.AllPieces) == 0)
                         validMovesBB = validMovesBB | myPieceBB >> 16;
                 }
             }
@@ -74,10 +101,10 @@ namespace BraveChess.Base
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
             if (c == Piece.Colour.White)
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & _engine.ActiveScene.WhitePieces;
+                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & _board.WhitePieces;
 
             else if (c == Piece.Colour.Black)
-                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & _engine.ActiveScene.BlackPieces;
+                validMovesBB = BitboardHelper.KnightAttacks[sqIndex] ^ (BitboardHelper.KnightAttacks[sqIndex]) & _board.BlackPieces;
 
             else
                 validMovesBB = BitboardHelper.KnightAttacks[sqIndex];
@@ -90,14 +117,14 @@ namespace BraveChess.Base
             UInt64 validSquares;
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
-            UInt64 bbBlockers = _engine.ActiveScene.AllPieces & BitboardHelper.OccupancyMaskBishop[sqIndex];
+            UInt64 bbBlockers = _board.AllPieces & BitboardHelper.OccupancyMaskBishop[sqIndex];
 
             int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberBishop[sqIndex]) >> BitboardHelper.MagicNumberShiftsBishop[sqIndex]);
 
             if (c == Piece.Colour.White)
-                validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~_engine.ActiveScene.WhitePieces;
+                validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~_board.WhitePieces;
             else if (c == Piece.Colour.Black)
-                validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~_engine.ActiveScene.BlackPieces;
+                validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex] & ~_board.BlackPieces;
             else
                 validSquares = BitboardHelper.MagicMovesBishop[sqIndex][databaseIndex];
 
@@ -109,14 +136,14 @@ namespace BraveChess.Base
             UInt64 validSquares;
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
-            UInt64 bbBlockers = _engine.ActiveScene.AllPieces & BitboardHelper.OccupancyMaskRook[sqIndex];
+            UInt64 bbBlockers = _board.AllPieces & BitboardHelper.OccupancyMaskRook[sqIndex];
 
             int databaseIndex = (int)((bbBlockers * BitboardHelper.MagicNumberRook[sqIndex]) >> BitboardHelper.MagicNumberShiftsRook[sqIndex]);
 
             if (c == Piece.Colour.White)
-                validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~_engine.ActiveScene.WhitePieces;
+                validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~_board.WhitePieces;
             else if (c == Piece.Colour.Black)
-                validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~_engine.ActiveScene.BlackPieces;
+                validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex] & ~_board.BlackPieces;
             else
                 validSquares = BitboardHelper.MagicMovesRook[sqIndex][databaseIndex];
 
