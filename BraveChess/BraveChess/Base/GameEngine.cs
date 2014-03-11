@@ -5,7 +5,6 @@ using BraveChess.Engines;
 using BraveChess.Scenes;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.GamerServices;
-using Ruminate.Utils;
 using BraveChess.Objects;
 using Microsoft.Xna.Framework.Media;
 
@@ -26,6 +25,8 @@ namespace BraveChess.Base
         public State GameState;
 
         Button btnStandart, btnNetwork, btnExit;
+
+        float center;
 
         SpriteBatch _batch;
         SpriteFont _font;
@@ -57,7 +58,7 @@ namespace BraveChess.Base
         public override void Initialize()
         {
             Debug.Initialize();
-
+            
             #region Sound
             //loading songs//efects
             Audio.LoadSong("BackgroundSong");
@@ -75,14 +76,12 @@ namespace BraveChess.Base
             _batch = new SpriteBatch(GraphicsDevice);
             _font = Game.Content.Load<SpriteFont>("Fonts\\debug");
 
-            btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandartGameButton"),
-                            new Vector2(50, 150), GraphicsDevice);
 
-            btnNetwork = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"),
-                             new Vector2(50, 200), GraphicsDevice);
+            btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandartGameButton"),150);
 
-            btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),
-                             new Vector2(50, 250), GraphicsDevice);
+            btnNetwork = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"),200);
+
+            btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),250);
 
             Debug.LoadContent(Game.Content);
             base.LoadContent();
@@ -160,7 +159,7 @@ namespace BraveChess.Base
             string text = Network.NetworkSession.Host.Gamertag + " is the HOST";
             _batch.DrawString(_font, text, new Vector2((GraphicsDevice.Viewport.Width / 2) - (_font.MeasureString(text).X /2), 50),
                 Color.SaddleBrown);
-
+            
             // If both gamers are there, tell gamers to press space bar or Start to begin
             if (Network.NetworkSession.AllGamers.Count == 2)
             {

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Base;
+using BraveChess.Helpers;
 
 namespace BraveChess.Objects
 {
@@ -11,16 +12,18 @@ namespace BraveChess.Objects
         Vector2 _position;
         Rectangle _rectangle;
         Color _color = Color.Gray;
+        float _viewportX;
         public Vector2 Size;
         public bool IsClicked;
         public bool IsHover = false;
         bool _soundPlayed;
+        
 
-        public Button(Texture2D texture,Vector2 newPos,GraphicsDevice graphics)
+        public Button(Texture2D texture,float y)
         {
             _texture = texture;
-            _position = newPos;
-            Size = new Vector2(graphics.Viewport.Width / 8, graphics.Viewport.Height / 15);
+            _position = new Vector2(((Helper.GraphicsDevice.Viewport.Width / 2)-(texture.Width/2)), y);
+            Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 6, Helper.GraphicsDevice.Viewport.Height / 15);
         }
 
         public void Update(GameEngine e)

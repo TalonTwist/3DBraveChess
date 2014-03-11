@@ -39,6 +39,7 @@ namespace BraveChess.Base
         protected Camera CamWhite, CamBlack;
         protected int CurrentI, CurrentJ;
         protected bool  IsFight = false;
+        private bool isMouseClick = false;
         protected Piece PieceToCapture, PieceToMove;
         protected Square CurrentSquare, PreviousSquare, FromSquare, ToSquare;
         protected List<Square> MovesAvailable;
@@ -149,6 +150,10 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Right))
             {
+                isMouseClick = false;
+                if (PreviousSquare != null)
+                    PreviousSquare.IsSelected = false;
+
                 if (Turn == TurnState.White)
                 {
                     CurrentI++;
@@ -165,6 +170,10 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Left))
             {
+                isMouseClick = false;
+                if (PreviousSquare != null)
+                    PreviousSquare.IsSelected = false;
+
                 if (Turn == TurnState.White)
                 {
                     CurrentI--;
@@ -181,6 +190,10 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Up))
             {
+                isMouseClick = false;
+                if (PreviousSquare != null)
+                    PreviousSquare.IsSelected = false;
+
                 if (Turn == TurnState.White)
                 {
                     CurrentJ++;
@@ -197,6 +210,10 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Down))
             {
+                isMouseClick = false;
+                if (PreviousSquare != null)
+                    PreviousSquare.IsSelected = false;
+
                 if (Turn == TurnState.White)
                 {
                     CurrentJ--;
@@ -210,7 +227,10 @@ namespace BraveChess.Base
                         CurrentJ = 0;
                 }
             }
-            Squares[CurrentI, CurrentJ].IsHover = true;
+            if (!isMouseClick)
+            {
+                Squares[CurrentI, CurrentJ].IsHover = true;
+            }
 
             if (InputEngine.IsKeyPressed(Keys.Enter))
             {
@@ -234,15 +254,17 @@ namespace BraveChess.Base
                 if (PreviousSquare != null)
                     PreviousSquare.IsSelected = false;
 
+                isMouseClick = true;
+
                 CurrentSquare = SquareSelectWithMouse();
 
                 if (SelectState == SelectionState.SelectPiece && CurrentSquare != null) //if a piece hasnt been selected, highlight
                 {
-                    
-                    CurrentSquare.IsSelected = true;
+                        CurrentSquare.IsSelected = true;
                 }
                 else
                     PreviousSquare = null;
+                
 
                 PreviousSquare = CurrentSquare;
             }
