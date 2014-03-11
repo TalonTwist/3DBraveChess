@@ -236,8 +236,9 @@ namespace BraveChess.Base
 
                 CurrentSquare = SquareSelectWithMouse();
 
-                if (SelectState == SelectionState.SelectPiece) //if a piece hasnt been selected, highlight
+                if (SelectState == SelectionState.SelectPiece && CurrentSquare != null) //if a piece hasnt been selected, highlight
                 {
+                    
                     CurrentSquare.IsSelected = true;
                 }
                 else
