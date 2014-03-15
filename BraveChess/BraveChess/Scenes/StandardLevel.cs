@@ -17,6 +17,8 @@ namespace BraveChess.Scenes
 
          public override void Initialize()
          {
+             MovePossitionY = 200;
+
              #region Init Sound
              //loading songs//efects
              Engine.Audio.LoadSong("BackgroundSong");
@@ -174,8 +176,17 @@ namespace BraveChess.Scenes
                      Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
-                         AllMoves.Add(m);
-                         NotificationEngine.AddNotification(new Notification(AllMoves.Last().ToAlgebraic(), 3000));
+                         if (Turn == TurnState.Black)
+                         {
+                             BlackMoves.Add(m);
+                             
+                         }
+                         else if (Turn == TurnState.White)
+                         {
+                             WhiteMoves.Add(m);
+                             MovePossitionY += 10;
+                         }
+                         //NotificationEngine.AddNotification(new Notification(BlackMoves.Last().ToAlgebraic(), 3000));
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
                          IsFight = false;

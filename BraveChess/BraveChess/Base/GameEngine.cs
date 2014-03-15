@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Linq;
+using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,6 +25,7 @@ namespace BraveChess.Base
 
         Button _btnStandart, _btnNetwork, _btnExit, _btnNewGame,_btnUndoMove;
         Texture2D _background;
+        private int i = 200;
 
         SpriteBatch _batch;
         SpriteFont _font;
@@ -113,6 +115,9 @@ namespace BraveChess.Base
 
             Draw3D();
 
+            if(GameState == State.PlayingNormal)
+                DrawMoves();
+
             if (GameState == State.PlayingNetworked)
                 Draw2D();
           
@@ -142,6 +147,21 @@ namespace BraveChess.Base
 
             Debug.Draw(Cameras.ActiveCamera);
         }//End of Method
+
+        public void DrawMoves()
+        {
+            _batch.Begin();
+            foreach (var m in ActiveScene.BlackMoves)
+            {
+                    _batch.DrawString(_font, m.ToAlgebraic(), new Vector2(GraphicsDevice.Viewport.Width/5, ActiveScene.MovePossitionY), Color.Black);
+            }
+            foreach (var m in ActiveScene.WhiteMoves)
+            {
+                _batch.DrawString(_font, m.ToAlgebraic(), new Vector2(20, ActiveScene.MovePossitionY), Color.Black);
+            }
+            _batch.End();
+
+        }
 
         public void LoadScene(Scene scene)
         {

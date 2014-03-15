@@ -31,10 +31,12 @@ namespace BraveChess.Base
         public Board GameBoard;
         
         public string Id { get; set; }
+        public int MovePossitionY { get; set; }      
         public TurnState Turn { get; set; }
         public SelectionState SelectState { get; set; }
         public List<GameObject3D> Objects { get { return SceneObjects; } }
-        protected List<Move> AllMoves = new List<Move>();
+        public List<Move> BlackMoves = new List<Move>();
+        public List<Move> WhiteMoves = new List<Move>();
 
         protected Camera CamWhite, CamBlack;
         protected int CurrentI, CurrentJ;
