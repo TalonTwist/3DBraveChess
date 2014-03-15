@@ -83,7 +83,6 @@ namespace BraveChess.Base
 
             #endregion
 
-
             GameBoard.Squares[CurrentI, CurrentJ].IsHover = true;
             foreach (GameObject3D t in SceneObjects)
                 t.Initialise();
@@ -270,9 +269,7 @@ namespace BraveChess.Base
             batch.End();
 
         }
-
-        
-
+      
         public Ray RayCast()//makes a ray
         {
             int mouseX = InputEngine.CurrentMouseState.X;

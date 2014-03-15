@@ -96,7 +96,6 @@ namespace BraveChess.Base
             _btnBack = new Button(Game.Content.Load<Texture2D>("Buttons\\BackButton"), 300);
             #endregion
 
-
             Debug.LoadContent(Game.Content);
             base.LoadContent();
         }//End of Override

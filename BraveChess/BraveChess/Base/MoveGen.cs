@@ -116,6 +116,7 @@ namespace BraveChess.Base
         {
             UInt64 validSquares;
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
+     
 
             UInt64 bbBlockers = _board.AllPieces & BitboardHelper.OccupancyMaskBishop[sqIndex];
 

@@ -109,11 +109,11 @@ namespace BraveChess.Base
 
             _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo);
 
-            //if (TestForCheck())
-            //{
-            //    _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
-            //    return false;
-            //}
+            if (TestForCheck())
+            {
+                _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
+                return false;
+            }
             return true;
         } 
 
@@ -206,17 +206,17 @@ namespace BraveChess.Base
             }
             return false;
         }
-
-        /****Unfinished***
-         * Add pawn and king attacks test */
+     
         private UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
         {
             int sqIndex = BitboardHelper.GetIndexFromSquare(s);
 
             ulong attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & _board.WhiteKnights & _board.BlackKnights);
-            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & _board.BlackBishops & _board.WhiteBishops & _board.BlackQueens & _board.WhiteQueens);
-            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & _board.BlackRooks & _board.WhiteRooks & _board.BlackQueens & _board.WhiteQueens);
-            //add pawn and king attacks
+            attackersBB |= (BitboardHelper.WhitePawnAttacks[sqIndex] & _board.WhitePawns);
+            attackersBB |= (BitboardHelper.BlackPawnAttacks[sqIndex] & _board.BlackPawns);
+            attackersBB |= (BitboardHelper.KingAttacks[sqIndex] & (_board.WhiteKings | _board.BlackKings));
+            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & (_board.BlackBishops | _board.WhiteBishops | _board.BlackQueens | _board.WhiteQueens));
+            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & (_board.BlackRooks | _board.WhiteRooks | _board.BlackQueens | _board.WhiteQueens));
 
             return attackersBB;
         }
