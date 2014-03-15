@@ -65,3 +65,6 @@ Content\Buttons\NewGameButton.xnb
 Content\Buttons\StandardButton.xnb
 Content\Buttons\UndoMoveButton.xnb
 Content\Buttons\Background.xnb
+Content\Buttons\AnimatedPiecesButton.xnb
+Content\Buttons\StandardPiecesButton.xnb
+Content\Buttons\BackButton.xnb

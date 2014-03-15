@@ -291,6 +291,22 @@ namespace BraveChess.Base
             return null;
         }
 
+        public void DrawMoves(SpriteBatch batch, SpriteFont font,GraphicsDevice graphics)
+        {
+            batch.Begin();
+            for (int i = 0; i < WhiteMoves.Count; i++)
+            {
+                batch.DrawString(font, String.Format("{0}.", i), new Vector2(10, 20 * i), Color.Black);
+                batch.DrawString(font, WhiteMoves[i],
+                    new Vector2(graphics.Viewport.Width / 30, 20 * i), Color.Black);
+            }
+            for (int i = 0; i < BlackMoves.Count; i++)
+                batch.DrawString(font, BlackMoves[i],
+                    new Vector2(graphics.Viewport.Width / 10, 20 * i), Color.Black);
+            batch.End();
+
+        }
+
         public Ray RayCast()//makes a ray
         {
             int mouseX = InputEngine.CurrentMouseState.X;

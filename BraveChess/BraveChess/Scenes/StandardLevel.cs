@@ -86,6 +86,7 @@ namespace BraveChess.Scenes
 
              foreach (Piece p in Pieces)
                  AddObject(p);
+             
 
              Engine.Cameras.SetActiveCamera("camWhite");
 

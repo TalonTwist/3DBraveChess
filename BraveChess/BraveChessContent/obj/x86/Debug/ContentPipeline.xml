@@ -829,6 +829,33 @@
       <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Background.xnb</Output>
       <Time>2014-03-15T00:44:24.3803242+00:00</Time>
     </Item>
+    <Item>
+      <Source>Buttons\AnimatedPiecesButton.jpg</Source>
+      <Name>Buttons\AnimatedPiecesButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\AnimatedPiecesButton.xnb</Output>
+      <Time>2014-03-15T18:00:02.9200101+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\StandardPiecesButton.jpg</Source>
+      <Name>Buttons\StandardPiecesButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardPiecesButton.xnb</Output>
+      <Time>2014-03-15T18:00:02.9043848+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\BackButton.jpg</Source>
+      <Name>Buttons\BackButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BackButton.xnb</Output>
+      <Time>2014-03-15T18:14:38.1331709+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

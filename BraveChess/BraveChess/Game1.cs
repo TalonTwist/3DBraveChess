@@ -26,9 +26,6 @@ namespace BraveChess
                 PreferMultiSampling = true
             };
             graphics.ApplyChanges();
-
-
-            Window.AllowUserResizing = true;
             
             IsMouseVisible = true;
 
