@@ -297,8 +297,6 @@ namespace BraveChess.Base
             Vector3 nearSource = new Vector3((float)mouseX, (float)mouseY, 0);
             Vector3 farSource = new Vector3((float)mouseX, (float)mouseY, 1);
 
-            //Matrix world = Matrix.CreateTranslation(0, 0, 0);
-
             Vector3 nearPoint = Engine.GraphicsDevice.Viewport.Unproject(nearSource, 
                 Engine.Cameras.ActiveCamera.Projection, 
                 Engine.Cameras.ActiveCamera.View, 

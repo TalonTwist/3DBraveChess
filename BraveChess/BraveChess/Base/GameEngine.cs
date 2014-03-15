@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,9 +22,8 @@ namespace BraveChess.Base
 
         public State GameState;
 
-        Button btnStandart, btnNetwork, btnExit;
-
-        float center;
+        Button _btnStandart, _btnNetwork, _btnExit;
+        Texture2D _background;
 
         SpriteBatch _batch;
         SpriteFont _font;
@@ -76,12 +73,13 @@ namespace BraveChess.Base
             _batch = new SpriteBatch(GraphicsDevice);
             _font = Game.Content.Load<SpriteFont>("Fonts\\debug");
 
+            _background = Game.Content.Load<Texture2D>("Buttons\\Background");
 
-            btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandartGameButton"),150);
+            _btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandardButton"),200);
 
-            btnNetwork = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"),200);
+            _btnNetwork = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"),250);
 
-            btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),250);
+            _btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),300);
 
             Debug.LoadContent(Game.Content);
             base.LoadContent();
@@ -99,6 +97,12 @@ namespace BraveChess.Base
 
         public override void Draw(GameTime gameTime)
         {
+            if (GameState == State.MainMenu)
+            {
+                _batch.Begin();
+                _batch.Draw(_background, GraphicsDevice.Viewport.Bounds, Color.White);
+                _batch.End();
+            }
             ScreenStatesDraw();
 
             Draw3D();
@@ -157,7 +161,7 @@ namespace BraveChess.Base
             
             // Draw instructions
             string text = Network.NetworkSession.Host.Gamertag + " is the HOST";
-            _batch.DrawString(_font, text, new Vector2((GraphicsDevice.Viewport.Width / 2) - (_font.MeasureString(text).X /2), 50),
+            _batch.DrawString(_font, text, new Vector2(GraphicsDevice.Viewport.Width / 2 - (_font.MeasureString(text).X /2), 50),
                 Color.SaddleBrown);
             
             // If both gamers are there, tell gamers to press space bar or Start to begin
@@ -197,15 +201,15 @@ namespace BraveChess.Base
             switch (GameState)
             {
                 case State.MainMenu:
-                    if (btnStandart.IsClicked)
+                    if (_btnStandart.IsClicked)
                        GameState = State.NonNetworkGame;
-                    else if (btnNetwork.IsClicked)
+                    else if (_btnNetwork.IsClicked)
                         GameState = State.NetworkGame;
-                    else if (btnExit.IsClicked)
+                    else if (_btnExit.IsClicked)
                         GameState = State.ExitGame;
-                    btnStandart.Update(this);
-                    btnNetwork.Update(this);
-                    btnExit.Update(this);
+                    _btnStandart.Update(this);
+                    _btnNetwork.Update(this);
+                    _btnExit.Update(this);
                     break;
                 case State.NetworkGame:
                     Network = new NetworkEngine(Game, this);
@@ -228,9 +232,9 @@ namespace BraveChess.Base
             switch (GameState)
             {
                 case State.MainMenu:
-                    btnStandart.Draw(_batch);
-                    btnNetwork.Draw(_batch);
-                    btnExit.Draw(_batch);
+                    _btnStandart.Draw(_batch);
+                    _btnNetwork.Draw(_batch);
+                    _btnExit.Draw(_batch);
                     break;
                 case State.NetworkGame:
                     break;

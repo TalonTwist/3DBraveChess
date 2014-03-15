@@ -424,31 +424,13 @@
       <Time>2014-02-22T18:52:28+00:00</Time>
     </Item>
     <Item>
-      <Source>Skin\ImageMap.png</Source>
-      <Name>Skin\ImageMap</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Skin\ImageMap.xnb</Output>
-      <Time>2014-03-05T11:34:12.4474862+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Skin\Texture.png</Source>
-      <Name>Skin\Texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>FontTextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Skin\Texture.xnb</Output>
-      <Time>2014-03-05T11:34:12.3300733+00:00</Time>
-    </Item>
-    <Item>
       <Source>Buttons\ExitGameButton.jpg</Source>
       <Name>Buttons\ExitGameButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\ExitGameButton.xnb</Output>
-      <Time>2014-03-08T18:10:32.3490524+00:00</Time>
+      <Time>2014-03-15T01:44:18.0360095+00:00</Time>
     </Item>
     <Item>
       <Source>Buttons\NetworkButton.jpg</Source>
@@ -457,25 +439,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NetworkButton.xnb</Output>
-      <Time>2014-03-08T18:10:32.3490524+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\StandartGameButton.jpg</Source>
-      <Name>Buttons\StandartGameButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandartGameButton.xnb</Output>
-      <Time>2014-03-08T18:10:32.3959288+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\Hover.jpg</Source>
-      <Name>Buttons\Hover</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Hover.xnb</Output>
-      <Time>2014-03-08T18:29:32.828755+00:00</Time>
+      <Time>2014-03-15T01:44:18.9664664+00:00</Time>
     </Item>
     <Item>
       <Source>Textures\Black_Bishop.bmp</Source>
@@ -828,6 +792,42 @@
       <Options>None</Options>
       <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb</Output>
       <Time>2014-03-10T15:41:25.6505028+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\NewGameButton.jpg</Source>
+      <Name>Buttons\NewGameButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NewGameButton.xnb</Output>
+      <Time>2014-03-15T01:44:19.656157+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\StandardButton.jpg</Source>
+      <Name>Buttons\StandardButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardButton.xnb</Output>
+      <Time>2014-03-15T01:44:20.2433964+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\UndoMoveButton.jpg</Source>
+      <Name>Buttons\UndoMoveButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\UndoMoveButton.xnb</Output>
+      <Time>2014-03-15T01:44:20.9099684+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\Background.jpg</Source>
+      <Name>Buttons\Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Background.xnb</Output>
+      <Time>2014-03-15T00:44:24.3803242+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
