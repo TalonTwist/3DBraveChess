@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
@@ -201,10 +200,6 @@ namespace BraveChess.Scenes
             Engine.Cameras.SetActiveCamera(Engine.Cameras.ActiveCamera.Id == "camWhite" ? "camBlack" : "camWhite");
         }
 
-        protected override void HandleInput()
-         {
-            base.HandleInput();
-         }
  
         private Piece GetPiece(Vector3 pos)
          {

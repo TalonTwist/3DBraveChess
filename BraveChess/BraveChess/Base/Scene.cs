@@ -39,7 +39,7 @@ namespace BraveChess.Base
         protected Camera CamWhite, CamBlack;
         protected int CurrentI, CurrentJ;
         protected bool  IsFight = false;
-        private bool isMouseClick = false;
+        private bool _isMouseClick;
         protected Piece PieceToCapture, PieceToMove;
         protected Square CurrentSquare, PreviousSquare, FromSquare, ToSquare;
         protected List<Square> MovesAvailable;
@@ -150,7 +150,7 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Right))
             {
-                isMouseClick = false;
+                _isMouseClick = false;
                 if (PreviousSquare != null)
                     PreviousSquare.IsSelected = false;
 
@@ -170,7 +170,7 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Left))
             {
-                isMouseClick = false;
+                _isMouseClick = false;
                 if (PreviousSquare != null)
                     PreviousSquare.IsSelected = false;
 
@@ -190,7 +190,7 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Up))
             {
-                isMouseClick = false;
+                _isMouseClick = false;
                 if (PreviousSquare != null)
                     PreviousSquare.IsSelected = false;
 
@@ -210,7 +210,7 @@ namespace BraveChess.Base
 
             if (InputEngine.IsKeyPressed(Keys.Down))
             {
-                isMouseClick = false;
+                _isMouseClick = false;
                 if (PreviousSquare != null)
                     PreviousSquare.IsSelected = false;
 
@@ -227,7 +227,7 @@ namespace BraveChess.Base
                         CurrentJ = 0;
                 }
             }
-            if (!isMouseClick)
+            if (!_isMouseClick)
             {
                 Squares[CurrentI, CurrentJ].IsHover = true;
             }
@@ -254,7 +254,7 @@ namespace BraveChess.Base
                 if (PreviousSquare != null)
                     PreviousSquare.IsSelected = false;
 
-                isMouseClick = true;
+                _isMouseClick = true;
 
                 CurrentSquare = SquareSelectWithMouse();
 

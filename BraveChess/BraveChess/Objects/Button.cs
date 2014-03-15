@@ -12,7 +12,6 @@ namespace BraveChess.Objects
         Vector2 _position;
         Rectangle _rectangle;
         Color _color = Color.Gray;
-        float _viewportX;
         public Vector2 Size;
         public bool IsClicked;
         public bool IsHover = false;
@@ -23,6 +22,13 @@ namespace BraveChess.Objects
         {
             _texture = texture;
             _position = new Vector2(((Helper.GraphicsDevice.Viewport.Width / 2)-(texture.Width/2)), y);
+            Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 6, Helper.GraphicsDevice.Viewport.Height / 15);
+        }
+
+        public Button(Texture2D texture,Vector2 pos)
+        {
+            _texture = texture;
+            _position = pos;
             Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 6, Helper.GraphicsDevice.Viewport.Height / 15);
         }
 

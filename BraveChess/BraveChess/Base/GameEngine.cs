@@ -22,7 +22,7 @@ namespace BraveChess.Base
 
         public State GameState;
 
-        Button _btnStandart, _btnNetwork, _btnExit;
+        Button _btnStandart, _btnNetwork, _btnExit, _btnNewGame,_btnUndoMove;
         Texture2D _background;
 
         SpriteBatch _batch;
@@ -80,6 +80,12 @@ namespace BraveChess.Base
             _btnNetwork = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"),250);
 
             _btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),300);
+
+            _btnNewGame = new Button(Game.Content.Load<Texture2D>("Buttons\\NewGameButton"),
+                    new Vector2(20,100));
+            _btnUndoMove = new Button(Game.Content.Load<Texture2D>("Buttons\\UndoMoveButton"),
+                    new Vector2(20,150));
+            
 
             Debug.LoadContent(Game.Content);
             base.LoadContent();
@@ -220,6 +226,10 @@ namespace BraveChess.Base
                     GameState = State.PlayingNormal;
                     break;
                 case State.PlayingNormal:
+                    if(_btnNewGame.IsClicked)
+                        LoadScene(new StandardLevel(this));
+                    _btnNewGame.Update(this);
+                    _btnUndoMove.Update(this);
                     break;
                 case State.PlayingNetworked:
                     Network.Update(gameTime);
@@ -241,6 +251,8 @@ namespace BraveChess.Base
                 case State.NonNetworkGame:
                     break;
                 case State.PlayingNormal:
+                    _btnNewGame.Draw(_batch);
+                    _btnUndoMove.Draw(_batch);
                     break;
                 case State.PlayingNetworked:
                      break;
