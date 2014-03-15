@@ -29,7 +29,7 @@ namespace BraveChess.Objects
         {
             _texture = texture;
             _position = pos;
-            Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 6, Helper.GraphicsDevice.Viewport.Height / 15);
+            Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 8, Helper.GraphicsDevice.Viewport.Height / 18);
         }
 
         public void Update(GameEngine e)

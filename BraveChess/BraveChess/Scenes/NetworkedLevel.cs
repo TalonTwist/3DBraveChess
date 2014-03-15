@@ -194,9 +194,10 @@ namespace BraveChess.Scenes
                          //Send packet 
                          Engine.Network.WriteMovePacket(PieceToMove.World.Translation, (int)PieceToMove.Piece_Type,
                              (int)PieceToMove.ColorType, BitboardHelper.GetBitboardFromSquare(FromSquare), BitboardHelper.GetBitboardFromSquare(ToSquare));
-
-                         BlackMoves.Add(m);
-                         NotificationEngine.AddNotification(new Notification(BlackMoves.Last().ToAlgebraic(), 3000));
+                         if(Turn == TurnState.Black)
+                            BlackMoves.Add(m.ToAlgebraic());
+                         else if(Turn == TurnState.White)
+                             WhiteMoves.Add(m.ToAlgebraic());
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
                          IsFight = false;

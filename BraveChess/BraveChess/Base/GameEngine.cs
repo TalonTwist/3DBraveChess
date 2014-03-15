@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
@@ -25,7 +26,7 @@ namespace BraveChess.Base
 
         Button _btnStandart, _btnNetwork, _btnExit, _btnNewGame,_btnUndoMove;
         Texture2D _background;
-        private int i = 200;
+        private int number = 1;
 
         SpriteBatch _batch;
         SpriteFont _font;
@@ -48,7 +49,7 @@ namespace BraveChess.Base
             Input = new InputEngine(game);
             Cameras = new CameraEngine(game);
             Audio = new AudioEngine(game);
-            FpsCounter = new FrameRateCounter(game, new Vector2(10, 10));
+            
             Debug = new DebugEngine();
             NoteEngine = new NotificationEngine(game, 3);
           //  GameNetwork = new Networking(_game, this);
@@ -74,6 +75,7 @@ namespace BraveChess.Base
         {
             _batch = new SpriteBatch(GraphicsDevice);
             _font = Game.Content.Load<SpriteFont>("Fonts\\debug");
+            FpsCounter = new FrameRateCounter(this.Game, new Vector2(GraphicsDevice.Viewport.Width / 2,10));
 
             _background = Game.Content.Load<Texture2D>("Buttons\\Background");
 
@@ -84,9 +86,9 @@ namespace BraveChess.Base
             _btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),300);
 
             _btnNewGame = new Button(Game.Content.Load<Texture2D>("Buttons\\NewGameButton"),
-                    new Vector2(20,100));
+                    new Vector2(20,400));
             _btnUndoMove = new Button(Game.Content.Load<Texture2D>("Buttons\\UndoMoveButton"),
-                    new Vector2(20,150));
+                    new Vector2(20,450));
             
 
             Debug.LoadContent(Game.Content);
@@ -151,14 +153,15 @@ namespace BraveChess.Base
         public void DrawMoves()
         {
             _batch.Begin();
-            foreach (var m in ActiveScene.BlackMoves)
+            for (int i = 0; i < ActiveScene.WhiteMoves.Count; i++)
             {
-                    _batch.DrawString(_font, m.ToAlgebraic(), new Vector2(GraphicsDevice.Viewport.Width/5, ActiveScene.MovePossitionY), Color.Black);
+                _batch.DrawString(_font,String.Format("{0}.",i),new Vector2(10,20*i),Color.Black);
+                _batch.DrawString(_font, ActiveScene.WhiteMoves[i],
+                    new Vector2(25,20*i), Color.Black);
             }
-            foreach (var m in ActiveScene.WhiteMoves)
-            {
-                _batch.DrawString(_font, m.ToAlgebraic(), new Vector2(20, ActiveScene.MovePossitionY), Color.Black);
-            }
+            for (int i = 0; i < ActiveScene.BlackMoves.Count; i++)
+                _batch.DrawString(_font, ActiveScene.BlackMoves[i],
+                    new Vector2(75, 20*i), Color.Black);
             _batch.End();
 
         }
