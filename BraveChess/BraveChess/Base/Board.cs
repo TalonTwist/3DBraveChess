@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using BraveChess.Objects;
 using Microsoft.Xna.Framework;
 
@@ -30,6 +29,8 @@ namespace BraveChess.Base
 
         public Square[,] Squares;
         public List<Piece> Pieces = new List<Piece>();
+
+        private static readonly Vector3 Adjust = new Vector3(0,2,0);
 
         public Board(bool isAnimated)
         {
@@ -192,8 +193,27 @@ namespace BraveChess.Base
             int file = c[0] - 97;
             int rank = c[1] - 49;
 
-            return Squares[file, rank].World.Translation + new Vector3(0, 2, 0);
+            return Squares[file, rank].World.Translation + Adjust;
         }
 
+        public Piece GetPiece(Vector3 pos)
+        {
+            return Pieces.FirstOrDefault(t => t.World.Translation == pos);
+        }
+
+        public Piece GetPiece(Square sq)
+        {
+            return Pieces.FirstOrDefault(t => t.World.Translation == sq.World.Translation + Adjust);
+        }
+
+        public Square GetSquare(string s)
+        {
+            char[] c = s.ToCharArray();
+
+            int file = c[0] - 97;
+            int rank = c[1] - 49;
+
+            return Squares[file, rank];
+        }
     }//end class
 }

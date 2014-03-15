@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Diagnostics;
 using System.Text;
 using BraveChess.Helpers;
 using BraveChess.Objects;
@@ -9,7 +11,7 @@ namespace BraveChess.Base
     public class Move
     {
         private readonly GameEngine _engine;
-        private Board _board;
+        private readonly Board _board;
         public string Algebraic{ get {return ToAlgebraic();}}
 
         public bool IsValidMove { get; set; }
@@ -122,6 +124,59 @@ namespace BraveChess.Base
                     BitboardHelper.GetBitboardFromSquare(ToSquare));
 
             PieceMoved.UpdateWorld(GetNewPos(ToSquare)); //update world position of model
+
+            if(IsCastling)
+                Castle();
+        }
+
+        public void Castle()
+        {
+            Square sqFrom;
+            Square sqTo = null;
+            Piece rookToMove = null;
+            UInt64 rookPosBB = 0;
+
+            if (IsShortCastling)
+            {
+                switch(SideMove)
+                {
+                    case Piece.Colour.White:
+                        sqFrom = _board.GetSquare("h1");
+                        sqTo = _board.GetSquare("f1");
+                        rookToMove = _board.GetPiece(sqFrom);
+                        rookPosBB = BitboardHelper.GetBitboardFromSquare(sqFrom);
+                        break;
+
+                    case Piece.Colour.Black:
+                        sqFrom = _board.GetSquare("h8");
+                        sqTo = _board.GetSquare("f8");
+                        rookToMove = _board.GetPiece(sqFrom);
+                        rookPosBB = BitboardHelper.GetBitboardFromSquare(sqFrom);
+                        break;
+                }
+                
+            }
+            else
+            {
+                switch (SideMove)
+                {
+                    case Piece.Colour.White:
+                        sqFrom = _board.GetSquare("a1");
+                        sqTo = _board.GetSquare("d1");
+                        rookToMove = _board.GetPiece(sqFrom);
+                        rookPosBB = BitboardHelper.GetBitboardFromSquare(sqFrom);
+                        break;
+
+                    case Piece.Colour.Black:
+                        sqFrom = _board.GetSquare("a8");
+                        sqTo = _board.GetSquare("d8");
+                        rookToMove = _board.GetPiece(sqFrom);
+                        rookPosBB = BitboardHelper.GetBitboardFromSquare(sqFrom);
+                        break;
+                }
+            }
+            _board.UpdateRelevantbb(Piece.PieceType.Rook, SideMove, rookPosBB, rookPosBB >> 2);
+            rookToMove.UpdateWorld(GetNewPos(sqTo));
         }
 
         private void CapturePiece() //Remove the Piece and update bitboards

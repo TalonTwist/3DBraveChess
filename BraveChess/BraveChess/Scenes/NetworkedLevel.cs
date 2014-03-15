@@ -75,7 +75,7 @@ namespace BraveChess.Scenes
                 case SelectionState.SelectPiece:
                     if (CurrentSquare != null)
                     {
-                        PieceToMove = GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
+                        PieceToMove = GameBoard.GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
                         if (PieceToMove != null && ((int)PieceToMove.ColorType) == (int)Turn)
                         {
@@ -105,7 +105,7 @@ namespace BraveChess.Scenes
                 case SelectionState.SelectMove:
                     if (CurrentSquare != null && MovesAvailable.Contains(CurrentSquare))
                     {
-                        PieceToCapture = GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
+                        PieceToCapture = GameBoard.GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
                         if (PieceToCapture != null)
                             IsFight = true;
@@ -116,7 +116,7 @@ namespace BraveChess.Scenes
                     }
                     else if (CurrentSquare != null)
                     {
-                        Piece p = GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
+                        Piece p = GameBoard.GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
                         if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
                         {
@@ -177,11 +177,11 @@ namespace BraveChess.Scenes
             Square s = GetSquareFromBB(bbTo);
             Vector3 newPos = GetNewPos(s);
 
-            Piece capturedPiece = GetPiece(s.World.Translation + new Vector3(0, 2, 0));
+            Piece capturedPiece = GameBoard.GetPiece(s.World.Translation + new Vector3(0, 2, 0));
             if (capturedPiece != null)
                 capturedPiece.Destroy();
-            
-            GetPiece(pos).UpdateWorld(newPos);
+
+            GameBoard.GetPiece(pos).UpdateWorld(newPos);
         }
 
         private void SwitchTurn(bool recieved)

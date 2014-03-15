@@ -271,10 +271,7 @@ namespace BraveChess.Base
 
         }
 
-        protected Piece GetPiece(Vector3 pos)
-        {
-            return GameBoard.Pieces.FirstOrDefault(t => t.World.Translation == pos);
-        }
+        
 
         public Ray RayCast()//makes a ray
         {
