@@ -127,7 +127,7 @@ namespace BraveChess.Base
         private void CapturePiece() //Remove the Piece and update bitboards
         {
             _board.UpdateRelevantbb(PieceCaptured.Piece_Type, PieceCaptured.ColorType, BitboardHelper.GetBitboardFromSquare(ToSquare), 0);
-            _engine.ActiveScene.Pieces.Remove(PieceCaptured);
+            _board.Pieces.Remove(PieceCaptured);
             PieceCaptured.Destroy();
         }
 
@@ -170,7 +170,7 @@ namespace BraveChess.Base
         {
             var v = BitboardHelper.GetSquareFromBitboard(bb);
 
-            return _engine.ActiveScene.Squares[v.Item2, v.Item1];
+            return _board.Squares[v.Item2, v.Item1];
         }
 
         private Vector3 GetNewPos(Square destination)

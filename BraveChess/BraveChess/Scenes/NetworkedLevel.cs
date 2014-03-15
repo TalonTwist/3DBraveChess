@@ -12,8 +12,8 @@ namespace BraveChess.Scenes
 {
     class NetworkedLevel : Scene
     {
-        public NetworkedLevel(GameEngine engine)
-            : base("NetworkLevel", engine) { }
+        public NetworkedLevel(GameEngine engine, bool isAnimated)
+            : base("NetworkLevel", engine, isAnimated) { }
 
         public override void Initialize()
         {  
@@ -27,62 +27,11 @@ namespace BraveChess.Scenes
             
             base.Initialize(); 
 
-            #region White Piece Init
-            //White Pawn Set
-            Pieces.Add(new Piece("Pawn1", "White Pawn", GetStartPos("a2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("Pawn2", "White Pawn", GetStartPos("b2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("Pawn3", "White Pawn", GetStartPos("c2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("Pawn4", "White Pawn", GetStartPos("d2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("Pawn5", "White Pawn", GetStartPos("e2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("Pawn6", "White Pawn", GetStartPos("f2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("Pawn7", "White Pawn", GetStartPos("g2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("Pawn8", "White Pawn", GetStartPos("h2"), 1, Piece.PieceType.Pawn));
-
-            Pieces.Add(new Piece("Rook1", "White Rook", GetStartPos("a1"), 1, Piece.PieceType.Rook));
-            Pieces.Add(new Piece("Rook2", "White Rook", GetStartPos("h1"), 1, Piece.PieceType.Rook));
-
-            Pieces.Add(new Piece("King1", "White King", GetStartPos("e1"), 1, Piece.PieceType.King));
-
-            Pieces.Add(new Piece("Queen1", "White Queen", GetStartPos("d1"), 1, Piece.PieceType.Queen));
-
-            Pieces.Add(new Piece("Knight1", "White Knight", GetStartPos("b1"), 1, Piece.PieceType.Knight));
-            Pieces.Add(new Piece("Knight1", "White Knight", GetStartPos("g1"), 1, Piece.PieceType.Knight));
-
-            Pieces.Add(new Piece("Bishop1", "Untextured\\Bishop Piece", GetStartPos("c1"), 1, Piece.PieceType.Bishop));
-            Pieces.Add(new Piece("Bishop2", "Untextured\\Bishop Piece", GetStartPos("f1"), 1, Piece.PieceType.Bishop));
-            #endregion
-
-            #region Black Piece Init
-            //White Pawn Set
-            Pieces.Add(new Piece("pawn1", "Black Pawn", GetStartPos("a7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawn2", "Black Pawn", GetStartPos("b7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawn3", "Black Pawn", GetStartPos("c7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawn4", "Black Pawn", GetStartPos("d7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawn5", "Black Pawn", GetStartPos("e7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawn6", "Black Pawn", GetStartPos("f7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawn7", "Black Pawn", GetStartPos("g7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawn8", "Black Pawn", GetStartPos("h7"), 0, Piece.PieceType.Pawn));
-
-
-            Pieces.Add(new Piece("rook1", "Black Rook", GetStartPos("a8"), 0, Piece.PieceType.Rook));
-            Pieces.Add(new Piece("rook2", "Black Rook", GetStartPos("h8"), 0, Piece.PieceType.Rook));
-
-            Pieces.Add(new Piece("king1", "Black King", GetStartPos("e8"), 0, Piece.PieceType.King));
-
-            Pieces.Add(new Piece("queen1", "Black Queen", GetStartPos("d8"), 0, Piece.PieceType.Queen));
-
-            Pieces.Add(new Piece("knight1", "Black Knight", GetStartPos("b8"), 0, Piece.PieceType.Knight));
-            Pieces.Add(new Piece("knight1", "Black Knight", GetStartPos("g8"), 0, Piece.PieceType.Knight));
-
-            Pieces.Add(new Piece("bishop1", "Untextured\\Bishop Piece", GetStartPos("c8"), 0, Piece.PieceType.Bishop));
-            Pieces.Add(new Piece("bishop2", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop));
-            #endregion
-
             //add Objects
-            foreach (Square s in Squares)
+            foreach (Square s in GameBoard.Squares)
                 AddObject(s);
 
-            foreach (Piece p in Pieces)
+            foreach (Piece p in GameBoard.Pieces)
                 AddObject(p);
 
             Engine.Cameras.SetActiveCamera(Engine.Network.NetworkSession.IsHost ? "camWhite" : "camBlack");
@@ -248,21 +197,6 @@ namespace BraveChess.Scenes
             base.HandleInput();
         }
 
-        private Piece GetPiece(Vector3 pos)
-        {
-            return Pieces.FirstOrDefault(t => t.World.Translation == pos);
-        }
-
-        private Vector3 GetStartPos(string pos)
-        {
-            char[] c = pos.ToCharArray();
-
-            int file = c[0] - 97;
-            int rank = c[1] - 49;
-
-            return Squares[file, rank].World.Translation + new Vector3(0,2,0);
-        }
-
         private Vector3 GetNewPos(Square destination)
         {
             return destination.World.Translation + new Vector3(0, 2, 0);
@@ -272,7 +206,7 @@ namespace BraveChess.Scenes
         {
             var v = BitboardHelper.GetSquareFromBitboard(bb);
 
-            return Squares[v.Item2, v.Item1];
+            return GameBoard.Squares[v.Item2, v.Item1];
         }
 
         private List<Square> GetSquareListFromBB(ulong bb)
@@ -281,7 +215,7 @@ namespace BraveChess.Scenes
             var sList = BitboardHelper.GetSquareListFromBB(bb);
 
             if (sList == null) return null;
-            s.AddRange(sList.Select(t => Squares[t.Item2, t.Item1]));
+            s.AddRange(sList.Select(t => GameBoard.Squares[t.Item2, t.Item1]));
 
             return s;
         }

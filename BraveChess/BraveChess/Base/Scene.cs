@@ -45,9 +45,9 @@ namespace BraveChess.Base
         protected Piece PieceToCapture, PieceToMove;
         protected Square CurrentSquare, PreviousSquare, FromSquare, ToSquare;
         protected List<Square> MovesAvailable;
-        public Square[,] Squares;
+
+        private bool _IsAnimated;
         
-        public List<Piece> Pieces = new List<Piece>();
         protected List<GameObject3D> SceneObjects = new List<GameObject3D>();
         protected GameEngine Engine;
 
@@ -55,16 +55,17 @@ namespace BraveChess.Base
 
         #endregion
 
-        public Scene(string id, GameEngine engine)
+        public Scene(string id, GameEngine engine, bool isAnimated)
         {
             Id = id;
             Engine = engine;
             Turn = TurnState.White;
+            _IsAnimated = isAnimated;
         }//End of Constructor
 
         public virtual void Initialize()
         {
-            GameBoard = new Board();
+            GameBoard = new Board(_IsAnimated);
 
             #region Cameras
             CamWhite = new Camera("camWhite",
@@ -82,45 +83,8 @@ namespace BraveChess.Base
 
             #endregion
 
-            #region Init Squares
 
-            Squares = new Square[8, 8];
-
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    if (i % 2 == 0)
-                    {
-                        if (j % 2 == 0)
-                        {
-                            // The dark coloured.. pass false for black
-                            Squares[i, j] = new Square("square" + i + j, new Vector3(-24 + (7 * i), 0, 24 - (7 * j)), i, j, false);
-                        }
-                        else if (j % 2 == 1)
-                        {
-                            // ..and the light coloured.. pass true for white
-                            Squares[i, j] = new Square("square" + i + j, new Vector3(-24 + (7 * i), 0, 24 - (7 * j)), i, j, true);
-                        }
-                    }
-                    else if (i % 2 == 1)
-                    {
-                        if (j % 2 == 1)
-                        {
-                            Squares[i, j] = new Square("square" + i + j, new Vector3(-24 + (7 * i), 0, 24 - (7 * j)), i, j, false);
-                        }
-                        else if (j % 2 == 0)
-                        {
-                            Squares[i, j] = new Square("square" + i + j, new Vector3(-24 + (7 * i), 0, 24 - (7 * j)), i, j, true);
-                        }
-                    }
-                }
-            }
-
-
-            Squares[CurrentI, CurrentJ].IsHover = true;
-            #endregion
-
+            GameBoard.Squares[CurrentI, CurrentJ].IsHover = true;
             foreach (GameObject3D t in SceneObjects)
                 t.Initialise();
 
@@ -148,7 +112,7 @@ namespace BraveChess.Base
 
             #region Arrow move/selection 
 
-            Squares[CurrentI, CurrentJ].IsHover = false;
+            GameBoard.Squares[CurrentI, CurrentJ].IsHover = false;
 
             if (InputEngine.IsKeyPressed(Keys.Right))
             {
@@ -231,7 +195,7 @@ namespace BraveChess.Base
             }
             if (!_isMouseClick)
             {
-                Squares[CurrentI, CurrentJ].IsHover = true;
+                GameBoard.Squares[CurrentI, CurrentJ].IsHover = true;
             }
 
             if (InputEngine.IsKeyPressed(Keys.Enter))
@@ -239,7 +203,7 @@ namespace BraveChess.Base
                 if (PreviousSquare != null)
                     PreviousSquare.IsSelected = false;
 
-                CurrentSquare = Squares[CurrentI, CurrentJ];
+                CurrentSquare = GameBoard.Squares[CurrentI, CurrentJ];
 
                 if (SelectState == SelectionState.SelectPiece) //if a piece hasnt been selected, highlight
                 {
@@ -279,11 +243,11 @@ namespace BraveChess.Base
                 //Square square;
                 Ray ray = RayCast();
 
-                foreach (Square sq in Squares)
+                foreach (Square sq in GameBoard.Squares)
                 {
                     float? result = ray.Intersects(sq.AABB);
 
-                    if (result.HasValue == true)
+                    if (result.HasValue)
                     {
                         return sq;
                     }
@@ -307,13 +271,18 @@ namespace BraveChess.Base
 
         }
 
+        protected Piece GetPiece(Vector3 pos)
+        {
+            return GameBoard.Pieces.FirstOrDefault(t => t.World.Translation == pos);
+        }
+
         public Ray RayCast()//makes a ray
         {
             int mouseX = InputEngine.CurrentMouseState.X;
             int mouseY = InputEngine.CurrentMouseState.Y;
 
-            Vector3 nearSource = new Vector3((float)mouseX, (float)mouseY, 0);
-            Vector3 farSource = new Vector3((float)mouseX, (float)mouseY, 1);
+            Vector3 nearSource = new Vector3(mouseX, mouseY, 0);
+            Vector3 farSource = new Vector3(mouseX, mouseY, 1);
 
             Vector3 nearPoint = Engine.GraphicsDevice.Viewport.Unproject(nearSource, 
                 Engine.Cameras.ActiveCamera.Projection, 

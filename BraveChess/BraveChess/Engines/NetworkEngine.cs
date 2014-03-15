@@ -170,7 +170,7 @@ namespace BraveChess.Engines
         {
             if (_engine.GameState == GameEngine.State.NetworkGame)
             {
-                _engine.LoadScene(new NetworkedLevel(_engine));
+                _engine.LoadScene(new NetworkedLevel(_engine, false));
                 _currentGameState = NetworkState.InGame;
             }
         }

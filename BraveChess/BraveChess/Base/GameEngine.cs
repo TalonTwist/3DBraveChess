@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.GamerServices;
 using BraveChess.Objects;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 namespace BraveChess.Base
@@ -77,7 +74,7 @@ namespace BraveChess.Base
         {
             _batch = new SpriteBatch(GraphicsDevice);
             _font = Game.Content.Load<SpriteFont>("Fonts\\debug");
-            FpsCounter = new FrameRateCounter(this.Game, new Vector2(GraphicsDevice.Viewport.Width / 2,10));
+            FpsCounter = new FrameRateCounter(Game, new Vector2(GraphicsDevice.Viewport.Width / 2,10));
 
             #region Load Buttons
             _background = Game.Content.Load<Texture2D>("Buttons\\Background");
@@ -243,12 +240,12 @@ namespace BraveChess.Base
                         GameState = State.MainMenu;
                     if (_btnStandardPieces.IsClicked)
                     {
-                        LoadScene(new NetworkedLevel(this));
+                        LoadScene(new NetworkedLevel(this, false));
                         GameState = State.PlayingNetworked;
                     }
                     if (_btnAnimatedPieces.IsClicked)
                     {
-                        LoadScene(new NetworkedLevel(this));
+                        LoadScene(new NetworkedLevel(this, false));
                         GameState = State.PlayingNetworked;
                     }
                     break;
@@ -260,18 +257,18 @@ namespace BraveChess.Base
                         GameState = State.MainMenu;
                     if (_btnStandardPieces.IsClicked)
                     {
-                        LoadScene(new StandardLevel(this));
+                        LoadScene(new StandardLevel(this, false));
                         GameState = State.PlayingNormal;
                     }
                     if (_btnAnimatedPieces.IsClicked)
                     {
-                        LoadScene(new StandardLevel(this));
+                        LoadScene(new StandardLevel(this, false));
                         GameState = State.PlayingNormal;
                     }
                     break;
                 case State.PlayingNormal:
                     if(_btnNewGame.IsClicked)
-                        LoadScene(new StandardLevel(this));
+                        LoadScene(new StandardLevel(this, false));
                     _btnNewGame.Update(this);
                     _btnUndoMove.Update(this);
                     break;
