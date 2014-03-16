@@ -6,10 +6,10 @@ namespace BraveChess.Base
 {
     public class MoveGen
     {
-        static public bool BlackCanCastleShort { get { return !(HasBlackKingMoved & HasBlackRookHMoved); } }
-        static public bool BlackCanCastleLong { get { return !(HasBlackKingMoved & HasBlackRookAMoved); } }
-        static public bool WhiteCanCastleShort { get { return !(HasWhiteKingMoved & HasWhiteRookHMoved); } }
-        static public bool WhiteCanCastleLong { get { return !(HasWhiteKingMoved & HasWhiteRookAMoved); } }
+        static public bool BlackCanCastleShort { get { return (!HasBlackKingMoved & !HasBlackRookHMoved & !_board.TestCheckOnCastle("blackShort")); } }
+        static public bool BlackCanCastleLong { get { return (!HasBlackKingMoved & !HasBlackRookAMoved & !_board.TestCheckOnCastle("blackLong")); } }
+        static public bool WhiteCanCastleShort { get { return (!HasWhiteKingMoved & !HasWhiteRookHMoved & !_board.TestCheckOnCastle("whiteShort")); } }
+        static public bool WhiteCanCastleLong { get { return (!HasWhiteKingMoved & !HasWhiteRookAMoved & !_board.TestCheckOnCastle("whiteLong")); } }
 
         static public bool HasBlackRookAMoved { get; set; }
         static public bool HasBlackRookHMoved { get; set; }

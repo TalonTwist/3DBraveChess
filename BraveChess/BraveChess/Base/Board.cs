@@ -123,6 +123,81 @@ namespace BraveChess.Base
             #endregion
         }
 
+        public UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
+        {
+            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
+
+            ulong attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & WhiteKnights & BlackKnights);
+            attackersBB |= (BitboardHelper.WhitePawnAttacks[sqIndex] & WhitePawns);
+            attackersBB |= (BitboardHelper.BlackPawnAttacks[sqIndex] & BlackPawns);
+            attackersBB |= (BitboardHelper.KingAttacks[sqIndex] & (WhiteKings | BlackKings));
+            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & (BlackBishops | WhiteBishops | BlackQueens | WhiteQueens));
+            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & (BlackRooks | WhiteRooks | BlackQueens | WhiteQueens));
+
+            return attackersBB;
+        }
+
+        public bool TestMoveForCheck(Piece pieceMoved) // Tests if king is in check after a piece is moved
+        {
+            switch (pieceMoved.ColorType)
+            {
+                case Piece.Colour.White:
+                    return TestForCheck(GetSquareFromBB(WhiteKings), true);
+                case Piece.Colour.Black:
+                    return TestForCheck(GetSquareFromBB(BlackKings), false);
+            }
+            return false;
+        }
+
+        private bool TestForCheck(Square s, bool isWhite) //Test if a Square is being attacked/is in Check
+        {
+            /*if all pieces attacking the kings position(or square) minus pieces of his own colour != 0 
+             * then the king is in check(square is attacked)*/
+
+            if (isWhite)
+                return ((FindAttacksToSquare(s) & ~WhitePieces) != 0);
+ 
+
+            return (FindAttacksToSquare(s) & ~BlackPieces) != 0;
+        }
+
+        public bool TestKingCheck(bool isWhite)
+        {
+            Square kingPos = GetSquareFromBB(WhiteKings);
+            return TestForCheck(kingPos, isWhite);
+        }
+
+        public bool TestCheckOnCastle(string s)
+        {
+            switch (s)
+            {
+                case "blackShort":
+                    if (TestForCheck(GetSquare("e8"), false))
+                        return true;
+                    if(TestForCheck(GetSquare("f8"), false))
+                        return true;
+                    return TestForCheck(GetSquare("g8"), false);
+                case "blackLong":
+                    if (TestForCheck(GetSquare("e8"), false))
+                        return true;
+                    if (TestForCheck(GetSquare("d8"), false))
+                        return true;
+                    return TestForCheck(GetSquare("c8"), false) || TestForCheck(GetSquare("b8"), false);
+                case "whiteShort":
+                    if (TestForCheck(GetSquare("e1"), false))
+                        return true;
+                    return TestForCheck(GetSquare("f1"), false) || TestForCheck(GetSquare("g1"), false);
+                case "whiteLong":
+                    if (TestForCheck(GetSquare("e1"), false))
+                        return true;
+                    if (TestForCheck(GetSquare("d1"), false))
+                        return true;
+                    return TestForCheck(GetSquare("c1"), false) || TestForCheck(GetSquare("b1"), false);
+                default:
+                    return false;
+            }
+        }
+
         public void UpdateRelevantbb(Piece.PieceType type, Piece.Colour c, ulong bbFrom, ulong bbTo)
         {
             if (c == Piece.Colour.White)

@@ -126,17 +126,14 @@ namespace BraveChess.Base
         {
             UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(FromSquare);
             UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(ToSquare);
-
             
-                _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo);
+            _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo); //update bitboards with proposed move
 
-                if (TestForCheck())
-                {
+            if (_board.TestMoveForCheck(PieceMoved)) //if the tested move resulted in check, then reset bitboards
+            {
                     _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
                     return false;
-                }
-            
-            
+            }
             return true;
         }
 
@@ -215,7 +212,6 @@ namespace BraveChess.Base
                 }
         }
 
-
         public void Castle()
         {
             Square sqFrom;
@@ -271,41 +267,6 @@ namespace BraveChess.Base
             _board.UpdateRelevantbb(PieceCaptured.Piece_Type, PieceCaptured.ColorType, BitboardHelper.GetBitboardFromSquare(ToSquare), 0);
             _board.Pieces.Remove(PieceCaptured);
             PieceCaptured.Destroy();
-        }
-
-        private bool TestForCheck()
-        {
-            Square kingPos;
-
-            if (PieceMoved.ColorType == Piece.Colour.White)
-            {
-                kingPos = GetSquareFromBB(_board.WhiteKings);
-
-                //if all pieces attacking the kings position minus pieces of his own colour != 0, then the king is in check
-                if ((FindAttacksToSquare(kingPos) & ~_board.WhitePieces) != 0)
-                    return true;
-            }
-            else if (PieceMoved.ColorType == Piece.Colour.Black)
-            {
-                kingPos = GetSquareFromBB(_board.BlackKings);
-                if ((FindAttacksToSquare(kingPos) & ~_board.BlackPieces) != 0)
-                    return true;
-            }
-            return false;
-        }
-     
-        private UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
-        {
-            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
-
-            ulong attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & _board.WhiteKnights & _board.BlackKnights);
-            attackersBB |= (BitboardHelper.WhitePawnAttacks[sqIndex] & _board.WhitePawns);
-            attackersBB |= (BitboardHelper.BlackPawnAttacks[sqIndex] & _board.BlackPawns);
-            attackersBB |= (BitboardHelper.KingAttacks[sqIndex] & (_board.WhiteKings | _board.BlackKings));
-            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & (_board.BlackBishops | _board.WhiteBishops | _board.BlackQueens | _board.WhiteQueens));
-            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & (_board.BlackRooks | _board.WhiteRooks | _board.BlackQueens | _board.WhiteQueens));
-
-            return attackersBB;
         }
 
         private Square GetSquareFromBB(ulong bb)
@@ -368,6 +329,6 @@ namespace BraveChess.Base
             }
         }
 
-        
+       
     }
 }
