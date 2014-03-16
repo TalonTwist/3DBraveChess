@@ -155,8 +155,6 @@ namespace BraveChess.Base
             Debug.Draw(Cameras.ActiveCamera);
         }//End of Method
 
-        
-
         public void LoadScene(Scene scene)
         {
             if (scene!= null)
@@ -239,12 +237,12 @@ namespace BraveChess.Base
                         GameState = State.MainMenu;
                     if (_btnStandardPieces.IsClicked)
                     {
-                        LoadScene(new NetworkedLevel(this, false));
+                        Network = new NetworkEngine(Game,this);
                         GameState = State.PlayingNetworked;
                     }
                     if (_btnAnimatedPieces.IsClicked)
                     {
-                        LoadScene(new NetworkedLevel(this, false));
+                        Network = new NetworkEngine(Game, this);
                         GameState = State.PlayingNetworked;
                     }
                     break;

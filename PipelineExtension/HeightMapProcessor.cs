@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline.Processors;
@@ -30,44 +26,44 @@ namespace PipelineExtension
     [ContentProcessor(DisplayName = "HeightMap Processor")]
     public class HeightMapProcessor : ContentProcessor<Texture2DContent, ModelContent>
     {
-        private float terrainBumpiness = 640f;
+        private float _terrainBumpiness = 640f;
         [DisplayName("Terrain Bumpiness")]
         [DefaultValue(640f)]
         [Description("Scale of the terrain geometry height.")]
         public float TerrainBumpiness
         {
-            get { return terrainBumpiness; }
-            set { terrainBumpiness = value; }
+            get { return _terrainBumpiness; }
+            set { _terrainBumpiness = value; }
         }
 
-        private float terrainScale = 30f;
+        private float _terrainScale = 30f;
         [DisplayName("Terrain Scale")]
         [DefaultValue(30f)]
         [Description("Scale of the terrain geometry width and length.")]
         public float TerrainScale
         {
-            get { return terrainScale; }
-            set { terrainScale = value; }
+            get { return _terrainScale; }
+            set { _terrainScale = value; }
         }
 
-        private float texCoordScale = 0.1f;
+        private float _texCoordScale = 0.1f;
         [DisplayName("Texture Coordinate Scale")]
         [DefaultValue(0.1f)]
         [Description("Terrain texture tiling density.")]
         public float TexCoordScale
         {
-            get { return texCoordScale; }
-            set { texCoordScale = value; }
+            get { return _texCoordScale; }
+            set { _texCoordScale = value; }
         }
 
-        private string terrainTextureFilename = "rocks.bmp";
+        private string _terrainTextureFilename = "rocks.bmp";
         [DisplayName("Terrain Texture")]
         [DefaultValue("rocks.bmp")]
         [Description("the name of the terrain texture. Must be in Textures Folder")]
         public string TerrainTextureFilename
         {
-            get { return terrainTextureFilename; }
-            set { terrainTextureFilename = value; }
+            get { return _terrainTextureFilename; }
+            set { _terrainTextureFilename = value; }
         }
 
         public override ModelContent Process(Texture2DContent input, ContentProcessorContext context)
@@ -88,10 +84,10 @@ namespace PipelineExtension
 
                     //position the vertices so that the heightfield is centered
                     //around x=0, z=0
-                    position.X = terrainScale * (x - ((heightfield.Width - 1) / 2.0f));
-                    position.Z = terrainScale * (y - ((heightfield.Height - 1) / 2.0f));
+                    position.X = _terrainScale * (x - ((heightfield.Width - 1) / 2.0f));
+                    position.Z = _terrainScale * (y - ((heightfield.Height - 1) / 2.0f));
 
-                    position.Y = (heightfield.GetPixel(x, y) - 1) * terrainBumpiness;
+                    position.Y = (heightfield.GetPixel(x, y) - 1) * _terrainBumpiness;
                     //inserts a vertex position into the vertex channel of the mesh
                     builder.CreatePosition(position);
                 }
@@ -102,7 +98,7 @@ namespace PipelineExtension
 
             string directory = Path.GetDirectoryName(input.Identity.SourceFilename);
             string textureFolder = Directory.GetParent(directory).FullName + "\\Textures\\";
-            string texture = Path.Combine(textureFolder, terrainTextureFilename);
+            string texture = Path.Combine(textureFolder, _terrainTextureFilename);
 
             material.Texture = new ExternalReference<TextureContent>(texture);
 
@@ -129,7 +125,7 @@ namespace PipelineExtension
             MeshContent terrainMesh = builder.FinishMesh();
             ModelContent model = context.Convert<MeshContent, ModelContent>(terrainMesh, "ModelProcessor");
 
-            model.Tag = new HeightMap(CreateHeightFieldFromFloats(heightfield, terrainBumpiness), terrainScale);
+            model.Tag = new HeightMap(CreateHeightFieldFromFloats(heightfield, _terrainBumpiness), _terrainScale);
 
             return model;
 
@@ -137,7 +133,7 @@ namespace PipelineExtension
 
         void AddVertex(MeshBuilder builder, int texCoordId, int w, int x, int y)
         {
-            builder.SetVertexChannelData(texCoordId, new Vector2(x, y) * texCoordScale);
+            builder.SetVertexChannelData(texCoordId, new Vector2(x, y) * _texCoordScale);
 
             builder.AddTriangleVertex(x + y * w);
         }//End of Method
@@ -153,7 +149,7 @@ namespace PipelineExtension
                     //the pixels will vary from 0(black) to 1 (White)
                     //by subtracting 1, out heights vary from -1 to 0, which we then
                     //multiply by the "bumpiness" to get our final height
-                    heights[x, y] = (bitmap.GetPixel(x, y) - 1) * terrainBumpiness;
+                    heights[x, y] = (bitmap.GetPixel(x, y) - 1) * _terrainBumpiness;
                 }
             }
 

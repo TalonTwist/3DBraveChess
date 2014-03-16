@@ -11,11 +11,10 @@ namespace BraveChess.Engines
         private static KeyboardState _previousKeyState;
         private static KeyboardState _currentKeyState;
 
-        private static Vector2 previousMousePos;
-        private static Vector2 currentMousePos;
+        private static Vector2 _currentMousePos;
 
-        private static MouseState previousMouseState;
-        private static MouseState currentMouseState;
+        private static MouseState _previousMouseState;
+        private static MouseState _currentMouseState;
 
         public InputEngine(Game game)
             : base(game)
@@ -28,8 +27,8 @@ namespace BraveChess.Engines
 
         public static void ClearState()
         {
-            previousMouseState = Mouse.GetState();
-            currentMouseState = Mouse.GetState();
+            _previousMouseState = Mouse.GetState();
+            _currentMouseState = Mouse.GetState();
             _previousKeyState = Keyboard.GetState();
             _currentKeyState = Keyboard.GetState();
         }
@@ -43,9 +42,9 @@ namespace BraveChess.Engines
             _currentKeyState = Keyboard.GetState();
 
 #if WINDOWS
-            previousMouseState = currentMouseState;
-            currentMousePos = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-            currentMouseState = Mouse.GetState();
+            _previousMouseState = _currentMouseState;
+            _currentMousePos = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            _currentMouseState = Mouse.GetState();
 #endif
 
             base.Update(gametime);
@@ -83,39 +82,39 @@ namespace BraveChess.Engines
 
         public static MouseState CurrentMouseState
         {
-            get { return currentMouseState; }
+            get { return _currentMouseState; }
         }
 
         public static MouseState PreviousMouseState
         {
-            get { return previousMouseState; }
+            get { return _previousMouseState; }
         }
 
 #if WINDOWS
 
         public static bool IsMouseLeftClick()
         {
-            return currentMouseState.LeftButton == ButtonState.Released && previousMouseState.LeftButton == ButtonState.Pressed;
+            return _currentMouseState.LeftButton == ButtonState.Released && _previousMouseState.LeftButton == ButtonState.Pressed;
         }
 
         public static bool IsMouseRightClick()
         {
-            return currentMouseState.RightButton == ButtonState.Released && previousMouseState.RightButton == ButtonState.Pressed;
+            return _currentMouseState.RightButton == ButtonState.Released && _previousMouseState.RightButton == ButtonState.Pressed;
         }
 
         public static bool IsMouseRightHeld()
         {
-            return currentMouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Pressed;
+            return _currentMouseState.RightButton == ButtonState.Pressed && _previousMouseState.RightButton == ButtonState.Pressed;
         }
 
         public static bool IsMouseLeftHeld()
         {
-            return currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Pressed;
+            return _currentMouseState.LeftButton == ButtonState.Pressed && _previousMouseState.LeftButton == ButtonState.Pressed;
         }
 
         public static Vector2 MousePosition
         {
-            get { return currentMousePos; }
+            get { return _currentMousePos; }
         }
 #endif
 

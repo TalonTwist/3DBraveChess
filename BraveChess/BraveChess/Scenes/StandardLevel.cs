@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 
 using BraveChess.Engines;
 using BraveChess.Base;
 using BraveChess.Objects;
-using BraveChess.Helpers;
 
 namespace BraveChess.Scenes
 {
@@ -102,7 +100,7 @@ namespace BraveChess.Scenes
                      {
                          Piece p = GameBoard.GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
-                         if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
+                         if (p != null && ((int)p.ColorType) == (int)Turn) //Replace selection with this piece
                          {
                              PieceToMove = p;
                              FromSquare = CurrentSquare;
@@ -124,14 +122,7 @@ namespace BraveChess.Scenes
                      Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
-                         if (Turn == TurnState.Black)
-                         {
-                             BlackMoves.Add(m.ToAlgebraic());
-                         }
-                         else if (Turn == TurnState.White)
-                         {
-                             WhiteMoves.Add(m.ToAlgebraic());
-                         }
+                         AllMoves.Add(m);
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
                          IsFight = false;
@@ -155,45 +146,6 @@ namespace BraveChess.Scenes
 
             Engine.Cameras.SetActiveCamera(Engine.Cameras.ActiveCamera.Id == "camWhite" ? "camBlack" : "camWhite");
         }
-      
-         private List<Square> GetSquareListFromBB(ulong bb)
-         {
-             List<Square> s = new List<Square>();
-             var sList = BitboardHelper.GetSquareListFromBB(bb);
-
-             if (sList == null) return null;
-             s.AddRange(sList.Select(t => GameBoard.Squares[t.Item2, t.Item1]));
-
-             return s;
-         }
-
-         private List<Square> GenerateMoves(Piece p, Square s)
-         {
-             //Call method based on Type of Piece passed in
-             switch (p.Piece_Type)
-             {
-                 case Piece.PieceType.King:
-                     return GetSquareListFromBB(MoveGen.GenerateKingMoves(s, p.ColorType));
-
-                 case Piece.PieceType.Pawn:
-                     return GetSquareListFromBB(MoveGen.GeneratePawnMoves(s, p.ColorType));
-
-                 case Piece.PieceType.Knight:
-                     return GetSquareListFromBB(MoveGen.GenerateKnightMoves(s, p.ColorType));
-
-                 case Piece.PieceType.Bishop:
-                     return GetSquareListFromBB(MoveGen.GenerateBishopMoves(s, p.ColorType));
-
-                 case Piece.PieceType.Rook:
-                     return GetSquareListFromBB(MoveGen.GenerateRookMoves(s, p.ColorType));
-
-                 case Piece.PieceType.Queen:
-                     return GetSquareListFromBB(MoveGen.GenerateQueenMoves(s, p.ColorType));
-                 default:
-                     return null;
-             }
-         }
-     
-
+       
     }
 }

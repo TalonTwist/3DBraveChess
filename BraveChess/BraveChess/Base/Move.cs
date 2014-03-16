@@ -26,7 +26,7 @@ namespace BraveChess.Base
         {
             get
             {
-                if (PieceMoved.Piece_Type == Piece.PieceType.King)
+                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.King)
                 {
                     if (FromSquare.File - ToSquare.File == 2)
                         return true;
@@ -38,11 +38,29 @@ namespace BraveChess.Base
         {
             get
             {
-                if (PieceMoved.Piece_Type == Piece.PieceType.King)
+                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.King)
                 {
                     if (FromSquare.File - ToSquare.File == -2)
                         return true;
                 }
+                return false;
+            }
+        }
+        public bool IsKingMove
+        {
+            get
+            {
+                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.King)
+                    return true;
+                return false;
+            }
+        }
+        public bool IsRookMove
+        {
+            get
+            {
+                if (PieceMoved.Piece_Type == Piece.PieceType.Rook)
+                    return true;
                 return false;
             }
         }
@@ -52,7 +70,7 @@ namespace BraveChess.Base
         {
             get
             {
-                if (PieceMoved.Piece_Type == Piece.PieceType.Pawn)
+                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.Pawn)
                     if (!HasCaptured)
                         if ((BitboardHelper.GetBitboardFromSquare(ToSquare) << 16) == BitboardHelper.GetBitboardFromSquare(FromSquare))
                             return true;
@@ -65,7 +83,8 @@ namespace BraveChess.Base
         {
             get
             {
-                return PieceMoved.ColorType;
+                if (PieceMoved != null) return PieceMoved.ColorType;
+                return Piece.Colour.Black;
             }
         }
 
@@ -105,13 +124,17 @@ namespace BraveChess.Base
             UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(FromSquare);
             UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(ToSquare);
 
-            _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo);
-
-            if (TestForCheck())
+            if (PieceMoved != null)
             {
-                _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
-                return false;
+                _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo);
+
+                if (TestForCheck())
+                {
+                    _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
+                    return false;
+                }
             }
+            
             return true;
         } 
 
@@ -124,10 +147,39 @@ namespace BraveChess.Base
             if(_engine.Network != null && !isPacketMove)
                 _engine.Network.WriteMovePacket(BitboardHelper.GetBitboardFromSquare(FromSquare), BitboardHelper.GetBitboardFromSquare(ToSquare));
 
-            PieceMoved.UpdateWorld(GetNewPos(ToSquare)); //update world position of model
+            if (PieceMoved != null)
+            {
+                PieceMoved.UpdateWorld(GetNewPos(ToSquare)); //update world position of model
 
-            if(IsCastling)
-                Castle();
+                if(IsCastling)
+                    Castle();
+
+                if (IsKingMove)
+                {
+                    if (SideMove == Piece.Colour.White)
+                        MoveGen.HasWhiteKingMoved = true;
+                    else
+                        MoveGen.HasBlackKingMoved = true;
+                }
+                if (IsRookMove)
+                {
+                    switch (PieceMoved.Id)
+                    {
+                        case "RookA1":
+                            MoveGen.HasWhiteRookAMoved = true;
+                            break;
+                        case "RookH1":
+                            MoveGen.HasWhiteRookHMoved = true;
+                            break;
+                        case "rookA8":
+                            MoveGen.HasBlackRookAMoved = true;
+                            break;
+                        case "rookH8":
+                            MoveGen.HasBlackRookHMoved = true;
+                            break;
+                    }
+                }
+            }
         }
 
         public void Castle()
@@ -244,7 +296,7 @@ namespace BraveChess.Base
             }
             else
             {
-                if (PieceMoved.Piece_Type != Piece.PieceType.Pawn) //If not a pawn, add Piece Initial
+                if (PieceMoved != null && PieceMoved.Piece_Type != Piece.PieceType.Pawn) //If not a pawn, add Piece Initial
                     algebraic.Append(GetInitial(PieceMoved.Piece_Type));
 
                 algebraic.Append(FromSquare.ToAlgebraic());
