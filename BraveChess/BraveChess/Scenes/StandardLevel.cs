@@ -119,7 +119,7 @@ namespace BraveChess.Scenes
 
                      //check for pawn queening
 
-                     Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
+                     Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
                          GameBoard.AllMoves.Add(m);

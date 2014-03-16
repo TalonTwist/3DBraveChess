@@ -19,8 +19,27 @@ namespace BraveChess.Base
         public Piece PieceCaptured { get; set; }
         public Piece.PieceType PiecePromoted { get; set; }
         public bool HasPromoted{get{return PiecePromoted != Piece.PieceType.None;}}
-        public bool IsEnpassant { get; set; }
-        public bool HasCaptured { get; set; }
+
+        public bool IsEnpassant
+        {
+            get
+            {
+                if (PieceMoved.Piece_Type == Piece.PieceType.Pawn)
+                {
+                    if (FromSquare.File - ToSquare.File == 1 |
+                        FromSquare.File - ToSquare.File == -1 & PieceCaptured == null)
+                        return true;
+                }
+                return false;
+            }
+        }
+        public bool HasCaptured
+        {
+            get
+            {
+                return PieceCaptured != null;
+            }
+        }
         public bool IsCastling{get{return IsLongCastling || IsShortCastling;}}
         public bool IsLongCastling
         {
@@ -91,7 +110,7 @@ namespace BraveChess.Base
             }
         }
 
-        public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceMoved, bool isCapture, Piece pieceCaptured, bool isPacketMove, Piece.PieceType piecePromoted = Piece.PieceType.None)
+        public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceMoved, Piece pieceCaptured, bool isPacketMove, Piece.PieceType piecePromoted = Piece.PieceType.None)
         {
             _engine = engine;
             _board = board;
@@ -99,7 +118,6 @@ namespace BraveChess.Base
             ToSquare = toSquare;
             PieceMoved = pieceMoved;
             PiecePromoted = piecePromoted;
-            HasCaptured = isCapture;
             PieceCaptured = pieceCaptured; 
 
             ProcessMove(isPacketMove);
@@ -109,6 +127,19 @@ namespace BraveChess.Base
         {
             if (isPacketMove || TestMove())
             {
+                if (IsEnpassant)
+                {
+                    switch (SideMove)
+                    {
+                        case Piece.Colour.White:
+                            PieceCaptured = _board.GetPiece(_board.Squares[(int)ToSquare.File, (int)ToSquare.Rank - 1]);
+                            break;
+                        case Piece.Colour.Black:
+                            PieceCaptured = _board.GetPiece(_board.Squares[(int)ToSquare.File, (int)ToSquare.Rank + 1]);
+                            break;
+                    }
+                }
+
                 if (HasCaptured)
                 {
                     _engine.Audio.PlayEffect("CapturePiece");
