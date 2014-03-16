@@ -59,8 +59,6 @@ _ReSharper*
 *.ncrunch*
 .*crunch*.local.xml
 
-#Debug folder
-**/bin/Debug/
 
 # Installshield output folder 
 [Ee]xpress
