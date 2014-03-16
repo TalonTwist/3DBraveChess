@@ -127,7 +127,6 @@ namespace BraveChess.Scenes
                          if (Turn == TurnState.Black)
                          {
                              BlackMoves.Add(m.ToAlgebraic());
-                             
                          }
                          else if (Turn == TurnState.White)
                          {
