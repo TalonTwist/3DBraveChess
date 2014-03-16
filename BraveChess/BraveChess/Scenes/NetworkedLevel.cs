@@ -140,9 +140,6 @@ namespace BraveChess.Scenes
                     var m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
-                         //Send packet 
-                         Engine.Network.WriteMovePacket(PieceToMove.World.Translation, (int)PieceToMove.Piece_Type,
-                             (int)PieceToMove.ColorType, BitboardHelper.GetBitboardFromSquare(FromSquare), BitboardHelper.GetBitboardFromSquare(ToSquare));
                          if(Turn == TurnState.Black)
                             BlackMoves.Add(m.ToAlgebraic());
                          else if(Turn == TurnState.White)
@@ -161,27 +158,30 @@ namespace BraveChess.Scenes
 
         public void ReadMovePacket()
         {
-            Vector3 pos = Engine.Network.PacketReader.ReadVector3();
-            int pieceType = Engine.Network.PacketReader.ReadInt32();
-            int pieceColor = Engine.Network.PacketReader.ReadInt32();
             UInt64 fromSq = Engine.Network.PacketReader.ReadUInt64();
             UInt64 toSq = Engine.Network.PacketReader.ReadUInt64();
 
-            MoveOtherPiece(pos, (Piece.PieceType)pieceType, (Piece.Colour)pieceColor, fromSq, toSq);
+            MoveOtherPiece(fromSq, toSq);
         }
 
-        private void MoveOtherPiece(Vector3 pos, Piece.PieceType type, Piece.Colour color, UInt64 bbFrom, UInt64 bbTo)
+        private void MoveOtherPiece(UInt64 bbFrom, UInt64 bbTo)
         {
-            GameBoard.UpdateRelevantbb(type, color, bbFrom, bbTo); //update bitboards with new piece position
-
+            bool isCapture = false;
             Square s = GetSquareFromBB(bbTo);
-            Vector3 newPos = GetNewPos(s);
+            Square sqFrom = GetSquareFromBB(bbFrom);
 
-            Piece capturedPiece = GameBoard.GetPiece(s.World.Translation + new Vector3(0, 2, 0));
+            Piece capturedPiece = GameBoard.GetPiece(s);
+            Piece movedPiece = GameBoard.GetPiece(sqFrom);
+
             if (capturedPiece != null)
-                capturedPiece.Destroy();
+                isCapture = true;
 
-            GameBoard.GetPiece(pos).UpdateWorld(newPos);
+            Move m = new Move(Engine, GameBoard, GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece, false);
+
+            if (Turn == TurnState.Black)
+                BlackMoves.Add(m.ToAlgebraic());
+            else if (Turn == TurnState.White)
+                WhiteMoves.Add(m.ToAlgebraic());
         }
 
         private void SwitchTurn(bool recieved)
@@ -195,11 +195,6 @@ namespace BraveChess.Scenes
         protected override void HandleInput()
         {
             base.HandleInput();
-        }
-
-        private Vector3 GetNewPos(Square destination)
-        {
-            return destination.World.Translation + new Vector3(0, 2, 0);
         }
 
         private Square GetSquareFromBB(ulong bb)

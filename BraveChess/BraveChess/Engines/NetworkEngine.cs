@@ -254,12 +254,9 @@ namespace BraveChess.Engines
             return null;
         }
 
-        public void WriteMovePacket(Vector3 pos, int pieceType, int pieceColor, UInt64 fromSquare, UInt64 toSquare)
+        public void WriteMovePacket(UInt64 fromSquare, UInt64 toSquare)
         {
                 PacketWriter.Write((int)MessageType.UpdateOtherMove);
-                PacketWriter.Write(pos);
-                PacketWriter.Write(pieceType);
-                PacketWriter.Write(pieceColor);
                 PacketWriter.Write(fromSquare);
                 PacketWriter.Write(toSquare);
 

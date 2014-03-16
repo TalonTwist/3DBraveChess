@@ -123,6 +123,9 @@ namespace BraveChess.Base
                 _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, BitboardHelper.GetBitboardFromSquare(FromSquare),
                     BitboardHelper.GetBitboardFromSquare(ToSquare));
 
+            if(_engine.Network != null && !isPacketMove)
+                _engine.Network.WriteMovePacket(BitboardHelper.GetBitboardFromSquare(FromSquare), BitboardHelper.GetBitboardFromSquare(ToSquare));
+
             PieceMoved.UpdateWorld(GetNewPos(ToSquare)); //update world position of model
 
             if(IsCastling)

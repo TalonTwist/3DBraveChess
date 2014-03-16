@@ -35,6 +35,8 @@ namespace BraveChess.Base
         public TurnState Turn { get; set; }
         public SelectionState SelectState { get; set; }
         public List<GameObject3D> Objects { get { return SceneObjects; } }
+
+        public List<Move> AllMoves = new List<Move>(); 
         public List<string> BlackMoves = new List<string>();
         public List<string> WhiteMoves = new List<string>();
 
