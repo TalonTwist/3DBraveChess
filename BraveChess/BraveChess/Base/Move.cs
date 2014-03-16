@@ -332,6 +332,9 @@ namespace BraveChess.Base
                 algebraic.Append(ToSquare.ToAlgebraic());
             }
 
+            if (IsEnpassant)
+                algebraic.Append("e.p.");
+
             if (HasPromoted)
                 algebraic.Append("=" + GetInitial(PiecePromoted));
 

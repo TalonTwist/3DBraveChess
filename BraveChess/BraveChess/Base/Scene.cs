@@ -54,7 +54,6 @@ namespace BraveChess.Base
 
         protected Camera CamWhite, CamBlack;
         protected int CurrentI, CurrentJ;
-        protected bool  IsFight = false;
         private bool _isMouseClick;
         protected Piece PieceToCapture, PieceToMove;
         protected Square CurrentSquare, PreviousSquare, FromSquare, ToSquare;
@@ -279,7 +278,7 @@ namespace BraveChess.Base
             }
             for (int i = 0; i < BlackMovesList.Count; i++)
                 batch.DrawString(font, BlackMovesList[i],
-                    new Vector2(graphics.Viewport.Width / 10, 20 * i), Color.Black);
+                    new Vector2(graphics.Viewport.Width / 8, 20 * i), Color.Black);
             batch.End();
 
         }

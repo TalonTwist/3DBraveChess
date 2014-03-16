@@ -89,9 +89,6 @@ namespace BraveChess.Scenes
                      {
                          PieceToCapture = GameBoard.GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
-                         if (PieceToCapture != null)
-                             IsFight = true;
-
                          ToSquare = CurrentSquare;
 
                          SelectState = SelectionState.MoveSelected;
@@ -125,14 +122,12 @@ namespace BraveChess.Scenes
                          GameBoard.AllMoves.Add(m);
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
-                         IsFight = false;
                          SwitchTurn();
                      }
                      else
                      {
                          NotificationEngine.AddNotification(new Notification("Sorry that would leave you in check!!", 4000));
                          SelectState = SelectionState.SelectPiece;
-                         IsFight = false;
                      }
                          
                      break;
