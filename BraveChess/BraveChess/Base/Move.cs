@@ -50,7 +50,11 @@ namespace BraveChess.Base
         {
             get
             {
+<<<<<<< HEAD
                 if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.King)
+=======
+                if (PieceMoved.Piece_Type == Piece.PieceType.King)
+>>>>>>> cc261ecb72444c6db5c667801e11d5840b319987
                     return true;
                 return false;
             }
@@ -151,6 +155,7 @@ namespace BraveChess.Base
             {
                 PieceMoved.UpdateWorld(GetNewPos(ToSquare)); //update world position of model
 
+<<<<<<< HEAD
                 if(IsCastling)
                     Castle();
 
@@ -178,6 +183,34 @@ namespace BraveChess.Base
                             MoveGen.HasBlackRookHMoved = true;
                             break;
                     }
+=======
+            if(IsCastling)
+                Castle();
+
+            if (IsKingMove)
+            {
+                if (SideMove == Piece.Colour.White)
+                    MoveGen.HasWhiteKingMoved = true;
+                else
+                    MoveGen.HasBlackKingMoved = true;
+            }
+            if (IsRookMove)
+            {
+                switch (PieceMoved.Id)
+                {
+                    case "RookA1":
+                        MoveGen.HasWhiteRookAMoved = true;
+                        break;
+                    case "RookH1":
+                        MoveGen.HasWhiteRookHMoved = true;
+                        break;
+                    case "rookA8":
+                        MoveGen.HasBlackRookAMoved = true;
+                        break;
+                    case "rookH8":
+                        MoveGen.HasBlackRookHMoved = true;
+                        break;
+>>>>>>> cc261ecb72444c6db5c667801e11d5840b319987
                 }
             }
         }
