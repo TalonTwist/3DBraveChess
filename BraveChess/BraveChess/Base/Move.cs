@@ -26,7 +26,7 @@ namespace BraveChess.Base
         {
             get
             {
-                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.King)
+                if (PieceMoved.Piece_Type == Piece.PieceType.King)
                 {
                     if (FromSquare.File - ToSquare.File == 2)
                         return true;
@@ -38,7 +38,7 @@ namespace BraveChess.Base
         {
             get
             {
-                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.King)
+                if (PieceMoved.Piece_Type == Piece.PieceType.King)
                 {
                     if (FromSquare.File - ToSquare.File == -2)
                         return true;
@@ -51,7 +51,7 @@ namespace BraveChess.Base
             get
             {
 
-                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.King)
+                if (PieceMoved.Piece_Type == Piece.PieceType.King)
 
                 if (PieceMoved.Piece_Type == Piece.PieceType.King)
                     return true;
@@ -73,7 +73,7 @@ namespace BraveChess.Base
         {
             get
             {
-                if (PieceMoved != null && PieceMoved.Piece_Type == Piece.PieceType.Pawn)
+                if (PieceMoved.Piece_Type == Piece.PieceType.Pawn)
                     if (!HasCaptured)
                         if ((BitboardHelper.GetBitboardFromSquare(ToSquare) << 16) == BitboardHelper.GetBitboardFromSquare(FromSquare))
                             return true;
@@ -127,8 +127,7 @@ namespace BraveChess.Base
             UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(FromSquare);
             UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(ToSquare);
 
-            if (PieceMoved != null)
-            {
+            
                 _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo);
 
                 if (TestForCheck())
@@ -136,7 +135,7 @@ namespace BraveChess.Base
                     _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
                     return false;
                 }
-            }
+            
             
             return true;
         }
@@ -152,8 +151,7 @@ namespace BraveChess.Base
                 _engine.Network.WriteMovePacket(BitboardHelper.GetBitboardFromSquare(FromSquare),
                     BitboardHelper.GetBitboardFromSquare(ToSquare));
 
-            if (PieceMoved != null)
-            {
+            
                 PieceMoved.UpdateWorld(GetNewPos(ToSquare)); //update world position of model
 
 
@@ -215,7 +213,6 @@ namespace BraveChess.Base
                         }
                     }
                 }
-            }
         }
 
 
@@ -333,7 +330,7 @@ namespace BraveChess.Base
             }
             else
             {
-                if (PieceMoved != null && PieceMoved.Piece_Type != Piece.PieceType.Pawn) //If not a pawn, add Piece Initial
+                if (PieceMoved.Piece_Type != Piece.PieceType.Pawn) //If not a pawn, add Piece Initial
                     algebraic.Append(GetInitial(PieceMoved.Piece_Type));
 
                 algebraic.Append(FromSquare.ToAlgebraic());

@@ -172,7 +172,7 @@ namespace BraveChess.Scenes
             if (capturedPiece != null)
                 isCapture = true;
 
-            Move m = new Move(Engine, GameBoard, GameBoard.GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece, false);
+            Move m = new Move(Engine, GameBoard, GameBoard.GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece,true);
 
             AllMoves.Add(m);
         }
