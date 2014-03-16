@@ -139,7 +139,7 @@ namespace BraveChess.Scenes
                     var m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
-                         AllMoves.Add(m);
+                         GameBoard.AllMoves.Add(m);
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
                          IsFight = false;
@@ -174,7 +174,7 @@ namespace BraveChess.Scenes
 
             Move m = new Move(Engine, GameBoard, GameBoard.GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece,true);
 
-            AllMoves.Add(m);
+            GameBoard.AllMoves.Add(m);
         }
 
         private void SwitchTurn(bool recieved)

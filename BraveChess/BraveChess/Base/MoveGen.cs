@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BraveChess.Objects;
 using BraveChess.Helpers;
 
@@ -84,6 +85,18 @@ namespace BraveChess.Base
                     if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Two]) != 0) && ((myPieceBB << 16) & _board.AllPieces) == 0)
                         validMovesBB = validMovesBB | (myPieceBB << 16);
                 }
+
+                #region enPassant?
+                if (_board.AllMoves.Count != 0 && _board.AllMoves.Last().IsDoublePawnPush) //is lastmove was a double pawn push, need to check is en passant is possible
+                {
+                    var lastPieceMovedBB = BitboardHelper.GetBitboardFromSquare(_board.AllMoves.Last().ToSquare);
+
+                    if ((myPieceBB >> 1) == lastPieceMovedBB) // if lastPieceMoved is one square to the left, add en passant capture to validMoves
+                        validMovesBB |= myPieceBB << 7;
+                    else if ((myPieceBB << 1) == lastPieceMovedBB)// if lastPieceMoved is one square to the right, add en passant capture to validMoves
+                        validMovesBB |= myPieceBB << 9;
+                }
+                #endregion
             }
             else
             {
@@ -96,6 +109,18 @@ namespace BraveChess.Base
                     if (((myPieceBB & BitboardHelper.MaskRank[(int)Ranks.Seven]) != 0) && ((myPieceBB >> 16) & _board.AllPieces) == 0)
                         validMovesBB = validMovesBB | myPieceBB >> 16;
                 }
+
+                #region EnPassant?
+                if (_board.AllMoves.Last().IsDoublePawnPush) //is lastmove was a double pawn push, need to check is en passant is possible
+                {
+                    var lastPieceMovedBB = BitboardHelper.GetBitboardFromSquare(_board.AllMoves.Last().ToSquare);
+
+                    if ((myPieceBB >> 1) == lastPieceMovedBB) // if lastPieceMoved is one square to the left, add en passant capture to validMoves
+                        validMovesBB |= myPieceBB >> 9;
+                    else if ((myPieceBB << 1) == lastPieceMovedBB)// if lastPieceMoved is one square to the right, add en passant capture to validMoves
+                        validMovesBB |= myPieceBB >> 7;
+                }
+                #endregion
             }
 
             return validMovesBB;

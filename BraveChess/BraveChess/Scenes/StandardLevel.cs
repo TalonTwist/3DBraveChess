@@ -122,7 +122,7 @@ namespace BraveChess.Scenes
                      Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
-                         AllMoves.Add(m);
+                         GameBoard.AllMoves.Add(m);
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
                          IsFight = false;

@@ -31,6 +31,8 @@ namespace BraveChess.Base
         public Square[,] Squares;
         public List<Piece> Pieces = new List<Piece>();
 
+        public List<Move> AllMoves = new List<Move>();
+
         private static readonly Vector3 Adjust = new Vector3(0,2,0);
 
         public Board(bool isAnimated)
