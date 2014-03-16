@@ -23,6 +23,12 @@ namespace BraveChess.Base
         public static void Init( Board board)
         {
             _board = board;
+            HasWhiteKingMoved = false;
+            HasBlackKingMoved = false;
+            HasBlackRookAMoved = false;
+            HasBlackRookHMoved = false;
+            HasWhiteRookAMoved = false;
+            HasWhiteRookHMoved = false;
         }
 
         static public UInt64 GenerateKingMoves(Square s, Piece.Colour c)

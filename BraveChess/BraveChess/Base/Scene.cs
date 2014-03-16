@@ -36,9 +36,21 @@ namespace BraveChess.Base
         public SelectionState SelectState { get; set; }
         public List<GameObject3D> Objects { get { return SceneObjects; } }
 
-        public List<Move> AllMoves = new List<Move>(); 
-        public List<string> BlackMoves = new List<string>();
-        public List<string> WhiteMoves = new List<string>();
+        public List<Move> AllMoves = new List<Move>();
+        public List<string> BlackMoves
+        {
+            get
+            {
+                return (from m in AllMoves where m.SideMove == Piece.Colour.White select m.ToAlgebraic()).ToList();
+            }
+        }
+        public List<string> WhiteMoves
+        {
+            get
+            {
+                return (from m in AllMoves where m.SideMove == Piece.Colour.Black select m.ToAlgebraic()).ToList();
+            }
+        }
 
         protected Camera CamWhite, CamBlack;
         protected int CurrentI, CurrentJ;
@@ -328,5 +340,43 @@ namespace BraveChess.Base
             }
             MovesAvailable = null;
         }
+
+        protected List<Square> GetSquareListFromBB(ulong bb)
+        {
+            List<Square> s = new List<Square>();
+            var sList = BitboardHelper.GetSquareListFromBB(bb);
+
+            if (sList == null) return null;
+            s.AddRange(sList.Select(t => GameBoard.Squares[t.Item2, t.Item1]));
+
+            return s;
+        }
+
+        protected List<Square> GenerateMoves(Piece p, Square s)
+        {
+            //Call method based on Type of Piece passed in
+            switch (p.Piece_Type)
+            {
+                case Piece.PieceType.King:
+                    return GetSquareListFromBB(MoveGen.GenerateKingMoves(s, p.ColorType));
+
+                case Piece.PieceType.Pawn:
+                    return GetSquareListFromBB(MoveGen.GeneratePawnMoves(s, p.ColorType));
+
+                case Piece.PieceType.Knight:
+                    return GetSquareListFromBB(MoveGen.GenerateKnightMoves(s, p.ColorType));
+
+                case Piece.PieceType.Bishop:
+                    return GetSquareListFromBB(MoveGen.GenerateBishopMoves(s, p.ColorType));
+
+                case Piece.PieceType.Rook:
+                    return GetSquareListFromBB(MoveGen.GenerateRookMoves(s, p.ColorType));
+
+                case Piece.PieceType.Queen:
+                    return GetSquareListFromBB(MoveGen.GenerateQueenMoves(s, p.ColorType));
+                default:
+                    return null;
+            }
+        }     
     }
 }

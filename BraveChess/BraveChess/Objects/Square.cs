@@ -4,7 +4,6 @@ using BraveChess.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using BraveChess.Engines;
 
 namespace BraveChess.Objects
 {

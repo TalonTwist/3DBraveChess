@@ -8,18 +8,16 @@
 #endregion
 
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Common;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline.Processors;
+using Microsoft.Xna.Framework.Graphics;
 
-using Common;
-
-namespace SkinnedModelPipeline
+namespace PipelineExtension
 {
     /// <summary>
     /// Custom processor extends the builtin framework ModelProcessor class,
@@ -69,8 +67,7 @@ namespace SkinnedModelPipeline
             }
 
             // Convert animation data to our runtime format.
-            Dictionary<string, AnimationClip> animationClips;
-            animationClips = ProcessAnimations(skeleton.Animations, bones);
+            Dictionary<string, AnimationClip> animationClips = ProcessAnimations(skeleton.Animations, bones);
 
             // Chain to the base ModelProcessor class so it can convert the model data.
             ModelContent model = base.Process(input, context);
@@ -102,8 +99,7 @@ namespace SkinnedModelPipeline
             }
 
             // Convert each animation in turn.
-            Dictionary<string, AnimationClip> animationClips;
-            animationClips = new Dictionary<string, AnimationClip>();
+            Dictionary<string, AnimationClip> animationClips = new Dictionary<string, AnimationClip>();
 
             foreach (KeyValuePair<string, AnimationContent> animation in animations)
             {

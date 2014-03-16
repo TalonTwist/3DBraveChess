@@ -46,6 +46,24 @@ namespace BraveChess.Base
                 return false;
             }
         }
+        public bool IsKingMove
+        {
+            get
+            {
+                if (PieceMoved.Piece_Type == Piece.PieceType.King)
+                    return true;
+                return false;
+            }
+        }
+        public bool IsRookMove
+        {
+            get
+            {
+                if (PieceMoved.Piece_Type == Piece.PieceType.Rook)
+                    return true;
+                return false;
+            }
+        }
         public bool IsCheck { get; set; }
         public bool IsCheckMate { get; set; }
         public bool IsDoublePawnPush
@@ -128,6 +146,32 @@ namespace BraveChess.Base
 
             if(IsCastling)
                 Castle();
+
+            if (IsKingMove)
+            {
+                if (SideMove == Piece.Colour.White)
+                    MoveGen.HasWhiteKingMoved = true;
+                else
+                    MoveGen.HasBlackKingMoved = true;
+            }
+            if (IsRookMove)
+            {
+                switch (PieceMoved.Id)
+                {
+                    case "RookA1":
+                        MoveGen.HasWhiteRookAMoved = true;
+                        break;
+                    case "RookH1":
+                        MoveGen.HasWhiteRookHMoved = true;
+                        break;
+                    case "rookA8":
+                        MoveGen.HasBlackRookAMoved = true;
+                        break;
+                    case "rookH8":
+                        MoveGen.HasBlackRookHMoved = true;
+                        break;
+                }
+            }
         }
 
         public void Castle()

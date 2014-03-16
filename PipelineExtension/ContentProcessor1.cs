@@ -57,8 +57,6 @@ namespace PipelineExtension
 
                 if (mesh.ParentBone.Transform != null)
                     transform = mesh.ParentBone.Transform;
-                else
-                    transform = Matrix.Identity;
 
                 var p = Vector3.Transform(mesh.BoundingSphere.Center, mesh.ParentBone.Transform);
 

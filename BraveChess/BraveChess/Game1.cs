@@ -1,4 +1,3 @@
-using System;
 using BraveChess.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;

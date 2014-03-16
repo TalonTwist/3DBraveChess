@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using BraveChess.Engines;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 using BraveChess.Base;
 using BraveChess.Objects;
-using BraveChess.Helpers;
 
 namespace BraveChess.Scenes
 {
@@ -140,10 +138,7 @@ namespace BraveChess.Scenes
                     var m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
-                         if(Turn == TurnState.Black)
-                            BlackMoves.Add(m.ToAlgebraic());
-                         else if(Turn == TurnState.White)
-                             WhiteMoves.Add(m.ToAlgebraic());
+                         AllMoves.Add(m);
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
                          IsFight = false;
@@ -167,8 +162,8 @@ namespace BraveChess.Scenes
         private void MoveOtherPiece(UInt64 bbFrom, UInt64 bbTo)
         {
             bool isCapture = false;
-            Square s = GetSquareFromBB(bbTo);
-            Square sqFrom = GetSquareFromBB(bbFrom);
+            Square s = GameBoard.GetSquareFromBB(bbTo);
+            Square sqFrom = GameBoard.GetSquareFromBB(bbFrom);
 
             Piece capturedPiece = GameBoard.GetPiece(s);
             Piece movedPiece = GameBoard.GetPiece(sqFrom);
@@ -176,12 +171,9 @@ namespace BraveChess.Scenes
             if (capturedPiece != null)
                 isCapture = true;
 
-            Move m = new Move(Engine, GameBoard, GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece, false);
+            Move m = new Move(Engine, GameBoard, GameBoard.GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece, false);
 
-            if (Turn == TurnState.Black)
-                BlackMoves.Add(m.ToAlgebraic());
-            else if (Turn == TurnState.White)
-                WhiteMoves.Add(m.ToAlgebraic());
+            AllMoves.Add(m);
         }
 
         private void SwitchTurn(bool recieved)
@@ -196,51 +188,6 @@ namespace BraveChess.Scenes
         {
             base.HandleInput();
         }
-
-        private Square GetSquareFromBB(ulong bb)
-        {
-            var v = BitboardHelper.GetSquareFromBitboard(bb);
-
-            return GameBoard.Squares[v.Item2, v.Item1];
-        }
-
-        private List<Square> GetSquareListFromBB(ulong bb)
-        {
-            List<Square> s = new List<Square>();
-            var sList = BitboardHelper.GetSquareListFromBB(bb);
-
-            if (sList == null) return null;
-            s.AddRange(sList.Select(t => GameBoard.Squares[t.Item2, t.Item1]));
-
-            return s;
-        }
-
-        private List<Square> GenerateMoves(Piece p, Square s)
-        {
-            //Call method based on Type of Piece passed in
-            switch (p.Piece_Type)
-            {
-                case Piece.PieceType.King:
-                    return GetSquareListFromBB(MoveGen.GenerateKingMoves(s, p.ColorType));
-
-                case Piece.PieceType.Pawn:
-                    return GetSquareListFromBB(MoveGen.GeneratePawnMoves(s, p.ColorType));
-
-                case Piece.PieceType.Knight:
-                    return GetSquareListFromBB(MoveGen.GenerateKnightMoves(s, p.ColorType));
-
-                case Piece.PieceType.Bishop:
-                    return GetSquareListFromBB(MoveGen.GenerateBishopMoves(s, p.ColorType));
-
-                case Piece.PieceType.Rook:
-                    return GetSquareListFromBB(MoveGen.GenerateRookMoves(s, p.ColorType));
-
-                case Piece.PieceType.Queen:
-                    return GetSquareListFromBB(MoveGen.GenerateQueenMoves(s, p.ColorType));
-                default:
-                    return null;
-            }
-        }     
-       
+   
     }//End of Class
 }//End of Namespace
