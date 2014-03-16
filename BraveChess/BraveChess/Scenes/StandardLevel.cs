@@ -100,7 +100,7 @@ namespace BraveChess.Scenes
                      {
                          Piece p = GameBoard.GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
-                         if (p != null && ((int)PieceToMove.ColorType) == (int)Turn) //Replace selection with this piece
+                         if (p != null && ((int)p.ColorType) == (int)Turn) //Replace selection with this piece
                          {
                              PieceToMove = p;
                              FromSquare = CurrentSquare;

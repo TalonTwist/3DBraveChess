@@ -22,8 +22,8 @@ namespace BraveChess.Base
         }
         public enum TurnState
         {
-            Black,
-            White
+            Black = 0,
+            White = 1
         }
 
         #region public, protected and private variables
@@ -41,14 +41,14 @@ namespace BraveChess.Base
         {
             get
             {
-                return (from m in AllMoves where m.SideMove == Piece.Colour.White select m.ToAlgebraic()).ToList();
+                return (from m in AllMoves where m.SideMove == Piece.Colour.Black select m.ToAlgebraic()).ToList();
             }
         }
         public List<string> WhiteMoves
         {
             get
             {
-                return (from m in AllMoves where m.SideMove == Piece.Colour.Black select m.ToAlgebraic()).ToList();
+                return (from m in AllMoves where m.SideMove == Piece.Colour.White select m.ToAlgebraic()).ToList();
             }
         }
 
@@ -273,7 +273,7 @@ namespace BraveChess.Base
             batch.Begin();
             for (int i = 0; i < WhiteMoves.Count; i++)
             {
-                batch.DrawString(font, String.Format("{0}.", i), new Vector2(10, 20 * i), Color.Black);
+                batch.DrawString(font, String.Format("{0}.", i + 1), new Vector2(10, 20 * i), Color.Black);
                 batch.DrawString(font, WhiteMoves[i],
                     new Vector2(graphics.Viewport.Width / 30, 20 * i), Color.Black);
             }

@@ -155,8 +155,6 @@ namespace BraveChess.Base
             Debug.Draw(Cameras.ActiveCamera);
         }//End of Method
 
-        
-
         public void LoadScene(Scene scene)
         {
             if (scene!= null)
