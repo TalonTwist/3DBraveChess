@@ -40,25 +40,24 @@ namespace BraveChess.Base
         public SelectionState SelectState { get; set; }
         public List<GameObject3D> Objects { get { return SceneObjects; } }
 
-        public List<Move> AllMoves = new List<Move>();
-        public List<string> BlackMoves
+        
+        public List<string> BlackMovesList
         {
             get
             {
-                return (from m in AllMoves where m.SideMove == Piece.Colour.Black select m.ToAlgebraic()).ToList();
+                return (from m in GameBoard.AllMoves where m.SideMove == Piece.Colour.Black select m.ToAlgebraic()).ToList();
             }
         }
-        public List<string> WhiteMoves
+        public List<string> WhiteMovesList
         {
             get
             {
-                return (from m in AllMoves where m.SideMove == Piece.Colour.White select m.ToAlgebraic()).ToList();
+                return (from m in GameBoard.AllMoves where m.SideMove == Piece.Colour.White select m.ToAlgebraic()).ToList();
             }
         }
 
         protected Camera CamWhite, CamBlack;
         protected int CurrentI, CurrentJ;
-        protected bool  IsFight = false;
         private bool _isMouseClick;
         protected Piece PieceToCapture, PieceToMove;
         protected Square CurrentSquare, PreviousSquare, FromSquare, ToSquare;
@@ -304,15 +303,15 @@ namespace BraveChess.Base
         public void DrawMoves(SpriteBatch batch, SpriteFont font,GraphicsDevice graphics)
         {
             batch.Begin();
-            for (int i = 0; i < WhiteMoves.Count; i++)
+            for (int i = 0; i < WhiteMovesList.Count; i++)
             {
                 batch.DrawString(font, String.Format("{0}.", i + 1), new Vector2(10, 20 * i), Color.Black);
-                batch.DrawString(font, WhiteMoves[i],
+                batch.DrawString(font, WhiteMovesList[i],
                     new Vector2(graphics.Viewport.Width / 30, 20 * i), Color.Black);
             }
-            for (int i = 0; i < BlackMoves.Count; i++)
-                batch.DrawString(font, BlackMoves[i],
-                    new Vector2(graphics.Viewport.Width / 10, 20 * i), Color.Black);
+            for (int i = 0; i < BlackMovesList.Count; i++)
+                batch.DrawString(font, BlackMovesList[i],
+                    new Vector2(graphics.Viewport.Width / 8, 20 * i), Color.Black);
             batch.End();
 
         }

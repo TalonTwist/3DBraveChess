@@ -19,8 +19,27 @@ namespace BraveChess.Base
         public Piece PieceCaptured { get; set; }
         public Piece.PieceType PiecePromoted { get; set; }
         public bool HasPromoted{get{return PiecePromoted != Piece.PieceType.None;}}
-        public bool IsEnpassant { get; set; }
-        public bool HasCaptured { get; set; }
+
+        public bool IsEnpassant
+        {
+            get
+            {
+                if (PieceMoved.Piece_Type == Piece.PieceType.Pawn)
+                {
+                    if (FromSquare.File - ToSquare.File == 1 |
+                        FromSquare.File - ToSquare.File == -1 & PieceCaptured == null)
+                        return true;
+                }
+                return false;
+            }
+        }
+        public bool HasCaptured
+        {
+            get
+            {
+                return PieceCaptured != null;
+            }
+        }
         public bool IsCastling{get{return IsLongCastling || IsShortCastling;}}
         public bool IsLongCastling
         {
@@ -91,7 +110,7 @@ namespace BraveChess.Base
             }
         }
 
-        public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceMoved, bool isCapture, Piece pieceCaptured, bool isPacketMove, Piece.PieceType piecePromoted = Piece.PieceType.None)
+        public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceMoved, Piece pieceCaptured, bool isPacketMove, Piece.PieceType piecePromoted = Piece.PieceType.None)
         {
             _engine = engine;
             _board = board;
@@ -99,7 +118,6 @@ namespace BraveChess.Base
             ToSquare = toSquare;
             PieceMoved = pieceMoved;
             PiecePromoted = piecePromoted;
-            HasCaptured = isCapture;
             PieceCaptured = pieceCaptured; 
 
             ProcessMove(isPacketMove);
@@ -109,6 +127,19 @@ namespace BraveChess.Base
         {
             if (isPacketMove || TestMove())
             {
+                if (IsEnpassant)
+                {
+                    switch (SideMove)
+                    {
+                        case Piece.Colour.White:
+                            PieceCaptured = _board.GetPiece(_board.Squares[(int)ToSquare.File, (int)ToSquare.Rank - 1]);
+                            break;
+                        case Piece.Colour.Black:
+                            PieceCaptured = _board.GetPiece(_board.Squares[(int)ToSquare.File, (int)ToSquare.Rank + 1]);
+                            break;
+                    }
+                }
+
                 if (HasCaptured)
                 {
                     _engine.Audio.PlayEffect("CapturePiece");
@@ -126,17 +157,14 @@ namespace BraveChess.Base
         {
             UInt64 bbFrom = BitboardHelper.GetBitboardFromSquare(FromSquare);
             UInt64 bbTo = BitboardHelper.GetBitboardFromSquare(ToSquare);
-
             
-                _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo);
+            _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo); //update bitboards with proposed move
 
-                if (TestForCheck())
-                {
+            if (_board.TestMoveForCheck(PieceMoved)) //if the tested move resulted in check, then reset bitboards
+            {
                     _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
                     return false;
-                }
-            
-            
+            }
             return true;
         }
 
@@ -215,7 +243,6 @@ namespace BraveChess.Base
                 }
         }
 
-
         public void Castle()
         {
             Square sqFrom;
@@ -273,41 +300,6 @@ namespace BraveChess.Base
             PieceCaptured.Destroy();
         }
 
-        private bool TestForCheck()
-        {
-            Square kingPos;
-
-            if (PieceMoved.ColorType == Piece.Colour.White)
-            {
-                kingPos = GetSquareFromBB(_board.WhiteKings);
-
-                //if all pieces attacking the kings position minus pieces of his own colour != 0, then the king is in check
-                if ((FindAttacksToSquare(kingPos) & ~_board.WhitePieces) != 0)
-                    return true;
-            }
-            else if (PieceMoved.ColorType == Piece.Colour.Black)
-            {
-                kingPos = GetSquareFromBB(_board.BlackKings);
-                if ((FindAttacksToSquare(kingPos) & ~_board.BlackPieces) != 0)
-                    return true;
-            }
-            return false;
-        }
-     
-        private UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
-        {
-            int sqIndex = BitboardHelper.GetIndexFromSquare(s);
-
-            ulong attackersBB = (BitboardHelper.KnightAttacks[sqIndex] & _board.WhiteKnights & _board.BlackKnights);
-            attackersBB |= (BitboardHelper.WhitePawnAttacks[sqIndex] & _board.WhitePawns);
-            attackersBB |= (BitboardHelper.BlackPawnAttacks[sqIndex] & _board.BlackPawns);
-            attackersBB |= (BitboardHelper.KingAttacks[sqIndex] & (_board.WhiteKings | _board.BlackKings));
-            attackersBB |= (MoveGen.GenerateBishopMoves(s, Piece.Colour.None) & (_board.BlackBishops | _board.WhiteBishops | _board.BlackQueens | _board.WhiteQueens));
-            attackersBB |= (MoveGen.GenerateRookMoves(s, Piece.Colour.None) & (_board.BlackRooks | _board.WhiteRooks | _board.BlackQueens | _board.WhiteQueens));
-
-            return attackersBB;
-        }
-
         private Square GetSquareFromBB(ulong bb)
         {
             var v = BitboardHelper.GetSquareFromBitboard(bb);
@@ -340,6 +332,9 @@ namespace BraveChess.Base
                 algebraic.Append(ToSquare.ToAlgebraic());
             }
 
+            if (IsEnpassant)
+                algebraic.Append("e.p.");
+
             if (HasPromoted)
                 algebraic.Append("=" + GetInitial(PiecePromoted));
 
@@ -368,6 +363,6 @@ namespace BraveChess.Base
             }
         }
 
-        
+       
     }
 }

@@ -106,9 +106,6 @@ namespace BraveChess.Scenes
                     {
                         PieceToCapture = GameBoard.GetPiece(CurrentSquare.World.Translation + new Vector3(0, 2, 0));
 
-                        if (PieceToCapture != null)
-                            IsFight = true;
-
                         ToSquare = CurrentSquare;
 
                         SelectState = SelectionState.MoveSelected;
@@ -136,13 +133,12 @@ namespace BraveChess.Scenes
 
                     //check for pawn queening
 
-                    var m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, IsFight, PieceToCapture, false); //add new Move to list AllMoves
+                    var m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, PieceToCapture, false); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
-                         AllMoves.Add(m);
+                         GameBoard.AllMoves.Add(m);
                          Engine.Audio.PlayEffect("MovePiece");
                          SelectState = SelectionState.SelectPiece;
-                         IsFight = false;
                          SwitchTurn(false);
                      }
                      else
@@ -162,19 +158,14 @@ namespace BraveChess.Scenes
 
         private void MoveOtherPiece(UInt64 bbFrom, UInt64 bbTo)
         {
-            bool isCapture = false;
             Square s = GameBoard.GetSquareFromBB(bbTo);
             Square sqFrom = GameBoard.GetSquareFromBB(bbFrom);
 
             Piece capturedPiece = GameBoard.GetPiece(s);
             Piece movedPiece = GameBoard.GetPiece(sqFrom);
+            Move m = new Move(Engine, GameBoard, GameBoard.GetSquareFromBB(bbFrom), s, movedPiece, capturedPiece,true);
 
-            if (capturedPiece != null)
-                isCapture = true;
-
-            Move m = new Move(Engine, GameBoard, GameBoard.GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece,true);
-
-            AllMoves.Add(m);
+            GameBoard.AllMoves.Add(m);
         }
 
         private void SwitchTurn(bool recieved)
