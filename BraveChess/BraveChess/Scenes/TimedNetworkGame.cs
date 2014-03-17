@@ -8,10 +8,10 @@ using BraveChess.Objects;
 
 namespace BraveChess.Scenes
 {
-    class NetworkedLevel : Scene
+    class TimedNetworkGame : Scene
     {
-        public NetworkedLevel(GameEngine engine, bool isAnimated)
-            : base("NetworkLevel", engine, isAnimated) { }
+        public TimedNetworkGame(GameEngine engine, bool isAnimated)
+            : base("TimedNetworkLevel", engine, isAnimated) { }
 
         public override void Initialize()
         {
@@ -62,6 +62,8 @@ namespace BraveChess.Scenes
                 if ((bool) Engine.Network.NetworkSession.LocalGamers[0].Tag)
                          HandleInput();
                 
+            UpdateTimers();
+
             UpdateSelection();
             
             base.Update(gametime);
@@ -175,6 +177,20 @@ namespace BraveChess.Scenes
             Move m = new Move(Engine, GameBoard, GameBoard.GetSquareFromBB(bbFrom), s, movedPiece, isCapture, capturedPiece,true);
 
             AllMoves.Add(m);
+        }
+
+        private void UpdateTimers()
+        {
+            if (Turn == TurnState.White)
+            {
+                TimeWhite -= new TimeSpan(0, 0, 1);
+                TimeWhite2 -= new TimeSpan(0, 0, 1);
+            }
+            if (Turn == TurnState.Black)
+            {
+                TimeBlack -= new TimeSpan(0, 0, 1);
+                TimeBlack2 -= new TimeSpan(0, 0, 1);
+            }
         }
 
         private void SwitchTurn(bool recieved)

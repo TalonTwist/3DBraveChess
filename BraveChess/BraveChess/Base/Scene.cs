@@ -29,6 +29,10 @@ namespace BraveChess.Base
         #region public, protected and private variables
 
         public Board GameBoard;
+        public TimeSpan TimeBlack { get; set; }
+        public TimeSpan TimeWhite { get; set; }
+        public TimeSpan TimeBlack2 { get; set; }
+        public TimeSpan TimeWhite2 { get; set; }
         
         public string Id { get; set; }
         public int MovePossitionY { get; set; }      
@@ -80,6 +84,11 @@ namespace BraveChess.Base
         public virtual void Initialize()
         {
             GameBoard = new Board(_IsAnimated);
+
+            TimeWhite = TimeSpan.FromHours(1);
+            TimeBlack = TimeSpan.FromHours(1);
+            TimeWhite2 = TimeSpan.FromHours(1);
+            TimeBlack2 = TimeSpan.FromHours(1);
 
             #region Cameras
             CamWhite = new Camera("camWhite",
@@ -249,6 +258,30 @@ namespace BraveChess.Base
             }
             
             #endregion 
+        }
+
+        public void DrawTime(SpriteBatch batch, SpriteFont font)
+        {
+            batch.Begin();
+            if (Engine.Cameras.ActiveCamera.Id == "camWhite")
+            {
+                batch.DrawString(font, String.Format("White Timer {0}:{1}", TimeWhite.Hours, TimeWhite.Minutes),
+                    new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("White Timer {0}:{1}", TimeWhite.Hours, TimeWhite.Minutes)).X/2), 5),
+                    Color.Black);
+                batch.DrawString(font, String.Format("Black Timer {0}:{1}", TimeBlack.Hours,TimeBlack.Minutes),
+                    new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("Black Timer {0}:{1}", TimeBlack.Hours, TimeBlack.Minutes)).X / 2), 25), 
+                    Color.Black);
+           }
+           if (Engine.Cameras.ActiveCamera.Id == "camBlack")
+           {
+               batch.DrawString(font, String.Format("White Timer {0}:{1}", TimeWhite2.Hours, TimeWhite2.Minutes),
+                   new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("White Timer {0}:{1}", TimeWhite2.Hours, TimeWhite2.Minutes)).X / 2), 5),
+                   Color.Black);
+               batch.DrawString(font, String.Format("Black Timer {0}:{1}", TimeBlack2.Hours, TimeBlack2.Minutes),
+                   new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("Black Timer {0}:{1}", TimeBlack2.Hours, TimeBlack2.Minutes)).X / 2), 25), 
+                   Color.Black);
+            }
+            batch.End();
         }
 
         public Square SquareSelectWithMouse()

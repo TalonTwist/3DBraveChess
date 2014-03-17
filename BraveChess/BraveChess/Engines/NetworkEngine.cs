@@ -15,7 +15,9 @@ namespace BraveChess.Engines
         CreateSession,
         Start,
         InGame,
-        GameOver
+        GameOverWhiteWins,
+        GameOverBlackWins,
+        GameOverDraw
     }
 
     public enum MessageType
@@ -76,7 +78,7 @@ namespace BraveChess.Engines
                     case NetworkState.InGame:
                         //inside game
                         break;
-                    case NetworkState.GameOver:
+                    case NetworkState.GameOverWhiteWins:
                         //game finished;
                         break;
                 }
@@ -173,6 +175,11 @@ namespace BraveChess.Engines
                 _engine.LoadScene(new NetworkedLevel(_engine, false));
                 _currentGameState = NetworkState.InGame;
             }
+            if (_engine.GameState == GameEngine.State.PlayingTimedNetworkGame)
+            {
+                _engine.LoadScene(new TimedNetworkGame(_engine, false));
+                _currentGameState = NetworkState.InGame;
+            }
         }
 
         public MessageType ProcessIncomingData(GameTime gameTime)
@@ -221,7 +228,7 @@ namespace BraveChess.Engines
 
         protected void EndGame()
         {
-            _currentGameState = NetworkState.GameOver;
+            _currentGameState = NetworkState.GameOverWhiteWins;
         }//end of method
 
         private void RejoinLobby()
@@ -261,6 +268,13 @@ namespace BraveChess.Engines
                 PacketWriter.Write(toSquare);
 
                 NetworkSession.LocalGamers[0].SendData(PacketWriter, SendDataOptions.Reliable);
+        }
+
+        public void WriteTimePacket(double time)
+        {
+            PacketWriter.Write(time);
+
+            NetworkSession.LocalGamers[0].SendData(PacketWriter,SendDataOptions.Reliable);
         }
 
         public void WriteTurnPacket()

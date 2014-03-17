@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,8 +16,10 @@ namespace BraveChess.Base
             MainMenu,
             NonNetworkGame,
             NetworkGame,
+            TimedNetworkGame,
             PlayingNormal,
             PlayingNetworked,
+            PlayingTimedNetworkGame,
             ExitGame
         }
 
@@ -24,11 +27,12 @@ namespace BraveChess.Base
 
         Button _btnStandart, _btnNetwork, _btnExit,
             _btnNewGame,_btnUndoMove,_btnStandardPieces,
-            _btnAnimatedPieces,_btnBack;
-        Texture2D _background;
+            _btnAnimatedPieces,_btnBack,_btnMainMenu,_btnTimedGame;
+        
+        Texture2D _background,_draw,_whiteWins,_blackWins;
 
         SpriteBatch _batch;
-        SpriteFont _font;
+        SpriteFont _font, _fontTimer;
 
         public InputEngine Input { get; set; }
         public CameraEngine Cameras { get; set; }
@@ -74,16 +78,23 @@ namespace BraveChess.Base
         {
             _batch = new SpriteBatch(GraphicsDevice);
             _font = Game.Content.Load<SpriteFont>("Fonts\\debug");
-            FpsCounter = new FrameRateCounter(Game, new Vector2(GraphicsDevice.Viewport.Width / 2,10));
+            _fontTimer = Game.Content.Load<SpriteFont>("Fonts\\timer");
 
-            #region Load Buttons
+            FpsCounter = new FrameRateCounter(Game, new Vector2(800,10));
+
+            #region Load Buttons and other stuff
             _background = Game.Content.Load<Texture2D>("Buttons\\Background");
+            _blackWins = Game.Content.Load<Texture2D>("Buttons\\BlackWins");
+            _whiteWins = Game.Content.Load<Texture2D>("Buttons\\WhiteWins");
+            _draw = Game.Content.Load<Texture2D>("Buttons\\Draw");
 
             _btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandardButton"),200);
 
             _btnNetwork = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"),250);
 
-            _btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),300);
+            _btnTimedGame = new Button(Game.Content.Load<Texture2D>("Buttons\\TimedGameButton"), 300);
+
+            _btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),350);
 
             _btnNewGame = new Button(Game.Content.Load<Texture2D>("Buttons\\NewGameButton"),
                     new Vector2(20,400));
@@ -94,6 +105,9 @@ namespace BraveChess.Base
             _btnAnimatedPieces = new Button(Game.Content.Load<Texture2D>("Buttons\\AnimatedPiecesButton"), 250);
 
             _btnBack = new Button(Game.Content.Load<Texture2D>("Buttons\\BackButton"), 300);
+
+            _btnMainMenu = new Button(Game.Content.Load<Texture2D>("Buttons\\MainMenuButton"), 450);
+
             #endregion
 
             Debug.LoadContent(Game.Content);
@@ -112,7 +126,7 @@ namespace BraveChess.Base
 
         public override void Draw(GameTime gameTime)
         {
-            if (GameState == State.MainMenu || GameState == State.NetworkGame || GameState == State.NonNetworkGame)
+            if (GameState == State.MainMenu || GameState == State.NetworkGame || GameState == State.NonNetworkGame || GameState == State.TimedNetworkGame)
             {
                 _batch.Begin();
                 _batch.Draw(_background, GraphicsDevice.Viewport.Bounds, Color.White);
@@ -125,7 +139,7 @@ namespace BraveChess.Base
           if(ActiveScene !=null)
                 ActiveScene.DrawMoves(_batch,_font,GraphicsDevice);
 
-            if (GameState == State.PlayingNetworked)
+            if (GameState == State.PlayingNetworked || GameState == State.PlayingTimedNetworkGame)
                 Draw2D();
           
             base.Draw(gameTime);
@@ -143,12 +157,47 @@ namespace BraveChess.Base
                 case NetworkState.Start:
                     DrawReadyToStartScreen();
                     break;
+                case NetworkState.InGame:
+                    ActiveScene.DrawTime(_batch,_fontTimer);
+                    if(ActiveScene.TimeWhite <= TimeSpan.Zero && ActiveScene.TimeWhite2 <= TimeSpan.Zero)
+                        Network.CurrentGameState = NetworkState.GameOverBlackWins;
+                    if (ActiveScene.TimeBlack <= TimeSpan.Zero && ActiveScene.TimeBlack2 <= TimeSpan.Zero)
+                        Network.CurrentGameState = NetworkState.GameOverWhiteWins;
+                    break;
+                case NetworkState.GameOverWhiteWins:
+                    _batch.Begin();
+                    _batch.Draw(_whiteWins,GraphicsDevice.Viewport.Bounds,Color.White);
+                    _batch.End();
+                    _btnMainMenu.Update(this);
+                    if (_btnMainMenu.IsClicked)
+                    {
+                        ActiveScene = null;
+                        Network.NetworkSession = null;
+                        GameState = State.MainMenu;
+                    }
+                    _btnMainMenu.Draw(_batch);
+                    break;
+                case NetworkState.GameOverBlackWins:
+                    _batch.Begin();
+                    _batch.Draw(_blackWins,GraphicsDevice.Viewport.Bounds,Color.White);
+                    _batch.End();
+                    _btnMainMenu.Update(this);
+                    if (_btnMainMenu.IsClicked)
+                    {
+                        ActiveScene = null;
+                        Network.NetworkSession = null;
+                        GameState = State.MainMenu;
+                    }
+                    _btnMainMenu.Draw(_batch);
+                    break;
+                case NetworkState.GameOverDraw:
+                    break;
             }
         }
 
         public void Draw3D()
         {
-            if (Cameras.ActiveCamera != null)
+            if (Cameras.ActiveCamera != null && ActiveScene != null)
                 foreach (GameObject3D t in ActiveScene.Objects)
                     t.Draw(Cameras.ActiveCamera);
 
@@ -225,8 +274,11 @@ namespace BraveChess.Base
                         GameState = State.NetworkGame;
                     else if (_btnExit.IsClicked)
                         GameState = State.ExitGame;
+                    else if(_btnTimedGame.IsClicked)
+                        GameState = State.TimedNetworkGame;
                     _btnStandart.Update(this);
                     _btnNetwork.Update(this);
+                    _btnTimedGame.Update(this);
                     _btnExit.Update(this);
                     break;
                 case State.NetworkGame:
@@ -263,6 +315,26 @@ namespace BraveChess.Base
                         GameState = State.PlayingNormal;
                     }
                     break;
+                 case State.TimedNetworkGame:
+                    _btnStandardPieces.Update(this);
+                    _btnAnimatedPieces.Update(this);
+                    _btnBack.Update(this);
+                    if(_btnBack.IsClicked)
+                        GameState = State.MainMenu;
+                    if (_btnStandardPieces.IsClicked)
+                    {
+                        Network = new NetworkEngine(Game, this);
+                        GameState = State.PlayingTimedNetworkGame;
+                    }
+                    if (_btnAnimatedPieces.IsClicked)
+                    {
+                        Network = new NetworkEngine(Game, this);
+                        GameState = State.PlayingTimedNetworkGame;
+                    }
+                    break;
+                case State.PlayingTimedNetworkGame:
+                    Network.Update(gameTime);
+                    break;
                 case State.PlayingNormal:
                     if(_btnNewGame.IsClicked)
                         LoadScene(new StandardLevel(this, false));
@@ -282,6 +354,7 @@ namespace BraveChess.Base
                 case State.MainMenu:
                     _btnStandart.Draw(_batch);
                     _btnNetwork.Draw(_batch);
+                    _btnTimedGame.Draw(_batch);
                     _btnExit.Draw(_batch);
                     break;
                 case State.NetworkGame:
@@ -300,7 +373,13 @@ namespace BraveChess.Base
                     break;
                 case State.PlayingNetworked:
                      break;
-             }
+                    case State.TimedNetworkGame:
+                    _btnAnimatedPieces.Draw(_batch);
+                    _btnStandardPieces.Draw(_batch);
+                    _btnBack.Draw(_batch);
+                    break;
+
+            }
          }
 
         public void LoadRuntimeObject(GameObject3D gameObject)

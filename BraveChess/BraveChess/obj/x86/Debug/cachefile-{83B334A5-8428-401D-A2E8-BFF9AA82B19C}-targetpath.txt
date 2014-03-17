@@ -68,3 +68,9 @@ Content\Audio\Effects\MovePiece.xnb
 Content\Textures\Aaron'sTexture_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
 Content\Models\Enviroment_TX_0.xnb
+Content\Fonts\timer.xnb
+Content\Buttons\BlackWins.xnb
+Content\Buttons\Draw.xnb
+Content\Buttons\MainMenuButton.xnb
+Content\Buttons\WhiteWins.xnb
+Content\Buttons\TimedGameButton.xnb

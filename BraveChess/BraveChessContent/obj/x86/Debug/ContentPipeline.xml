@@ -856,6 +856,60 @@
       <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb</Output>
       <Time>2014-03-16T14:47:28.6831289+00:00</Time>
     </Item>
+    <Item>
+      <Source>Fonts\timer.spritefont</Source>
+      <Name>Fonts\timer</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\timer.xnb</Output>
+      <Time>2014-03-17T01:03:46.3555317+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\BlackWins.jpg</Source>
+      <Name>Buttons\BlackWins</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BlackWins.xnb</Output>
+      <Time>2014-03-17T00:28:12.9399071+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\Draw.jpg</Source>
+      <Name>Buttons\Draw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Draw.xnb</Output>
+      <Time>2014-03-17T00:28:11.8774015+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\MainMenuButton.jpg</Source>
+      <Name>Buttons\MainMenuButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\MainMenuButton.xnb</Output>
+      <Time>2014-03-17T00:28:14.1044346+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\WhiteWins.jpg</Source>
+      <Name>Buttons\WhiteWins</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\WhiteWins.xnb</Output>
+      <Time>2014-03-17T00:28:13.5575576+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\TimedGameButton.jpg</Source>
+      <Name>Buttons\TimedGameButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\TimedGameButton.xnb</Output>
+      <Time>2014-03-17T00:28:13.57319+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
