@@ -28,8 +28,22 @@ namespace BraveChess.Base
         public UInt64 BlackPieces { get { return BlackBishops | BlackKings | BlackKnights | BlackPawns | BlackQueens | BlackRooks; } }
         public UInt64 AllPieces { get { return WhitePieces | BlackPieces; } }
 
-        public Square[,] Squares;
-        public List<Piece> Pieces = new List<Piece>();
+        public Square[,] Squares { get; set; }
+        public List<Piece> Pieces { get; set; }
+        public List<Piece> White_Pieces 
+        { 
+            get
+            {
+                return Pieces.Where(p => p.ColorType == Piece.Colour.White).ToList();
+            }
+        }
+        public List<Piece> Black_Pieces
+        {
+            get
+            {
+                return Pieces.Where(p => p.ColorType == Piece.Colour.Black).ToList();
+            }
+        }
 
         public List<Move> AllMoves = new List<Move>();
 
@@ -73,56 +87,44 @@ namespace BraveChess.Base
             }
             #endregion
 
-            #region White Piece Init
-            //White Pawn Set
-            Pieces.Add(new Piece("PawnA2", "White Pawn", GetStartPos("a2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("PawnB2", "White Pawn", GetStartPos("b2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("PawnC2", "White Pawn", GetStartPos("c2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("PawnD2", "White Pawn", GetStartPos("d2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("PawnE2", "White Pawn", GetStartPos("e2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("PawnF2", "White Pawn", GetStartPos("f2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("PawnG2", "White Pawn", GetStartPos("g2"), 1, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("PawnH2", "White Pawn", GetStartPos("h2"), 1, Piece.PieceType.Pawn));
-
-            Pieces.Add(new Piece("RookA1", "White Rook", GetStartPos("a1"), 1, Piece.PieceType.Rook));
-            Pieces.Add(new Piece("RookH1", "White Rook", GetStartPos("h1"), 1, Piece.PieceType.Rook));
-
-            Pieces.Add(new Piece("King", "White King", GetStartPos("e1"), 1, Piece.PieceType.King));
-
-            Pieces.Add(new Piece("Queen", "White Queen", GetStartPos("d1"), 1, Piece.PieceType.Queen));
-
-            Pieces.Add(new Piece("KnightB1", "White Knight", GetStartPos("b1"), 1, Piece.PieceType.Knight));
-            Pieces.Add(new Piece("KnightG1", "White Knight", GetStartPos("g1"), 1, Piece.PieceType.Knight));
-
-            Pieces.Add(new Piece("BishopC1", "Untextured\\Bishop Piece", GetStartPos("c1"), 1, Piece.PieceType.Bishop));
-            Pieces.Add(new Piece("BishopF1", "Untextured\\Bishop Piece", GetStartPos("f1"), 1, Piece.PieceType.Bishop));
+            #region Standard Piece Init
+            Pieces = new List<Piece>
+            {
+                new Piece("PawnA2", "White Pawn", GetStartPos("a2"), 1, Piece.PieceType.Pawn),
+                new Piece("PawnB2", "White Pawn", GetStartPos("b2"), 1, Piece.PieceType.Pawn),
+                new Piece("PawnC2", "White Pawn", GetStartPos("c2"), 1, Piece.PieceType.Pawn),
+                new Piece("PawnD2", "White Pawn", GetStartPos("d2"), 1, Piece.PieceType.Pawn),
+                new Piece("PawnE2", "White Pawn", GetStartPos("e2"), 1, Piece.PieceType.Pawn),
+                new Piece("PawnF2", "White Pawn", GetStartPos("f2"), 1, Piece.PieceType.Pawn),
+                new Piece("PawnG2", "White Pawn", GetStartPos("g2"), 1, Piece.PieceType.Pawn),
+                new Piece("PawnH2", "White Pawn", GetStartPos("h2"), 1, Piece.PieceType.Pawn),
+                new Piece("RookA1", "White Rook", GetStartPos("a1"), 1, Piece.PieceType.Rook),
+                new Piece("RookH1", "White Rook", GetStartPos("h1"), 1, Piece.PieceType.Rook),
+                new Piece("King", "White King", GetStartPos("e1"), 1, Piece.PieceType.King),
+                new Piece("Queen", "White Queen", GetStartPos("d1"), 1, Piece.PieceType.Queen),
+                new Piece("KnightB1", "White Knight", GetStartPos("b1"), 1, Piece.PieceType.Knight),
+                new Piece("KnightG1", "White Knight", GetStartPos("g1"), 1, Piece.PieceType.Knight),
+                new Piece("BishopC1", "Untextured\\Bishop Piece", GetStartPos("c1"), 1, Piece.PieceType.Bishop),
+                new Piece("BishopF1", "Untextured\\Bishop Piece", GetStartPos("f1"), 1, Piece.PieceType.Bishop),
+                new Piece("pawnA7", "Black Pawn", GetStartPos("a7"), 0, Piece.PieceType.Pawn),
+                new Piece("pawnB7", "Black Pawn", GetStartPos("b7"), 0, Piece.PieceType.Pawn),
+                new Piece("pawnC7", "Black Pawn", GetStartPos("c7"), 0, Piece.PieceType.Pawn),
+                new Piece("pawnD7", "Black Pawn", GetStartPos("d7"), 0, Piece.PieceType.Pawn),
+                new Piece("pawnE7", "Black Pawn", GetStartPos("e7"), 0, Piece.PieceType.Pawn),
+                new Piece("pawnF7", "Black Pawn", GetStartPos("f7"), 0, Piece.PieceType.Pawn),
+                new Piece("pawnG7", "Black Pawn", GetStartPos("g7"), 0, Piece.PieceType.Pawn),
+                new Piece("pawnH7", "Black Pawn", GetStartPos("h7"), 0, Piece.PieceType.Pawn),
+                new Piece("rookA8", "Black Rook", GetStartPos("a8"), 0, Piece.PieceType.Rook),
+                new Piece("rookH8", "Black Rook", GetStartPos("h8"), 0, Piece.PieceType.Rook),
+                new Piece("king", "Black King", GetStartPos("e8"), 0, Piece.PieceType.King),
+                new Piece("queen", "Black Queen", GetStartPos("d8"), 0, Piece.PieceType.Queen),
+                new Piece("knightB8", "Black Knight", GetStartPos("b8"), 0, Piece.PieceType.Knight),
+                new Piece("knightG8", "Black Knight", GetStartPos("g8"), 0, Piece.PieceType.Knight),
+                new Piece("bishopC8", "Untextured\\Bishop Piece", GetStartPos("c8"), 0, Piece.PieceType.Bishop),
+                new Piece("bishopF8", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop)
+            };
             #endregion
-
-            #region Black Piece Init
-            //White Pawn Set
-            Pieces.Add(new Piece("pawnA7", "Black Pawn", GetStartPos("a7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawnB7", "Black Pawn", GetStartPos("b7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawnC7", "Black Pawn", GetStartPos("c7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawnD7", "Black Pawn", GetStartPos("d7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawnE7", "Black Pawn", GetStartPos("e7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawnF7", "Black Pawn", GetStartPos("f7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawnG7", "Black Pawn", GetStartPos("g7"), 0, Piece.PieceType.Pawn));
-            Pieces.Add(new Piece("pawnH7", "Black Pawn", GetStartPos("h7"), 0, Piece.PieceType.Pawn));
-
-
-            Pieces.Add(new Piece("rookA8", "Black Rook", GetStartPos("a8"), 0, Piece.PieceType.Rook));
-            Pieces.Add(new Piece("rookH8", "Black Rook", GetStartPos("h8"), 0, Piece.PieceType.Rook));
-
-            Pieces.Add(new Piece("king", "Black King", GetStartPos("e8"), 0, Piece.PieceType.King));
-
-            Pieces.Add(new Piece("queen", "Black Queen", GetStartPos("d8"), 0, Piece.PieceType.Queen));
-
-            Pieces.Add(new Piece("knightB8", "Black Knight", GetStartPos("b8"), 0, Piece.PieceType.Knight));
-            Pieces.Add(new Piece("knightG8", "Black Knight", GetStartPos("g8"), 0, Piece.PieceType.Knight));
-
-            Pieces.Add(new Piece("bishopC8", "Untextured\\Bishop Piece", GetStartPos("c8"), 0, Piece.PieceType.Bishop));
-            Pieces.Add(new Piece("bishopF8", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop));
-            #endregion
+ 
         }
 
         public UInt64 FindAttacksToSquare(Square s) // returns bitboard with all pieces attacking the specified Square
@@ -139,9 +141,9 @@ namespace BraveChess.Base
             return attackersBB;
         }
 
-        public bool TestMoveForCheck(Piece pieceMoved) // Tests if king is in check after a piece is moved
+        public bool TestMoveForCheck(Piece.Colour color) // Tests if king is in check after a piece is moved
         {
-            switch (pieceMoved.ColorType)
+            switch (color)
             {
                 case Piece.Colour.White:
                     return TestForCheck(GetSquareFromBB(WhiteKings), true);
@@ -198,6 +200,28 @@ namespace BraveChess.Base
                 default:
                     return false;
             }
+        }
+
+        public bool TestForCheckmate(Piece.Colour c)
+        {
+            List<Square> list = new List<Square>();
+
+            switch (c)
+            {
+                case Piece.Colour.White:
+                    foreach (Piece p in White_Pieces)
+                    {
+                        list.AddRange(MoveGen.GenerateMoves(p, GetSquare(p)));
+                    }
+                    break;
+                case Piece.Colour.Black:
+                    foreach (Piece p in Black_Pieces)
+                    {
+                        list.AddRange(MoveGen.GenerateMoves(p, GetSquare(p)));
+                    }
+                    break;
+            }
+            return list.Count == 0;
         }
 
         public void UpdateRelevantbb(Piece.PieceType type, Piece.Colour c, ulong bbFrom, ulong bbTo)
@@ -291,6 +315,19 @@ namespace BraveChess.Base
             return Pieces.FirstOrDefault(t => t.World.Translation == sq.World.Translation + Adjust);
         }
 
+        public Square GetSquare(Piece p)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                for(int j = 0; j < 8; j++)
+                {
+                    if (Squares[i, j].World.Translation == p.World.Translation - Adjust)
+                        return Squares[i, j];
+                }
+            }
+            return null;
+        }
+
         public Square GetSquare(string s)
         {
             char[] c = s.ToCharArray();
@@ -299,6 +336,17 @@ namespace BraveChess.Base
             int rank = c[1] - 49;
 
             return Squares[file, rank];
+        }
+
+        public List<Square> GetSquareListFromBB(ulong bb)
+        {
+            List<Square> s = new List<Square>();
+            var sList = BitboardHelper.GetSquareListFromBB(bb);
+
+            if (sList == null) return null;
+            s.AddRange(sList.Select(t => Squares[t.Item2, t.Item1]));
+
+            return s;
         }
     }//end class
 }

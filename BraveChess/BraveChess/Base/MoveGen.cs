@@ -2,6 +2,7 @@
 using System.Linq;
 using BraveChess.Objects;
 using BraveChess.Helpers;
+using System.Collections.Generic;
 
 namespace BraveChess.Base
 {
@@ -31,6 +32,33 @@ namespace BraveChess.Base
             HasWhiteRookAMoved = false;
             HasWhiteRookHMoved = false;
         }
+
+        public static List<Square> GenerateMoves(Piece pieceToMove, Square fromSq)
+        {
+            //Call method based on Type of Piece passed in
+            switch (pieceToMove.Piece_Type)
+            {
+                case Piece.PieceType.King:
+                    return (from toSq in _board.GetSquareListFromBB(GenerateKingMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
+
+                case Piece.PieceType.Pawn:
+                    return (from toSq in _board.GetSquareListFromBB(GeneratePawnMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
+
+                case Piece.PieceType.Knight:
+                    return (from toSq in _board.GetSquareListFromBB(GenerateKnightMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
+
+                case Piece.PieceType.Bishop:
+                    return (from toSq in _board.GetSquareListFromBB(GenerateBishopMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
+
+                case Piece.PieceType.Rook:
+                    return (from toSq in _board.GetSquareListFromBB(GenerateRookMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
+
+                case Piece.PieceType.Queen:
+                    return (from toSq in _board.GetSquareListFromBB(GenerateQueenMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
+                default:
+                    return null;
+            }
+        }     
 
         static public UInt64 GenerateKingMoves(Square s, Piece.Colour c)
         {

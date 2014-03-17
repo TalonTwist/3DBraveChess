@@ -115,6 +115,10 @@ namespace BraveChess.Base
 
         public virtual void Update(GameTime gametime)
         {
+            //if checkmate then game is over
+            if(GameBoard.AllMoves.Last().IsCheckMate)
+                Engine.GameState = GameBoard.AllMoves.Last().SideMove == Piece.Colour.White ? GameEngine.State.GameOverWhiteWins : GameEngine.State.GameOverBlackWins;
+
             foreach (GameObject3D t in SceneObjects)
                 t.Update(gametime);
         } //End of Method
@@ -373,42 +377,8 @@ namespace BraveChess.Base
             MovesAvailable = null;
         }
 
-        protected List<Square> GetSquareListFromBB(ulong bb)
-        {
-            List<Square> s = new List<Square>();
-            var sList = BitboardHelper.GetSquareListFromBB(bb);
+        
 
-            if (sList == null) return null;
-            s.AddRange(sList.Select(t => GameBoard.Squares[t.Item2, t.Item1]));
-
-            return s;
-        }
-
-        protected List<Square> GenerateMoves(Piece p, Square s)
-        {
-            //Call method based on Type of Piece passed in
-            switch (p.Piece_Type)
-            {
-                case Piece.PieceType.King:
-                    return GetSquareListFromBB(MoveGen.GenerateKingMoves(s, p.ColorType));
-
-                case Piece.PieceType.Pawn:
-                    return GetSquareListFromBB(MoveGen.GeneratePawnMoves(s, p.ColorType));
-
-                case Piece.PieceType.Knight:
-                    return GetSquareListFromBB(MoveGen.GenerateKnightMoves(s, p.ColorType));
-
-                case Piece.PieceType.Bishop:
-                    return GetSquareListFromBB(MoveGen.GenerateBishopMoves(s, p.ColorType));
-
-                case Piece.PieceType.Rook:
-                    return GetSquareListFromBB(MoveGen.GenerateRookMoves(s, p.ColorType));
-
-                case Piece.PieceType.Queen:
-                    return GetSquareListFromBB(MoveGen.GenerateQueenMoves(s, p.ColorType));
-                default:
-                    return null;
-            }
-        }     
+        
     }
 }

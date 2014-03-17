@@ -87,7 +87,15 @@ namespace BraveChess.Base
             }
         }
         public bool IsCheck { get; set; }
-        public bool IsCheckMate { get; set; }
+
+        public bool IsCheckMate
+        {
+            get
+            {
+                Piece.Colour c = SideMove == Piece.Colour.Black ? Piece.Colour.White : Piece.Colour.Black;
+                return _board.TestForCheckmate(c);
+            }
+        }
         public bool IsDoublePawnPush
         {
             get
@@ -105,9 +113,19 @@ namespace BraveChess.Base
         {
             get
             {
-                if (PieceMoved != null) return PieceMoved.ColorType;
-                return Piece.Colour.Black;
+                return PieceMoved.ColorType;
             }
+        }
+
+        public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceToTest)
+        {
+            _engine = engine;
+            _board = board;
+            FromSquare = fromSquare;
+            ToSquare = toSquare;
+            PieceMoved = pieceToTest;
+
+            IsValidMove = TestMove();
         }
 
         public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceMoved, Piece pieceCaptured, bool isPacketMove, Piece.PieceType piecePromoted = Piece.PieceType.None)
@@ -160,18 +178,18 @@ namespace BraveChess.Base
             
             _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbFrom, bbTo); //update bitboards with proposed move
 
-            if (_board.TestMoveForCheck(PieceMoved)) //if the tested move resulted in check, then reset bitboards
+            if (_board.TestMoveForCheck(PieceMoved.ColorType)) 
             {
-                    _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom);
+                    _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom); // reset
                     return false;
             }
+            _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, bbTo, bbFrom); // reset
             return true;
         }
 
         public void MovePiece(bool isPacketMove)
         {
-            if (isPacketMove)
-                _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType,
+            _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType,
                     BitboardHelper.GetBitboardFromSquare(FromSquare),
                     BitboardHelper.GetBitboardFromSquare(ToSquare));
 
@@ -268,7 +286,6 @@ namespace BraveChess.Base
                         rookPosBB = BitboardHelper.GetBitboardFromSquare(sqFrom);
                         break;
                 }
-                
             }
             else
             {

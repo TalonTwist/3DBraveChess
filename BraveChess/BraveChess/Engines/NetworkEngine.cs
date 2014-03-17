@@ -33,10 +33,10 @@ namespace BraveChess.Engines
 
     public class NetworkEngine 
     {
-        public NetworkState CurrentGameState
+        public NetworkState CurrentNetworkState
         {
-            get { return _currentGameState; }
-            set { _currentGameState = value; }
+            get { return _currentNetworkState; }
+            set { _currentNetworkState = value; }
         }
       
         public byte[] Player = new byte[2];
@@ -47,7 +47,7 @@ namespace BraveChess.Engines
         public PacketWriter PacketWriter = new PacketWriter();
         public PacketReader PacketReader = new PacketReader();
 
-        NetworkState _currentGameState = NetworkState.SignIn;
+        NetworkState _currentNetworkState = NetworkState.SignIn;
         readonly Game _game;
         readonly GameEngine _engine;
 
@@ -61,7 +61,7 @@ namespace BraveChess.Engines
         {
             if (_game.IsActive)
             {
-                switch (_currentGameState)
+                switch (_currentNetworkState)
                 {
                     case NetworkState.SignIn:
                         Update_SignIn();//sign in
@@ -79,7 +79,13 @@ namespace BraveChess.Engines
                         //inside game
                         break;
                     case NetworkState.GameOverWhiteWins:
-                        //game finished;
+                        _engine.GameState = GameEngine.State.GameOverWhiteWins;
+                        break;
+                    case NetworkState.GameOverBlackWins:
+                        _engine.GameState = GameEngine.State.GameOverBlackWins;
+                        break;
+                    case NetworkState.GameOverDraw:
+                        _engine.GameState = GameEngine.State.GameOverDraw;
                         break;
                 }
             }
@@ -93,10 +99,10 @@ namespace BraveChess.Engines
             if (Gamer.SignedInGamers.Count < 1)
             {
                     Guide.ShowSignIn(1, false);
-                    _currentGameState = NetworkState.FindSession;
+                    _currentNetworkState = NetworkState.FindSession;
             }
             else
-                _currentGameState = NetworkState.FindSession;
+                _currentNetworkState = NetworkState.FindSession;
             
         }
 
@@ -106,13 +112,13 @@ namespace BraveChess.Engines
 
             if (sessions.Count == 0)
             {
-                _currentGameState = NetworkState.CreateSession;
+                _currentNetworkState = NetworkState.CreateSession;
             }
             else
             {
                 NetworkSession = NetworkSession.Join(sessions[0]);
                 Events();
-                _currentGameState = NetworkState.Start;
+                _currentNetworkState = NetworkState.Start;
             }
         }
 
@@ -134,7 +140,7 @@ namespace BraveChess.Engines
         {
             NetworkSession.Dispose();
             NetworkSession = null;
-            _currentGameState = NetworkState.FindSession;
+            _currentNetworkState = NetworkState.FindSession;
         }
         
         private void CreateSession()
@@ -144,7 +150,7 @@ namespace BraveChess.Engines
             NetworkSession.AllowJoinInProgress = false;
 
             Events();
-            _currentGameState = NetworkState.Start;
+            _currentNetworkState = NetworkState.Start;
         }
 
         private void Start(GameTime gameTime)
@@ -173,12 +179,12 @@ namespace BraveChess.Engines
             if (_engine.GameState == GameEngine.State.PlayingNetworked)
             {
                 _engine.LoadScene(new NetworkedLevel(_engine, false));
-                _currentGameState = NetworkState.InGame;
+                _currentNetworkState = NetworkState.InGame;
             }
             if (_engine.GameState == GameEngine.State.PlayingTimedNetworkGame)
             {
                 _engine.LoadScene(new TimedNetworkGame(_engine, false));
-                _currentGameState = NetworkState.InGame;
+                _currentNetworkState = NetworkState.InGame;
             }
         }
 
@@ -228,12 +234,12 @@ namespace BraveChess.Engines
 
         protected void EndGame()
         {
-            _currentGameState = NetworkState.GameOverWhiteWins;
+            _currentNetworkState = NetworkState.GameOverWhiteWins;
         }//end of method
 
         private void RejoinLobby()
         {
-            _currentGameState = NetworkState.Start;
+            _currentNetworkState = NetworkState.Start;
         }//end method
 
         private void RestartGame()

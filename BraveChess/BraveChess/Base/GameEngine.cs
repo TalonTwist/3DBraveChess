@@ -20,6 +20,9 @@ namespace BraveChess.Base
             PlayingNormal,
             PlayingNetworked,
             PlayingTimedNetworkGame,
+            GameOverWhiteWins,
+            GameOverBlackWins,
+            GameOverDraw,
             ExitGame
         }
 
@@ -147,7 +150,7 @@ namespace BraveChess.Base
 
         public void Draw2D() 
         {
-            switch (Network.CurrentGameState)
+            switch (Network.CurrentNetworkState)
             {
                 case NetworkState.SignIn:
                 case NetworkState.FindSession:
@@ -160,9 +163,9 @@ namespace BraveChess.Base
                 case NetworkState.InGame:
                     ActiveScene.DrawTime(_batch,_fontTimer);
                     if(ActiveScene.TimeWhite <= TimeSpan.Zero && ActiveScene.TimeWhite2 <= TimeSpan.Zero)
-                        Network.CurrentGameState = NetworkState.GameOverBlackWins;
+                        Network.CurrentNetworkState = NetworkState.GameOverBlackWins;
                     if (ActiveScene.TimeBlack <= TimeSpan.Zero && ActiveScene.TimeBlack2 <= TimeSpan.Zero)
-                        Network.CurrentGameState = NetworkState.GameOverWhiteWins;
+                        Network.CurrentNetworkState = NetworkState.GameOverWhiteWins;
                     break;
                 case NetworkState.GameOverWhiteWins:
                     _batch.Begin();
@@ -343,6 +346,18 @@ namespace BraveChess.Base
                     break;
                 case State.PlayingNetworked:
                     Network.Update(gameTime);
+                    break;
+                    case State.GameOverWhiteWins:
+                    ActiveScene = null;
+                    //draw
+                    break;
+                    case State.GameOverBlackWins:
+                    ActiveScene = null;
+                    //draw
+                    break;
+                    case State.GameOverDraw:
+                    ActiveScene = null;
+                    //draw
                     break;
             }
         }

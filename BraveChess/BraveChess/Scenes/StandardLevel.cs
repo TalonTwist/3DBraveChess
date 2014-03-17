@@ -70,7 +70,7 @@ namespace BraveChess.Scenes
                      break;
 
                  case SelectionState.PieceSelected:
-                     MovesAvailable = GenerateMoves(PieceToMove, FromSquare);
+                     MovesAvailable = MoveGen.GenerateMoves(PieceToMove, FromSquare);
                      if (MovesAvailable != null)
                      {
                          foreach (Square s in MovesAvailable)
