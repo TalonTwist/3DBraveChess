@@ -18,6 +18,7 @@ Content\Models\Board Square White.xnb
 Content\Models\White Bishop.xnb
 Content\Models\Enviroment.xnb
 Content\Fonts\debug.xnb
+Content\Fonts\timer.xnb
 Content\Audio\Songs\BackgroundSong.xnb
 Content\Textures\Aaron'sTexture White.xnb
 Content\Textures\Aaron'sTexture.xnb
@@ -61,16 +62,15 @@ Content\Buttons\Background.xnb
 Content\Buttons\AnimatedPiecesButton.xnb
 Content\Buttons\StandardPiecesButton.xnb
 Content\Buttons\BackButton.xnb
+Content\Buttons\BlackWins.xnb
+Content\Buttons\Draw.xnb
+Content\Buttons\MainMenuButton.xnb
+Content\Buttons\WhiteWins.xnb
+Content\Buttons\TimedGameButton.xnb
 Content\Audio\Effects\MenuHover.xnb
 Content\Audio\Effects\CapturePiece.xnb
 Content\Audio\Effects\MovePiece.xnb
 Content\Textures\Aaron'sTexture_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
 Content\Models\Enviroment_TX_0.xnb
-Content\Fonts\timer.xnb
-Content\Buttons\BlackWins.xnb
-Content\Buttons\Draw.xnb
-Content\Buttons\MainMenuButton.xnb
-Content\Buttons\WhiteWins.xnb
-Content\Buttons\TimedGameButton.xnb
 Content\Audio\Songs\BackgroundSong.wma

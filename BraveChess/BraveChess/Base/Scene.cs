@@ -116,7 +116,7 @@ namespace BraveChess.Base
         public virtual void Update(GameTime gametime)
         {
             //if checkmate then game is over
-            if(GameBoard.AllMoves.Last().IsCheckMate)
+            if(GameBoard.AllMoves.Count != 0 && GameBoard.AllMoves.Last().IsCheckMate)
                 Engine.GameState = GameBoard.AllMoves.Last().SideMove == Piece.Colour.White ? GameEngine.State.GameOverWhiteWins : GameEngine.State.GameOverBlackWins;
 
             foreach (GameObject3D t in SceneObjects)
