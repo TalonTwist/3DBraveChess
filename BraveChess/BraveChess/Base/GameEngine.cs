@@ -122,7 +122,7 @@ namespace BraveChess.Base
         {
             if (ActiveScene != null)
                 ActiveScene.Update(gameTime);
-
+            
             ScreenStates(gameTime);
 
             base.Update(gameTime);

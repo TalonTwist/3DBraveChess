@@ -34,7 +34,8 @@ namespace BraveChess.Base
         public TimeSpan TimeWhite { get; set; }
         public TimeSpan TimeBlack2 { get; set; }
         public TimeSpan TimeWhite2 { get; set; }
-        
+       
+
         public string Id { get; set; }
         public int MovePossitionY { get; set; }      
         public TurnState Turn { get; set; }
@@ -120,6 +121,11 @@ namespace BraveChess.Base
             //if checkmate then game is over
             if(GameBoard.AllMoves.Count != 0 && GameBoard.AllMoves.Last().IsCheckMate)
                 Engine.GameState = GameBoard.AllMoves.Last().SideMove == Piece.Colour.White ? GameEngine.State.GameOverWhiteWins : GameEngine.State.GameOverBlackWins;
+
+            if(Engine.Cameras.ActiveCamera == CamWhite)
+                CamWhite.Update(gametime);
+            
+            
 
             foreach (GameObject3D t in SceneObjects)
                 t.Update(gametime);
@@ -379,6 +385,7 @@ namespace BraveChess.Base
             MovesAvailable = null;
         }
 
+        
         
 
         

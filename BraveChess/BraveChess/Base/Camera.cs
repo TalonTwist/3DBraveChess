@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using BraveChess.Engines;
 
 namespace BraveChess.Base
 {
@@ -15,6 +17,7 @@ namespace BraveChess.Base
         protected float FieldOfView = MathHelper.PiOver4;
         protected float NearPlane = 0.25f;
         protected float FarPlane = 10000;
+        private const float Speed = 1f;
 
         protected Vector3 StartTarget;
 
@@ -41,6 +44,15 @@ namespace BraveChess.Base
             base.Initialise();
         }
 
+        public override void Update(GameTime gametime)
+        {
+            WhiteCamControls();
+
+            CreateLookAt();
+
+            base.Update(gametime);
+        }
+
         public virtual void CreateLookAt()
         {
             CameraTarget = World.Translation + CameraDirection;
@@ -52,12 +64,41 @@ namespace BraveChess.Base
             view = Matrix.CreateLookAt(World.Translation, position, CameraUpDirection);
         }
 
-        public virtual void MoveCamera()//needs fixing
+
+        protected void WhiteCamControls()
         {
-            CameraPosition = Vector3.Transform(CameraPosition - CameraTarget,
-                Matrix.CreateFromAxisAngle(new Vector3(1,0,1),MathHelper.ToRadians(90)))+CameraTarget;
-            view = Matrix.CreateLookAt(CameraPosition,CameraTarget,Vector3.Up);
+            if (InputEngine.IsKeyHeld(Keys.NumPad6))
+            {
+                World *= Matrix.CreateTranslation(new Vector3(Speed, 0, 0));
+            }
+            else if (InputEngine.IsKeyHeld(Keys.NumPad4))
+            {
+                World *= Matrix.CreateTranslation(new Vector3(-Speed, 0, 0));
+            }
+
+            if (InputEngine.IsKeyHeld(Keys.NumPad5))
+            {
+                World *= Matrix.CreateTranslation(new Vector3(0, 0, Speed));
+            }
+            else if (InputEngine.IsKeyHeld(Keys.NumPad8))
+            {
+                World *= Matrix.CreateTranslation(new Vector3(0, 0, -Speed));
+            }
+
+            if (InputEngine.IsKeyHeld(Keys.Add))
+            {
+                World *= Matrix.CreateTranslation(new Vector3(0, Speed, 0));
+            }
+            else if (InputEngine.IsKeyHeld(Keys.Subtract))
+            {
+                World *= Matrix.CreateTranslation(new Vector3(0, -Speed, 0));
+            }
+
+            if (InputEngine.IsKeyHeld(Keys.NumPad9))
+                World *= Matrix.CreateRotationY(0.01f);
         }
+
+        
 
         public Matrix View
         {

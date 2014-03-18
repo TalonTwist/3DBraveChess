@@ -82,6 +82,10 @@ Content\Buttons\Draw.xnb
 Content\Buttons\MainMenuButton.xnb
 Content\Buttons\WhiteWins.xnb
 Content\Buttons\TimedGameButton.xnb
+Content\Buttons\BishopButton.xnb
+Content\Buttons\KnightButton.xnb
+Content\Buttons\QueenButton.xnb
+Content\Buttons\RookButton.xnb
 Content\Audio\Effects\MenuHover.xnb
 Content\Audio\Effects\CapturePiece.xnb
 Content\Audio\Effects\MovePiece.xnb
@@ -118,8 +122,4 @@ Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb
 Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
 Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
 Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
-Content\Buttons\BishopButton.xnb
-Content\Buttons\KnightButton.xnb
-Content\Buttons\QueenButton.xnb
-Content\Buttons\RookButton.xnb
 Content\Audio\Songs\BackgroundSong.wma
