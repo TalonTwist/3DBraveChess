@@ -1600,6 +1600,42 @@
       <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb</Output>
       <Time>2014-03-18T12:34:06.6635929+00:00</Time>
     </Item>
+    <Item>
+      <Source>Buttons\BishopButton.jpg</Source>
+      <Name>Buttons\BishopButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BishopButton.xnb</Output>
+      <Time>2014-03-18T22:29:32.8899284+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\KnightButton.jpg</Source>
+      <Name>Buttons\KnightButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\KnightButton.xnb</Output>
+      <Time>2014-03-18T22:29:32.8929294+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\QueenButton.jpg</Source>
+      <Name>Buttons\QueenButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\QueenButton.xnb</Output>
+      <Time>2014-03-18T22:29:32.8979322+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\RookButton.jpg</Source>
+      <Name>Buttons\RookButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\RookButton.xnb</Output>
+      <Time>2014-03-18T22:29:32.9009299+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
