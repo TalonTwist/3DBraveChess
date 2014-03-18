@@ -3,3 +3,4 @@ C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveC
 C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveChessContent.contentprojResolveAssemblyReference.cache
 J:\3DBraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveChessContent.contentprojResolveAssemblyReference.cache
 C:\Users\AaronK\Desktop\Dropbox\3DBraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveChessContent.contentprojResolveAssemblyReference.cache
+C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\obj\x86\Debug\BraveChessContent.contentprojResolveAssemblyReference.cache

@@ -57,14 +57,14 @@ namespace BraveChess.Objects
         {
             File = (Files)f;
             Rank = (Ranks)r;
-            _asset = color ? "WhiteSquare" : "BlackSquare";
+            _asset = color ? "White Square" : "Black Square";
         }
 
         public override void LoadContent(ContentManager content)
         {
             if (!string.IsNullOrEmpty(_asset))
             {
-                Model3D = content.Load<Model>("Models\\" + _asset);
+                Model3D = content.Load<Model>("Models\\New Pieces\\" + _asset);
 
                 BoneTransforms = new Matrix[Model3D.Bones.Count];
                 Model3D.CopyAbsoluteBoneTransformsTo(BoneTransforms);

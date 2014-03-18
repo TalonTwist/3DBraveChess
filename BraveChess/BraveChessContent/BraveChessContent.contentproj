@@ -443,6 +443,166 @@
       <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PipelineExtension\PipelineExtension.csproj">
+      <Project>{1D4F4B0C-68FC-4EEA-A38E-42FD0A243824}</Project>
+      <Name>PipelineExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\New Pieces\Black Bishop.fbx">
+      <Name>Black Bishop</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black King.fbx">
+      <Name>Black King</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Knight.fbx">
+      <Name>Black Knight</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Pawn.fbx">
+      <Name>Black Pawn</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Queen.fbx">
+      <Name>Black Queen</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Rook.fbx">
+      <Name>Black Rook</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Square.fbx">
+      <Name>Black Square</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black_Bishop.fbx">
+      <Name>Black_Bishop</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Bishop.fbx">
+      <Name>White Bishop</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White King.fbx">
+      <Name>White King</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Knight.fbx">
+      <Name>White Knight</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Pawn.fbx">
+      <Name>White Pawn</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Queen.fbx">
+      <Name>White Queen</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Rook.fbx">
+      <Name>White Rook</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Square.fbx">
+      <Name>White Square</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.tif">
+      <Name>Lambert1_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse.tif">
+      <Name>Scene_Material_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse.tif">
+      <Name>Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse.tif">
+      <Name>Scene_Material_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

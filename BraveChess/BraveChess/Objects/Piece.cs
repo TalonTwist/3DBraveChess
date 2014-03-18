@@ -53,7 +53,7 @@ namespace BraveChess.Objects
         {
             if (!string.IsNullOrEmpty(_asset))
             {
-                Model3D = content.Load<Model>("Models\\" + _asset);
+                Model3D = content.Load<Model>("Models\\New Pieces\\" + _asset);
 
                 BoneTransforms = new Matrix[Model3D.Bones.Count];
                 Model3D.CopyAbsoluteBoneTransformsTo(BoneTransforms);

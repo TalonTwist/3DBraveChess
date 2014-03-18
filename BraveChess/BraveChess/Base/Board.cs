@@ -104,8 +104,8 @@ namespace BraveChess.Base
                 new Piece("Queen", "White Queen", GetStartPos("d1"), 1, Piece.PieceType.Queen),
                 new Piece("KnightB1", "White Knight", GetStartPos("b1"), 1, Piece.PieceType.Knight),
                 new Piece("KnightG1", "White Knight", GetStartPos("g1"), 1, Piece.PieceType.Knight),
-                new Piece("BishopC1", "Untextured\\Bishop Piece", GetStartPos("c1"), 1, Piece.PieceType.Bishop),
-                new Piece("BishopF1", "Untextured\\Bishop Piece", GetStartPos("f1"), 1, Piece.PieceType.Bishop),
+                new Piece("BishopC1", "Black Bishop", GetStartPos("c1"), 1, Piece.PieceType.Bishop),
+                new Piece("BishopF1", "Black Bishop", GetStartPos("f1"), 1, Piece.PieceType.Bishop),
                 new Piece("pawnA7", "Black Pawn", GetStartPos("a7"), 0, Piece.PieceType.Pawn),
                 new Piece("pawnB7", "Black Pawn", GetStartPos("b7"), 0, Piece.PieceType.Pawn),
                 new Piece("pawnC7", "Black Pawn", GetStartPos("c7"), 0, Piece.PieceType.Pawn),
@@ -120,8 +120,8 @@ namespace BraveChess.Base
                 new Piece("queen", "Black Queen", GetStartPos("d8"), 0, Piece.PieceType.Queen),
                 new Piece("knightB8", "Black Knight", GetStartPos("b8"), 0, Piece.PieceType.Knight),
                 new Piece("knightG8", "Black Knight", GetStartPos("g8"), 0, Piece.PieceType.Knight),
-                new Piece("bishopC8", "Untextured\\Bishop Piece", GetStartPos("c8"), 0, Piece.PieceType.Bishop),
-                new Piece("bishopF8", "Untextured\\Bishop Piece", GetStartPos("f8"), 0, Piece.PieceType.Bishop)
+                new Piece("bishopC8", "White Bishop", GetStartPos("c8"), 0, Piece.PieceType.Bishop),
+                new Piece("bishopF8", "White Bishop", GetStartPos("f8"), 0, Piece.PieceType.Bishop)
             };
             #endregion
  
