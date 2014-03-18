@@ -86,6 +86,32 @@ Content\Buttons\RookButton.xnb
 Content\Audio\Effects\MenuHover.xnb
 Content\Audio\Effects\CapturePiece.xnb
 Content\Audio\Effects\MovePiece.xnb
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+Content\Textures\Aaron'sTexture_0.xnb
+Content\Textures\Aaron'sTexture White_0.xnb
+Content\Models\Enviroment_TX_0.xnb
+<<<<<<< HEAD
+=======
+Content\Models\New Pieces\Black Bishop.xnb
+Content\Models\New Pieces\Black King.xnb
+Content\Models\New Pieces\Black Knight.xnb
+Content\Models\New Pieces\Black Pawn.xnb
+Content\Models\New Pieces\Black Queen.xnb
+Content\Models\New Pieces\Black Rook.xnb
+Content\Models\New Pieces\Black Square.xnb
+Content\Models\New Pieces\Black_Bishop.xnb
+Content\Models\New Pieces\White Bishop.xnb
+Content\Models\New Pieces\White King.xnb
+Content\Models\New Pieces\White Knight.xnb
+Content\Models\New Pieces\White Pawn.xnb
+Content\Models\New Pieces\White Queen.xnb
+Content\Models\New Pieces\White Rook.xnb
+Content\Models\New Pieces\White Square.xnb
+>>>>>>> 3da6cd234423978990af73c1d385138c82aa914b
+>>>>>>> df6e72692302a56d372141a585b08d838671a975
 Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
 Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.xnb
 Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.xnb

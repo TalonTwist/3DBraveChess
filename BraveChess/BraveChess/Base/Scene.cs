@@ -18,6 +18,7 @@ namespace BraveChess.Base
             SelectPiece,
             PieceSelected,
             SelectMove,
+            Promote,
             MoveSelected
         }
         public enum TurnState
@@ -60,6 +61,7 @@ namespace BraveChess.Base
         protected int CurrentI, CurrentJ;
         private bool _isMouseClick;
         protected Piece PieceToCapture, PieceToMove;
+        protected Piece.PieceType PromoteTo = Piece.PieceType.None;
         protected Square CurrentSquare, PreviousSquare, FromSquare, ToSquare;
         protected List<Square> MovesAvailable;
 

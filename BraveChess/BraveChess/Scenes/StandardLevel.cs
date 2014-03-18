@@ -114,9 +114,11 @@ namespace BraveChess.Scenes
                  case SelectionState.MoveSelected:
                      ResetMovesAvailable();
 
-                     //check for pawn queening
-
-                     Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, PieceToCapture, false); //add new Move to list AllMoves
+                     //check for pawn promotion
+                     if (GameBoard.TestForPromotion(PieceToMove.ColorType, ToSquare.Rank) & PromoteTo != Piece.PieceType.None)
+                         SelectState = SelectionState.Promote;                    
+                     
+                     Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, PieceToCapture, false, PromoteTo); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
                          GameBoard.AllMoves.Add(m);
