@@ -100,9 +100,9 @@ namespace BraveChess.Base
             _btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),350);
 
             _btnNewGame = new Button(Game.Content.Load<Texture2D>("Buttons\\NewGameButton"),
-                    new Vector2(20,400));
+                    new Vector2(20,400),false);
             _btnUndoMove = new Button(Game.Content.Load<Texture2D>("Buttons\\UndoMoveButton"),
-                    new Vector2(20,450));
+                    new Vector2(20,450),false);
             _btnStandardPieces = new Button(Game.Content.Load<Texture2D>("Buttons\\StandardPiecesButton"),200);
 
             _btnAnimatedPieces = new Button(Game.Content.Load<Texture2D>("Buttons\\AnimatedPiecesButton"), 250);

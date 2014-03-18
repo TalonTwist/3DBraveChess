@@ -462,3 +462,52 @@ C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Mod
 C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
 C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
 C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\RookButton.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BishopButton.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\KnightButton.xnb
+C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\QueenButton.xnb

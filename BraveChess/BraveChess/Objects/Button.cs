@@ -16,20 +16,23 @@ namespace BraveChess.Objects
         public bool IsClicked;
         public bool IsHover = false;
         bool _soundPlayed;
-        
 
-        public Button(Texture2D texture,float y)
+
+        public Button(Texture2D texture, float y)
         {
             _texture = texture;
             _position = new Vector2(((Helper.GraphicsDevice.Viewport.Width / 2)-(texture.Width/2)), y);
             Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 6, Helper.GraphicsDevice.Viewport.Height / 15);
+           
         }
 
-        public Button(Texture2D texture,Vector2 pos)
+        public Button(Texture2D texture, Vector2 pos, bool isButtonPiece)
         {
             _texture = texture;
             _position = pos;
             Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 8, Helper.GraphicsDevice.Viewport.Height / 18);
+            if (isButtonPiece)
+                Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 14, Helper.GraphicsDevice.Viewport.Height / 10);
         }
 
         public void Update(GameEngine e)
