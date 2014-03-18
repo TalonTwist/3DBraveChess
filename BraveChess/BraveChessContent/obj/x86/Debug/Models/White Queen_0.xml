@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\White Queen.fbx</SourceFilename>
+      <SourceFilename>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\Models\White Queen.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -74,7 +74,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Lambert</Name>
       <Identity>
-        <SourceFilename>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\White Queen.fbx</SourceFilename>
+        <SourceFilename>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\Models\White Queen.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

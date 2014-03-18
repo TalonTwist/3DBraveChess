@@ -128,7 +128,7 @@ namespace BraveChess.Base
             IsValidMove = TestMove();
         }
 
-        public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceMoved, Piece pieceCaptured, bool isPacketMove, Piece.PieceType piecePromoted = Piece.PieceType.None)
+        public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceMoved, Piece pieceCaptured, bool isPacketMove, Piece.PieceType piecePromoted)
         {
             _engine = engine;
             _board = board;
@@ -164,6 +164,12 @@ namespace BraveChess.Base
                     CapturePiece(); //Remove the captured piece
                 }
                 MovePiece(isPacketMove);
+
+                if (HasPromoted)
+                {
+                    Promote();
+                }
+
                 IsValidMove = true;
             }
             else
@@ -380,6 +386,54 @@ namespace BraveChess.Base
             }
         }
 
-       
+        private void Promote()
+        {
+            Piece newPiece = null;
+             switch (SideMove)
+             {
+                 case Piece.Colour.White:
+                     switch (PiecePromoted)
+                     {
+                         case Piece.PieceType.Queen:
+                             newPiece = (new Piece("Queen", "White Queen", PieceMoved.World.Translation, 1, Piece.PieceType.Queen));
+                             break;
+                         case Piece.PieceType.Rook:
+                             newPiece = (new Piece("Rook", "White Rook", PieceMoved.World.Translation, 1, Piece.PieceType.Rook));
+                             break;
+                         case Piece.PieceType.Knight:
+                             newPiece = (new Piece("Knight", "White Knight", PieceMoved.World.Translation, 1, Piece.PieceType.Knight));
+                             break;
+                         case Piece.PieceType.Bishop:
+                             newPiece = (new Piece("Bishop", "White Bishop", PieceMoved.World.Translation, 1, Piece.PieceType.Bishop));
+                             break;
+                     }
+                     break;
+                 case Piece.Colour.Black:
+                     switch (PiecePromoted)
+                     {
+                         case Piece.PieceType.Queen:
+                             newPiece = (new Piece("Queen", "Black Queen", PieceMoved.World.Translation, 0, Piece.PieceType.Queen));
+                             break;
+                         case Piece.PieceType.Rook:
+                             newPiece = (new Piece("Rook", "Black Rook", PieceMoved.World.Translation, 0, Piece.PieceType.Rook));
+                             break;
+                         case Piece.PieceType.Knight:
+                             newPiece = (new Piece("Knight", "Black Knight", PieceMoved.World.Translation, 0, Piece.PieceType.Knight));
+                             break;
+                         case Piece.PieceType.Bishop:
+                             newPiece = (new Piece("Bishop", "Black Bishop", PieceMoved.World.Translation, 0, Piece.PieceType.Bishop));
+                             break;
+                     }
+                     break;
+             }
+
+            //Update Promotion in bitboards
+             _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, BitboardHelper.GetBitboardFromSquare(FromSquare), 0);
+             _board.UpdateRelevantbb(PiecePromoted, newPiece.ColorType, 0, BitboardHelper.GetBitboardFromSquare(ToSquare));
+
+            PieceMoved.Destroy();
+            _engine.LoadRuntimeObject(newPiece);
+            _board.Pieces.Add(newPiece);
+        }
     }
 }

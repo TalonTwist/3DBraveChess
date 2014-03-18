@@ -28,6 +28,7 @@ namespace BraveChess.Base
 
         public State GameState;
 
+
         Button _btnStandart, _btnNetwork, _btnExit,
             _btnNewGame,_btnUndoMove,_btnStandardPieces,
             _btnAnimatedPieces,_btnBack,_btnMainMenu,_btnTimedGame;
