@@ -3,7 +3,15 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
+<<<<<<< HEAD
       <SourceFilename>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+=======
+<<<<<<< HEAD
+      <SourceFilename>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+=======
+      <SourceFilename>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+>>>>>>> b1df7ad6fbe7590ac1ebae1aeb208a95d5cfcc8e
+>>>>>>> 3da6cd234423978990af73c1d385138c82aa914b
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -43,7 +51,15 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material</Name>
       <Identity>
+<<<<<<< HEAD
         <SourceFilename>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+=======
+<<<<<<< HEAD
+        <SourceFilename>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+=======
+        <SourceFilename>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+>>>>>>> b1df7ad6fbe7590ac1ebae1aeb208a95d5cfcc8e
+>>>>>>> 3da6cd234423978990af73c1d385138c82aa914b
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -56,7 +72,15 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>Material__Aaron_sTexture_png</Name>
       <Identity>
+<<<<<<< HEAD
         <SourceFilename>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+=======
+<<<<<<< HEAD
+        <SourceFilename>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+=======
+        <SourceFilename>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\Models\BlackSquare.fbx</SourceFilename>
+>>>>>>> b1df7ad6fbe7590ac1ebae1aeb208a95d5cfcc8e
+>>>>>>> 3da6cd234423978990af73c1d385138c82aa914b
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
