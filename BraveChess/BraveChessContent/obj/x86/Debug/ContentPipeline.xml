@@ -7,11 +7,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black King.xnb</Output>
-      <Time>2014-03-17T04:44:32.835894+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black King.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black King_0.xml</Key>
-        <Value>2014-03-17T05:02:24.9886792+00:00</Value>
+        <Value>2014-03-18T12:32:42.1707794+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,11 +20,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Knight.xnb</Output>
-      <Time>2014-03-17T04:44:32.8398951+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Knight.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Knight_0.xml</Key>
-        <Value>2014-03-17T05:02:25.3307749+00:00</Value>
+        <Value>2014-03-18T12:32:42.3582434+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -33,11 +33,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Pawn.xnb</Output>
-      <Time>2014-03-17T04:44:32.8448982+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Pawn.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Pawn_0.xml</Key>
-        <Value>2014-03-17T05:02:25.4877125+00:00</Value>
+        <Value>2014-03-18T12:32:42.5146004+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -46,11 +46,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Queen.xnb</Output>
-      <Time>2014-03-17T04:44:32.8488952+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Queen.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Queen_0.xml</Key>
-        <Value>2014-03-17T05:02:25.6247188+00:00</Value>
+        <Value>2014-03-18T12:32:42.6551538+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -59,11 +59,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Rook.xnb</Output>
-      <Time>2014-03-17T04:44:32.8538943+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Rook.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Rook_0.xml</Key>
-        <Value>2014-03-17T05:02:25.7637255+00:00</Value>
+        <Value>2014-03-18T12:32:42.8270279+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -72,13 +72,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\BlackSquare.xnb</Output>
-      <Time>2014-03-17T04:44:32.8578949+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\BlackSquare.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\BlackSquare_0.xml</Key>
-        <Value>2014-03-17T05:02:26.0308142+00:00</Value>
+        <Value>2014-03-18T12:32:43.0770331+00:00</Value>
       </Dependency>
-      <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb</Request>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\White King.fbx</Source>
@@ -86,11 +86,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White King.xnb</Output>
-      <Time>2014-03-17T04:44:33.1629129+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White King.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White King_0.xml</Key>
-        <Value>2014-03-17T05:02:27.8578432+00:00</Value>
+        <Value>2014-03-18T12:32:44.6419851+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -99,11 +99,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Knight.xnb</Output>
-      <Time>2014-03-17T04:44:33.1669817+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Knight.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Knight_0.xml</Key>
-        <Value>2014-03-17T05:02:28.0058538+00:00</Value>
+        <Value>2014-03-18T12:32:44.7670579+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -112,11 +112,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Pawn.xnb</Output>
-      <Time>2014-03-17T04:44:33.2551347+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Pawn.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Pawn_0.xml</Key>
-        <Value>2014-03-17T05:02:28.1518609+00:00</Value>
+        <Value>2014-03-18T12:32:44.8919859+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -125,11 +125,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Queen.xnb</Output>
-      <Time>2014-03-17T04:44:33.2591342+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Queen.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Queen_0.xml</Key>
-        <Value>2014-03-17T05:02:28.2928686+00:00</Value>
+        <Value>2014-03-18T12:32:45.0326841+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -138,11 +138,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Rook.xnb</Output>
-      <Time>2014-03-17T04:44:33.2641369+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Rook.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Rook_0.xml</Key>
-        <Value>2014-03-17T05:02:28.4458766+00:00</Value>
+        <Value>2014-03-18T12:32:45.1888601+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -151,13 +151,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\WhiteSquare.xnb</Output>
-      <Time>2014-03-17T04:44:33.2691352+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\WhiteSquare.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\WhiteSquare_0.xml</Key>
-        <Value>2014-03-17T05:02:28.6468879+00:00</Value>
+        <Value>2014-03-18T12:32:45.3927612+00:00</Value>
       </Dependency>
-      <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb</Request>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Untextured\Bishop Piece.fbx</Source>
@@ -165,11 +165,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Untextured\Bishop Piece.xnb</Output>
-      <Time>2014-03-17T04:44:33.1529111+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Untextured\Bishop Piece.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Untextured\Bishop Piece_0.xml</Key>
-        <Value>2014-03-17T05:02:29.9259922+00:00</Value>
+        <Value>2014-03-18T12:32:46.6112939+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -178,11 +178,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Bishop.xnb</Output>
-      <Time>2014-03-17T04:44:32.8298932+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Bishop.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Black Bishop_0.xml</Key>
-        <Value>2014-03-17T05:02:30.0779714+00:00</Value>
+        <Value>2014-03-18T12:32:46.7988284+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -191,11 +191,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Black.xnb</Output>
-      <Time>2014-03-17T04:44:32.8618948+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Black.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Board Square Black_0.xml</Key>
-        <Value>2014-03-17T05:02:30.2069792+00:00</Value>
+        <Value>2014-03-18T12:32:46.892649+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -204,11 +204,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Untextured.xnb</Output>
-      <Time>2014-03-17T04:44:32.8658954+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Untextured.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Board Square Untextured_0.xml</Key>
-        <Value>2014-03-17T05:02:30.3110548+00:00</Value>
+        <Value>2014-03-18T12:32:46.9862915+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -217,11 +217,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square White.xnb</Output>
-      <Time>2014-03-17T04:44:32.8698965+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square White.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Board Square White_0.xml</Key>
-        <Value>2014-03-17T05:02:30.4290644+00:00</Value>
+        <Value>2014-03-18T12:32:47.1112966+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -230,11 +230,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Bishop.xnb</Output>
-      <Time>2014-03-17T04:44:33.1579807+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Bishop.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\White Bishop_0.xml</Key>
-        <Value>2014-03-17T05:02:30.603999+00:00</Value>
+        <Value>2014-03-18T12:32:47.2520211+00:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -243,13 +243,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment.xnb</Output>
-      <Time>2014-03-17T04:44:32.9979034+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Enviroment_0.xml</Key>
-        <Value>2014-03-17T05:02:40.5546505+00:00</Value>
+        <Value>2014-03-18T12:32:57.3578806+00:00</Value>
       </Dependency>
-      <Request>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb</Request>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb</Request>
     </Item>
     <Item>
       <Source>Fonts\debug.spritefont</Source>
@@ -257,604 +257,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\debug.xnb</Output>
-      <Time>2014-03-17T04:44:32.8238933+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Songs\BackgroundSong.mp3</Source>
-      <Name>Audio\Songs\BackgroundSong</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.xnb</Output>
-      <Extra>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma</Extra>
-      <Time>2014-03-15T20:11:36.4619674+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Aaron'sTexture White.png</Source>
-      <Name>Textures\Aaron'sTexture White</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White.xnb</Output>
-      <Time>2014-03-15T20:11:36.9099887+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Aaron'sTexture.png</Source>
-      <Name>Textures\Aaron'sTexture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture.xnb</Output>
-      <Time>2014-03-15T20:11:36.91099+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\BlackBishop.bmp</Source>
-      <Name>Textures\Pieces\BlackBishop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackBishop.xnb</Output>
-      <Time>2014-03-15T20:11:37.1920916+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\BlackKing.bmp</Source>
-      <Name>Textures\Pieces\BlackKing</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing.xnb</Output>
-      <Time>2014-03-15T20:11:37.2669845+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\BlackKnight.bmp</Source>
-      <Name>Textures\Pieces\BlackKnight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight.xnb</Output>
-      <Time>2014-03-15T20:11:37.2889854+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\BlackPawn.bmp</Source>
-      <Name>Textures\Pieces\BlackPawn</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn.xnb</Output>
-      <Time>2014-03-15T20:11:37.434271+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\BlackQueen.bmp</Source>
-      <Name>Textures\Pieces\BlackQueen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen.xnb</Output>
-      <Time>2014-03-15T20:11:37.4742754+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\BlackRook.bmp</Source>
-      <Name>Textures\Pieces\BlackRook</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook.xnb</Output>
-      <Time>2014-03-15T20:11:37.4973433+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\WhiteBishop.bmp</Source>
-      <Name>Textures\Pieces\WhiteBishop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteBishop.xnb</Output>
-      <Time>2014-03-15T20:11:37.5223546+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\WhiteKing.bmp</Source>
-      <Name>Textures\Pieces\WhiteKing</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing.xnb</Output>
-      <Time>2014-03-15T20:11:37.5532793+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\WhiteKnight.bmp</Source>
-      <Name>Textures\Pieces\WhiteKnight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight.xnb</Output>
-      <Time>2014-03-15T20:11:37.5582772+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\WhitePawn.bmp</Source>
-      <Name>Textures\Pieces\WhitePawn</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn.xnb</Output>
-      <Time>2014-03-15T20:11:37.577282+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\WhiteQueen.bmp</Source>
-      <Name>Textures\Pieces\WhiteQueen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen.xnb</Output>
-      <Time>2014-03-15T20:11:37.5992804+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\WhiteRook.bmp</Source>
-      <Name>Textures\Pieces\WhiteRook</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook.xnb</Output>
-      <Time>2014-03-15T20:11:37.6242815+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\thumbnail\BlackBishop.bmp</Source>
-      <Name>Textures\Pieces\thumbnail\BlackBishop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackBishop.xnb</Output>
-      <Time>2014-03-15T20:11:37.6282842+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\thumbnail\BlackKing.bmp</Source>
-      <Name>Textures\Pieces\thumbnail\BlackKing</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackKing.xnb</Output>
-      <Time>2014-03-15T20:11:37.6832862+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Pieces\thumbnail\WhiteKnight.bmp</Source>
-      <Name>Textures\Pieces\thumbnail\WhiteKnight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\WhiteKnight.xnb</Output>
-      <Time>2014-03-15T20:11:37.8164296+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\ExitGameButton.jpg</Source>
-      <Name>Buttons\ExitGameButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\ExitGameButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.4819661+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\NetworkButton.jpg</Source>
-      <Name>Buttons\NetworkButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NetworkButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.4850348+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Black_Bishop.bmp</Source>
-      <Name>Textures\Black_Bishop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Bishop.xnb</Output>
-      <Time>2014-03-15T20:11:36.9389908+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Black_Board.bmp</Source>
-      <Name>Textures\Black_Board</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Board.xnb</Output>
-      <Time>2014-03-15T20:11:37.028997+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Black_King.bmp</Source>
-      <Name>Textures\Black_King</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_King.xnb</Output>
-      <Time>2014-03-15T20:11:37.0620002+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Black_Knight.bmp</Source>
-      <Name>Textures\Black_Knight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Knight.xnb</Output>
-      <Time>2014-03-15T20:11:37.0840003+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Black_Pawn.bmp</Source>
-      <Name>Textures\Black_Pawn</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Pawn.xnb</Output>
-      <Time>2014-03-15T20:11:37.1190007+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Black_Queen.bmp</Source>
-      <Name>Textures\Black_Queen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Queen.xnb</Output>
-      <Time>2014-03-15T20:11:37.152166+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Black_Rook.bmp</Source>
-      <Name>Textures\Black_Rook</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Rook.xnb</Output>
-      <Time>2014-03-15T20:11:37.1881649+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_Bishop.bmp</Source>
-      <Name>Textures\White_Bishop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Bishop.xnb</Output>
-      <Time>2014-03-15T20:11:38.0377078+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_Board.bmp</Source>
-      <Name>Textures\White_Board</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Board.xnb</Output>
-      <Time>2014-03-15T20:11:38.1832774+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_King.bmp</Source>
-      <Name>Textures\White_King</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_King.xnb</Output>
-      <Time>2014-03-15T20:11:38.3666814+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_Knight.bmp</Source>
-      <Name>Textures\White_Knight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Knight.xnb</Output>
-      <Time>2014-03-15T20:11:38.3716797+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_Pawn.bmp</Source>
-      <Name>Textures\White_Pawn</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Pawn.xnb</Output>
-      <Time>2014-03-15T20:11:38.4126809+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_Queen.bmp</Source>
-      <Name>Textures\White_Queen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Queen.xnb</Output>
-      <Time>2014-03-15T20:11:38.439685+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_Rook.bmp</Source>
-      <Name>Textures\White_Rook</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Rook.xnb</Output>
-      <Time>2014-03-15T20:11:38.4816858+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Enviroment_TX.bmp</Source>
-      <Name>Models\Enviroment_TX</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX.xnb</Output>
-      <Time>2014-03-15T20:11:36.8659873+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Heightmap\thumbnail\Enviroment_TX.bmp</Source>
-      <Name>Models\Heightmap\thumbnail\Enviroment_TX</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb</Output>
-      <Time>2014-03-15T20:11:36.8719885+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\NewGameButton.jpg</Source>
-      <Name>Buttons\NewGameButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NewGameButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.4879669+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\StandardButton.jpg</Source>
-      <Name>Buttons\StandardButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.4909666+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\UndoMoveButton.jpg</Source>
-      <Name>Buttons\UndoMoveButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\UndoMoveButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.496967+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\Background.jpg</Source>
-      <Name>Buttons\Background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Background.xnb</Output>
-      <Time>2014-03-15T20:11:36.4789659+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\AnimatedPiecesButton.jpg</Source>
-      <Name>Buttons\AnimatedPiecesButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\AnimatedPiecesButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.4709654+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\StandardPiecesButton.jpg</Source>
-      <Name>Buttons\StandardPiecesButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardPiecesButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.4939664+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\BackButton.jpg</Source>
-      <Name>Buttons\BackButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BackButton.xnb</Output>
-      <Time>2014-03-15T20:11:36.4749653+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Effects\MenuHover.wav</Source>
-      <Name>Audio\Effects\MenuHover</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MenuHover.xnb</Output>
-      <Time>2014-03-15T20:11:36.2629555+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Effects\CapturePiece.wav</Source>
-      <Name>Audio\Effects\CapturePiece</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\CapturePiece.xnb</Output>
-      <Time>2014-03-15T20:11:36.2589532+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Effects\MovePiece.wav</Source>
-      <Name>Audio\Effects\MovePiece</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MovePiece.xnb</Output>
-      <Time>2014-03-15T20:11:36.2669537+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Black King.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Black King_0.xml</Output>
-      <Time>2014-03-17T04:44:32.835894+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Black Knight.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Black Knight_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8398951+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Black Pawn.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Black Pawn_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8448982+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Black Queen.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Black Queen_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8488952+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Black Rook.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Black Rook_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8538943+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\BlackSquare.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\BlackSquare_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8578949+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Aaron'sTexture.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb</Output>
-      <Time>2014-03-17T04:44:33.2711353+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White King.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\White King_0.xml</Output>
-      <Time>2014-03-17T04:44:33.1629129+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White Knight.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\White Knight_0.xml</Output>
-      <Time>2014-03-17T04:44:33.1669817+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White Pawn.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\White Pawn_0.xml</Output>
-      <Time>2014-03-17T04:44:33.2551347+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White Queen.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\White Queen_0.xml</Output>
-      <Time>2014-03-17T04:44:33.2591342+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White Rook.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\White Rook_0.xml</Output>
-      <Time>2014-03-17T04:44:33.2641369+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\WhiteSquare.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\WhiteSquare_0.xml</Output>
-      <Time>2014-03-17T04:44:33.2691352+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Aaron'sTexture White.png</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb</Output>
-      <Time>2014-03-17T04:44:33.2701352+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Untextured\Bishop Piece.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Untextured\Bishop Piece_0.xml</Output>
-      <Time>2014-03-17T04:44:33.1529111+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Black Bishop.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Black Bishop_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8298932+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Board Square Black.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Board Square Black_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8618948+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Board Square Untextured.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Board Square Untextured_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8658954+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Board Square White.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Board Square White_0.xml</Output>
-      <Time>2014-03-17T04:44:32.8698965+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White Bishop.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\White Bishop_0.xml</Output>
-      <Time>2014-03-17T04:44:33.1579807+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Enviroment.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Enviroment_0.xml</Output>
-      <Time>2014-03-17T04:44:32.9979034+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Enviroment_TX.bmp</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb</Output>
-      <Time>2014-03-17T04:44:33.1429798+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\debug.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
     </Item>
     <Item>
       <Source>Fonts\timer.spritefont</Source>
@@ -862,8 +266,396 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\timer.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\timer.xnb</Output>
+      <Time>2014-03-17T01:03:48+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\BackgroundSong.mp3</Source>
+      <Name>Audio\Songs\BackgroundSong</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.xnb</Output>
+      <Extra>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma</Extra>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Aaron'sTexture White.png</Source>
+      <Name>Textures\Aaron'sTexture White</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Aaron'sTexture.png</Source>
+      <Name>Textures\Aaron'sTexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\BlackBishop.bmp</Source>
+      <Name>Textures\Pieces\BlackBishop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackBishop.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\BlackKing.bmp</Source>
+      <Name>Textures\Pieces\BlackKing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\BlackKnight.bmp</Source>
+      <Name>Textures\Pieces\BlackKnight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\BlackPawn.bmp</Source>
+      <Name>Textures\Pieces\BlackPawn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\BlackQueen.bmp</Source>
+      <Name>Textures\Pieces\BlackQueen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\BlackRook.bmp</Source>
+      <Name>Textures\Pieces\BlackRook</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\WhiteBishop.bmp</Source>
+      <Name>Textures\Pieces\WhiteBishop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteBishop.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\WhiteKing.bmp</Source>
+      <Name>Textures\Pieces\WhiteKing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\WhiteKnight.bmp</Source>
+      <Name>Textures\Pieces\WhiteKnight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\WhitePawn.bmp</Source>
+      <Name>Textures\Pieces\WhitePawn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\WhiteQueen.bmp</Source>
+      <Name>Textures\Pieces\WhiteQueen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\WhiteRook.bmp</Source>
+      <Name>Textures\Pieces\WhiteRook</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\thumbnail\BlackBishop.bmp</Source>
+      <Name>Textures\Pieces\thumbnail\BlackBishop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackBishop.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\thumbnail\BlackKing.bmp</Source>
+      <Name>Textures\Pieces\thumbnail\BlackKing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackKing.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Pieces\thumbnail\WhiteKnight.bmp</Source>
+      <Name>Textures\Pieces\thumbnail\WhiteKnight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\WhiteKnight.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\ExitGameButton.jpg</Source>
+      <Name>Buttons\ExitGameButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\ExitGameButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\NetworkButton.jpg</Source>
+      <Name>Buttons\NetworkButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NetworkButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Black_Bishop.bmp</Source>
+      <Name>Textures\Black_Bishop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Bishop.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Black_Board.bmp</Source>
+      <Name>Textures\Black_Board</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Board.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Black_King.bmp</Source>
+      <Name>Textures\Black_King</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_King.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Black_Knight.bmp</Source>
+      <Name>Textures\Black_Knight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Knight.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Black_Pawn.bmp</Source>
+      <Name>Textures\Black_Pawn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Pawn.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Black_Queen.bmp</Source>
+      <Name>Textures\Black_Queen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Queen.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Black_Rook.bmp</Source>
+      <Name>Textures\Black_Rook</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Rook.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\White_Bishop.bmp</Source>
+      <Name>Textures\White_Bishop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Bishop.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\White_Board.bmp</Source>
+      <Name>Textures\White_Board</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Board.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\White_King.bmp</Source>
+      <Name>Textures\White_King</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_King.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\White_Knight.bmp</Source>
+      <Name>Textures\White_Knight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Knight.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\White_Pawn.bmp</Source>
+      <Name>Textures\White_Pawn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Pawn.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\White_Queen.bmp</Source>
+      <Name>Textures\White_Queen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Queen.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\White_Rook.bmp</Source>
+      <Name>Textures\White_Rook</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Rook.xnb</Output>
+      <Time>2014-03-16T14:47:32+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Enviroment_TX.bmp</Source>
+      <Name>Models\Enviroment_TX</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Heightmap\thumbnail\Enviroment_TX.bmp</Source>
+      <Name>Models\Heightmap\thumbnail\Enviroment_TX</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\NewGameButton.jpg</Source>
+      <Name>Buttons\NewGameButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NewGameButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\StandardButton.jpg</Source>
+      <Name>Buttons\StandardButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\UndoMoveButton.jpg</Source>
+      <Name>Buttons\UndoMoveButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\UndoMoveButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\Background.jpg</Source>
+      <Name>Buttons\Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Background.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\AnimatedPiecesButton.jpg</Source>
+      <Name>Buttons\AnimatedPiecesButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\AnimatedPiecesButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\StandardPiecesButton.jpg</Source>
+      <Name>Buttons\StandardPiecesButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardPiecesButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\BackButton.jpg</Source>
+      <Name>Buttons\BackButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BackButton.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
     </Item>
     <Item>
       <Source>Buttons\BlackWins.jpg</Source>
@@ -871,8 +663,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BlackWins.xnb</Output>
-      <Time>2014-03-17T00:28:12.9399071+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BlackWins.xnb</Output>
+      <Time>2014-03-17T00:28:14+00:00</Time>
     </Item>
     <Item>
       <Source>Buttons\Draw.jpg</Source>
@@ -880,8 +672,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Draw.xnb</Output>
-      <Time>2014-03-17T00:28:11.8774015+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Draw.xnb</Output>
+      <Time>2014-03-17T00:28:12+00:00</Time>
     </Item>
     <Item>
       <Source>Buttons\MainMenuButton.jpg</Source>
@@ -889,8 +681,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\MainMenuButton.xnb</Output>
-      <Time>2014-03-17T00:28:14.1044346+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\MainMenuButton.xnb</Output>
+      <Time>2014-03-17T00:28:16+00:00</Time>
     </Item>
     <Item>
       <Source>Buttons\WhiteWins.jpg</Source>
@@ -898,8 +690,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\WhiteWins.xnb</Output>
-      <Time>2014-03-17T00:28:13.5575576+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\WhiteWins.xnb</Output>
+      <Time>2014-03-17T00:28:14+00:00</Time>
     </Item>
     <Item>
       <Source>Buttons\TimedGameButton.jpg</Source>
@@ -907,21 +699,923 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\TimedGameButton.xnb</Output>
-      <Time>2014-03-17T00:28:13.57319+00:00</Time>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\TimedGameButton.xnb</Output>
+      <Time>2014-03-17T00:28:14+00:00</Time>
     </Item>
-    <BuildSuccessful>false</BuildSuccessful>
+    <Item>
+      <Source>Audio\Effects\MenuHover.wav</Source>
+      <Name>Audio\Effects\MenuHover</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MenuHover.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Effects\CapturePiece.wav</Source>
+      <Name>Audio\Effects\CapturePiece</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\CapturePiece.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Effects\MovePiece.wav</Source>
+      <Name>Audio\Effects\MovePiece</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MovePiece.xnb</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Black King.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Black King_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Black Knight.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Black Knight_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Black Pawn.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Black Pawn_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Black Queen.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Black Queen_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Black Rook.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Black Rook_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\BlackSquare.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\BlackSquare_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Aaron'sTexture.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\White King.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\White King_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\White Knight.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\White Knight_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\White Pawn.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\White Pawn_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\White Queen.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\White Queen_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\White Rook.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\White Rook_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\WhiteSquare.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\WhiteSquare_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Aaron'sTexture White.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Untextured\Bishop Piece.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Untextured\Bishop Piece_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Black Bishop.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Black Bishop_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Board Square Black.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Board Square Black_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Board Square Untextured.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Board Square Untextured_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Board Square White.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Board Square White_0.xml</Output>
+      <Time>2014-03-16T14:47:28+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\White Bishop.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\White Bishop_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Enviroment.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Enviroment_0.xml</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Enviroment_TX.bmp</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb</Output>
+      <Time>2014-03-16T14:47:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Bishop.fbx</Source>
+      <Name>Models\New Pieces\Black Bishop</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.xnb</Output>
+      <Time>2014-03-18T12:34:05.6942669+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black Bishop_0.xml</Key>
+        <Value>2014-03-18T12:34:24.4571279+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black King.fbx</Source>
+      <Name>Models\New Pieces\Black King</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.xnb</Output>
+      <Time>2014-03-18T12:34:05.7098678+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black King_0.xml</Key>
+        <Value>2014-03-18T12:34:27.6774452+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Knight.fbx</Source>
+      <Name>Models\New Pieces\Black Knight</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.xnb</Output>
+      <Time>2014-03-18T12:34:05.7254941+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black Knight_0.xml</Key>
+        <Value>2014-03-18T12:34:30.7572838+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Pawn.fbx</Source>
+      <Name>Models\New Pieces\Black Pawn</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.xnb</Output>
+      <Time>2014-03-18T12:34:05.7254941+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black Pawn_0.xml</Key>
+        <Value>2014-03-18T12:34:33.6495732+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Queen.fbx</Source>
+      <Name>Models\New Pieces\Black Queen</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.xnb</Output>
+      <Time>2014-03-18T12:34:05.7411745+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black Queen_0.xml</Key>
+        <Value>2014-03-18T12:34:36.3852475+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Rook.fbx</Source>
+      <Name>Models\New Pieces\Black Rook</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.xnb</Output>
+      <Time>2014-03-18T12:34:05.7567762+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black Rook_0.xml</Key>
+        <Value>2014-03-18T12:34:39.0888176+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Square.fbx</Source>
+      <Name>Models\New Pieces\Black Square</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.xnb</Output>
+      <Time>2014-03-18T12:34:05.7567762+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black Square_0.xml</Key>
+        <Value>2014-03-18T12:34:42.0162486+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black_Bishop.fbx</Source>
+      <Name>Models\New Pieces\Black_Bishop</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.xnb</Output>
+      <Time>2014-03-18T12:34:05.7724009+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\Black_Bishop_0.xml</Key>
+        <Value>2014-03-18T12:34:44.7198277+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Bishop.fbx</Source>
+      <Name>Models\New Pieces\White Bishop</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.xnb</Output>
+      <Time>2014-03-18T12:34:05.7724009+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\White Bishop_0.xml</Key>
+        <Value>2014-03-18T12:34:47.4237996+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White King.fbx</Source>
+      <Name>Models\New Pieces\White King</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.xnb</Output>
+      <Time>2014-03-18T12:34:05.7879927+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\White King_0.xml</Key>
+        <Value>2014-03-18T12:34:50.3475341+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Knight.fbx</Source>
+      <Name>Models\New Pieces\White Knight</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.xnb</Output>
+      <Time>2014-03-18T12:34:05.8036502+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\White Knight_0.xml</Key>
+        <Value>2014-03-18T12:34:53.1524324+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Pawn.fbx</Source>
+      <Name>Models\New Pieces\White Pawn</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.xnb</Output>
+      <Time>2014-03-18T12:34:05.8036502+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\White Pawn_0.xml</Key>
+        <Value>2014-03-18T12:34:55.8250659+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Queen.fbx</Source>
+      <Name>Models\New Pieces\White Queen</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.xnb</Output>
+      <Time>2014-03-18T12:34:05.8192445+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\White Queen_0.xml</Key>
+        <Value>2014-03-18T12:34:58.7634426+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Rook.fbx</Source>
+      <Name>Models\New Pieces\White Rook</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.xnb</Output>
+      <Time>2014-03-18T12:34:05.8192445+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\White Rook_0.xml</Key>
+        <Value>2014-03-18T12:35:01.4722794+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Square.fbx</Source>
+      <Name>Models\New Pieces\White Square</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.xnb</Output>
+      <Time>2014-03-18T12:34:05.8349221+00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\New Pieces\White Square_0.xml</Key>
+        <Value>2014-03-18T12:35:04.1285713+00:00</Value>
+      </Dependency>
+      <Request>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:05.8818461+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:05.9599009+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.0067769+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.0537252+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.0849396+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.1161163+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.1787245+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.2259859+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.2728935+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.3666444+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.4135943+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.4916486+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.5541456+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.5855484+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse.tif</Source>
+      <Name>Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse</Name>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb</Output>
+      <Time>2014-03-18T12:34:06.6635929+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Bishop.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black Bishop_0.xml</Output>
+      <Time>2014-03-18T12:34:05.6942669+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:05.8818461+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black King.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black King_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7098678+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:05.9599009+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Knight.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black Knight_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7254941+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.0067769+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Pawn.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black Pawn_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7254941+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.0537252+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Queen.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black Queen_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7411745+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.0849396+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Rook.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black Rook_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7567762+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.1161163+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Square.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black Square_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7567762+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.1787245+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black_Bishop.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\Black_Bishop_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7724009+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.2259859+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Bishop.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\White Bishop_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7724009+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.2728935+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White King.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\White King_0.xml</Output>
+      <Time>2014-03-18T12:34:05.7879927+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.3666444+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Knight.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\White Knight_0.xml</Output>
+      <Time>2014-03-18T12:34:05.8036502+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.4135943+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Pawn.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\White Pawn_0.xml</Output>
+      <Time>2014-03-18T12:34:05.8036502+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.4916486+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Queen.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\White Queen_0.xml</Output>
+      <Time>2014-03-18T12:34:05.8192445+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.5541456+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Rook.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\White Rook_0.xml</Output>
+      <Time>2014-03-18T12:34:05.8192445+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.5855484+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Square.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\New Pieces\White Square_0.xml</Output>
+      <Time>2014-03-18T12:34:05.8349221+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse.tif</Source>
+      <Importer>TiffImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb</Output>
+      <Time>2014-03-18T12:34:06.6635929+00:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChessContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChessContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\jj\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>C:\Users\jj\Desktop\3DBraveChess\PipelineExtension\bin\x86\Debug\PipelineExtension.dll</Key>
+        <Value>2014-03-18T12:32:41.5145257+00:00</Value>
+      </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T13:41:18+01:00</Value>

@@ -39,6 +39,7 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml">
       <Private>False</Private>
     </Reference>
@@ -55,6 +56,7 @@
     <Compile Include="ModelProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SkinnedModelProcessor.cs" />
+    <Compile Include="TifProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

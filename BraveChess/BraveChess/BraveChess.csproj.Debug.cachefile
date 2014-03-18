@@ -18,6 +18,7 @@ Content\Models\Board Square White.xnb
 Content\Models\White Bishop.xnb
 Content\Models\Enviroment.xnb
 Content\Fonts\debug.xnb
+Content\Fonts\timer.xnb
 Content\Audio\Songs\BackgroundSong.xnb
 Content\Textures\Aaron'sTexture White.xnb
 Content\Textures\Aaron'sTexture.xnb
@@ -61,16 +62,60 @@ Content\Buttons\Background.xnb
 Content\Buttons\AnimatedPiecesButton.xnb
 Content\Buttons\StandardPiecesButton.xnb
 Content\Buttons\BackButton.xnb
+Content\Buttons\BlackWins.xnb
+Content\Buttons\Draw.xnb
+Content\Buttons\MainMenuButton.xnb
+Content\Buttons\WhiteWins.xnb
+Content\Buttons\TimedGameButton.xnb
 Content\Audio\Effects\MenuHover.xnb
 Content\Audio\Effects\CapturePiece.xnb
 Content\Audio\Effects\MovePiece.xnb
 Content\Textures\Aaron'sTexture_0.xnb
 Content\Textures\Aaron'sTexture White_0.xnb
 Content\Models\Enviroment_TX_0.xnb
-Content\Fonts\timer.xnb
-Content\Buttons\BlackWins.xnb
-Content\Buttons\Draw.xnb
-Content\Buttons\MainMenuButton.xnb
-Content\Buttons\WhiteWins.xnb
-Content\Buttons\TimedGameButton.xnb
+Content\Models\New Pieces\Black Bishop.xnb
+Content\Models\New Pieces\Black King.xnb
+Content\Models\New Pieces\Black Knight.xnb
+Content\Models\New Pieces\Black Pawn.xnb
+Content\Models\New Pieces\Black Queen.xnb
+Content\Models\New Pieces\Black Rook.xnb
+Content\Models\New Pieces\Black Square.xnb
+Content\Models\New Pieces\Black_Bishop.xnb
+Content\Models\New Pieces\White Bishop.xnb
+Content\Models\New Pieces\White King.xnb
+Content\Models\New Pieces\White Knight.xnb
+Content\Models\New Pieces\White Pawn.xnb
+Content\Models\New Pieces\White Queen.xnb
+Content\Models\New Pieces\White Rook.xnb
+Content\Models\New Pieces\White Square.xnb
+Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse.xnb
+Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb
+Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
+Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
 Content\Audio\Songs\BackgroundSong.wma

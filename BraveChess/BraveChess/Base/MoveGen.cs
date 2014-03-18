@@ -36,29 +36,95 @@ namespace BraveChess.Base
         public static List<Square> GenerateMoves(Piece pieceToMove, Square fromSq)
         {
             //Call method based on Type of Piece passed in
+            List<Square> list = new List<Square>();
+            List<Square> result;
+
+            
             switch (pieceToMove.Piece_Type)
             {
                 case Piece.PieceType.King:
-                    return (from toSq in _board.GetSquareListFromBB(GenerateKingMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
-
+                   result = new List<Square>();
+                   list = _board.GetSquareListFromBB(GenerateKingMoves(fromSq, pieceToMove.ColorType));
+                    if(list != null)
+                    {
+                        foreach (Square s in list)
+                        {
+                        var m = new Move(null, _board, fromSq, s, pieceToMove);
+                        if(m.IsValidMove)
+                            result.Add(m.ToSquare);
+                    }
+                    }
+                    return result;
                 case Piece.PieceType.Pawn:
-                    return (from toSq in _board.GetSquareListFromBB(GeneratePawnMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
-
+                    result = new List<Square>();
+                    list = _board.GetSquareListFromBB(GeneratePawnMoves(fromSq, pieceToMove.ColorType));
+                    if(list != null)
+                    {
+                        foreach (Square s in list)
+                        {
+                        var m = new Move(null, _board, fromSq, s, pieceToMove);
+                        if(m.IsValidMove)
+                            result.Add(m.ToSquare);
+                    }
+                    }
+                    return result;
                 case Piece.PieceType.Knight:
-                    return (from toSq in _board.GetSquareListFromBB(GenerateKnightMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
-
+                    result = new List<Square>();
+                    list = _board.GetSquareListFromBB(GenerateKnightMoves(fromSq, pieceToMove.ColorType));
+                    if(list != null)
+                    {
+                        foreach (Square s in list)
+                        {
+                        var m = new Move(null, _board, fromSq, s, pieceToMove);
+                        if(m.IsValidMove)
+                            result.Add(m.ToSquare);
+                    }
+                    }
+                    return result;
                 case Piece.PieceType.Bishop:
-                    return (from toSq in _board.GetSquareListFromBB(GenerateBishopMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
-
+                    result = new List<Square>();
+                    list = _board.GetSquareListFromBB(GenerateBishopMoves(fromSq, pieceToMove.ColorType));
+                    if(list != null)
+                    {
+                        foreach (Square s in list)
+                        {
+                        var m = new Move(null, _board, fromSq, s, pieceToMove);
+                        if(m.IsValidMove)
+                            result.Add(m.ToSquare);
+                    }
+                    }
+                    return result;
                 case Piece.PieceType.Rook:
-                    return (from toSq in _board.GetSquareListFromBB(GenerateRookMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
-
+                    result = new List<Square>();
+                    list = _board.GetSquareListFromBB(GenerateRookMoves(fromSq, pieceToMove.ColorType));
+                    if(list != null)
+                    {
+                        foreach (Square s in list)
+                        {
+                        var m = new Move(null, _board, fromSq, s, pieceToMove);
+                        if(m.IsValidMove)
+                            result.Add(m.ToSquare);
+                    }
+                    }
+                    return result;
                 case Piece.PieceType.Queen:
-                    return (from toSq in _board.GetSquareListFromBB(GenerateQueenMoves(fromSq, pieceToMove.ColorType)) let m = new Move(null, _board, fromSq, toSq, pieceToMove) where m.IsValidMove select toSq).ToList();
+                   result = new List<Square>();
+                   list = _board.GetSquareListFromBB(GenerateQueenMoves(fromSq, pieceToMove.ColorType));
+                    if(list != null)
+                    {
+                        foreach (Square s in list)
+                        {
+                        var m = new Move(null, _board, fromSq, s, pieceToMove);
+                        if(m.IsValidMove)
+                            result.Add(m.ToSquare);
+                    }
+                    }
+                    return result;
+                
                 default:
                     return null;
             }
-        }     
+        }
 
         static public UInt64 GenerateKingMoves(Square s, Piece.Colour c)
         {
