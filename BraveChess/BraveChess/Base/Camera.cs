@@ -49,6 +49,8 @@ namespace BraveChess.Base
         {
             WhiteCamControls();
 
+            CreateLookAt();
+
             base.Update(gametime);
         }
 
