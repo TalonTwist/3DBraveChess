@@ -115,9 +115,14 @@ namespace BraveChess.Scenes
                      ResetMovesAvailable();
 
                      //check for pawn promotion
-                     if (GameBoard.TestForPromotion(PieceToMove.ColorType, ToSquare.Rank) & PromoteTo != Piece.PieceType.None)
-                         SelectState = SelectionState.Promote;                    
-                     
+                     if (GameBoard.TestForPromotion(PieceToMove.ColorType, ToSquare.Rank) &
+                         PromoteTo == Piece.PieceType.None)
+                     {
+                         SelectState = SelectionState.Promote;
+                         break;
+                     }
+
+
                      Move m = new Move(Engine, GameBoard, FromSquare, ToSquare, PieceToMove, PieceToCapture, false, PromoteTo); //add new Move to list AllMoves
                      if (m.IsValidMove)
                      {
@@ -131,7 +136,8 @@ namespace BraveChess.Scenes
                          NotificationEngine.AddNotification(new Notification("Sorry that would leave you in check!!", 4000));
                          SelectState = SelectionState.SelectPiece;
                      }
-                         
+                         PromoteTo = Piece.PieceType.None;
+                     
                      break;
 
              } // end switch

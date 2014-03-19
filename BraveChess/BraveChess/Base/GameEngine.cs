@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using BraveChess.Helpers;
 using Microsoft.Xna.Framework;
 using BraveChess.Engines;
 using BraveChess.Scenes;
@@ -31,7 +33,10 @@ namespace BraveChess.Base
 
         Button _btnStandart, _btnNetwork, _btnExit,
             _btnNewGame,_btnUndoMove,_btnStandardPieces,
-            _btnAnimatedPieces,_btnBack,_btnMainMenu,_btnTimedGame;
+            _btnAnimatedPieces,_btnBack,_btnMainMenu,_btnTimedGame, 
+            _queenBtn, _bishopBtn, _knightBtn, _rookBtn;
+
+        private List<Button> promoteButtons;
         
         Texture2D _background,_draw,_whiteWins,_blackWins;
 
@@ -92,25 +97,42 @@ namespace BraveChess.Base
             _whiteWins = Game.Content.Load<Texture2D>("Buttons\\WhiteWins");
             _draw = Game.Content.Load<Texture2D>("Buttons\\Draw");
 
-            _btnStandart = new Button(Game.Content.Load<Texture2D>("Buttons\\StandardButton"),200);
+            _btnStandart = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\StandardButton"),200);
 
-            _btnNetwork = new Button(Game.Content.Load<Texture2D>("Buttons\\NetworkButton"),250);
+            _btnNetwork = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\NetworkButton"), 250);
 
-            _btnTimedGame = new Button(Game.Content.Load<Texture2D>("Buttons\\TimedGameButton"), 300);
+            _btnTimedGame = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\TimedGameButton"), 300);
 
-            _btnExit = new Button(Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"),350);
+            _btnExit = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\ExitGameButton"), 350);
 
-            _btnNewGame = new Button(Game.Content.Load<Texture2D>("Buttons\\NewGameButton"),
-                    new Vector2(20,400),false);
-            _btnUndoMove = new Button(Game.Content.Load<Texture2D>("Buttons\\UndoMoveButton"),
-                    new Vector2(20,450),false);
-            _btnStandardPieces = new Button(Game.Content.Load<Texture2D>("Buttons\\StandardPiecesButton"),200);
+            _btnNewGame = new Button(Buttontype.Ui, Game.Content.Load<Texture2D>("Buttons\\NewGameButton"),
+                    new Vector2(20,400));
+            _btnUndoMove = new Button(Buttontype.Ui, Game.Content.Load<Texture2D>("Buttons\\UndoMoveButton"),
+                    new Vector2(20,450));
+            _btnStandardPieces = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\StandardPiecesButton"), 200);
 
-            _btnAnimatedPieces = new Button(Game.Content.Load<Texture2D>("Buttons\\AnimatedPiecesButton"), 250);
+            _btnAnimatedPieces = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\AnimatedPiecesButton"), 250);
 
-            _btnBack = new Button(Game.Content.Load<Texture2D>("Buttons\\BackButton"), 300);
+            _btnBack = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\BackButton"), 300);
 
-            _btnMainMenu = new Button(Game.Content.Load<Texture2D>("Buttons\\MainMenuButton"), 450);
+            _btnMainMenu = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\MainMenuButton"), 450);
+
+            _knightBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\KnightButton"),
+                Helper.GraphicsDevice.Viewport.Width/2);
+            _bishopBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\BishopButton"),
+                Helper.GraphicsDevice.Viewport.Width/2 + 100);
+            _rookBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\RookButton"),
+                Helper.GraphicsDevice.Viewport.Width/2 + 200);
+            _queenBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\QueenButton"),
+                Helper.GraphicsDevice.Viewport.Width/2 + 300);
+
+            promoteButtons = new List<Button>
+            {
+                _queenBtn,
+                _knightBtn,
+                _bishopBtn,
+                _rookBtn
+            };
 
             #endregion
 
@@ -121,7 +143,29 @@ namespace BraveChess.Base
         public override void Update(GameTime gameTime)
         {
             if (ActiveScene != null)
+            {
                 ActiveScene.Update(gameTime);
+
+                if (ActiveScene.SelectState == Scene.SelectionState.Promote)
+                {
+                    if (_queenBtn.IsClicked)
+                        ActiveScene.SetPromotion(Piece.PieceType.Queen);
+                    if (_bishopBtn.IsClicked)
+                        ActiveScene.SetPromotion(Piece.PieceType.Bishop);
+                    if (_knightBtn.IsClicked)
+                        ActiveScene.SetPromotion(Piece.PieceType.Knight);
+                    if (_rookBtn.IsClicked)
+                        ActiveScene.SetPromotion(Piece.PieceType.Rook);
+
+                    foreach (var b in promoteButtons)
+                    {
+                        b.Update(this);
+                    }
+                }
+
+            }
+            
+              
             
             ScreenStates(gameTime);
 
@@ -140,8 +184,17 @@ namespace BraveChess.Base
 
             Draw3D();
 
-          if(ActiveScene !=null)
-                ActiveScene.DrawMoves(_batch,_font,GraphicsDevice);
+            if (ActiveScene != null)
+            {
+                ActiveScene.DrawMoves(_batch, _font, GraphicsDevice);
+
+                if (ActiveScene.SelectState == Scene.SelectionState.Promote)
+                {
+                    foreach (var b in promoteButtons)
+                        b.Draw(_batch);
+                }
+            }
+                
 
             if (GameState == State.PlayingNetworked || GameState == State.PlayingTimedNetworkGame)
                 Draw2D();

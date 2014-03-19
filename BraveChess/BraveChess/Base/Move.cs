@@ -87,6 +87,7 @@ namespace BraveChess.Base
             }
         }
         public bool IsCheck { get; set; }
+        private bool _isEnpassant = false;
 
         public bool IsCheckMate
         {
@@ -156,6 +157,7 @@ namespace BraveChess.Base
                             PieceCaptured = _board.GetPiece(_board.Squares[(int)ToSquare.File, (int)ToSquare.Rank + 1]);
                             break;
                     }
+                    _isEnpassant = true;
                 }
 
                 if (HasCaptured)
@@ -318,7 +320,7 @@ namespace BraveChess.Base
 
         private void CapturePiece() //Remove the Piece and update bitboards
         {
-            _board.UpdateRelevantbb(PieceCaptured.Piece_Type, PieceCaptured.ColorType, BitboardHelper.GetBitboardFromSquare(ToSquare), 0);
+            _board.UpdateRelevantbb(PieceCaptured.Piece_Type, PieceCaptured.ColorType, BitboardHelper.GetBitboardFromSquare(_board.GetSquare(PieceCaptured)), 0);
             _board.Pieces.Remove(PieceCaptured);
             PieceCaptured.Destroy();
         }
@@ -355,7 +357,7 @@ namespace BraveChess.Base
                 algebraic.Append(ToSquare.ToAlgebraic());
             }
 
-            if (IsEnpassant)
+            if (_isEnpassant)
                 algebraic.Append("e.p.");
 
             if (HasPromoted)

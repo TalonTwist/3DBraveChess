@@ -10,6 +10,7 @@ namespace BraveChess.Base
         protected Vector3 CameraUpDirection;
         protected Vector3 CameraDirection;
         protected Vector3 CameraPosition;
+        Vector3 _cameraReference = new Vector3(0, 0, 1);
 
         protected Matrix view;
         protected Matrix projection;
@@ -48,8 +49,6 @@ namespace BraveChess.Base
         {
             WhiteCamControls();
 
-            CreateLookAt();
-
             base.Update(gametime);
         }
 
@@ -67,20 +66,20 @@ namespace BraveChess.Base
 
         protected void WhiteCamControls()
         {
-            if (InputEngine.IsKeyHeld(Keys.NumPad6))
+            if (InputEngine.IsKeyHeld(Keys.D))
             {
                 World *= Matrix.CreateTranslation(new Vector3(Speed, 0, 0));
             }
-            else if (InputEngine.IsKeyHeld(Keys.NumPad4))
+            else if (InputEngine.IsKeyHeld(Keys.A))
             {
                 World *= Matrix.CreateTranslation(new Vector3(-Speed, 0, 0));
             }
 
-            if (InputEngine.IsKeyHeld(Keys.NumPad5))
+            if (InputEngine.IsKeyHeld(Keys.S))
             {
                 World *= Matrix.CreateTranslation(new Vector3(0, 0, Speed));
             }
-            else if (InputEngine.IsKeyHeld(Keys.NumPad8))
+            else if (InputEngine.IsKeyHeld(Keys.W))
             {
                 World *= Matrix.CreateTranslation(new Vector3(0, 0, -Speed));
             }
@@ -94,11 +93,10 @@ namespace BraveChess.Base
                 World *= Matrix.CreateTranslation(new Vector3(0, -Speed, 0));
             }
 
-            if (InputEngine.IsKeyHeld(Keys.NumPad9))
-                World *= Matrix.CreateRotationY(0.01f);
+            
         }
 
-        
+
 
         public Matrix View
         {

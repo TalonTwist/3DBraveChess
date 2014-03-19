@@ -6,38 +6,63 @@ using BraveChess.Helpers;
 
 namespace BraveChess.Objects
 {
+    public enum Buttontype
+    {
+        Menu,
+        Ui,
+        Promotion
+    }
+
     public class Button
     {
-        readonly Texture2D _texture;
-        Vector2 _position;
+        public Buttontype Type { get; set; }
+        public Texture2D Texture { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 Size{ get; set; }
+
         Rectangle _rectangle;
         Color _color = Color.Gray;
-        public Vector2 Size;
         public bool IsClicked;
         public bool IsHover = false;
         bool _soundPlayed;
 
 
-        public Button(Texture2D texture, float y)
+        public Button(Buttontype type, Texture2D texture, float f)
         {
-            _texture = texture;
-            _position = new Vector2(((Helper.GraphicsDevice.Viewport.Width / 2)-(texture.Width/2)), y);
-            Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 6, Helper.GraphicsDevice.Viewport.Height / 15);
-           
+            Type = type;
+            Texture = texture;
+            SetSize();
+            Position = Type == Buttontype.Promotion ? new Vector2(f, (Helper.GraphicsDevice.Viewport.Height / 2) - (Texture.Height/2)) : new Vector2(((Helper.GraphicsDevice.Viewport.Width / 2) - (Texture.Width / 2)), f);
         }
 
-        public Button(Texture2D texture, Vector2 pos, bool isButtonPiece)
+        public Button(Buttontype type, Texture2D texture, Vector2 pos)
         {
-            _texture = texture;
-            _position = pos;
-            Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 8, Helper.GraphicsDevice.Viewport.Height / 18);
-            if (isButtonPiece)
-                Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 14, Helper.GraphicsDevice.Viewport.Height / 10);
+            Type = Type;
+            Texture = texture;
+            Position = pos;
+            
+            SetSize();
+        }
+
+        public void SetSize()
+        {
+            switch (Type)
+            {
+                    case Buttontype.Menu:
+                    Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 6, Helper.GraphicsDevice.Viewport.Height / 15);
+                    break;
+                    case Buttontype.Promotion:
+                    Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 14, Helper.GraphicsDevice.Viewport.Height / 10);
+                    break;
+                    case Buttontype.Ui:
+                    Size = new Vector2(Helper.GraphicsDevice.Viewport.Width / 8, Helper.GraphicsDevice.Viewport.Height / 18);
+                    break;
+            }
         }
 
         public void Update(GameEngine e)
         {
-            _rectangle = new Rectangle((int)_position.X,(int) _position.Y,(int) Size.X,(int) Size.Y);
+            _rectangle = new Rectangle((int)Position.X,(int) Position.Y,(int) Size.X,(int) Size.Y);
             Rectangle mouseRec = new Rectangle(InputEngine.CurrentMouseState.X, InputEngine.CurrentMouseState.Y, 1, 1);
 
             if(mouseRec.Intersects(_rectangle))
@@ -66,7 +91,7 @@ namespace BraveChess.Objects
         public void Draw(SpriteBatch batch)
         {
             batch.Begin();
-            batch.Draw(_texture, _rectangle, _color);
+            batch.Draw(Texture, _rectangle, _color);
             batch.End();
         }
 

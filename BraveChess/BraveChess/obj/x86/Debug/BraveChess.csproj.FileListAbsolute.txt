@@ -147,6 +147,94 @@
 \BraveChess\bin\x86\Debug\Content\Buttons\BishopButton.xnb
 \BraveChess\bin\x86\Debug\Content\Buttons\KnightButton.xnb
 \BraveChess\bin\x86\Debug\Content\Buttons\QueenButton.xnb
+\BraveChess\bin\x86\Debug\Black King.xnb
+\BraveChess\bin\x86\Debug\Black Knight.xnb
+\BraveChess\bin\x86\Debug\Black Pawn.xnb
+\BraveChess\bin\x86\Debug\Black Queen.xnb
+\BraveChess\bin\x86\Debug\Black Rook.xnb
+\BraveChess\bin\x86\Debug\BlackSquare.xnb
+\BraveChess\bin\x86\Debug\White King.xnb
+\BraveChess\bin\x86\Debug\White Knight.xnb
+\BraveChess\bin\x86\Debug\White Pawn.xnb
+\BraveChess\bin\x86\Debug\White Queen.xnb
+\BraveChess\bin\x86\Debug\White Rook.xnb
+\BraveChess\bin\x86\Debug\WhiteSquare.xnb
+\BraveChess\bin\x86\Debug\Bishop Piece.xnb
+\BraveChess\bin\x86\Debug\Black Bishop.xnb
+\BraveChess\bin\x86\Debug\Board Square Black.xnb
+\BraveChess\bin\x86\Debug\Board Square Untextured.xnb
+\BraveChess\bin\x86\Debug\Board Square White.xnb
+\BraveChess\bin\x86\Debug\White Bishop.xnb
+\BraveChess\bin\x86\Debug\Enviroment.xnb
+\BraveChess\bin\x86\Debug\Black Square.xnb
+\BraveChess\bin\x86\Debug\Black_Bishop.xnb
+\BraveChess\bin\x86\Debug\White Square.xnb
+\BraveChess\bin\x86\Debug\debug.xnb
+\BraveChess\bin\x86\Debug\timer.xnb
+\BraveChess\bin\x86\Debug\BackgroundSong.xnb
+\BraveChess\bin\x86\Debug\Aaron'sTexture White.xnb
+\BraveChess\bin\x86\Debug\Aaron'sTexture.xnb
+\BraveChess\bin\x86\Debug\BlackBishop.xnb
+\BraveChess\bin\x86\Debug\BlackKing.xnb
+\BraveChess\bin\x86\Debug\BlackKnight.xnb
+\BraveChess\bin\x86\Debug\BlackPawn.xnb
+\BraveChess\bin\x86\Debug\BlackQueen.xnb
+\BraveChess\bin\x86\Debug\BlackRook.xnb
+\BraveChess\bin\x86\Debug\WhiteBishop.xnb
+\BraveChess\bin\x86\Debug\WhiteKing.xnb
+\BraveChess\bin\x86\Debug\WhiteKnight.xnb
+\BraveChess\bin\x86\Debug\WhitePawn.xnb
+\BraveChess\bin\x86\Debug\WhiteQueen.xnb
+\BraveChess\bin\x86\Debug\WhiteRook.xnb
+\BraveChess\bin\x86\Debug\ExitGameButton.xnb
+\BraveChess\bin\x86\Debug\NetworkButton.xnb
+\BraveChess\bin\x86\Debug\Black_Board.xnb
+\BraveChess\bin\x86\Debug\Black_King.xnb
+\BraveChess\bin\x86\Debug\Black_Knight.xnb
+\BraveChess\bin\x86\Debug\Black_Pawn.xnb
+\BraveChess\bin\x86\Debug\Black_Queen.xnb
+\BraveChess\bin\x86\Debug\Black_Rook.xnb
+\BraveChess\bin\x86\Debug\White_Bishop.xnb
+\BraveChess\bin\x86\Debug\White_Board.xnb
+\BraveChess\bin\x86\Debug\White_King.xnb
+\BraveChess\bin\x86\Debug\White_Knight.xnb
+\BraveChess\bin\x86\Debug\White_Pawn.xnb
+\BraveChess\bin\x86\Debug\White_Queen.xnb
+\BraveChess\bin\x86\Debug\White_Rook.xnb
+\BraveChess\bin\x86\Debug\Enviroment_TX.xnb
+\BraveChess\bin\x86\Debug\NewGameButton.xnb
+\BraveChess\bin\x86\Debug\StandardButton.xnb
+\BraveChess\bin\x86\Debug\UndoMoveButton.xnb
+\BraveChess\bin\x86\Debug\Background.xnb
+\BraveChess\bin\x86\Debug\AnimatedPiecesButton.xnb
+\BraveChess\bin\x86\Debug\StandardPiecesButton.xnb
+\BraveChess\bin\x86\Debug\BackButton.xnb
+\BraveChess\bin\x86\Debug\BlackWins.xnb
+\BraveChess\bin\x86\Debug\Draw.xnb
+\BraveChess\bin\x86\Debug\MainMenuButton.xnb
+\BraveChess\bin\x86\Debug\WhiteWins.xnb
+\BraveChess\bin\x86\Debug\TimedGameButton.xnb
+\BraveChess\bin\x86\Debug\BishopButton.xnb
+\BraveChess\bin\x86\Debug\KnightButton.xnb
+\BraveChess\bin\x86\Debug\QueenButton.xnb
+\BraveChess\bin\x86\Debug\RookButton.xnb
+\BraveChess\bin\x86\Debug\MenuHover.xnb
+\BraveChess\bin\x86\Debug\CapturePiece.xnb
+\BraveChess\bin\x86\Debug\MovePiece.xnb
+\BraveChess\bin\x86\Debug\Lambert_Flattened_Diffuse.xnb
+\BraveChess\bin\x86\Debug\Lambert1_Flattened_Diffuse.xnb
+\BraveChess\bin\x86\Debug\Scene_Material_Flattened_Diffuse.xnb
+\BraveChess\bin\x86\Debug\Aaron'sTexture_0.xnb
+\BraveChess\bin\x86\Debug\Aaron'sTexture White_0.xnb
+\BraveChess\bin\x86\Debug\Enviroment_TX_0.xnb
+\BraveChess\bin\x86\Debug\Lambert_Flattened_Diffuse_0.xnb
+\BraveChess\bin\x86\Debug\Lambert1_Flattened_Diffuse_0.xnb
+\BraveChess\bin\x86\Debug\Scene_Material_Flattened_Diffuse_0.xnb
+\BraveChess\bin\x86\Debug\BackgroundSong.wma
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.csprojResolveAssemblyReference.cache
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.exe
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.pdb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black King.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Knight.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Pawn.xnb
@@ -231,6 +319,10 @@ C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Butto
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\MainMenuButton.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\WhiteWins.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\TimedGameButton.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BishopButton.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\KnightButton.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\QueenButton.xnb
+C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\RookButton.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MenuHover.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\CapturePiece.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MovePiece.xnb
@@ -267,145 +359,6 @@ C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Model
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BishopButton.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\KnightButton.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\QueenButton.xnb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\RookButton.xnb
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.exe
 C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.pdb
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.csprojResolveAssemblyReference.cache
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.exe
-C:\Users\jj\Desktop\BraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.pdb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black King.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Knight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Pawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Queen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Rook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\BlackSquare.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White King.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Knight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Pawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Queen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Rook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\WhiteSquare.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Untextured\Bishop Piece.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Black Bishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Black.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square Untextured.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Board Square White.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\White Bishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\debug.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Fonts\timer.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackBishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKing.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackKnight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackPawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackQueen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\BlackRook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteBishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKing.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteKnight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhitePawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteQueen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\WhiteRook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackBishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\BlackKing.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Pieces\thumbnail\WhiteKnight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\ExitGameButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NetworkButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Bishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Board.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_King.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Knight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Pawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Queen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Black_Rook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Bishop.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Board.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_King.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Knight.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Pawn.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Queen.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\White_Rook.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Heightmap\thumbnail\Enviroment_TX.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\NewGameButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\UndoMoveButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Background.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\AnimatedPiecesButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\StandardPiecesButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BackButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BlackWins.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\Draw.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\MainMenuButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\WhiteWins.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\TimedGameButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\BishopButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\KnightButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\QueenButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Buttons\RookButton.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MenuHover.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\CapturePiece.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Effects\MovePiece.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Textures\Aaron'sTexture White_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\Enviroment_TX_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black King.fbx-files\Lambert1_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\Black_Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Bishop.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White King.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Knight.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Pawn.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Queen.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Rook.fbx-files\Lambert_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Models\New Pieces\White Square.fbx-files\Scene_Material_Flattened_Diffuse_0.xnb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\Content\Audio\Songs\BackgroundSong.wma
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.exe
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\bin\x86\Debug\BraveChess.pdb
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.csprojResolveAssemblyReference.cache
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.exe
-C:\Users\Grysa123\Desktop\3DBraveChess\BraveChess\BraveChess\obj\x86\Debug\BraveChess.pdb

@@ -385,8 +385,12 @@ namespace BraveChess.Base
             MovesAvailable = null;
         }
 
-        
-        
+
+        public void SetPromotion(Piece.PieceType promoteType)
+        {
+            PromoteTo = promoteType;
+            SelectState = SelectionState.MoveSelected;
+        }
 
         
     }
