@@ -118,13 +118,13 @@ namespace BraveChess.Base
             _btnMainMenu = new Button(Buttontype.Menu, Game.Content.Load<Texture2D>("Buttons\\MainMenuButton"), 450);
 
             _knightBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\KnightButton"),
-                Helper.GraphicsDevice.Viewport.Width/2);
+                Helper.GraphicsDevice.Viewport.Width/2 - 100);
             _bishopBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\BishopButton"),
-                Helper.GraphicsDevice.Viewport.Width/2 + 100);
+                Helper.GraphicsDevice.Viewport.Width/2);
             _rookBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\RookButton"),
-                Helper.GraphicsDevice.Viewport.Width/2 + 200);
+                Helper.GraphicsDevice.Viewport.Width/2 + 100);
             _queenBtn = new Button(Buttontype.Promotion, Game.Content.Load<Texture2D>("Buttons\\QueenButton"),
-                Helper.GraphicsDevice.Viewport.Width/2 + 300);
+                Helper.GraphicsDevice.Viewport.Width/2 + 200);
 
             promoteButtons = new List<Button>
             {
@@ -457,8 +457,7 @@ namespace BraveChess.Base
             {
                 gameObject.LoadContent(Game.Content);
 
-                ActiveScene.Objects.Add(gameObject);
-
+                ActiveScene.AddObject(gameObject);
             }
         }
     }//End of Class

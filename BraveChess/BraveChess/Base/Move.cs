@@ -26,8 +26,8 @@ namespace BraveChess.Base
             {
                 if (PieceMoved.Piece_Type == Piece.PieceType.Pawn)
                 {
-                    if (FromSquare.File - ToSquare.File == 1 |
-                        FromSquare.File - ToSquare.File == -1 & PieceCaptured == null)
+                    if ((FromSquare.File - ToSquare.File == 1 |FromSquare.File
+                         - ToSquare.File == -1)& PieceCaptured == null)
                         return true;
                 }
                 return false;
@@ -87,7 +87,7 @@ namespace BraveChess.Base
             }
         }
         public bool IsCheck { get; set; }
-        private bool _isEnpassant = false;
+        private bool _isEnpassant;
 
         public bool IsCheckMate
         {
@@ -433,9 +433,12 @@ namespace BraveChess.Base
              _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, BitboardHelper.GetBitboardFromSquare(FromSquare), 0);
              _board.UpdateRelevantbb(PiecePromoted, newPiece.ColorType, 0, BitboardHelper.GetBitboardFromSquare(ToSquare));
 
+            _board.Pieces.Remove(PieceMoved);
             PieceMoved.Destroy();
+
             _engine.LoadRuntimeObject(newPiece);
             _board.Pieces.Add(newPiece);
+            _engine.ActiveScene.AddObject(newPiece);
         }
     }
 }
