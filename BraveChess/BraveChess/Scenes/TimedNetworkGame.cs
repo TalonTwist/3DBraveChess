@@ -177,12 +177,12 @@ namespace BraveChess.Scenes
             if (Turn == TurnState.White)
             {
                 TimeWhite -= new TimeSpan(0, 0, 1);
-                TimeWhite2 -= new TimeSpan(0, 0, 1);
+                //TimeWhite2 -= new TimeSpan(0, 0, 1);
             }
             if (Turn == TurnState.Black)
             {
                 TimeBlack -= new TimeSpan(0, 0, 1);
-                TimeBlack2 -= new TimeSpan(0, 0, 1);
+                //TimeBlack2 -= new TimeSpan(0, 0, 1);
             }
         }
 
