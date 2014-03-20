@@ -47,6 +47,12 @@ namespace BraveChess.Base
         {
             get
             {
+                int i = GameBoard.AllMoves.Count - 30;
+                if (i > 0)
+                {
+                    var list = GameBoard.AllMoves.Skip(i);
+                    return (from m in list where m.SideMove == Piece.Colour.Black select m.ToAlgebraic()).ToList();
+                }
                 return (from m in GameBoard.AllMoves where m.SideMove == Piece.Colour.Black select m.ToAlgebraic()).ToList();
             }
         }
@@ -54,6 +60,12 @@ namespace BraveChess.Base
         {
             get
             {
+                int i = GameBoard.AllMoves.Count - 30;
+                if (i > 0)
+                {
+                    var list = GameBoard.AllMoves.Skip(i);
+                    return (from m in list where m.SideMove == Piece.Colour.White select m.ToAlgebraic()).ToList();
+                }
                 return (from m in GameBoard.AllMoves where m.SideMove == Piece.Colour.White select m.ToAlgebraic()).ToList();
             }
         }
@@ -318,10 +330,14 @@ namespace BraveChess.Base
 
         public void DrawMoves(SpriteBatch batch, SpriteFont font,GraphicsDevice graphics)
         {
+            int j = WhiteMovesList.Count - 15;
+            if (!(j > 0))
+                j = 0;
+
             batch.Begin();
             for (int i = 0; i < WhiteMovesList.Count; i++)
             {
-                batch.DrawString(font, String.Format("{0}.", i + 1), new Vector2(10, 20 * i), Color.Black);
+                batch.DrawString(font, String.Format("{0}.", i + 1 + j), new Vector2(10, 20 * i), Color.Black);
                 batch.DrawString(font, WhiteMovesList[i],
                     new Vector2(graphics.Viewport.Width / 30, 20 * i), Color.Black);
             }
