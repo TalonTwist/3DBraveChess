@@ -186,7 +186,7 @@ namespace BraveChess.Scenes
             }
         }
 
-        private void SwitchTurn(bool recieved)
+        public void SwitchTurn(bool recieved)
         {
             Turn = Turn == TurnState.White ? TurnState.Black : TurnState.White;
 

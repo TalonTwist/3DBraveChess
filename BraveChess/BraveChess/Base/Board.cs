@@ -364,5 +364,21 @@ namespace BraveChess.Base
 
             return s;
         }
+
+        public bool UndoMove()
+        {
+            if (AllMoves.Count > 0)
+            {
+                Move lastMove = AllMoves.Last();
+                lastMove.UndoMove();
+
+                UpdateRelevantbb(lastMove.PieceMoved.Piece_Type, lastMove.PieceMoved.ColorType, 
+                    BitboardHelper.GetBitboardFromSquare(lastMove.ToSquare), BitboardHelper.GetBitboardFromSquare(lastMove.FromSquare));
+
+                AllMoves.Remove(lastMove);
+                return true;
+            }
+            return false;
+        }
     }//end class
 }

@@ -89,8 +89,6 @@ namespace BraveChess.Base
 
             TimeWhite = TimeSpan.FromHours(1);
             TimeBlack = TimeSpan.FromHours(1);
-            TimeWhite2 = TimeSpan.FromHours(1);
-            TimeBlack2 = TimeSpan.FromHours(1);
 
             #region Cameras
             CamWhite = new Camera("camWhite",
