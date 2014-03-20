@@ -18,7 +18,18 @@ namespace BraveChess.Base
         public Piece PieceMoved { get; set; }
         public Piece PieceCaptured { get; set; }
         public Piece.PieceType PiecePromoted { get; set; }
-        public bool HasPromoted{get{return PiecePromoted != Piece.PieceType.None;}}
+        public bool HasPromoted
+        {
+            get
+            {
+                if(PieceMoved.Piece_Type == Piece.PieceType.Pawn)
+                {
+                    if(ToSquare.Rank == Ranks.Eight || ToSquare.Rank == Ranks.One)
+                        return true;
+                }
+                return false;
+            }
+        }
 
         public bool IsEnpassant
         {
@@ -118,16 +129,7 @@ namespace BraveChess.Base
             }
         }
 
-        private Move _lastMove;
-
-        public Move(Board board, Square fromSquare, Square toSquare, Move m)
-        {
-            _board = board;
-            FromSquare = fromSquare;
-            ToSquare = toSquare;
-            _lastMove = m;
-        }
-
+        
         public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceToTest)
         {
             _engine = engine;
@@ -440,7 +442,6 @@ namespace BraveChess.Base
              }
 
             //Update Promotion in bitboards
-             _board.UpdateRelevantbb(PieceMoved.Piece_Type, PieceMoved.ColorType, BitboardHelper.GetBitboardFromSquare(FromSquare), 0);
              _board.UpdateRelevantbb(PiecePromoted, newPiece.ColorType, 0, BitboardHelper.GetBitboardFromSquare(ToSquare));
 
             _board.Pieces.Remove(PieceMoved);
