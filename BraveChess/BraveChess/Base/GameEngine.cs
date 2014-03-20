@@ -388,7 +388,8 @@ namespace BraveChess.Base
                     _btnMainMenu.Update(this);
                     if (_btnMainMenu.IsClicked)
                     {
-                        Network.NetworkSession.Dispose();
+                        if(Network != null)
+                            Network.NetworkSession.Dispose();
                         GameState = State.MainMenu;
                     }
                     break;
@@ -397,7 +398,8 @@ namespace BraveChess.Base
                     _btnMainMenu.Update(this);
                     if (_btnMainMenu.IsClicked)
                     {
-                        Network.NetworkSession.Dispose();
+                        if (Network != null)
+                            Network.NetworkSession.Dispose();
                         GameState = State.MainMenu;
                     }
                     break;
