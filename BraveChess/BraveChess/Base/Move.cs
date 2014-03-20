@@ -118,6 +118,16 @@ namespace BraveChess.Base
             }
         }
 
+        private Move _lastMove;
+
+        public Move(Board board, Square fromSquare, Square toSquare, Move m)
+        {
+            _board = board;
+            FromSquare = fromSquare;
+            ToSquare = toSquare;
+            _lastMove = m;
+        }
+
         public Move(GameEngine engine, Board board, Square fromSquare, Square toSquare, Piece pieceToTest)
         {
             _engine = engine;
@@ -439,6 +449,16 @@ namespace BraveChess.Base
             _engine.LoadRuntimeObject(newPiece);
             _board.Pieces.Add(newPiece);
             _engine.ActiveScene.AddObject(newPiece);
+        }
+
+        public void UndoMove()
+        {
+            PieceMoved.UpdateWorld(GetNewPos(FromSquare));
+
+            if (PieceCaptured != null)
+            {
+                _engine.LoadRuntimeObject(PieceCaptured);
+            }
         }
     }
 }

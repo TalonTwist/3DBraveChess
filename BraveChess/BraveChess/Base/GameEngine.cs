@@ -148,6 +148,11 @@ namespace BraveChess.Base
 
                 if (ActiveScene.SelectState == Scene.SelectionState.Promote)
                 {
+                    foreach (var b in promoteButtons)
+                    {
+                        b.Update(this);
+                    }
+
                     if (_queenBtn.IsClicked)
                         ActiveScene.SetPromotion(Piece.PieceType.Queen);
                     if (_bishopBtn.IsClicked)
@@ -156,16 +161,9 @@ namespace BraveChess.Base
                         ActiveScene.SetPromotion(Piece.PieceType.Knight);
                     if (_rookBtn.IsClicked)
                         ActiveScene.SetPromotion(Piece.PieceType.Rook);
-
-                    foreach (var b in promoteButtons)
-                    {
-                        b.Update(this);
-                    }
                 }
 
             }
-            
-              
             
             ScreenStates(gameTime);
 
@@ -325,6 +323,10 @@ namespace BraveChess.Base
             switch (GameState)
             {
                 case State.MainMenu:
+                     _btnStandart.Update(this);
+                    _btnNetwork.Update(this);
+                    _btnTimedGame.Update(this);
+                    _btnExit.Update(this);
                     if (_btnStandart.IsClicked)
                        GameState = State.NonNetworkGame;
                     else if (_btnNetwork.IsClicked)
@@ -333,10 +335,6 @@ namespace BraveChess.Base
                         GameState = State.ExitGame;
                     else if(_btnTimedGame.IsClicked)
                         GameState = State.TimedNetworkGame;
-                    _btnStandart.Update(this);
-                    _btnNetwork.Update(this);
-                    _btnTimedGame.Update(this);
-                    _btnExit.Update(this);
                     break;
                 case State.NetworkGame:
                     _btnStandardPieces.Update(this);
@@ -393,23 +391,33 @@ namespace BraveChess.Base
                     Network.Update(gameTime);
                     break;
                 case State.PlayingNormal:
-                    if(_btnNewGame.IsClicked)
-                        LoadScene(new StandardLevel(this, false));
                     _btnNewGame.Update(this);
                     _btnUndoMove.Update(this);
+                    if(_btnNewGame.IsClicked)
+                        LoadScene(new StandardLevel(this, false));
+                    
+                    if (_btnUndoMove.IsClicked)
+                    {
+                        if (ActiveScene.GameBoard.UndoMove())
+                        {
+                            (ActiveScene as StandardLevel).SwitchTurn();
+                            _btnUndoMove.IsClicked = false;
+                        }
+                    }
                     break;
                 case State.PlayingNetworked:
                     Network.Update(gameTime);
                     break;
-                    case State.GameOverWhiteWins:
+
+                case State.GameOverWhiteWins:
                     ActiveScene = null;
                     //draw
                     break;
-                    case State.GameOverBlackWins:
+                case State.GameOverBlackWins:
                     ActiveScene = null;
                     //draw
                     break;
-                    case State.GameOverDraw:
+                case State.GameOverDraw:
                     ActiveScene = null;
                     //draw
                     break;

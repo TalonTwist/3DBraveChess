@@ -205,7 +205,7 @@ namespace BraveChess.Base
                 }
 
                 #region EnPassant?
-                if (_board.AllMoves.Last().IsDoublePawnPush) //is lastmove was a double pawn push, need to check is en passant is possible
+                if (_board.AllMoves.Count > 0 & _board.AllMoves.Last().IsDoublePawnPush) //is lastmove was a double pawn push, need to check is en passant is possible
                 {
                     var lastPieceMovedBB = BitboardHelper.GetBitboardFromSquare(_board.AllMoves.Last().ToSquare);
 
