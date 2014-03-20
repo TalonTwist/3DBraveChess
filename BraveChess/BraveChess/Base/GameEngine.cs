@@ -215,39 +215,13 @@ namespace BraveChess.Base
                     DrawReadyToStartScreen();
                     break;
                 case NetworkState.InGame:
-                    ActiveScene.DrawTime(_batch,_fontTimer);
-                    if(ActiveScene.TimeWhite <= TimeSpan.Zero && ActiveScene.TimeWhite2 <= TimeSpan.Zero)
-                        Network.CurrentNetworkState = NetworkState.GameOverBlackWins;
-                    if (ActiveScene.TimeBlack <= TimeSpan.Zero && ActiveScene.TimeBlack2 <= TimeSpan.Zero)
-                        Network.CurrentNetworkState = NetworkState.GameOverWhiteWins;
-                    break;
-                case NetworkState.GameOverWhiteWins:
-                    _batch.Begin();
-                    _batch.Draw(_whiteWins,GraphicsDevice.Viewport.Bounds,Color.White);
-                    _batch.End();
-                    _btnMainMenu.Update(this);
-                    if (_btnMainMenu.IsClicked)
-                    {
-                        ActiveScene = null;
-                        Network.NetworkSession = null;
-                        GameState = State.MainMenu;
-                    }
-                    _btnMainMenu.Draw(_batch);
-                    break;
-                case NetworkState.GameOverBlackWins:
-                    _batch.Begin();
-                    _batch.Draw(_blackWins,GraphicsDevice.Viewport.Bounds,Color.White);
-                    _batch.End();
-                    _btnMainMenu.Update(this);
-                    if (_btnMainMenu.IsClicked)
-                    {
-                        ActiveScene = null;
-                        Network.NetworkSession = null;
-                        GameState = State.MainMenu;
-                    }
-                    _btnMainMenu.Draw(_batch);
-                    break;
-                case NetworkState.GameOverDraw:
+                    ActiveScene.DrawTime(_batch, _fontTimer);
+                        if (ActiveScene.TimeWhite <= TimeSpan.Zero)
+                            GameState = State.GameOverBlackWins;
+                        if (ActiveScene.TimeBlack <= TimeSpan.Zero)
+                            GameState = State.GameOverWhiteWins;
+                        
+                    
                     break;
             }
         }
@@ -403,11 +377,21 @@ namespace BraveChess.Base
                     break;
                     case State.GameOverWhiteWins:
                     ActiveScene = null;
-                    //draw
+                    _btnMainMenu.Update(this);
+                    if (_btnMainMenu.IsClicked)
+                    {
+                        Network.NetworkSession.Dispose();
+                        GameState = State.MainMenu;
+                    }
                     break;
                     case State.GameOverBlackWins:
                     ActiveScene = null;
-                    //draw
+                    _btnMainMenu.Update(this);
+                    if (_btnMainMenu.IsClicked)
+                    {
+                        Network.NetworkSession.Dispose();
+                        GameState = State.MainMenu;
+                    }
                     break;
                     case State.GameOverDraw:
                     ActiveScene = null;
@@ -446,6 +430,18 @@ namespace BraveChess.Base
                     _btnAnimatedPieces.Draw(_batch);
                     _btnStandardPieces.Draw(_batch);
                     _btnBack.Draw(_batch);
+                    break;
+                case State.GameOverWhiteWins:
+                    _batch.Begin();
+                    _batch.Draw(_whiteWins,GraphicsDevice.Viewport.Bounds,Color.White);
+                    _batch.End();
+                    _btnMainMenu.Draw(_batch);
+                    break;
+                case State.GameOverBlackWins:
+                    _batch.Begin();
+                    _batch.Draw(_blackWins,GraphicsDevice.Viewport.Bounds,Color.White);
+                    _batch.End();
+                    _btnMainMenu.Draw(_batch);
                     break;
 
             }

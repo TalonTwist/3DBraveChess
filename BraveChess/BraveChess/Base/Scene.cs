@@ -274,24 +274,30 @@ namespace BraveChess.Base
         public void DrawTime(SpriteBatch batch, SpriteFont font)
         {
             batch.Begin();
-            if (Engine.Cameras.ActiveCamera.Id == "camWhite")
-            {
+            //if (Engine.Cameras.ActiveCamera.Id == "camWhite")
+            //{
                 batch.DrawString(font, String.Format("White Timer {0}:{1}", TimeWhite.Hours, TimeWhite.Minutes),
                     new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("White Timer {0}:{1}", TimeWhite.Hours, TimeWhite.Minutes)).X/2), 5),
                     Color.Black);
                 batch.DrawString(font, String.Format("Black Timer {0}:{1}", TimeBlack.Hours,TimeBlack.Minutes),
                     new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("Black Timer {0}:{1}", TimeBlack.Hours, TimeBlack.Minutes)).X / 2), 25), 
                     Color.Black);
-           }
-           if (Engine.Cameras.ActiveCamera.Id == "camBlack")
-           {
-               batch.DrawString(font, String.Format("White Timer {0}:{1}", TimeWhite2.Hours, TimeWhite2.Minutes),
-                   new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("White Timer {0}:{1}", TimeWhite2.Hours, TimeWhite2.Minutes)).X / 2), 5),
-                   Color.Black);
-               batch.DrawString(font, String.Format("Black Timer {0}:{1}", TimeBlack2.Hours, TimeBlack2.Minutes),
-                   new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("Black Timer {0}:{1}", TimeBlack2.Hours, TimeBlack2.Minutes)).X / 2), 25), 
-                   Color.Black);
-            }
+           //}
+           //if (Engine.Cameras.ActiveCamera.Id == "camBlack")
+           //{
+               
+              
+           //        batch.DrawString(font, String.Format("White Timer {0}:{1}", TimeWhite2.Hours, TimeWhite2.Minutes),
+           //        new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("White Timer {0}:{1}", TimeWhite2.Hours, TimeWhite2.Minutes)).X / 2), 5),
+           //        Color.Black);
+               
+           //        batch.DrawString(font, String.Format("Black Timer {0}:{1}", TimeBlack2.Hours, TimeBlack2.Minutes),
+           //            new Vector2((Engine.GraphicsDevice.Viewport.Width / 2) - (font.MeasureString(String.Format("Black Timer {0}:{1}", TimeBlack2.Hours, TimeBlack2.Minutes)).X / 2), 25),
+           //            Color.Black);
+               
+                  
+               
+           //}
             batch.End();
         }
 
